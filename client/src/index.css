@@ -33,6 +33,22 @@
   --premium-accent: 39 53% 23%; /* #563a17 - accent */
   --premium-amber: 33 58% 22%; /* #563a17 - amber */
   --premium-cream: 20 10% 8%; /* #1a1612 - dark text */
+  --luxury-dark: 20 10% 8%;
+  --luxury-gold: 44 66% 38%;
+  --luxury-brown: 30 12% 90%;
+  --chart-1: 44 66% 38%;
+  --chart-2: 20 10% 8%;
+  --chart-3: 30 12% 90%;
+  --chart-4: 39 53% 23%;
+  --chart-5: 33 58% 22%;
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 20 14.3% 4.1%;
+  --sidebar-primary: 44 66% 38%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 60 4.8% 95.9%;
+  --sidebar-accent-foreground: 24 9.8% 10%;
+  --sidebar-border: 20 5.9% 90%;
+  --sidebar-ring: 44 66% 38%;
 }
 
 /* Custom Camera Cursor */
@@ -258,6 +274,10 @@ a, button, .cursor-pointer {
   .gold-gradient {
     background: linear-gradient(135deg, hsl(var(--premium-gold)) 0%, hsl(var(--premium-amber)) 100%);
   }
+
+  .luxury-gradient {
+    background: linear-gradient(135deg, hsl(var(--luxury-dark)) 0%, hsl(var(--premium-accent)) 100%);
+  }
   
   .text-shadow-premium {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
@@ -279,7 +299,7 @@ a, button, .cursor-pointer {
     padding: 6rem 0;
   }
   
-  /* Page content padding to account for fixed navigation */
+  /* Navigation is sticky, so page content can stay in normal document flow. */
   .page-content {
     padding-top: 0;
   }
@@ -290,7 +310,7 @@ a, button, .cursor-pointer {
     }
     
     .page-content {
-      padding-top: 80px; /* Account for mobile navigation height */
+      padding-top: 0;
     }
     
     .parallax {

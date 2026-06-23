@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Calculator, Loader2 } from "lucide-react";
+import { MapPin, Calculator } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,11 +7,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TravelCalculator = () => {
   const [miles, setMiles] = useState("");
+  const [activeTab, setActiveTab] = useState("miles");
   const [address, setAddress] = useState("");
   const [travelCost, setTravelCost] = useState(0);
   const [calculatedDistance, setCalculatedDistance] = useState(0);
-  const [isCalculating, setIsCalculating] = useState(false);
-  const [error, setError] = useState("");
 
   const calculateTravelFromMiles = () => {
     const milesNum = parseFloat(miles);
@@ -27,7 +26,8 @@ const TravelCalculator = () => {
   };
 
   const calculateTravelFromAddress = () => {
-    setError("Automatic address lookup requires a server API, which GitHub Pages does not support. Use the miles tab after checking the distance in Google Maps.");
+    // Static hosting does not support address lookup, so the UI falls back to manual mileage.
+    setActiveTab("miles");
     setTravelCost(0);
     setCalculatedDistance(0);
   };
@@ -44,7 +44,7 @@ const TravelCalculator = () => {
           Calculate travel costs outside the Orlando area at $1 per mile both ways
         </p>
         
-        <Tabs defaultValue="address" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="address">By Address</TabsTrigger>
             <TabsTrigger value="miles">By Miles</TabsTrigger>
@@ -53,7 +53,7 @@ const TravelCalculator = () => {
           <TabsContent value="address" className="space-y-4">
             <div>
               <Label htmlFor="address" className="text-sm font-medium text-stone-700">
-                Your Event Address
+                Your Session Address
               </Label>
               <Input
                 id="address"
@@ -67,21 +67,14 @@ const TravelCalculator = () => {
             
             <Button 
               onClick={calculateTravelFromAddress}
-              disabled={isCalculating}
               className="w-full gold-gradient text-stone-900 font-semibold"
             >
-              {isCalculating ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Checking...
-                </>
-              ) : (
-                <>
-                  <Calculator className="w-4 h-4 mr-2" />
-                  Use Miles Instead
-                </>
-              )}
+              <Calculator className="w-4 h-4 mr-2" />
+              Use Miles Instead
             </Button>
+            <p className="text-xs text-stone-500">
+              Check the distance in Google Maps, then enter miles.
+            </p>
           </TabsContent>
           
           <TabsContent value="miles" className="space-y-4">
@@ -107,12 +100,6 @@ const TravelCalculator = () => {
               Calculate Travel Cost
             </Button>
           </TabsContent>
-          
-          {error && (
-            <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-sm text-red-600">{error}</p>
-            </div>
-          )}
           
           {travelCost > 0 && (
             <div className="mt-4 p-4 bg-gray-50 rounded-lg">

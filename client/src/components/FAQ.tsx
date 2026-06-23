@@ -17,15 +17,15 @@ const faqData: Record<string, FAQItem[]> = {
   home: [
     {
       question: "What photography services do you offer?",
-      answer: "I specialize in elopement photography, portrait sessions, and videography services. Each session is tailored to capture your unique story with artistic excellence."
+      answer: "I specialize in individual portrait sessions, including graduation, prom, fashion, family, personal branding, and creative portraits."
     },
     {
       question: "How far in advance should I book?",
-      answer: "I recommend booking at least 3-6 months in advance, especially for elopements and special events. This ensures availability and allows proper planning for your session."
+      answer: "Book as soon as your preferred date is clear. Earlier scheduling gives us more room to plan outfits, location, and timing."
     },
     {
-      question: "Do you travel for photography sessions?",
-      answer: "Yes, I'm based in Orlando, FL but available for destination sessions throughout Florida and beyond. Travel fees may apply for locations outside the Orlando metro area."
+      question: "Can I book an outdoor or studio session?",
+      answer: "Yes. Outdoor sessions are available in the Orlando area, and studio sessions can be booked by reserving a studio separately and adding the portrait package price."
     }
   ],
   portfolio: [
@@ -45,7 +45,7 @@ const faqData: Record<string, FAQItem[]> = {
   pricing: [
     {
       question: "What's included in your photography packages?",
-      answer: "Each package includes professional editing, high-resolution digital gallery, and personal consultation. Specific inclusions vary by package - contact me for detailed information."
+      answer: "The Signature Session includes 15 professional edits. The Legacy Session includes 30 professional edits. Studio sessions use the same package prices plus the separate studio rental fee."
     },
     {
       question: "Do you offer payment plans?",
@@ -53,7 +53,7 @@ const faqData: Record<string, FAQItem[]> = {
     },
     {
       question: "Are there additional costs I should know about?",
-      answer: "Package prices are transparent with no hidden fees. Additional costs may include travel beyond Orlando metro area, extended coverage hours, or special add-on services."
+      answer: "Studio rental is separate from the portrait package price. Any extra location or extended timing should be planned before scheduling."
     }
   ],
   testimonials: [

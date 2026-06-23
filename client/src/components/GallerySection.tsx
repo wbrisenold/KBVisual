@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "wouter";
 import colorfulPortrait from "@assets/7be576c7dbf9ebd057fafc484f18b908_1750189310522.jpg";
 import outdoorPortrait from "@assets/22838f761dbfbbecf769c040e1d432c6_1750189310523.jpg";
 import seniorPortrait from "@assets/5f0ebe97a3d0918bc6cb64098ab38169_1750189310524.jpg";
@@ -86,12 +87,12 @@ export default function GallerySection() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <a
+          <Link
             href="/portfolio"
             className="inline-block px-8 py-3 border-2 border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-300 font-medium tracking-wide"
           >
             VIEW FULL PORTFOLIO
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

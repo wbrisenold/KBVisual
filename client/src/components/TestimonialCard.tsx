@@ -28,10 +28,10 @@ const TestimonialCard = ({ rating, review, author, role, delay = 0 }: Testimonia
             />
           ))}
         </div>
-        <span className="ml-2 text-stone-100 opacity-70 text-sm">Google Review</span>
+        <span className="ml-2 text-stone-100 opacity-70 text-sm">Client Feedback</span>
       </div>
       <blockquote className="text-stone-100 opacity-90 italic mb-6 leading-relaxed">
-        "{review}"
+        {review}
       </blockquote>
       <div className="flex items-center">
         <div className="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center text-stone-900 font-bold">

@@ -10,9 +10,9 @@ interface SEOHeadProps {
 }
 
 const SEOHead = ({ 
-  title = "KB Visualz - Professional Photography & Videography | Orlando, FL",
-  description = "KB Visualz offers luxury wedding photography, portrait sessions, and cinematic videography in Orlando, Florida. Military veteran photographer Ken Brisenold captures life's precious moments with artistic excellence. Book your session today.",
-  keywords = "wedding photography Orlando, portrait photographer Florida, luxury photography, videography services, Ken Brisenold, KB Visualz, Orlando photographer, professional headshots, bridal photography, engagement photos",
+  title = "KB Visualz - Portrait Photography | Orlando, FL",
+  description = "KB Visualz offers individual portrait sessions in Orlando, Florida, including graduation, prom, fashion, family, branding, and creative portraits by Ken Brisenold.",
+  keywords = "portrait photographer Orlando, Orlando portrait photography, graduation portraits Orlando, prom portraits, family portraits Orlando, branding portraits, Ken Brisenold, KB Visualz",
   image = "/og-image.jpg",
   url = "https://kbvisualz.com",
   type = "website"
@@ -83,17 +83,17 @@ const SEOHead = ({
             }
           ],
           "serviceType": [
-            "Wedding Photography",
             "Portrait Photography", 
-            "Event Photography",
-            "Commercial Photography",
-            "Videography Services"
+            "Graduation Portraits",
+            "Family Portraits",
+            "Personal Branding Portraits",
+            "Creative Portraits"
           ],
           "founder": {
             "@type": "Person",
             "name": "Ken Brisenold",
             "jobTitle": "Professional Photographer",
-            "description": "Military veteran and UCF graduate specializing in luxury photography and videography"
+            "description": "Military veteran and UCF graduate specializing in portrait photography"
           },
           "sameAs": [
             "https://instagram.com/@KbVisualz_",

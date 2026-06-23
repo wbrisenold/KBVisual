@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
-import { Instagram, Youtube } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { useLocation } from "wouter";
+import { SCHEDULING_URL } from "@/lib/booking";
 import heroImagePath from "@assets/_6__6846_1750481099538.jpeg";
 
 const Hero = () => {
+  const [, navigate] = useLocation();
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Large Background Image */}
@@ -42,7 +46,7 @@ const Hero = () => {
               Ken Brisenold
             </h2>
             <p className="text-sm md:text-base tracking-[0.15em] uppercase opacity-70">
-              Photography & Videography — Orlando, Florida
+              Portrait Photography - Orlando, Florida
             </p>
           </motion.div>
 
@@ -53,8 +57,7 @@ const Hero = () => {
             className="mb-12"
           >
             <p className="text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto opacity-80">
-              Specializing in elopements and intimate celebrations. 
-              Creating timeless visual stories that honor your most precious moments.
+              Individual portrait sessions for graduation, prom, fashion, family, branding, and personal storytelling.
             </p>
           </motion.div>
 
@@ -66,21 +69,23 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <motion.button
-              onClick={() => window.location.href = '/portfolio'}
+              onClick={() => navigate("/portfolio")}
               className="px-8 py-4 bg-white text-black text-sm tracking-[0.15em] uppercase font-medium hover:bg-gray-100 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               View Portfolio
             </motion.button>
-            <motion.button
-              onClick={() => window.location.href = '/contact'}
+            <motion.a
+              href={SCHEDULING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-white text-white text-sm tracking-[0.15em] uppercase font-medium hover:bg-white hover:text-black transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get in Touch
-            </motion.button>
+              Schedule Session
+            </motion.a>
           </motion.div>
 
           {/* Social Links */}
@@ -100,18 +105,6 @@ const Hero = () => {
               <div className="flex items-center space-x-2">
                 <Instagram size={20} />
                 <span className="text-sm tracking-[0.15em] uppercase">Instagram</span>
-              </div>
-            </motion.a>
-            <motion.a
-              href={`https://youtube.com/playlist?list=PLkRi4nlxZj3w0_rFLxIdUr8ysi5pprjfW`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:opacity-70 transition-opacity"
-              whileHover={{ y: -2 }}
-            >
-              <div className="flex items-center space-x-2">
-                <Youtube size={20} />
-                <span className="text-sm tracking-[0.15em] uppercase">YouTube</span>
               </div>
             </motion.a>
           </motion.div>

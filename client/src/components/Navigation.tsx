@@ -17,7 +17,6 @@ const Navigation = () => {
     { name: "Portfolio", href: "/portfolio", section: "02" },
     { name: "About", href: "/about", section: "08" },
     { name: "Pricing", href: "/pricing", section: "14" },
-    { name: "Contact", href: "/contact", section: "20" },
   ];
 
   return (
@@ -26,7 +25,7 @@ const Navigation = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 ${
           scrollY > 100 ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-white/80 backdrop-blur-sm"
         }`}
       >
@@ -69,7 +68,7 @@ const Navigation = () => {
 
           {/* Year */}
           <div className="hidden md:block text-sm tracking-wider text-black opacity-60">
-            2025
+            2026
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,10 +140,10 @@ const Navigation = () => {
             </div>
             <div className="text-sm font-light leading-relaxed opacity-80 mb-4">
               Born in Haiti, raised in Florida. Military veteran and UCF graduate who discovered photography in 2018. 
-              Guided by "memento mori" - capturing life's precious moments through luxury visual storytelling.
+              Guided by "memento mori" - creating portrait imagery with intention, confidence, and polish.
             </div>
             <div className="text-xs tracking-[0.2em] uppercase opacity-60">
-              Orlando, FL • Available Nationwide
+              Orlando, FL | Portrait Sessions
             </div>
           </div>
         </div>

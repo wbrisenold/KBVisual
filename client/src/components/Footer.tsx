@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { SCHEDULING_URL } from "@/lib/booking";
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold text-yellow-600 mb-4">KB Visualz</h3>
             <p className="text-stone-700 opacity-80 leading-relaxed">
-              Professional photographer and videographer specializing in portraits, events, and creative visual storytelling.
+              Orlando portrait photography for individual, family, creative, and personal branding sessions.
             </p>
           </div>
 
@@ -32,28 +33,18 @@ const Footer = () => {
                   Pricing
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className="text-stone-700 opacity-80 hover:text-yellow-600 transition-colors duration-300">
-                  Book Session
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-stone-700 opacity-80 hover:text-yellow-600 transition-colors duration-300">
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Booking */}
           <div>
-            <h4 className="text-stone-900 font-medium mb-4">Contact</h4>
+            <h4 className="text-stone-900 font-medium mb-4">Booking</h4>
             <ul className="space-y-2">
               <li className="text-stone-700 opacity-80">Orlando, FL</li>
-              <li className="text-stone-700 opacity-80">Available for travel nationwide</li>
+              <li className="text-stone-700 opacity-80">Outdoor and studio portrait sessions</li>
               <li>
-                <a href="mailto:Wilkensbrisenold@gmail.com" className="text-stone-700 opacity-80 hover:text-yellow-600 transition-colors duration-300">
-                  Wilkensbrisenold@gmail.com
+                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-700 opacity-80 hover:text-yellow-600 transition-colors duration-300">
+                  Schedule a session
                 </a>
               </li>
             </ul>
@@ -62,15 +53,12 @@ const Footer = () => {
 
         <div className="border-t border-yellow-600 border-opacity-20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-stone-700 opacity-60 text-sm">
-            © 2025 KB Visualz by Ken Brisenold. All rights reserved.
+            Copyright 2026 KB Visualz by Ken Brisenold. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-stone-700 opacity-60 hover:text-yellow-600 transition-colors duration-300 text-sm">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-stone-700 opacity-60 hover:text-yellow-600 transition-colors duration-300 text-sm">
-              Terms of Service
-            </a>
+            <Link href="/pricing" className="text-stone-700 opacity-60 hover:text-yellow-600 transition-colors duration-300 text-sm">
+              Pricing & Policy
+            </Link>
           </div>
         </div>
       </div>

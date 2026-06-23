@@ -4,7 +4,7 @@ interface LightroomPhoto {
   thumbnail: string;
   title: string;
   description?: string;
-  category: "wedding" | "portrait" | "detail" | "couple" | "video";
+  category: "portrait" | "detail";
 }
 
 const staticPhotos: LightroomPhoto[] = [];
@@ -15,7 +15,7 @@ export const useLightroomGallery = () => {
   };
 
   const getFeaturedPhoto = () => {
-    return staticPhotos.find((photo) => photo.category === "wedding") || staticPhotos[0];
+    return staticPhotos.find((photo) => photo.category === "portrait") || staticPhotos[0];
   };
 
   return {

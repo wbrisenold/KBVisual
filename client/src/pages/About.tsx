@@ -1,16 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import professionalHeadshot from "@assets/R6__8950.jpeg";
+import { SCHEDULING_URL } from "@/lib/booking";
+import photographerPortrait from "@assets/profile-pic.jpg";
 
 const About = () => {
-  const credentials = [
-    { label: "Origin", value: "Born in Haiti, Raised in Florida" },
-    { label: "Education", value: "University of Central Florida" },
-    { label: "Service", value: "Military Veteran" },
-    { label: "Philosophy", value: "Memento Mori - Seize Every Moment" }
-  ];
-
   return (
     <div className="min-h-screen page-content" style={{ backgroundColor: '#fafafa' }}>
       {/* Magazine Header */}
@@ -24,15 +18,16 @@ const About = () => {
             className="col-span-12 text-center mb-16"
           >
             <div className="editorial-caption text-yellow-600 mb-4">
-              SECTION 08 / ABOUT THE ARTIST
+              ABOUT THE PHOTOGRAPHER
             </div>
             <h1 className="editorial-headline text-5xl md:text-7xl text-stone-900 mb-6">
               Ken Brisenold
             </h1>
             <div className="section-break mb-8"></div>
             <p className="editorial-body text-stone-700 max-w-3xl mx-auto">
-              A journey from Haiti to the heart of Florida luxury photography, guided by the philosophy 
-              of Memento Mori - seizing every precious moment through the lens of artistic excellence.
+              I'm the photographer behind KB Visualz, creating portrait sessions
+              in Florida with a focus on presence, confidence, and clean visual
+              storytelling.
             </p>
           </motion.div>
         </div>
@@ -50,9 +45,9 @@ const About = () => {
           >
             <div className="image-feature rounded-lg overflow-hidden">
               <img
-                src={professionalHeadshot}
-                alt="Ken Brisenold - Professional Photographer"
-                className="w-full h-auto object-cover"
+                src={photographerPortrait}
+                alt="Ken Brisenold, photographer behind KB Visualz"
+                className="w-full aspect-[3/4] object-cover object-top"
                 loading="lazy"
               />
             </div>
@@ -67,14 +62,15 @@ const About = () => {
           >
             <div className="magazine-column">
               <div className="editorial-body text-stone-700 magazine-dropcap">
-                Born in Haiti, raised in Florida. Military veteran and UCF graduate who discovered 
-                photography in 2018. Guided by "memento mori" - capturing life's precious moments 
-                through luxury visual storytelling.
+                Born in Haiti and raised in Florida, I am a military veteran and
+                UCF graduate who discovered photography in 2018. KB Visualz grew
+                from that shift into a portrait-focused creative practice.
               </div>
               
               <div className="editorial-body text-stone-700 mt-6">
-                My work focuses on preserving authentic emotions and creating timeless imagery 
-                that tells your unique story with artistic excellence.
+                My work focuses on preserving authentic expression and creating
+                polished imagery that feels personal, intentional, and true to
+                the person in front of the camera.
               </div>
             </div>
           </motion.div>
@@ -92,7 +88,7 @@ const About = () => {
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
             <div className="pull-quote mb-12">
-              "In 2018, I discovered my passion for photography and videography, forever changing the course of my life."
+              "In 2018, I discovered my passion for photography, forever changing the course of my life."
             </div>
             
             <div className="magazine-column">
@@ -100,7 +96,7 @@ const About = () => {
                 It was then that I adopted the "memento mori" philosophy - a reminder to seize every 
                 fleeting moment, for life is ephemeral. Through my lens, I strive to capture the essence 
                 of these moments, to freeze time and allow people to relive their cherished memories. 
-                My work is more than just images and videos; it's a testament to the beauty of human 
+                My work is more than just images; it's a testament to the beauty of human
                 connection and the power of storytelling.
               </div>
               
@@ -148,17 +144,17 @@ const About = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-10 md:col-start-2 text-center"
           >
-            <div className="editorial-body text-stone-300 max-w-2xl mx-auto mb-12">
+            <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-12">
               Ready to preserve your precious moments through the lens of luxury and artistry? 
-              Let's collaborate to create timeless imagery that captures the essence of your story.
+              Schedule a portrait session and create timeless imagery that captures your presence.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/contact">
+              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto">
-                  START YOUR STORY
+                  SCHEDULE SESSION
                 </Button>
-              </Link>
+              </a>
               <Link href="/portfolio">
                 <Button size="lg" variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 px-10 py-4 w-full sm:w-auto">
                   VIEW MY WORK
@@ -166,7 +162,7 @@ const About = () => {
               </Link>
             </div>
 
-            <div className="ornamental-break">❦</div>
+            <div className="section-break mb-0"></div>
           </motion.div>
         </div>
       </section>
