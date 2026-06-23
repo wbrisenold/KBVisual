@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Test</title>
+    <style>
+        .test-button {
+            padding: 15px 30px;
+            background: #ca8a04;
+            color: #1c1917;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .test-button:hover {
+            background: #a16207;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Button Test</h1>
+    
+    <a href="#/portfolio" class="test-button">Portfolio Link</a>
+    <a href="#/contact" class="test-button">Contact Link</a>
+    <a href="https://lightroom.adobe.com/shares/0e2148abff7c44a0893d09b635f29a29" target="_blank" class="test-button">Gallery Link</a>
+    
+    <br><br>
+    
+    <button class="test-button" onclick="window.location.href='#/portfolio'">Portfolio Button</button>
+    <button class="test-button" onclick="window.location.href='#/contact'">Contact Button</button>
+    <button class="test-button" onclick="window.open('https://lightroom.adobe.com/shares/0e2148abff7c44a0893d09b635f29a29', '_blank')">Gallery Button</button>
+</body>
+</html>
