@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import lakesidePortrait from "@assets/0K8A6813-web.jpg";
+import celebrationPortrait from "@assets/0K8A0201-2-web.jpg";
 import portraitPhoto1 from "@assets/_6__0021_1750483233957.jpeg";
 import portraitPhoto2 from "@assets/_6__0025_1750483233958.jpeg";
 import portraitPhoto3 from "@assets/_6__0036_1750483233958.jpeg";
@@ -12,6 +13,11 @@ import portraitPhoto5 from "@assets/22838f761dbfbbecf769c040e1d432c6_17501893105
 import portraitPhoto6 from "@assets/R6__9241_1750485539673.jpeg";
 
 const portraits = [
+  {
+    image: celebrationPortrait,
+    title: "Celebration Portraits",
+    category: "Couples Portraits"
+  },
   {
     image: portraitPhoto1,
     title: "Professional Headshots",
