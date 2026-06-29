@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import colorfulPortrait from "@assets/7be576c7dbf9ebd057fafc484f18b908_1750189310522.jpg";
-import outdoorPortrait from "@assets/22838f761dbfbbecf769c040e1d432c6_1750189310523.jpg";
-import seniorPortrait from "@assets/5f0ebe97a3d0918bc6cb64098ab38169_1750189310524.jpg";
-import naturalPortrait from "@assets/R6__9241_1750485539673.jpeg";
+import creativePortrait from "@assets/lr-portrait-garden-close.jpg";
+import outdoorPortrait from "@assets/lr-portrait-floral-fence.jpg";
+import familyPortrait from "@assets/lr-portrait-child.jpg";
+import graduationPortrait from "@assets/lr-portrait-graduation.jpg";
 
 const portfolioPhotos = [
   {
     id: 'portrait_colorful',
-    url: colorfulPortrait,
-    title: 'Creative Portrait with Neon Lights',
+    url: creativePortrait,
+    title: 'Editorial Garden Portrait',
     category: 'portrait'
   },
   {
@@ -19,15 +19,15 @@ const portfolioPhotos = [
     category: 'portrait'
   },
   {
-    id: 'senior_portrait',
-    url: seniorPortrait,
-    title: 'Joyful Senior Portrait',
+    id: 'family_portrait',
+    url: familyPortrait,
+    title: 'Family Portrait Moment',
     category: 'portrait'
   },
   {
-    id: 'natural_portrait',
-    url: naturalPortrait,
-    title: 'Garden Portrait Session',
+    id: 'graduation_portrait',
+    url: graduationPortrait,
+    title: 'Graduation Portrait',
     category: 'portrait'
   }
 ];

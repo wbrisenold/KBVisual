@@ -5,48 +5,69 @@ import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import lakesidePortrait from "@assets/0K8A6813-web.jpg";
 import celebrationPortrait from "@assets/0K8A0201-2-web.jpg";
-import portraitPhoto1 from "@assets/_6__0021_1750483233957.jpeg";
-import portraitPhoto2 from "@assets/_6__0025_1750483233958.jpeg";
-import portraitPhoto3 from "@assets/_6__0036_1750483233958.jpeg";
-import portraitPhoto4 from "@assets/7be576c7dbf9ebd057fafc484f18b908_1750189310522.jpg";
-import portraitPhoto5 from "@assets/22838f761dbfbbecf769c040e1d432c6_1750189310523.jpg";
-import portraitPhoto6 from "@assets/R6__9241_1750485539673.jpeg";
+import gardenPortrait from "@assets/lr-portrait-garden-close.jpg";
+import whiteDressPortrait from "@assets/lr-portrait-white-dress.jpg";
+import floralGardenPortrait from "@assets/lr-portrait-floral-garden.jpg";
+import fieldPortrait from "@assets/lr-portrait-field.jpg";
+import pinkDressPortrait from "@assets/lr-portrait-pink-dress.jpg";
+import floralFencePortrait from "@assets/lr-portrait-floral-fence.jpg";
+import childPortrait from "@assets/lr-portrait-child.jpg";
+import graduationPortrait from "@assets/lr-portrait-graduation.jpg";
 
 const portraits = [
   {
     image: celebrationPortrait,
     title: "Celebration Portraits",
-    category: "Couples Portraits"
+    category: "Personal Milestones",
+    objectPosition: "object-center"
   },
   {
-    image: portraitPhoto1,
-    title: "Professional Headshots",
-    category: "Branding Portraits"
+    image: gardenPortrait,
+    title: "Editorial Garden Portrait",
+    category: "Creative Portraits",
+    objectPosition: "object-center"
   },
   {
-    image: portraitPhoto2,
-    title: "Personal Branding",
-    category: "Creative Portraits"
+    image: whiteDressPortrait,
+    title: "Outdoor Style Portrait",
+    category: "Individual Portraits",
+    objectPosition: "object-center"
   },
   {
-    image: portraitPhoto3,
-    title: "Studio Style",
-    category: "Individual Portraits"
+    image: floralGardenPortrait,
+    title: "Garden Portrait Session",
+    category: "Lifestyle Portraits",
+    objectPosition: "object-center"
   },
   {
-    image: portraitPhoto4,
-    title: "Color Study",
-    category: "Fashion Portraits"
+    image: fieldPortrait,
+    title: "Soft Field Portrait",
+    category: "Natural Light Portraits",
+    objectPosition: "object-center"
   },
   {
-    image: portraitPhoto5,
-    title: "Natural Light",
-    category: "Outdoor Portraits"
+    image: pinkDressPortrait,
+    title: "Creative Fashion Portrait",
+    category: "Fashion Portraits",
+    objectPosition: "object-center"
   },
   {
-    image: portraitPhoto6,
-    title: "Garden Session",
-    category: "Lifestyle Portraits"
+    image: floralFencePortrait,
+    title: "Natural Light Portrait",
+    category: "Outdoor Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: childPortrait,
+    title: "Family Portrait Moment",
+    category: "Family Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: graduationPortrait,
+    title: "Graduation Portrait",
+    category: "Senior Portraits",
+    objectPosition: "object-center"
   }
 ];
 
@@ -143,7 +164,7 @@ const Portfolio = () => {
                 <img
                   src={photo.image}
                   alt={photo.title}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  className={`w-full h-full object-cover ${photo.objectPosition} transition-transform duration-500 group-hover:scale-105`}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
