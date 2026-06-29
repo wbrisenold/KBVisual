@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
-import featuredImage from "@assets/e8c5ce91bc10b0ef74b7e7904907cef0_1750188692723.jpg";
+import lakesidePortrait from "@assets/0K8A6813-web.jpg";
 import portraitPhoto1 from "@assets/_6__0021_1750483233957.jpeg";
 import portraitPhoto2 from "@assets/_6__0025_1750483233958.jpeg";
 import portraitPhoto3 from "@assets/_6__0036_1750483233958.jpeg";
@@ -80,20 +80,26 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <div className="relative overflow-hidden rounded-lg aspect-[16/9] lg:aspect-[21/9]">
-              <img
-                src={featuredImage}
-                alt="Featured portrait photography"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute bottom-8 left-8 text-white">
-                <div className="text-xs tracking-[0.3em] uppercase opacity-80 mb-2">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.78fr_1fr] gap-8 lg:gap-12 items-center">
+              <div>
+                <div className="text-xs tracking-[0.3em] uppercase opacity-60 mb-5">
                   FEATURED PORTRAIT
                 </div>
-                <h3 className="text-2xl lg:text-3xl font-light">
-                  Individual Portrait Photography
+                <h3 className="text-4xl lg:text-6xl font-light leading-none mb-6">
+                  Outdoor Portrait Study
                 </h3>
+                <p className="text-lg font-light leading-relaxed opacity-80 max-w-xl">
+                  A natural-light portrait built around styling, atmosphere, and
+                  a polished editorial finish.
+                </p>
+              </div>
+
+              <div className="relative overflow-hidden rounded-lg bg-stone-100 aspect-[2/3] lg:aspect-[3/4]">
+                <img
+                  src={lakesidePortrait}
+                  alt="Outdoor portrait session by KB Visualz"
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
             </div>
           </motion.div>
