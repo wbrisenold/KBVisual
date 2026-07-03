@@ -112,7 +112,7 @@ const policyItems = [
 const Pricing = () => {
   return (
     <div className="min-h-screen page-content bg-white">
-      <section className="section-padding bg-stone-950 text-white">
+      <section className="py-16 md:py-20 bg-stone-950 text-white">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -155,29 +155,29 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="section-padding">
+      <section className="pt-14 pb-6 md:pt-16 md:pb-8">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="col-span-12 text-center mb-16"
+            className="col-span-12 text-center"
           >
             <div className="editorial-caption text-yellow-600 mb-4">
               PORTRAIT PRICING
             </div>
-            <h1 className="editorial-headline text-5xl md:text-7xl text-stone-900 mb-6">
+            <h1 className="editorial-headline text-5xl md:text-7xl text-stone-900 mb-5">
               Individual Sessions
             </h1>
-            <div className="section-break mb-8"></div>
+            <div className="mx-auto h-px w-24 bg-yellow-600/50"></div>
             {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding pt-0">
-        <div className="editorial-grid gap-10">
+      <section className="pb-16 md:pb-20">
+        <div className="editorial-grid gap-8 md:gap-10">
           {portraitPackages.map((service, index) => (
             <motion.article
               key={service.title}
@@ -194,8 +194,8 @@ const Pricing = () => {
               )}
 
               <div className={`rounded-lg border ${service.featured ? "border-yellow-600 bg-stone-50" : "border-gray-200 bg-gray-50"} overflow-hidden`}>
-                <div className="p-8 md:p-12">
-                  <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-8">
+                <div className="p-7 md:p-10">
+                  <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-7">
                     <div className="flex items-start gap-4">
                       <div className="text-yellow-600 bg-yellow-600/10 p-3 rounded-lg flex-shrink-0">
                         {service.icon}
@@ -223,7 +223,7 @@ const Pricing = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div>
                       <div className="editorial-caption text-yellow-600 mb-4">
                         INCLUDED
@@ -263,7 +263,7 @@ const Pricing = () => {
                     </div>
                   </div>
 
-                  <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <div className="mt-7 flex flex-col sm:flex-row gap-4">
                     <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                       <Button className="gold-gradient text-stone-900 font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-auto">
                         SCHEDULE THIS SESSION
@@ -282,7 +282,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-stone-50">
+      <section className="py-12 md:py-14 bg-stone-50">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
