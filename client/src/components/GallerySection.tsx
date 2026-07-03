@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import studioFashionPortrait from "@assets/kbvisualz-current/kbv-02.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
+import parkBenchCouple from "@assets/kbvisualz-current/kbv-05.jpg";
 import couplesPortrait from "@assets/kbvisualz-current/kbv-06.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 
 const portfolioPhotos = [
   {
-    id: 'studio_fashion_portrait',
-    url: studioFashionPortrait,
-    title: 'Seated Studio Fashion Portrait',
-    category: 'portrait'
-  },
-  {
     id: 'proposal_portrait',
     url: proposalPortrait,
     title: 'Proposal Celebration Portrait',
     category: 'engagement'
+  },
+  {
+    id: 'park_bench_couple',
+    url: parkBenchCouple,
+    title: 'Park Bench Couples Portrait',
+    category: 'couples'
   },
   {
     id: 'couples_closeup',
@@ -47,7 +47,7 @@ export default function GallerySection() {
             Portfolio Highlights
           </h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-            A glimpse into my passion for capturing authentic moments and creative expressions
+            A quick look at recent portrait, engagement, and couples work.
           </p>
         </motion.div>
 

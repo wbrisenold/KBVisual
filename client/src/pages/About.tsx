@@ -63,8 +63,9 @@ const About = () => {
             <div className="magazine-column">
               <div className="editorial-body text-stone-700 magazine-dropcap">
                 Born in Haiti and raised in Florida, I am a military veteran and
-                UCF graduate who discovered photography in 2018. KB Visualz grew
-                from that shift into a portrait-focused creative practice.
+                UCF graduate who discovered photography in 2018. That discovery
+                became KB Visualz, where I create portrait work with a focus on
+                presence, confidence, and clean visual storytelling.
               </div>
               
               <div className="editorial-body text-stone-700 mt-6">
@@ -93,17 +94,17 @@ const About = () => {
             
             <div className="magazine-column">
               <div className="editorial-body text-stone-700">
-                It was then that I adopted the "memento mori" philosophy - a reminder to seize every 
-                fleeting moment, for life is ephemeral. Through my lens, I strive to capture the essence 
-                of these moments, to freeze time and allow people to relive their cherished memories. 
-                My work is more than just images; it's a testament to the beauty of human
-                connection and the power of storytelling.
+                That same year, I connected with the "memento mori" philosophy -
+                a reminder that time is limited and every season is worth
+                remembering. My work is about preserving honest expression,
+                personal milestones, and the details that make a portrait feel
+                true to the person in front of the camera.
               </div>
               
               <div className="editorial-body text-stone-700 mt-6">
-                Thank you for joining me on this journey of preserving memories and celebrating life's 
-                most precious moments. I look forward to capturing your story and creating lasting 
-                mementos that will be treasured for generations to come.
+                Whether the session is for graduation, family, branding, or a
+                creative idea you want to bring to life, my goal is to make the
+                experience feel intentional from planning through final delivery.
               </div>
             </div>
           </motion.div>
@@ -145,8 +146,8 @@ const About = () => {
             className="col-span-12 md:col-span-10 md:col-start-2 text-center"
           >
             <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-12">
-              Ready to preserve your precious moments through the lens of luxury and artistry? 
-              Schedule a portrait session and create timeless imagery that captures your presence.
+              Ready for portraits that feel personal, polished, and true to you?
+              Schedule a session and create images with intention.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

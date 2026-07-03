@@ -66,8 +66,8 @@ const Home = () => {
               <div className="editorial-body text-stone-700 magazine-dropcap">
                 KB Visualz creates portrait sessions for graduation, prom, fashion,
                 family, branding, and creative personal work. Each session is planned
-                around your style, location, and the kind of presence you want the
-                final images to hold.
+                around your style, location, and the feeling you want the final
+                images to carry.
               </div>
 
               <div className="editorial-body text-stone-700 mt-6">

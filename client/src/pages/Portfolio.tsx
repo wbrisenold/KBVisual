@@ -4,7 +4,6 @@ import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
-import seatedStudioPortrait from "@assets/kbvisualz-current/kbv-02.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import goldenHourCouple from "@assets/kbvisualz-current/kbv-04.jpg";
 import parkBenchCouple from "@assets/kbvisualz-current/kbv-05.jpg";
@@ -16,12 +15,6 @@ const portraits = [
     image: formalStudioPortrait,
     title: "Formal Studio Portrait",
     category: "Men's Formal Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: seatedStudioPortrait,
-    title: "Seated Studio Fashion Portrait",
-    category: "Studio Fashion Portraits",
     objectPosition: "object-center"
   },
   {
@@ -100,8 +93,8 @@ const Portfolio = () => {
             </h2>
             <div className="w-24 h-px bg-black opacity-30 mx-auto mb-8"></div>
             <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto opacity-80">
-              Portraits built around expression, styling, and atmosphere, with a
-              polished edit that keeps the focus on the person in frame.
+              Portraits built around expression, styling, and atmosphere, with
+              polished editing that keeps the focus on the person in frame.
             </p>
           </motion.div>
 

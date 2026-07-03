@@ -139,8 +139,8 @@ const Navigation = () => {
               About the Artist
             </div>
             <div className="text-sm font-light leading-relaxed opacity-80 mb-4">
-              Born in Haiti, raised in Florida. Military veteran and UCF graduate who discovered photography in 2018. 
-              Guided by "memento mori" - creating portrait imagery with intention, confidence, and polish.
+              Born in Haiti and raised in Florida, Ken is a military veteran and UCF graduate who discovered photography in 2018.
+              His work is guided by "memento mori" and shaped around intention, confidence, and polish.
             </div>
             <div className="text-xs tracking-[0.2em] uppercase opacity-60">
               Orlando, FL | Portrait Sessions

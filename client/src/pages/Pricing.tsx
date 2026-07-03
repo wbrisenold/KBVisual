@@ -46,7 +46,7 @@ const portraitPackages = [
       "Client books the studio separately",
       "Portrait package price is added to the studio rental fee",
       "Ideal for controlled lighting and backdrop options",
-      "Peerspace can be used to find Orlando studios"
+      "Use Peerspace to find Orlando studio rentals"
     ],
     studioLink: true
   }
@@ -80,7 +80,7 @@ const policyItems = [
   {
     title: "Delivery Timeline",
     description:
-      "Proofs will be delivered within 3-5 business days after the shoot, and final products will be provided within 2-4 business days after final approval."
+      "Proofs will be delivered within 3-5 business days after the shoot, and final photos will be provided within 2-4 business days after final approval."
   },
   {
     title: "Cancellation and Rescheduling",
@@ -100,12 +100,12 @@ const policyItems = [
   {
     title: "Client Responsibilities",
     description:
-      "Please arrive on time and provide any specific details or requirements in advance so the session can capture your vision accurately."
+      "Please arrive on time and share important details in advance so the session can be planned around your vision."
   },
   {
     title: "Style Familiarity",
     description:
-      "Before booking, please take time to familiarize yourself with the KB Visualz photography style to ensure you will be happy with the final product."
+      "Before booking, please review the KB Visualz photography style to make sure it matches what you want from the final photos."
   }
 ];
 

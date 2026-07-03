@@ -31,11 +31,11 @@ const faqData: Record<string, FAQItem[]> = {
   portfolio: [
     {
       question: "How do you develop your artistic style?",
-      answer: "My style is influenced by my philosophy of 'memento mori' - remembering life's fleeting nature. This drives me to capture authentic emotions and timeless moments with artistic precision."
+      answer: "My style is influenced by 'memento mori' - the reminder that time is limited. That perspective shapes how I photograph expression, connection, and personal milestones."
     },
     {
       question: "Do you offer different photography styles?",
-      answer: "While I maintain a consistent artistic vision, I adapt my approach to each client's personality and preferences, ensuring your photos reflect your unique story."
+      answer: "I keep a consistent visual style, but I adapt posing, location, and pacing to each client's personality and goals."
     }
   ],
   pricing: [
@@ -55,11 +55,11 @@ const faqData: Record<string, FAQItem[]> = {
   testimonials: [
     {
       question: "How do you ensure client satisfaction?",
-      answer: "I work closely with each client from initial consultation through final delivery, ensuring your vision is captured. My goal is creating images you'll treasure for generations."
+      answer: "I work closely with each client from planning through final delivery so the session has a clear direction. My goal is to create images that feel polished, personal, and true to you."
     },
     {
       question: "What do past clients say about working with you?",
-      answer: "Clients appreciate my professionalism, artistic eye, and ability to capture authentic emotions. Many mention feeling comfortable and natural during sessions."
+      answer: "Clients often mention the clear direction, calm pacing, and polished final images. Many say they felt comfortable and natural during the session."
     },
     {
       question: "Do you provide references from past clients?",
