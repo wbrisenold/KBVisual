@@ -1,28 +1,28 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
-import parkBenchCouple from "@assets/kbvisualz-current/kbv-05.jpg";
-import couplesPortrait from "@assets/kbvisualz-current/kbv-06.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
+import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
 
 const portfolioPhotos = [
+  {
+    id: 'formal_studio_portrait',
+    url: formalStudioPortrait,
+    title: 'Formal Studio Portrait',
+    category: 'portrait'
+  },
+  {
+    id: 'child_portrait',
+    url: childPortrait,
+    title: 'Outdoor Child Portrait',
+    category: 'family'
+  },
   {
     id: 'proposal_portrait',
     url: proposalPortrait,
     title: 'Proposal Celebration Portrait',
     category: 'engagement'
-  },
-  {
-    id: 'park_bench_couple',
-    url: parkBenchCouple,
-    title: 'Park Bench Couples Portrait',
-    category: 'couples'
-  },
-  {
-    id: 'couples_closeup',
-    url: couplesPortrait,
-    title: 'Golden Hour Couples Close-Up',
-    category: 'couples'
   },
   {
     id: 'outdoor_editorial_portrait',
@@ -47,7 +47,7 @@ export default function GallerySection() {
             Portfolio Highlights
           </h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-            A quick look at recent portrait, engagement, and couples work.
+            A quick look at recent portrait, family, and engagement work.
           </p>
         </motion.div>
 

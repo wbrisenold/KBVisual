@@ -5,10 +5,9 @@ import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
-import goldenHourCouple from "@assets/kbvisualz-current/kbv-04.jpg";
-import parkBenchCouple from "@assets/kbvisualz-current/kbv-05.jpg";
 import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
+import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
 
 const portraits = [
   {
@@ -18,33 +17,27 @@ const portraits = [
     objectPosition: "object-center"
   },
   {
-    image: proposalPortrait,
-    title: "Proposal Celebration Portrait",
-    category: "Engagement Moments",
-    objectPosition: "object-center"
-  },
-  {
-    image: goldenHourCouple,
-    title: "Golden Hour Couples Portrait",
-    category: "Couples Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: parkBenchCouple,
-    title: "Park Bench Couples Portrait",
-    category: "Couples Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: coupleCloseup,
-    title: "Golden Hour Couples Close-Up",
-    category: "Couples Portraits",
+    image: childPortrait,
+    title: "Outdoor Child Portrait",
+    category: "Family Portraits",
     objectPosition: "object-center"
   },
   {
     image: outdoorEditorialPortrait,
     title: "Outdoor Editorial Portrait",
     category: "Creative Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: proposalPortrait,
+    title: "Proposal Celebration Portrait",
+    category: "Engagement Moments",
+    objectPosition: "object-center"
+  },
+  {
+    image: coupleCloseup,
+    title: "Golden Hour Couples Close-Up",
+    category: "Couples Portraits",
     objectPosition: "object-center"
   }
 ];
@@ -69,8 +62,8 @@ const Portfolio = () => {
             </h1>
             <div className="section-break mb-8"></div>
             <p className="editorial-body text-stone-700 max-w-4xl mx-auto">
-              A focused collection of individual portrait work: graduation,
-              prom, fashion, family, branding, and creative personal sessions.
+              A focused collection of formal, family, creative, engagement, and
+              couples portrait work.
             </p>
           </motion.div>
         </div>
