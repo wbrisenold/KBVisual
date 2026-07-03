@@ -3,69 +3,55 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
-import graduationPortrait from "@assets/kbvisualz-current/kbv-04.jpg";
-import portraitOne from "@assets/kbvisualz-current/kbv-02.jpg";
-import portraitTwo from "@assets/kbvisualz-current/kbv-05.jpg";
-import portraitThree from "@assets/kbvisualz-current/kbv-06.jpg";
-import portraitFour from "@assets/kbvisualz-current/kbv-07.jpg";
-import portraitFive from "@assets/kbvisualz-current/kbv-08.jpg";
-import portraitSix from "@assets/kbvisualz-current/kbv-01.jpg";
-import portraitSeven from "@assets/kbvisualz-current/kbv-10.jpg";
-import portraitEight from "@assets/kbvisualz-current/kbv-11.jpg";
+import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
+import seatedStudioPortrait from "@assets/kbvisualz-current/kbv-02.jpg";
+import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
+import goldenHourCouple from "@assets/kbvisualz-current/kbv-04.jpg";
+import parkBenchCouple from "@assets/kbvisualz-current/kbv-05.jpg";
+import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
+import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 
 const portraits = [
   {
-    image: portraitOne,
+    image: formalStudioPortrait,
     title: "Formal Studio Portrait",
     category: "Men's Formal Portraits",
     objectPosition: "object-center"
   },
   {
-    image: portraitTwo,
-    title: "Childhood Outdoor Portrait",
-    category: "Child Portraits",
+    image: seatedStudioPortrait,
+    title: "Seated Studio Fashion Portrait",
+    category: "Studio Fashion Portraits",
     objectPosition: "object-center"
   },
   {
-    image: portraitThree,
-    title: "Styled Formal Portrait",
-    category: "Formal Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: portraitFour,
-    title: "Lifestyle Writing Portrait",
-    category: "Lifestyle Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: portraitFive,
+    image: proposalPortrait,
     title: "Proposal Celebration Portrait",
     category: "Engagement Moments",
     objectPosition: "object-center"
   },
   {
-    image: portraitSix,
-    title: "Outdoor Fashion Portrait",
-    category: "Fashion Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: graduationPortrait,
-    title: "Graduation Portrait",
-    category: "Senior Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: portraitSeven,
-    title: "Retro Studio Portrait",
-    category: "Creative Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: portraitEight,
-    title: "Couples Park Portrait",
+    image: goldenHourCouple,
+    title: "Golden Hour Couples Portrait",
     category: "Couples Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: parkBenchCouple,
+    title: "Park Bench Couples Portrait",
+    category: "Couples Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: coupleCloseup,
+    title: "Golden Hour Couples Close-Up",
+    category: "Couples Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: outdoorEditorialPortrait,
+    title: "Outdoor Editorial Portrait",
+    category: "Creative Portraits",
     objectPosition: "object-center"
   }
 ];

@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import creativePortrait from "@assets/kbvisualz-current/kbv-02.jpg";
-import outdoorPortrait from "@assets/kbvisualz-current/kbv-05.jpg";
-import familyPortrait from "@assets/kbvisualz-current/kbv-06.jpg";
-import graduationPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
+import studioFashionPortrait from "@assets/kbvisualz-current/kbv-02.jpg";
+import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
+import couplesPortrait from "@assets/kbvisualz-current/kbv-06.jpg";
+import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 
 const portfolioPhotos = [
   {
-    id: 'portrait_colorful',
-    url: creativePortrait,
-    title: 'Formal Studio Portrait',
+    id: 'studio_fashion_portrait',
+    url: studioFashionPortrait,
+    title: 'Seated Studio Fashion Portrait',
     category: 'portrait'
   },
   {
-    id: 'outdoor_portrait',
-    url: outdoorPortrait,
-    title: 'Childhood Outdoor Portrait',
-    category: 'portrait'
+    id: 'proposal_portrait',
+    url: proposalPortrait,
+    title: 'Proposal Celebration Portrait',
+    category: 'engagement'
   },
   {
-    id: 'family_portrait',
-    url: familyPortrait,
-    title: 'Styled Formal Portrait',
-    category: 'portrait'
+    id: 'couples_closeup',
+    url: couplesPortrait,
+    title: 'Golden Hour Couples Close-Up',
+    category: 'couples'
   },
   {
-    id: 'graduation_portrait',
-    url: graduationPortrait,
-    title: 'Lifestyle Writing Portrait',
+    id: 'outdoor_editorial_portrait',
+    url: outdoorEditorialPortrait,
+    title: 'Outdoor Editorial Portrait',
     category: 'portrait'
   }
 ];
