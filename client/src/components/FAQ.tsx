@@ -30,10 +30,6 @@ const faqData: Record<string, FAQItem[]> = {
   ],
   portfolio: [
     {
-      question: "Can I see full galleries from recent sessions?",
-      answer: "Yes, I can share complete galleries from recent work during our consultation. This gives you a comprehensive view of my style and approach to storytelling."
-    },
-    {
       question: "How do you develop your artistic style?",
       answer: "My style is influenced by my philosophy of 'memento mori' - remembering life's fleeting nature. This drives me to capture authentic emotions and timeless moments with artistic precision."
     },
@@ -53,7 +49,7 @@ const faqData: Record<string, FAQItem[]> = {
     },
     {
       question: "Are there additional costs I should know about?",
-      answer: "Studio rental is separate from the portrait package price. Any extra location or extended timing should be planned before scheduling."
+      answer: "Studio rental is separate from the portrait package price. Photo and video are not bundled together; video coverage must be booked separately with another provider."
     }
   ],
   testimonials: [

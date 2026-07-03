@@ -90,7 +90,12 @@ const policyItems = [
   {
     title: "Usage Rights",
     description:
-      "Clients may use photos and videos for personal purposes. KB Visualz retains the right to use photos and videos for promotional purposes unless otherwise agreed upon in writing."
+      "Clients may use delivered photos for personal purposes. KB Visualz retains the right to use delivered photos for promotional purposes unless otherwise agreed upon in writing."
+  },
+  {
+    title: "Photo and Video Bookings",
+    description:
+      "Photo and video are not available as a bundled package. If you need video coverage, please book a videographer outside of your KB Visualz portrait session."
   },
   {
     title: "Client Responsibilities",
@@ -100,7 +105,7 @@ const policyItems = [
   {
     title: "Style Familiarity",
     description:
-      "Before booking, please take time to familiarize yourself with the KB Visualz photo and video style to ensure you will be happy with the final product."
+      "Before booking, please take time to familiarize yourself with the KB Visualz photography style to ensure you will be happy with the final product."
   }
 ];
 
