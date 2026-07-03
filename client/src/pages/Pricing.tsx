@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Camera, ExternalLink, Sparkles, Star } from "lucide-react";
+import { Building2, Camera, ExternalLink, Sparkles, Star, VideoOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
@@ -95,7 +95,7 @@ const policyItems = [
   {
     title: "Photo and Video Bookings",
     description:
-      "Photo and video are not available as a bundled package. If you need video coverage, please book a videographer outside of your KB Visualz portrait session."
+      "Photo and video cannot be booked together or bundled through KB Visualz. If you need video coverage, please book a separate videographer outside of your portrait session."
   },
   {
     title: "Client Responsibilities",
@@ -172,6 +172,32 @@ const Pricing = () => {
             </h1>
             <div className="mx-auto h-px w-24 bg-yellow-600/50"></div>
             {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="col-span-12 md:col-span-10 md:col-start-2 mt-8"
+          >
+            <div className="rounded-lg border-2 border-yellow-600 bg-yellow-600/10 p-5 md:p-6 shadow-sm">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-stone-950 text-yellow-500">
+                  <VideoOff className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="editorial-caption mb-2 text-yellow-700">
+                    PHOTO-ONLY PACKAGES
+                  </div>
+                  <h2 className="editorial-title mb-2 text-2xl text-stone-950 md:text-3xl">
+                    Photo and video are booked separately.
+                  </h2>
+                  <p className="max-w-3xl text-sm leading-relaxed text-stone-700 md:text-base">
+                    KB Visualz does not offer photo and video bundle packages. These prices cover photography sessions only; video coverage must be booked with a separate videographer.
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
