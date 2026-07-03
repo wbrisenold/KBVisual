@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import creativePortrait from "@assets/lr-portrait-garden-close.jpg";
-import outdoorPortrait from "@assets/lr-portrait-floral-fence.jpg";
-import familyPortrait from "@assets/lr-portrait-child.jpg";
-import graduationPortrait from "@assets/lr-portrait-graduation.jpg";
+import creativePortrait from "@assets/kbvisualz-current/kbv-02.jpg";
+import outdoorPortrait from "@assets/kbvisualz-current/kbv-05.jpg";
+import familyPortrait from "@assets/kbvisualz-current/kbv-06.jpg";
+import graduationPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 
 const portfolioPhotos = [
   {
     id: 'portrait_colorful',
     url: creativePortrait,
-    title: 'Editorial Garden Portrait',
+    title: 'Formal Studio Portrait',
     category: 'portrait'
   },
   {
     id: 'outdoor_portrait',
     url: outdoorPortrait,
-    title: 'Natural Light Portrait Session',
+    title: 'Childhood Outdoor Portrait',
     category: 'portrait'
   },
   {
     id: 'family_portrait',
     url: familyPortrait,
-    title: 'Family Portrait Moment',
+    title: 'Styled Formal Portrait',
     category: 'portrait'
   },
   {
     id: 'graduation_portrait',
     url: graduationPortrait,
-    title: 'Graduation Portrait',
+    title: 'Lifestyle Writing Portrait',
     category: 'portrait'
   }
 ];

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 import { useLocation } from "wouter";
 import { SCHEDULING_URL } from "@/lib/booking";
-import heroImagePath from "@assets/lr-portrait-garden-seated.jpg";
+import heroImagePath from "@assets/kbvisualz-current/kbv-03.jpg";
 
 const Hero = () => {
   const [, navigate] = useLocation();
@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImagePath}
-          alt="Outdoor portrait session by KB Visualz"
+          alt="Studio beauty portrait by KB Visualz"
           className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/40"></div>

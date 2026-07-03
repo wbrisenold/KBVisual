@@ -3,70 +3,69 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
-import lakesidePortrait from "@assets/0K8A6813-web.jpg";
-import celebrationPortrait from "@assets/0K8A0201-2-web.jpg";
-import gardenPortrait from "@assets/lr-portrait-garden-close.jpg";
-import whiteDressPortrait from "@assets/lr-portrait-white-dress.jpg";
-import floralGardenPortrait from "@assets/lr-portrait-floral-garden.jpg";
-import fieldPortrait from "@assets/lr-portrait-field.jpg";
-import pinkDressPortrait from "@assets/lr-portrait-pink-dress.jpg";
-import floralFencePortrait from "@assets/lr-portrait-floral-fence.jpg";
-import childPortrait from "@assets/lr-portrait-child.jpg";
-import graduationPortrait from "@assets/lr-portrait-graduation.jpg";
+import graduationPortrait from "@assets/kbvisualz-current/kbv-04.jpg";
+import portraitOne from "@assets/kbvisualz-current/kbv-02.jpg";
+import portraitTwo from "@assets/kbvisualz-current/kbv-05.jpg";
+import portraitThree from "@assets/kbvisualz-current/kbv-06.jpg";
+import portraitFour from "@assets/kbvisualz-current/kbv-07.jpg";
+import portraitFive from "@assets/kbvisualz-current/kbv-08.jpg";
+import portraitSix from "@assets/kbvisualz-current/kbv-01.jpg";
+import portraitSeven from "@assets/kbvisualz-current/kbv-10.jpg";
+import portraitEight from "@assets/kbvisualz-current/kbv-11.jpg";
 
 const portraits = [
   {
-    image: celebrationPortrait,
-    title: "Celebration Portraits",
-    category: "Personal Milestones",
+    image: portraitOne,
+    title: "Formal Studio Portrait",
+    category: "Men's Formal Portraits",
     objectPosition: "object-center"
   },
   {
-    image: gardenPortrait,
-    title: "Editorial Garden Portrait",
-    category: "Creative Portraits",
+    image: portraitTwo,
+    title: "Childhood Outdoor Portrait",
+    category: "Child Portraits",
     objectPosition: "object-center"
   },
   {
-    image: whiteDressPortrait,
-    title: "Outdoor Style Portrait",
-    category: "Individual Portraits",
+    image: portraitThree,
+    title: "Styled Formal Portrait",
+    category: "Formal Portraits",
     objectPosition: "object-center"
   },
   {
-    image: floralGardenPortrait,
-    title: "Garden Portrait Session",
+    image: portraitFour,
+    title: "Lifestyle Writing Portrait",
     category: "Lifestyle Portraits",
     objectPosition: "object-center"
   },
   {
-    image: fieldPortrait,
-    title: "Soft Field Portrait",
-    category: "Natural Light Portraits",
+    image: portraitFive,
+    title: "Proposal Celebration Portrait",
+    category: "Engagement Moments",
     objectPosition: "object-center"
   },
   {
-    image: pinkDressPortrait,
-    title: "Creative Fashion Portrait",
+    image: portraitSix,
+    title: "Outdoor Fashion Portrait",
     category: "Fashion Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: floralFencePortrait,
-    title: "Natural Light Portrait",
-    category: "Outdoor Portraits",
-    objectPosition: "object-center"
-  },
-  {
-    image: childPortrait,
-    title: "Family Portrait Moment",
-    category: "Family Portraits",
     objectPosition: "object-center"
   },
   {
     image: graduationPortrait,
     title: "Graduation Portrait",
     category: "Senior Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: portraitSeven,
+    title: "Retro Studio Portrait",
+    category: "Creative Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: portraitEight,
+    title: "Couples Park Portrait",
+    category: "Couples Portraits",
     objectPosition: "object-center"
   }
 ];
@@ -100,37 +99,6 @@ const Portfolio = () => {
 
       <section className="section-padding bg-white">
         <div className="max-w-7xl mx-auto px-8 lg:px-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-[0.78fr_1fr] gap-8 lg:gap-12 items-center">
-              <div>
-                <div className="text-xs tracking-[0.3em] uppercase opacity-60 mb-5">
-                  FEATURED PORTRAIT
-                </div>
-                <h3 className="text-4xl lg:text-6xl font-light leading-none mb-6">
-                  Outdoor Portrait Study
-                </h3>
-                <p className="text-lg font-light leading-relaxed opacity-80 max-w-xl">
-                  A natural-light portrait built around styling, atmosphere, and
-                  a polished editorial finish.
-                </p>
-              </div>
-
-              <div className="relative overflow-hidden rounded-lg bg-stone-100 aspect-[2/3] lg:aspect-[3/4]">
-                <img
-                  src={lakesidePortrait}
-                  alt="Outdoor portrait session by KB Visualz"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-            </div>
-          </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
