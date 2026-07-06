@@ -136,6 +136,10 @@ a, button, .cursor-pointer {
     color: hsl(var(--luxury-gold));
   }
 
+  .editorial-caption--on-light {
+    color: #4f3809;
+  }
+
   .editorial-quote {
     font-family: 'Newsreader', serif;
     font-weight: 400;
@@ -147,7 +151,7 @@ a, button, .cursor-pointer {
   .brand-lockup {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.82rem;
     font-family: 'Inter', sans-serif;
   }
 
@@ -157,36 +161,48 @@ a, button, .cursor-pointer {
     width: 3rem;
     height: 3rem;
     flex: none;
-    border: 1px solid currentColor;
     font-family: 'Newsreader', serif;
-    font-size: 2rem;
+    font-size: 2.42rem;
     line-height: 1;
   }
 
+  .brand-monogram::before,
   .brand-monogram::after {
-    content: '';
-    position: absolute;
-    inset: 0.35rem;
-    border: 1px solid currentColor;
-    opacity: 0.26;
+    content: none;
   }
 
   .brand-monogram__k,
   .brand-monogram__b {
     position: absolute;
     z-index: 1;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 0.8;
+    mix-blend-mode: multiply;
   }
 
   .brand-monogram__k {
-    top: 0.48rem;
-    left: 0.46rem;
+    top: 0.2rem;
+    left: 0;
+    transform: translateX(0);
   }
 
   .brand-monogram__b {
-    right: 0.42rem;
-    bottom: 0.42rem;
+    right: 0;
+    bottom: 0.26rem;
+    transform: translateX(-0.42rem);
+  }
+
+  .brand-lockup.text-white .brand-monogram__k,
+  .brand-lockup.text-white .brand-monogram__b {
+    mix-blend-mode: screen;
+  }
+
+  .brand-lockup--animated .brand-monogram__k {
+    animation: kb-mark-k 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .brand-lockup--animated .brand-monogram__b {
+    animation: kb-mark-b 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .brand-wordmark {
@@ -202,7 +218,55 @@ a, button, .cursor-pointer {
   .brand-wordmark span + span {
     font-size: 0.58rem;
     font-weight: 500;
-    opacity: 0.62;
+    opacity: 0.82;
+  }
+
+  .lookbook-next {
+    display: inline-grid;
+    min-height: 3.25rem;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    padding: 0.75rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.15;
+    text-transform: uppercase;
+    transition: color 180ms ease, opacity 180ms ease, transform 180ms ease;
+  }
+
+  .lookbook-next:hover {
+    transform: translateX(4px);
+  }
+
+  .lookbook-next__meta {
+    display: block;
+    margin-bottom: 0.18rem;
+    opacity: 0.74;
+    font-size: 0.62rem;
+  }
+
+  .lookbook-page-marker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .lookbook-page-marker::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.42;
   }
 
   .site-button {
@@ -458,6 +522,30 @@ a, button, .cursor-pointer {
         transform: translateY(0) scale(1);
       }
     }
+
+    @keyframes kb-mark-k {
+      from {
+        opacity: 0;
+        transform: translateX(-0.62rem);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes kb-mark-b {
+      from {
+        opacity: 0;
+        transform: translateX(0.56rem);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-0.42rem);
+      }
+    }
   }
 
   @supports (animation-timeline: view()) {
@@ -524,8 +612,8 @@ a, button, .cursor-pointer {
     }
     
     .editorial-title {
-      font-size: 1.5rem !important;
-      line-height: 1.2;
+      font-size: clamp(2.05rem, 10vw, 3.3rem) !important;
+      line-height: 1.04;
     }
     
     .editorial-body {
@@ -576,6 +664,30 @@ a, button, .cursor-pointer {
     /* Better mobile navigation spacing */
     .editorial-grid {
       gap: 1rem;
+    }
+
+    .brand-lockup {
+      gap: 0.64rem;
+    }
+
+    .brand-monogram {
+      width: 2.55rem;
+      height: 2.55rem;
+      font-size: 2rem;
+    }
+
+    .brand-wordmark {
+      font-size: 0.64rem;
+    }
+
+    .brand-wordmark span + span {
+      font-size: 0.52rem;
+    }
+
+    .lookbook-next {
+      width: 100%;
+      gap: 0.8rem;
+      font-size: 0.68rem;
     }
     
     /* Mobile-specific typography adjustments */

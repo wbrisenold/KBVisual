@@ -17,6 +17,17 @@ function SiteRoutes() {
   const [location, setLocation] = useLocation();
 
   useEffect(() => {
+    const hash = location.includes("#") ? location.split("#").pop() : "";
+
+    if (hash) {
+      const frame = window.requestAnimationFrame(() => {
+        const target = document.getElementById(decodeURIComponent(hash));
+        target?.scrollIntoView({ block: "start" });
+      });
+
+      return () => window.cancelAnimationFrame(frame);
+    }
+
     window.scrollTo(0, 0);
   }, [location]);
 
@@ -40,17 +51,40 @@ function SiteRoutes() {
 
       const link = anchor as HTMLAnchorElement;
       const url = new URL(link.href);
+      const currentPath = `${window.location.pathname}${window.location.search}`;
+      const targetPath = `${url.pathname}${url.search}`;
       const nextPath = `${url.pathname}${url.search}${url.hash}`;
       const isExternal = url.origin !== window.location.origin;
       const opensElsewhere = link.target && link.target !== "_self";
 
-      if (isExternal || opensElsewhere || link.download || nextPath === location) {
+      if (isExternal || opensElsewhere || link.download) {
+        return;
+      }
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isSamePageHash = Boolean(url.hash) && targetPath === currentPath;
+
+      if (isSamePageHash) {
+        event.preventDefault();
+
+        const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+        if (target) {
+          window.history.pushState(null, "", `${targetPath}${url.hash}`);
+          target.scrollIntoView({
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+            block: "start"
+          });
+        }
+
+        return;
+      }
+
+      if (nextPath === location) {
         return;
       }
 
       event.preventDefault();
 
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const viewTransitionDocument = document as Document & {
         startViewTransition?: (callback: () => void) => void;
       };

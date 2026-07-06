@@ -136,6 +136,20 @@ const Hero = () => {
               </a>
             </div>
           </motion.div>
+
+          <motion.a
+            href="#selected-work"
+            className="lookbook-next mt-8 w-full text-white/90 md:ml-auto md:max-w-sm"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.35 }}
+          >
+            <span>
+              <span className="lookbook-next__meta">Next / 01</span>
+              Selected Work
+            </span>
+            <ArrowRight className="h-4 w-4" />
+          </motion.a>
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { SCHEDULING_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
 import photographerPortrait from "@assets/profile-pic.jpg";
@@ -26,51 +27,60 @@ const About = () => {
         }}
       />
 
-      <section className="relative overflow-hidden bg-stone-950 pt-28 text-white md:pt-32">
-        <img
-          src={outdoorPortrait}
-          alt="Outdoor portrait background by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-25 blur-[2px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-stone-950"></div>
-        <div className="editorial-grid relative min-h-[72vh] items-end pb-16 md:pb-20">
+      <section className="relative overflow-hidden bg-stone-100 pt-8 text-stone-950 md:pt-32">
+        <div className="absolute inset-x-0 top-0 h-px bg-stone-950/20"></div>
+        <div className="editorial-grid relative items-start pb-14 md:min-h-[72vh] md:items-end md:pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 42, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-12 md:col-span-7"
+            initial={{ opacity: 0, y: 42 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-12 md:col-span-6"
           >
-            <div className="editorial-caption mb-5 text-yellow-500">
-              About the Photographer
+            <div className="lookbook-page-marker mb-5 text-stone-700">
+              Profile / 08
             </div>
-            <h1 className="editorial-headline text-6xl leading-none text-white md:text-8xl">
+            <div className="editorial-caption editorial-caption--on-light mb-5">
+              About KB Visualz
+            </div>
+            <h1 className="editorial-headline text-6xl leading-none text-stone-950 md:text-8xl lg:text-9xl">
               Ken Brisenold
             </h1>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/76 md:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-stone-700 md:text-lg">
               I'm the photographer behind KB Visualz, creating portrait sessions
               in Orlando and Central Florida with a focus on presence,
               confidence, and clean visual storytelling.
             </p>
+            <a href="#approach" className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
+              <span>
+                <span className="lookbook-next__meta">Next / 01</span>
+                The Approach
+              </span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 36, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-12 mt-10 md:col-span-4 md:col-start-9 md:mt-0"
+            initial={{ opacity: 0, y: 38 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-12 mt-8 md:col-span-5 md:col-start-8 md:mt-0"
           >
-            <div className="border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-md">
+            <figure className="border border-stone-950/12 bg-stone-200 p-3">
               <img
                 src={photographerPortrait}
                 alt="Ken Brisenold, photographer behind KB Visualz"
                 className="aspect-[4/5] w-full object-cover object-top"
               />
-            </div>
+              <figcaption className="mt-4 grid grid-cols-[auto_1fr] items-center gap-4 text-xs uppercase text-stone-700">
+                <span>Artist Profile</span>
+                <span className="h-px bg-stone-950/20"></span>
+              </figcaption>
+            </figure>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section id="approach" className="scroll-mt-20 py-20 md:py-28">
         <div className="editorial-grid items-start">
           <motion.div
             initial={{ opacity: 0, y: 34 }}
@@ -79,6 +89,9 @@ const About = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
+            <div className="lookbook-page-marker mb-5 text-stone-500">
+              Page 01
+            </div>
             <div className="editorial-caption text-yellow-600 mb-5">
               The Approach
             </div>
@@ -111,26 +124,37 @@ const About = () => {
               <span>Posing</span>
               <span>Polished Edits</span>
             </div>
+
+            <a href="#philosophy" className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
+              <span>
+                <span className="lookbook-next__meta">Next / 02</span>
+                The Philosophy
+              </span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </motion.div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-black py-20 text-white md:py-28">
+      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-black py-20 text-white md:py-28">
         <img
           src={studioPortrait}
           alt="Studio portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-30 blur-[1px]"
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-black/62"></div>
         <div className="editorial-grid relative">
           <motion.div
-            initial={{ opacity: 0, y: 34, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3"
           >
+            <div className="lookbook-page-marker mb-8 justify-center text-white/58">
+              Page 02
+            </div>
             <div className="editorial-title mb-10 text-center text-4xl italic leading-tight text-white md:text-6xl">
               "In 2018, I discovered my passion for photography, forever changing the course of my life."
             </div>
@@ -141,11 +165,21 @@ const About = () => {
               honest expression, personal milestones, and the details that make
               a portrait feel true.
             </p>
+
+            <div className="mt-10 flex justify-center">
+              <a href="#book-about" className="lookbook-next w-full max-w-sm text-white/90">
+                <span>
+                  <span className="lookbook-next__meta">Next / 03</span>
+                  Booking
+                </span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section id="book-about" className="scroll-mt-20 bg-stone-100 py-20 md:py-28">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -154,6 +188,9 @@ const About = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-10 md:col-start-2 text-center"
           >
+            <div className="lookbook-page-marker mb-5 justify-center text-stone-500">
+              Page 03
+            </div>
             <h2 className="editorial-title mx-auto mb-6 max-w-4xl text-5xl leading-tight text-stone-950 md:text-7xl">
               Ready for portraits that feel personal and polished?
             </h2>

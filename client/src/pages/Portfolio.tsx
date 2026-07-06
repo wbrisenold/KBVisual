@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import type { MouseEvent } from "react";
 import { motion } from "framer-motion";
-import { Maximize2 } from "lucide-react";
+import { ArrowRight, Maximize2 } from "lucide-react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
 import FAQ from "@/components/FAQ";
@@ -75,6 +76,13 @@ const portraits = [
 
 const Portfolio = () => {
   const galleryRef = useRef<HTMLDivElement>(null);
+  const openGallery = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const target = document.getElementById("portfolio-gallery");
+    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", "/portfolio/#portfolio-gallery");
+  };
 
   useEffect(() => {
     if (!galleryRef.current) {
@@ -123,44 +131,79 @@ const Portfolio = () => {
         }}
       />
 
-      <section className="relative overflow-hidden pt-28 md:pt-32">
-        <img
-          src={gardenEditorialPortrait}
-          alt="Garden editorial portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-30 blur-[2px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/70 to-black"></div>
-        <div className="editorial-grid relative min-h-[76vh] items-end pb-16 md:pb-20">
+      <section className="relative overflow-hidden bg-stone-100 pt-8 text-stone-950 md:pt-32">
+        <div className="absolute inset-x-0 top-0 h-px bg-stone-950/20"></div>
+        <div className="editorial-grid relative items-start pb-14 md:min-h-[72vh] md:items-end md:pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 48, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 42 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-12 md:col-span-9"
+            className="col-span-12 md:col-span-6"
           >
-            <div className="editorial-caption mb-5 text-yellow-500">
+            <div className="lookbook-page-marker mb-5 text-stone-700">
+              Index
+            </div>
+            <div className="editorial-caption editorial-caption--on-light mb-5">
               Portrait Portfolio
             </div>
-            <h1 className="editorial-headline max-w-5xl text-6xl leading-none text-white md:text-8xl lg:text-9xl">
-              Portrait Stories
+            <h1 className="editorial-headline max-w-5xl text-6xl leading-none text-stone-950 md:text-8xl lg:text-9xl">
+              The Portrait Lookbook
             </h1>
-            <p className="mt-8 max-w-3xl text-base leading-relaxed text-white/76 md:text-lg">
+            <p className="mt-8 max-w-3xl text-base leading-relaxed text-stone-700 md:text-lg">
               A focused collection of Orlando and Central Florida portraits
               made around expression, styling, and honest presence.
             </p>
+            <a href="#portfolio-gallery" onClick={openGallery} className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
+              <span>
+                <span className="lookbook-next__meta">Next / 01</span>
+                Open Gallery
+              </span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 38 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="order-first col-span-12 mb-8 grid grid-cols-3 gap-2 md:order-none md:col-span-5 md:col-start-8 md:mb-0 md:mt-0 md:gap-3"
+          >
+            {[gardenEditorialPortrait, formalStudioPortrait, childPortrait].map((image, index) => (
+              <figure
+                key={image}
+                className={`relative overflow-hidden border border-stone-950/12 bg-stone-200 ${
+                  index === 1 ? "mt-10" : index === 2 ? "mt-5" : ""
+                }`}
+              >
+                <img
+                  src={image}
+                  alt=""
+                  className="aspect-[3/4] h-full w-full object-cover"
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              </figure>
+            ))}
+            <div className="col-span-3 mt-4 grid grid-cols-[auto_1fr] items-center gap-4 text-xs uppercase text-stone-700">
+              <span>Issue 01</span>
+              <span className="h-px bg-stone-950/20"></span>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-black py-16 md:py-24">
+      <section id="portfolio-gallery" className="scroll-mt-20 bg-black py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 34, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
             className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           >
             <div>
+              <div className="lookbook-page-marker mb-5 text-white/58">
+                Page 01
+              </div>
               <div className="editorial-caption mb-4 text-yellow-500">
                 Selected Work
               </div>

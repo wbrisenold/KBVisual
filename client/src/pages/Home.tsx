@@ -89,21 +89,24 @@ const Home = () => {
 
       <Hero />
 
-      <section className="bg-black py-20 text-white md:py-28">
+      <section id="selected-work" className="scroll-mt-20 bg-black py-20 text-white md:py-28">
         <div className="editorial-grid">
           <motion.div
-            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
             className="col-span-12 mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           >
             <div>
+              <div className="lookbook-page-marker mb-5 text-white/58">
+                Page 01
+              </div>
               <div className="editorial-caption mb-4 text-yellow-500">
                 Selected Work
               </div>
-              <h2 className="editorial-title max-w-4xl text-5xl leading-none text-white md:text-7xl">
-                Portraits built around atmosphere, expression, and restraint.
+              <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-white md:text-7xl">
+                A portrait lookbook with atmosphere, expression, and edge.
               </h2>
             </div>
             <a href="/portfolio" className="site-button site-button--outline-light md:mb-2">
@@ -115,8 +118,8 @@ const Home = () => {
             {selectedWorks.map((photo, index) => (
               <motion.figure
                 key={photo.title}
-                initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                initial={{ opacity: 0, y: 42 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.95, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
                 className={`scroll-lift group relative min-h-[330px] overflow-hidden border border-white/10 bg-white/5 md:min-h-[420px] ${photo.className}`}
@@ -138,10 +141,20 @@ const Home = () => {
               </motion.figure>
             ))}
           </div>
+
+          <div className="col-span-12 mt-10 flex justify-end">
+            <a href="#session" className="lookbook-next w-full max-w-sm text-white/90">
+              <span>
+                <span className="lookbook-next__meta">Next / 02</span>
+                The Session
+              </span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section id="session" className="scroll-mt-20 bg-white py-20 md:py-28">
         <div className="editorial-grid items-start">
           <motion.div
             initial={{ opacity: 0, y: 34 }}
@@ -150,6 +163,9 @@ const Home = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
+            <div className="lookbook-page-marker mb-5 text-stone-500">
+              Page 02
+            </div>
             <div className="editorial-caption text-yellow-600 mb-4">
               The Session
             </div>
@@ -201,11 +217,19 @@ const Home = () => {
                 Plan Your Session
               </a>
             </div>
+
+            <a href="#booking" className="lookbook-next mt-10 w-full max-w-sm text-stone-900">
+              <span>
+                <span className="lookbook-next__meta">Next / 03</span>
+                Booking
+              </span>
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </motion.div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-black py-20 text-white md:py-28">
+      <section id="booking" className="relative scroll-mt-20 overflow-hidden bg-black py-20 text-white md:py-28">
         <img
           src={outdoorEditorialPortrait}
           alt="Outdoor portrait by KB Visualz"
@@ -223,6 +247,9 @@ const Home = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
+            <div className="lookbook-page-marker mb-5 justify-center text-white/58">
+              Page 03
+            </div>
             <div className="editorial-caption mb-5 text-yellow-300">
               Booking
             </div>
@@ -242,6 +269,15 @@ const Home = () => {
               Start Planning
               <ArrowRight className="h-4 w-4" />
             </a>
+            <div className="mt-10 flex justify-center">
+              <a href="/portfolio" className="lookbook-next w-full max-w-sm text-white/90">
+                <span>
+                  <span className="lookbook-next__meta">Next / Portfolio</span>
+                  Open the Full Lookbook
+                </span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

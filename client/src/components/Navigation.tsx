@@ -14,7 +14,7 @@ const Navigation = () => {
   const navPosition = isHome ? "fixed" : "sticky";
   const navSurface = isTransparent
     ? "bg-gradient-to-b from-black/55 via-black/20 to-transparent text-white"
-    : "bg-white/88 text-stone-950 shadow-sm backdrop-blur-xl";
+    : "bg-white text-stone-950 shadow-sm";
   const navText = isTransparent ? "text-white" : "text-black";
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const Navigation = () => {
           </div>
 
           {/* Year */}
-          <div className={`hidden text-sm opacity-60 md:block ${navText}`}>
+          <div className={`hidden text-sm md:block ${isTransparent ? "text-white/80" : "text-stone-700"}`}>
             2026
           </div>
 
