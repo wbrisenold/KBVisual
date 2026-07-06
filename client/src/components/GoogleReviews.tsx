@@ -1,18 +1,17 @@
 import { motion } from "framer-motion";
 import { ExternalLink, MapPinned, Star } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { GOOGLE_REVIEWS_URL } from "@/lib/booking";
 
 const GoogleReviews = () => {
   return (
-    <section className="bg-stone-950 py-14 text-white md:py-16">
+    <section className="bg-stone-950 py-16 text-white md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="flex flex-col gap-8 rounded-lg border border-white/10 bg-white/[0.05] p-6 md:flex-row md:items-center md:justify-between md:p-8"
+          className="flex flex-col gap-8 border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md md:flex-row md:items-center md:justify-between md:p-8"
         >
           <div className="max-w-3xl">
             <div className="editorial-caption text-yellow-500 mb-4">
@@ -39,12 +38,15 @@ const GoogleReviews = () => {
             </div>
           </div>
 
-          <Button asChild className="gold-gradient h-12 flex-shrink-0 text-stone-900 font-semibold w-full sm:w-auto">
-            <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
-              Open Google Reviews
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </Button>
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-button site-button--light w-full flex-shrink-0 sm:w-auto"
+          >
+            Open Google Reviews
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </motion.div>
       </div>
     </section>

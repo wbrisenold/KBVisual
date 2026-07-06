@@ -9,6 +9,13 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [location] = useLocation();
   const scrollY = useScrollPosition();
+  const isHome = location === "/";
+  const isTransparent = isHome && scrollY < 120 && !isOpen;
+  const navPosition = isHome ? "fixed" : "sticky";
+  const navSurface = isTransparent
+    ? "bg-gradient-to-b from-black/55 via-black/20 to-transparent text-white"
+    : "bg-white/88 text-stone-950 shadow-sm backdrop-blur-xl";
+  const navText = isTransparent ? "text-white" : "text-black";
 
   useEffect(() => {
     setIsOpen(false);
@@ -26,11 +33,9 @@ const Navigation = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          scrollY > 100 ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-white/80 backdrop-blur-sm"
-        }`}
+        className={`${navPosition} top-0 z-50 w-full transition-all duration-500 ${navSurface}`}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12 flex items-center justify-between py-4 md:py-6">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6 md:py-5 lg:px-12">
           {/* Logo */}
           <Link href="/" aria-label="KB Visualz home">
             <motion.div 
@@ -39,7 +44,7 @@ const Navigation = () => {
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >
-              <BrandMark className="transition-opacity group-hover:opacity-70" />
+              <BrandMark inverted={isTransparent} className="transition-opacity group-hover:opacity-70" />
             </motion.div>
           </Link>
 
@@ -56,7 +61,7 @@ const Navigation = () => {
               >
                 <Link href={item.href}>
                   <div className="group cursor-pointer relative">
-                    <div className="text-sm text-black group-hover:opacity-70 transition-opacity uppercase">
+                    <div className={`text-sm uppercase transition-opacity group-hover:opacity-70 ${navText}`}>
                       {item.name}
                     </div>
                   </div>
@@ -66,7 +71,7 @@ const Navigation = () => {
           </div>
 
           {/* Year */}
-          <div className="hidden md:block text-sm text-black opacity-60">
+          <div className={`hidden text-sm opacity-60 md:block ${navText}`}>
             2026
           </div>
 
@@ -74,7 +79,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-black hover:opacity-70 transition-opacity relative p-2"
+              className={`relative p-2 transition-opacity hover:opacity-70 ${navText}`}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"

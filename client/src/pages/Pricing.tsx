@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import { Building2, Camera, ExternalLink, Sparkles, Star, VideoOff } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { PEERSPACE_STUDIO_URL, SCHEDULING_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
+import pricingPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 
 const portraitPackages = [
   {
@@ -138,49 +137,58 @@ const Pricing = () => {
         }}
       />
 
-      <section className="pt-14 pb-6 md:pt-16 md:pb-8">
-        <div className="editorial-grid">
+      <section className="relative overflow-hidden bg-stone-950 pt-28 text-white md:pt-32">
+        <img
+          src={pricingPortrait}
+          alt="Outdoor editorial portrait by KB Visualz"
+          className="absolute inset-0 h-full w-full object-cover opacity-28 blur-[2px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/68 to-stone-950"></div>
+        <div className="editorial-grid relative min-h-[68vh] items-end pb-16 md:pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="col-span-12 text-center"
+            initial={{ opacity: 0, y: 44, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-12 md:col-span-8"
           >
-            <div className="editorial-caption text-yellow-600 mb-4">
-              PORTRAIT PRICING
+            <div className="editorial-caption mb-5 text-yellow-500">
+              Portrait Pricing
             </div>
-            <h1 className="editorial-headline text-5xl md:text-7xl text-stone-900 mb-5">
+            <h1 className="editorial-headline text-6xl leading-none text-white md:text-8xl lg:text-9xl">
               Portrait Sessions
             </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-stone-600 md:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/76 md:text-lg">
               Portrait photography pricing for Orlando and Central Florida
               sessions, including outdoor portraits and optional studio rental
               planning.
             </p>
-            <div className="mx-auto mt-6 h-px w-24 bg-yellow-600/50"></div>
             {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
           </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-stone-950 pb-16 text-white md:pb-20">
+        <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-10 md:col-start-2 mt-8"
+            className="col-span-12 md:col-span-10 md:col-start-2"
           >
-            <div className="rounded-lg border-2 border-yellow-600 bg-yellow-600/10 p-5 md:p-6 shadow-sm">
+            <div className="border border-yellow-500/40 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-md md:p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-stone-950 text-yellow-500">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center border border-yellow-500/40 bg-black/40 text-yellow-500">
                   <VideoOff className="h-6 w-6" />
                 </div>
                 <div>
-                  <div className="editorial-caption mb-2 text-yellow-700">
-                    PHOTO-ONLY PACKAGES
+                  <div className="editorial-caption mb-2 text-yellow-500">
+                    Photo-Only Packages
                   </div>
-                  <h2 className="editorial-title mb-2 text-2xl text-stone-950 md:text-3xl">
+                  <h2 className="editorial-title mb-2 text-3xl text-white md:text-4xl">
                     Photo and video are booked separately.
                   </h2>
-                  <p className="max-w-3xl text-sm leading-relaxed text-stone-700 md:text-base">
+                  <p className="max-w-3xl text-sm leading-relaxed text-white/72 md:text-base">
                     KB Visualz does not offer photo and video bundle packages.
                     These prices cover photography sessions only; video
                     coverage must be booked with a separate videographer.
@@ -192,28 +200,28 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="pb-16 md:pb-20">
+      <section className="bg-white py-16 md:py-24">
         <div className="editorial-grid gap-8 md:gap-10">
           {portraitPackages.map((service, index) => (
             <motion.article
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.12 }}
+              initial={{ opacity: 0, y: 48, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.9, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
               className={`col-span-12 ${service.featured ? "md:col-span-8 md:col-start-3" : "md:col-span-10 md:col-start-2"} relative`}
             >
               {service.featured && (
-                <div className="absolute -top-4 -right-4 bg-yellow-600 text-stone-900 px-4 py-2 editorial-caption rotate-3">
+                <div className="absolute -top-4 -right-4 z-10 bg-stone-950 px-4 py-2 editorial-caption text-yellow-500 rotate-3">
                   POPULAR
                 </div>
               )}
 
-              <div className={`rounded-lg border ${service.featured ? "border-yellow-600 bg-stone-50" : "border-gray-200 bg-gray-50"} overflow-hidden`}>
+              <div className={`overflow-hidden border ${service.featured ? "border-stone-950 bg-stone-50" : "border-stone-200 bg-white"}`}>
                 <div className="p-7 md:p-10">
                   <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-7">
                     <div className="flex items-start gap-4">
-                      <div className="text-yellow-600 bg-yellow-600/10 p-3 rounded-lg flex-shrink-0">
+                      <div className="flex-shrink-0 border border-yellow-600/30 bg-yellow-600/10 p-3 text-yellow-600">
                         {service.icon}
                       </div>
                       <div>
@@ -230,7 +238,7 @@ const Pricing = () => {
                     </div>
 
                     <div className="md:text-right flex-shrink-0">
-                      <div className="text-3xl md:text-4xl font-light text-yellow-600">
+                      <div className="editorial-title text-4xl text-yellow-700 md:text-5xl">
                         {service.price}
                       </div>
                       <div className="text-sm text-stone-600 mt-1">
@@ -260,7 +268,7 @@ const Pricing = () => {
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {sessionTypes.map((type) => (
-                          <span key={type} className="rounded-full border border-yellow-600/30 px-3 py-1 text-sm text-stone-700">
+                          <span key={type} className="border border-yellow-600/30 px-3 py-1 text-sm text-stone-700">
                             {type}
                           </span>
                         ))}
@@ -280,16 +288,17 @@ const Pricing = () => {
                   </div>
 
                   <div className="mt-7 flex flex-col sm:flex-row gap-4">
-                    <Button asChild className="gold-gradient text-stone-900 font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-auto">
-                      <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                        PLAN THIS SESSION
-                      </a>
-                    </Button>
-                    <Button asChild variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
-                      <Link href="/portfolio">
-                        VIEW PORTRAITS
-                      </Link>
-                    </Button>
+                    <a
+                      href={SCHEDULING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="site-button site-button--dark w-full sm:w-auto"
+                    >
+                      Plan This Session
+                    </a>
+                    <a href="/portfolio" className="site-button site-button--outline w-full sm:w-auto">
+                      View Portraits
+                    </a>
                   </div>
                 </div>
               </div>
@@ -298,7 +307,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-14 bg-stone-50">
+      <section className="py-14 bg-stone-50 md:py-20">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -307,7 +316,7 @@ const Pricing = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
-            <h2 className="editorial-title text-3xl text-stone-900 mb-4">
+            <h2 className="editorial-title text-4xl text-stone-900 mb-4 md:text-5xl">
               Studio Pricing Note
             </h2>
             <p className="editorial-body text-stone-600">
@@ -319,7 +328,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="bg-stone-950 py-16 text-white md:py-20">
+      <section className="bg-stone-950 py-20 text-white md:py-24">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -348,7 +357,7 @@ const Pricing = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="rounded-lg border border-white/10 bg-white/[0.06] p-6"
+                className="border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md"
               >
                 <h3 className="mb-3 text-lg font-semibold text-white">
                   {item.title}

@@ -90,13 +90,13 @@ a, button, .cursor-pointer {
     @apply antialiased;
     background-color: #ffffff;
     color: #1c1917;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.6;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Newsreader', serif;
     font-weight: 400;
     letter-spacing: 0;
   }
@@ -105,22 +105,22 @@ a, button, .cursor-pointer {
 @layer utilities {
   /* Editorial Magazine Typography */
   .editorial-headline {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
     font-style: normal;
     letter-spacing: 0;
     line-height: 0.92;
   }
 
   .editorial-title {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
     letter-spacing: 0;
     line-height: 1.1;
   }
 
   .editorial-body {
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.7;
     letter-spacing: 0;
@@ -128,8 +128,8 @@ a, button, .cursor-pointer {
   }
 
   .editorial-caption {
-    font-family: 'Instrument Sans', sans-serif;
-    font-weight: 650;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     font-size: 0.75rem;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -137,7 +137,7 @@ a, button, .cursor-pointer {
   }
 
   .editorial-quote {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Newsreader', serif;
     font-weight: 400;
     font-style: italic;
     font-size: 1.5rem;
@@ -148,7 +148,7 @@ a, button, .cursor-pointer {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    font-family: 'Instrument Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .brand-monogram {
@@ -158,7 +158,7 @@ a, button, .cursor-pointer {
     height: 3rem;
     flex: none;
     border: 1px solid currentColor;
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Newsreader', serif;
     font-size: 2rem;
     line-height: 1;
   }
@@ -194,9 +194,8 @@ a, button, .cursor-pointer {
     flex-direction: column;
     gap: 0.12rem;
     font-size: 0.72rem;
-    font-stretch: 108%;
-    font-weight: 680;
-    line-height: 1;
+    font-weight: 600;
+    line-height: 1.08;
     text-transform: uppercase;
   }
 
@@ -204,6 +203,74 @@ a, button, .cursor-pointer {
     font-size: 0.58rem;
     font-weight: 500;
     opacity: 0.62;
+  }
+
+  .site-button {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border: 1px solid currentColor;
+    padding: 0.85rem 1.35rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  }
+
+  .site-button:hover {
+    transform: translateY(-1px);
+  }
+
+  .site-button--dark {
+    border-color: #1c1917;
+    background: #1c1917;
+    color: #ffffff;
+  }
+
+  .site-button--dark:hover {
+    background: #ca8a04;
+    border-color: #ca8a04;
+    color: #1c1917;
+  }
+
+  .site-button--light {
+    border-color: rgba(255, 255, 255, 0.75);
+    background: #ffffff;
+    color: #0c0a09;
+  }
+
+  .site-button--light:hover {
+    background: #ca8a04;
+    border-color: #ca8a04;
+    color: #0c0a09;
+  }
+
+  .site-button--outline {
+    border-color: currentColor;
+    background: transparent;
+    color: #a16207;
+  }
+
+  .site-button--outline:hover {
+    background: #1c1917;
+    border-color: #1c1917;
+    color: #ffffff;
+  }
+
+  .site-button--outline-light {
+    border-color: rgba(255, 255, 255, 0.72);
+    background: transparent;
+    color: #ffffff;
+  }
+
+  .site-button--outline-light:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #0c0a09;
   }
 
   /* Magazine Layout Elements */
@@ -214,7 +281,7 @@ a, button, .cursor-pointer {
   }
 
   .magazine-dropcap::first-letter {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Newsreader', serif;
     font-size: 4rem;
     font-weight: 400;
     float: left;
@@ -267,7 +334,7 @@ a, button, .cursor-pointer {
 
   .ornamental-break {
     text-align: center;
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Newsreader', serif;
     font-size: 2rem;
     color: hsl(var(--luxury-gold));
     margin: 3rem 0;
@@ -275,7 +342,7 @@ a, button, .cursor-pointer {
 
   /* Pull Quotes */
   .pull-quote {
-    font-family: 'Instrument Serif', serif;
+    font-family: 'Newsreader', serif;
     font-size: 2rem;
     font-weight: 400;
     font-style: italic;

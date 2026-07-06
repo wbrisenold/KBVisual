@@ -1,54 +1,62 @@
 import Hero from "@/components/Hero";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
-import { ArrowRight, Camera, Sparkles, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import GoogleReviews from "@/components/GoogleReviews";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
+import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
+import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
+import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
+import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
 import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
 import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const Home = () => {
-  const portraitShowcase = [
+  const selectedWorks = [
     {
       image: gardenEditorialPortrait,
-      title: "Creative outdoor portraits",
-      description: "Color, expression, and movement shaped around the person in front of the lens.",
+      title: "Creative Outdoor",
+      meta: "Color / Direction / Movement",
       className: "md:col-span-7 md:row-span-2"
     },
     {
       image: formalStudioPortrait,
-      title: "Polished studio presence",
-      description: "Formal portrait direction with controlled light and a refined finish.",
+      title: "Studio Presence",
+      meta: "Light / Shape / Polish",
       className: "md:col-span-5"
     },
     {
       image: retroStudioPortrait,
-      title: "Personality-led sessions",
-      description: "Styling and pacing that leave room for confidence, character, and ease.",
+      title: "Editorial Color",
+      meta: "Character / Styling / Ease",
       className: "md:col-span-5"
+    },
+    {
+      image: proposalPortrait,
+      title: "Couples",
+      meta: "Connection / Timing / Place",
+      className: "md:col-span-4"
+    },
+    {
+      image: childPortrait,
+      title: "Family",
+      meta: "Warmth / Patience / Memory",
+      className: "md:col-span-4"
+    },
+    {
+      image: coupleCloseup,
+      title: "Close Portraits",
+      meta: "Expression / Detail / Calm",
+      className: "md:col-span-4"
     }
   ];
 
-  const portraitFocus = [
-    {
-      icon: <Camera className="w-7 h-7" />,
-      title: "Signature Portraits",
-      description: "A one-hour session with 15 edited portraits and direction throughout the shoot."
-    },
-    {
-      icon: <Sparkles className="w-7 h-7" />,
-      title: "Legacy Portraits",
-      description: "A two-hour session with 30 edited portraits for more outfits, locations, and variety."
-    },
-    {
-      icon: <Users className="w-7 h-7" />,
-      title: "Studio Options",
-      description: "Choose a studio space, then pair it with the portrait package that fits your session."
-    }
+  const approachNotes = [
+    "Directed posing without making the session feel stiff.",
+    "Outdoor, studio, and location guidance around the look you want.",
+    "A final edit that keeps the portrait polished without losing the person."
   ];
 
   return (
@@ -81,64 +89,50 @@ const Home = () => {
 
       <Hero />
 
-      <section className="bg-stone-950 py-20 text-white md:py-28">
-        <div className="editorial-grid items-center">
+      <section className="bg-black py-20 text-white md:py-28">
+        <div className="editorial-grid">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="col-span-12 lg:col-span-5"
+            className="col-span-12 mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           >
-            <div className="editorial-caption mb-5 text-yellow-500">
-              THE PORTRAIT EXPERIENCE
+            <div>
+              <div className="editorial-caption mb-4 text-yellow-500">
+                Selected Work
+              </div>
+              <h2 className="editorial-title max-w-4xl text-5xl leading-none text-white md:text-7xl">
+                Portraits built around atmosphere, expression, and restraint.
+              </h2>
             </div>
-            <h2 className="editorial-title mb-7 text-4xl text-white md:text-6xl">
-              A session that feels directed, not awkward.
-            </h2>
-            <p className="max-w-xl text-base leading-relaxed text-stone-300 md:text-lg">
-              Most people do not walk into a portrait session knowing exactly
-              what to do. That is the point of working with a photographer who
-              guides the mood, the posing, the small adjustments, and the final
-              edit.
-            </p>
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Button asChild className="gold-gradient h-12 w-full px-6 font-semibold text-stone-950 sm:w-auto">
-                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                  Plan Your Session
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
-              <Button asChild variant="outline" className="h-12 w-full border-white/40 bg-transparent px-6 text-white hover:bg-white hover:text-stone-950 sm:w-auto">
-                <Link href="/portfolio">
-                  View The Portfolio
-                </Link>
-              </Button>
-            </div>
+            <a href="/portfolio" className="site-button site-button--outline-light md:mb-2">
+              Enter Portfolio
+            </a>
           </motion.div>
 
-          <div className="col-span-12 grid gap-4 md:grid-cols-12 lg:col-span-7">
-            {portraitShowcase.map((photo, index) => (
+          <div className="col-span-12 grid gap-3 md:grid-cols-12 md:gap-4">
+            {selectedWorks.map((photo, index) => (
               <motion.figure
                 key={photo.title}
-                initial={{ opacity: 0, y: 34 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
+                initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.95, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className={`scroll-lift group relative min-h-[360px] overflow-hidden rounded-lg border border-white/10 bg-white/5 ${photo.className}`}
+                className={`scroll-lift group relative min-h-[330px] overflow-hidden border border-white/10 bg-white/5 md:min-h-[420px] ${photo.className}`}
               >
                 <img
                   src={photo.image}
                   alt={`${photo.title} by KB Visualz`}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]"
                   loading="lazy"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent p-5">
-                  <h3 className="text-lg font-semibold text-white">
+                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5">
+                  <h3 className="editorial-title text-3xl text-white">
                     {photo.title}
                   </h3>
-                  <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/75">
-                    {photo.description}
+                  <p className="max-w-[12rem] text-right text-xs uppercase leading-relaxed text-white/60">
+                    {photo.meta}
                   </p>
                 </figcaption>
               </motion.figure>
@@ -147,98 +141,106 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-gray-50">
-        <div className="editorial-grid">
+      <section className="bg-white py-20 md:py-28">
+        <div className="editorial-grid items-start">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.9 }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-4 text-center md:text-left"
+            className="col-span-12 md:col-span-5"
           >
             <div className="editorial-caption text-yellow-600 mb-4">
-              PORTRAIT SESSIONS
+              The Session
             </div>
-            <h2 className="editorial-title text-4xl md:text-5xl text-stone-900 mb-6">
-              Individual Portraits
+            <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">
+              Calm direction. Strong portraits.
             </h2>
-            <div className="section-break md:mx-0 mb-8"></div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.9, delay: 0.15 }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-8"
+            className="col-span-12 md:col-span-6 md:col-start-7"
           >
-            <div className="magazine-column">
-              <div className="editorial-body text-stone-700 magazine-dropcap">
-                KB Visualz creates Orlando portrait photography for graduation,
-                prom, fashion, family, branding, and creative personal work.
-                Each session is planned around how you want to look, feel, and
-                remember this season.
-              </div>
+            <p className="editorial-body text-stone-700">
+              KB Visualz creates Orlando portrait photography for graduation,
+              branding, family, couples, and creative personal work. The session
+              is planned around how you want to look, how the location should
+              feel, and what kind of portrait you want to keep.
+            </p>
 
-              <div className="editorial-body text-stone-700 mt-6">
-                You will get help with timing, location, and posing so the
-                session feels clear before you ever step in front of the camera.
-              </div>
+            <div className="mt-8 divide-y divide-stone-200 border-y border-stone-200">
+              {approachNotes.map((note, index) => (
+                <motion.div
+                  key={note}
+                  initial={{ opacity: 0, x: 24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.65, delay: index * 0.08 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-[3rem_1fr] gap-4 py-5 text-stone-800"
+                >
+                  <span className="text-sm text-yellow-700">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-lg leading-relaxed">{note}</span>
+                </motion.div>
+              ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <Button asChild className="gold-gradient text-stone-900 font-semibold w-full sm:w-auto">
-                <Link href="/pricing">
-                  VIEW PRICING
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 w-full sm:w-auto">
-                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                  PLAN YOUR SESSION
-                </a>
-              </Button>
+              <a href="/pricing" className="site-button site-button--dark w-full sm:w-auto">
+                View Pricing
+              </a>
+              <a
+                href={SCHEDULING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-button site-button--outline w-full sm:w-auto"
+              >
+                Plan Your Session
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-stone-950 py-20 text-white md:py-28">
+        <img
+          src={outdoorEditorialPortrait}
+          alt="Outdoor portrait by KB Visualz"
+          className="absolute inset-0 h-full w-full object-cover opacity-28 blur-[2px]"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-black/55"></div>
+        <div className="editorial-grid relative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.95 }}
             viewport={{ once: true }}
-            className="text-center mb-14"
+            className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
-            <div className="editorial-caption text-yellow-600 mb-4">
-              CURRENT PACKAGES
+            <div className="editorial-caption text-yellow-500 mb-5">
+              Booking
             </div>
-            <h2 className="editorial-title text-3xl md:text-4xl text-stone-900">
-              Portrait Session Options
+            <h2 className="editorial-title mb-6 text-5xl leading-tight text-white md:text-7xl">
+              Make the portrait feel like it belongs to you.
             </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/76 md:text-lg">
+              Choose the package that fits the pace of your session, then we
+              shape the location, timing, outfits, and mood from there.
+            </p>
+            <a
+              href={SCHEDULING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="site-button site-button--light"
+            >
+              Start Planning
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {portraitFocus.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-lg border border-gray-200 bg-gray-50 p-6"
-              >
-                <div className="text-yellow-600 mb-4">{item.icon}</div>
-                <h3 className="editorial-title text-2xl text-stone-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-stone-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

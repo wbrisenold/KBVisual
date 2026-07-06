@@ -75,19 +75,19 @@ const FAQ = ({ page, title, description }: FAQProps) => {
   if (faqs.length === 0) return null;
 
   return (
-    <section className="py-16 bg-white">
+    <section className="bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.9 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="text-xs uppercase opacity-60 mb-4">
+          <div className="editorial-caption text-yellow-600 mb-4">
             Frequently Asked Questions
           </div>
-          <h2 className="text-3xl md:text-4xl font-light mb-6">
+          <h2 className="editorial-title text-4xl text-stone-950 md:text-5xl mb-6">
             {title || "Common Questions"}
           </h2>
           {description && (
@@ -105,15 +105,15 @@ const FAQ = ({ page, title, description }: FAQProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              className="overflow-hidden border border-stone-200 bg-stone-50"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white transition-colors"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${page}-${index}`}
               >
-                <span id={`faq-question-${page}-${index}`} className="font-medium text-lg">{faq.question}</span>
+                <span id={`faq-question-${page}-${index}`} className="font-medium text-lg text-stone-950">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
