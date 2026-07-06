@@ -54,16 +54,16 @@ const faqData: Record<string, FAQItem[]> = {
   ],
   testimonials: [
     {
-      question: "How do you ensure client satisfaction?",
-      answer: "I work closely with each client from planning through final delivery so the session has a clear direction. My goal is to create images that feel polished, personal, and true to you."
+      question: "Where can I read public client feedback?",
+      answer: "Use the Google Reviews section or the Google Maps link to read the latest public feedback directly on the KB Visualz profile."
     },
     {
-      question: "What do past clients say about working with you?",
-      answer: "Clients often mention the clear direction, calm pacing, and polished final images. Many say they felt comfortable and natural during the session."
+      question: "Why do you link to Google instead of copying reviews here?",
+      answer: "Google Maps keeps review dates, ratings, and comments current, so the public profile is the best place to verify recent feedback."
     },
     {
-      question: "Do you provide references from past clients?",
-      answer: "Yes, I'm happy to connect you with past clients who can share their experience. Client testimonials and reviews are available upon request."
+      question: "Can I ask questions before booking?",
+      answer: "Yes. If you want to talk through timing, location, styling, or the kind of portraits you need, reach out before scheduling."
     }
   ]
 };
