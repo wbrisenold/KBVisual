@@ -2,11 +2,30 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { SCHEDULING_URL } from "@/lib/booking";
+import SEOHead from "@/components/SEOHead";
 import photographerPortrait from "@assets/profile-pic.jpg";
 
 const About = () => {
   return (
     <div className="min-h-screen page-content" style={{ backgroundColor: '#fafafa' }}>
+      <SEOHead
+        title="About Ken Brisenold, Orlando Portrait Photographer"
+        description="Meet Ken Brisenold of KB Visualz, an Orlando portrait photographer creating polished graduation, family, branding, fashion, and creative portraits across Central Florida."
+        keywords="Ken Brisenold, KB Visualz, Orlando portrait photographer, Central Florida photographer, UCF photographer, Florida portrait photography"
+        canonicalPath="/about/"
+        structuredData={{
+          "@type": "Person",
+          "@id": "https://kbvisualz.com/about/#ken-brisenold",
+          "name": "Ken Brisenold",
+          "jobTitle": "Orlando Portrait Photographer",
+          "worksFor": {
+            "@id": "https://kbvisualz.com/#business"
+          },
+          "url": "https://kbvisualz.com/about/",
+          "description": "Military veteran and UCF graduate behind KB Visualz, creating portrait photography in Orlando and Central Florida."
+        }}
+      />
+
       {/* Magazine Header */}
       <section className="section-padding">
         <div className="editorial-grid">
@@ -26,8 +45,8 @@ const About = () => {
             <div className="section-break mb-8"></div>
             <p className="editorial-body text-stone-700 max-w-3xl mx-auto">
               I'm the photographer behind KB Visualz, creating portrait sessions
-              in Florida with a focus on presence, confidence, and clean visual
-              storytelling.
+              in Orlando and Central Florida with a focus on presence,
+              confidence, and clean visual storytelling.
             </p>
           </motion.div>
         </div>
@@ -64,8 +83,8 @@ const About = () => {
               <div className="editorial-body text-stone-700 magazine-dropcap">
                 Born in Haiti and raised in Florida, I am a military veteran and
                 UCF graduate who discovered photography in 2018. That discovery
-                became KB Visualz, where I create portrait work with a focus on
-                presence, confidence, and clean visual storytelling.
+                became KB Visualz, where I create Orlando portrait work with a
+                focus on presence, confidence, and clean visual storytelling.
               </div>
               
               <div className="editorial-body text-stone-700 mt-6">

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { PEERSPACE_STUDIO_URL, SCHEDULING_URL } from "@/lib/booking";
+import SEOHead from "@/components/SEOHead";
 
 const portraitPackages = [
   {
@@ -112,6 +113,31 @@ const policyItems = [
 const Pricing = () => {
   return (
     <div className="min-h-screen page-content bg-white">
+      <SEOHead
+        title="Orlando Portrait Photography Pricing"
+        description="Review KB Visualz portrait photography pricing in Orlando, FL. Signature and Legacy sessions include edited photos, planning, posing direction, and optional studio booking guidance."
+        keywords="Orlando portrait photography pricing, Orlando photographer prices, portrait session pricing Orlando, graduation photos Orlando pricing, branding portraits Orlando pricing"
+        canonicalPath="/pricing/"
+        structuredData={{
+          "@type": "OfferCatalog",
+          "@id": "https://kbvisualz.com/pricing/#portrait-packages",
+          "name": "KB Visualz Orlando Portrait Photography Packages",
+          "url": "https://kbvisualz.com/pricing/",
+          "itemListElement": portraitPackages.map((service) => ({
+            "@type": "Offer",
+            "name": service.title,
+            "description": service.summary,
+            "price": service.price === "$250" ? "250" : service.price === "$400" ? "400" : undefined,
+            "priceCurrency": service.price.startsWith("$") ? "USD" : undefined,
+            "itemOffered": {
+              "@type": "Service",
+              "name": service.title,
+              "serviceType": "Portrait photography"
+            }
+          }))
+        }}
+      />
+
       <section className="py-16 md:py-20 bg-stone-950 text-white">
         <div className="editorial-grid">
           <motion.div
@@ -170,7 +196,12 @@ const Pricing = () => {
             <h1 className="editorial-headline text-5xl md:text-7xl text-stone-900 mb-5">
               Individual Sessions
             </h1>
-            <div className="mx-auto h-px w-24 bg-yellow-600/50"></div>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-stone-600 md:text-lg">
+              Portrait photography pricing for Orlando and Central Florida
+              sessions, including outdoor portraits and optional studio rental
+              planning.
+            </p>
+            <div className="mx-auto mt-6 h-px w-24 bg-yellow-600/50"></div>
             {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
           </motion.div>
           <motion.div

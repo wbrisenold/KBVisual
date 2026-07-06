@@ -10,7 +10,8 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold text-yellow-600 mb-4">KB Visualz</h3>
             <p className="text-stone-700 opacity-80 leading-relaxed">
-              Orlando portrait photography for individual, family, creative, and personal branding sessions.
+              Orlando and Central Florida portrait photography for individual,
+              family, creative, and personal branding sessions.
             </p>
           </div>
 
@@ -40,7 +41,7 @@ const Footer = () => {
           <div>
             <h4 className="text-stone-900 font-medium mb-4">Booking</h4>
             <ul className="space-y-2">
-              <li className="text-stone-700 opacity-80">Orlando, FL</li>
+              <li className="text-stone-700 opacity-80">Orlando and Central Florida</li>
               <li className="text-stone-700 opacity-80">Outdoor and studio portrait sessions</li>
               <li>
                 <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-700 opacity-80 hover:text-yellow-600 transition-colors duration-300">

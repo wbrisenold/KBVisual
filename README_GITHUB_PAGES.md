@@ -7,7 +7,7 @@ This export has been converted from a Replit/Express app into a static Vite/Reac
 - The build now runs `vite build` only.
 - The Vite output folder is `dist`.
 - Replit-only Vite plugins and the Replit dev banner were removed.
-- Routing was changed to hash routing so pages work on GitHub Pages project URLs.
+- Routing uses normal page paths, and the postbuild script creates static route folders so pages work on the custom GitHub Pages domain.
 - Backend-only API features were converted to static-safe fallbacks.
 - A GitHub Actions workflow was added at `.github/workflows/deploy.yml`.
 - `scripts/postbuild.mjs` creates `404.html` and `.nojekyll` after each build.

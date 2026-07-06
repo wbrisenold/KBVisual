@@ -4,6 +4,8 @@ import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
+import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
+import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const portfolioPhotos = [
   {
@@ -17,6 +19,18 @@ const portfolioPhotos = [
     url: childPortrait,
     title: 'Outdoor Child Portrait',
     category: 'family'
+  },
+  {
+    id: 'retro_studio_portrait',
+    url: retroStudioPortrait,
+    title: 'Retro Studio Chair Portrait',
+    category: 'studio'
+  },
+  {
+    id: 'garden_editorial_portrait',
+    url: gardenEditorialPortrait,
+    title: 'Garden Editorial Portrait',
+    category: 'portrait'
   },
   {
     id: 'proposal_portrait',
@@ -47,7 +61,7 @@ export default function GallerySection() {
             Portfolio Highlights
           </h2>
           <p className="text-xl text-stone-600 max-w-3xl mx-auto">
-            A quick look at recent portrait, family, and engagement work.
+            A quick look at recent portrait, family, studio, and engagement work.
           </p>
         </motion.div>
 

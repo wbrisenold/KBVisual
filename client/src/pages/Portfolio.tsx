@@ -3,11 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
+import SEOHead from "@/components/SEOHead";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
+import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
+import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const portraits = [
   {
@@ -20,6 +23,18 @@ const portraits = [
     image: childPortrait,
     title: "Outdoor Child Portrait",
     category: "Family Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: retroStudioPortrait,
+    title: "Retro Studio Chair Portrait",
+    category: "Creative Studio Portraits",
+    objectPosition: "object-center"
+  },
+  {
+    image: gardenEditorialPortrait,
+    title: "Garden Editorial Portrait",
+    category: "Creative Portraits",
     objectPosition: "object-center"
   },
   {
@@ -45,6 +60,28 @@ const portraits = [
 const Portfolio = () => {
   return (
     <div className="min-h-screen page-content" style={{ backgroundColor: "#fafafa" }}>
+      <SEOHead
+        title="Orlando Portrait Photography Portfolio"
+        description="View KB Visualz portrait photography in Orlando and Central Florida, including studio, family, creative, engagement, couples, and editorial portrait work."
+        keywords="Orlando portrait portfolio, portrait photography portfolio Orlando, Central Florida portraits, studio portraits Orlando, family portraits Orlando, engagement portraits Orlando"
+        canonicalPath="/portfolio/"
+        structuredData={{
+          "@type": "CollectionPage",
+          "@id": "https://kbvisualz.com/portfolio/#portrait-portfolio",
+          "name": "Orlando Portrait Photography Portfolio",
+          "url": "https://kbvisualz.com/portfolio/",
+          "description": "Selected portrait photography by KB Visualz in Orlando and Central Florida.",
+          "about": {
+            "@id": "https://kbvisualz.com/#business"
+          },
+          "hasPart": portraits.map((photo) => ({
+            "@type": "ImageObject",
+            "name": photo.title,
+            "caption": photo.category
+          }))
+        }}
+      />
+
       <section className="section-padding">
         <div className="editorial-grid">
           <motion.div
@@ -62,8 +99,8 @@ const Portfolio = () => {
             </h1>
             <div className="section-break mb-8"></div>
             <p className="editorial-body text-stone-700 max-w-4xl mx-auto">
-              A focused collection of formal, family, creative, engagement, and
-              couples portrait work.
+              A focused collection of Orlando and Central Florida formal,
+              family, studio, editorial, engagement, and couples portrait work.
             </p>
           </motion.div>
         </div>
@@ -87,7 +124,7 @@ const Portfolio = () => {
             <div className="w-24 h-px bg-black opacity-30 mx-auto mb-8"></div>
             <p className="text-lg font-light leading-relaxed max-w-3xl mx-auto opacity-80">
               Portraits built around expression, styling, and atmosphere, with
-              polished editing that keeps the focus on the person in frame.
+              polished editing for clients across Orlando and Central Florida.
             </p>
           </motion.div>
 

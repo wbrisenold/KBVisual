@@ -30,9 +30,29 @@ const Home = () => {
   return (
     <div className="min-h-screen page-content">
       <SEOHead
-        title="Portrait Photography Sessions | Orlando, FL"
-        description="KB Visualz offers individual portrait sessions in Orlando, Florida, including graduation, prom, fashion, family, branding, and creative portraits."
-        keywords="Orlando portrait photographer, Florida portrait photography, graduation portraits Orlando, prom portraits Orlando, family portraits, branding portraits"
+        title="Orlando Portrait Photographer for Graduation, Family & Branding"
+        description="Book Orlando and Central Florida portrait photography with KB Visualz for graduation, prom, family, branding, fashion, studio, and creative personal sessions."
+        keywords="Orlando portrait photographer, portrait photographer Orlando FL, Central Florida portrait photography, graduation portraits Orlando, prom portraits Orlando, family photographer Orlando, branding photographer Orlando, studio portraits Orlando"
+        canonicalPath="/"
+        structuredData={{
+          "@type": "Service",
+          "@id": "https://kbvisualz.com/#portrait-service",
+          "name": "Orlando Portrait Photography Sessions",
+          "serviceType": "Portrait photography",
+          "provider": {
+            "@id": "https://kbvisualz.com/#business"
+          },
+          "areaServed": [
+            "Orlando",
+            "Central Florida",
+            "Winter Park",
+            "Kissimmee",
+            "Sanford",
+            "Lake Mary",
+            "Altamonte Springs"
+          ],
+          "description": "Portrait photography sessions for graduation, prom, family, branding, fashion, studio, couples, engagement, and creative portraits."
+        }}
       />
 
       <Hero />
@@ -64,16 +84,16 @@ const Home = () => {
           >
             <div className="magazine-column">
               <div className="editorial-body text-stone-700 magazine-dropcap">
-                KB Visualz creates portrait sessions for graduation, prom, fashion,
-                family, branding, and creative personal work. Each session is planned
-                around your style, location, and the feeling you want the final
-                images to carry.
+                KB Visualz creates Orlando portrait photography for graduation,
+                prom, fashion, family, branding, and creative personal work.
+                Each session is planned around your style, location, and the
+                feeling you want the final images to carry.
               </div>
 
               <div className="editorial-body text-stone-700 mt-6">
-                Outdoor sessions are available in the Orlando area. Studio sessions
-                are available by booking your preferred studio separately and adding
-                the portrait package price.
+                Outdoor sessions are available across Orlando and Central Florida.
+                Studio sessions are available by booking your preferred studio
+                separately and adding the portrait package price.
               </div>
             </div>
 
