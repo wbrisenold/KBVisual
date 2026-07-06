@@ -90,6 +90,42 @@ function SiteRoutes() {
 }
 
 function App() {
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      return;
+    }
+
+    let lenis: { raf: (time: number) => void; destroy: () => void } | null = null;
+    let rafId = 0;
+    let mounted = true;
+
+    const raf = (time: number) => {
+      lenis?.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+
+    void import("lenis").then(({ default: Lenis }) => {
+      if (!mounted) {
+        return;
+      }
+
+      lenis = new Lenis({
+        lerp: 0.08,
+        wheelMultiplier: 0.9,
+        touchMultiplier: 1.05
+      });
+      rafId = requestAnimationFrame(raf);
+    });
+
+    return () => {
+      mounted = false;
+      cancelAnimationFrame(rafId);
+      lenis?.destroy();
+    };
+  }, []);
+
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>

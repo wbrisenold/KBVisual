@@ -56,11 +56,11 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-yellow-600 border-opacity-20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-stone-700 opacity-60 text-sm">
+          <p className="text-stone-800 text-sm">
             Copyright 2026 KB Visualz by Ken Brisenold. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/pricing" className="text-stone-700 opacity-60 hover:text-yellow-600 transition-colors duration-300 text-sm">
+            <Link href="/pricing" className="text-stone-800 hover:text-yellow-700 transition-colors duration-300 text-sm">
               Pricing & Booking Notes
             </Link>
           </div>

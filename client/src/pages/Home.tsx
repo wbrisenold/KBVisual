@@ -209,14 +209,14 @@ const Home = () => {
         <img
           src={outdoorEditorialPortrait}
           alt="Outdoor portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-28 blur-[2px]"
+          className="absolute inset-0 h-full w-full object-cover opacity-24 blur-[2px]"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/55"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/78 via-black/70 to-black/86"></div>
         <div className="editorial-grid relative">
           <motion.div
             initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.95 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
@@ -227,7 +227,7 @@ const Home = () => {
             <h2 className="editorial-title mb-6 text-5xl leading-tight text-white md:text-7xl">
               Make the portrait feel like it belongs to you.
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/76 md:text-lg">
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
               Choose the package that fits the pace of your session, then we
               shape the location, timing, outfits, and mood from there.
             </p>

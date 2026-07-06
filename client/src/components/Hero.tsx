@@ -1,32 +1,62 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SCHEDULING_URL } from "@/lib/booking";
 import heroImagePath from "@assets/kbvisualz-current/kbv-02.jpg";
 import portraitOne from "@assets/kbvisualz-current/kbv-10.jpg";
 import portraitTwo from "@assets/kbvisualz-current/kbv-01.jpg";
-import portraitThree from "@assets/kbvisualz-current/kbv-09.jpg";
 
 const Hero = () => {
+  const heroRef = useRef<HTMLElement>(null);
   const motionFrames = [
     {
       image: portraitOne,
       label: "Outdoor Portraits",
-      className: "left-[6%] top-[20%] hidden w-[18vw] min-w-[190px] md:block"
+      className: "left-[5%] top-[23%] hidden w-[16vw] min-w-[180px] md:block"
     },
     {
       image: portraitTwo,
       label: "Studio Presence",
-      className: "right-[7%] top-[17%] hidden w-[22vw] min-w-[240px] lg:block"
-    },
-    {
-      image: portraitThree,
-      label: "Editorial Color",
-      className: "right-[16%] bottom-[10%] hidden w-[15vw] min-w-[170px] md:block"
+      className: "right-[6%] top-[18%] hidden w-[20vw] min-w-[230px] lg:block"
     }
   ];
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion || !heroRef.current) {
+      return;
+    }
+
+    let ctx: { revert: () => void } | null = null;
+    let mounted = true;
+
+    void import("gsap").then(({ default: gsap }) => {
+      if (!mounted || !heroRef.current) {
+        return;
+      }
+
+      ctx = gsap.context(() => {
+        gsap.to(".hero-float-frame", {
+          y: -14,
+          rotate: 0.5,
+          duration: 5.5,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          stagger: 0.9
+        });
+      }, heroRef);
+    });
+
+    return () => {
+      mounted = false;
+      ctx?.revert();
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black text-white">
+    <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black text-white">
       <div className="absolute inset-0 z-0">
         <motion.img
           src={heroImagePath}
@@ -36,21 +66,21 @@ const Hero = () => {
           animate={{ scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
         />
-        <div className="absolute inset-0 bg-black/45"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.16),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.92))]"></div>
+        <div className="absolute inset-0 bg-black/52"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.12),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.32),rgba(0,0,0,0.94))]"></div>
         <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent"></div>
       </div>
 
       {motionFrames.map((frame, index) => (
         <motion.div
           key={frame.label}
-          className={`absolute z-10 overflow-hidden border border-white/20 bg-white/10 shadow-2xl backdrop-blur-md ${frame.className}`}
+          className={`hero-float-frame absolute z-10 overflow-hidden border border-white/20 bg-white/10 shadow-2xl backdrop-blur-md ${frame.className}`}
           initial={{ opacity: 0, y: 42, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: [0, -10, 0], filter: "blur(0px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{
             opacity: { duration: 1.2, delay: 0.55 + index * 0.18 },
             filter: { duration: 1.2, delay: 0.55 + index * 0.18 },
-            y: { duration: 8 + index, repeat: Infinity, ease: "easeInOut", delay: 1 + index * 0.35 }
+            y: { duration: 1.2, delay: 0.55 + index * 0.18 }
           }}
         >
           <img src={frame.image} alt={`${frame.label} by KB Visualz`} className="aspect-[4/5] h-full w-full object-cover" />
@@ -104,15 +134,6 @@ const Hero = () => {
               <a href="/portfolio" className="site-button site-button--outline-light">
                 View Work
               </a>
-              <a
-                href="https://www.instagram.com/kbvisualz_?igsh=N20ybjQyN3JoY2ox"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="site-button site-button--outline-light"
-              >
-                <Instagram className="h-4 w-4" />
-                Instagram
-              </a>
             </div>
           </motion.div>
         </div>
@@ -131,25 +152,6 @@ const Hero = () => {
           Scroll
         </motion.span>
       </motion.div>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 overflow-hidden border-t border-white/10 bg-black/20 py-3 backdrop-blur-md">
-        <motion.div
-          className="flex w-max gap-8 text-xs uppercase text-white/55"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
-        >
-          {[...Array(2)].map((_, group) => (
-            <div key={group} className="flex gap-8">
-              <span>Graduation Portraits</span>
-              <span>Branding Sessions</span>
-              <span>Creative Editorials</span>
-              <span>Family Portraits</span>
-              <span>Studio Work</span>
-              <span>Central Florida</span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
     </section>
   );
 };

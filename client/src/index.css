@@ -238,9 +238,11 @@ a, button, .cursor-pointer {
   }
 
   .site-button--light {
-    border-color: rgba(255, 255, 255, 0.75);
+    border-color: #ffffff;
     background: #ffffff;
+    background-color: #ffffff;
     color: #0c0a09;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
   }
 
   .site-button--light:hover {

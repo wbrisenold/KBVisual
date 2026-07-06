@@ -118,6 +118,7 @@ const Navigation = () => {
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
+                  tabIndex={-1}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 50 }}
                   transition={{ 
