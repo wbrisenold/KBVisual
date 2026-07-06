@@ -9,16 +9,16 @@ import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const portfolioPhotos = [
   {
+    id: 'garden_editorial_portrait',
+    url: gardenEditorialPortrait,
+    title: 'Garden Editorial Portrait',
+    category: 'portrait'
+  },
+  {
     id: 'formal_studio_portrait',
     url: formalStudioPortrait,
     title: 'Formal Studio Portrait',
     category: 'portrait'
-  },
-  {
-    id: 'child_portrait',
-    url: childPortrait,
-    title: 'Outdoor Child Portrait',
-    category: 'family'
   },
   {
     id: 'retro_studio_portrait',
@@ -27,10 +27,10 @@ const portfolioPhotos = [
     category: 'studio'
   },
   {
-    id: 'garden_editorial_portrait',
-    url: gardenEditorialPortrait,
-    title: 'Garden Editorial Portrait',
-    category: 'portrait'
+    id: 'child_portrait',
+    url: childPortrait,
+    title: 'Outdoor Child Portrait',
+    category: 'family'
   },
   {
     id: 'proposal_portrait',

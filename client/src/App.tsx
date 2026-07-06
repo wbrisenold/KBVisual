@@ -14,11 +14,62 @@ import Pricing from "@/pages/Pricing";
 import NotFound from "@/pages/not-found";
 
 function SiteRoutes() {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
+
+  useEffect(() => {
+    const handleInternalLink = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const target = event.target as Element | null;
+      const anchor = target?.closest("a[href]");
+
+      if (!anchor) return;
+
+      const link = anchor as HTMLAnchorElement;
+      const url = new URL(link.href);
+      const nextPath = `${url.pathname}${url.search}${url.hash}`;
+      const isExternal = url.origin !== window.location.origin;
+      const opensElsewhere = link.target && link.target !== "_self";
+
+      if (isExternal || opensElsewhere || link.download || nextPath === location) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const viewTransitionDocument = document as Document & {
+        startViewTransition?: (callback: () => void) => void;
+      };
+      const updateRoute = () => setLocation(nextPath);
+
+      if (!prefersReducedMotion && viewTransitionDocument.startViewTransition) {
+        viewTransitionDocument.startViewTransition(updateRoute);
+        return;
+      }
+
+      updateRoute();
+    };
+
+    document.addEventListener("click", handleInternalLink);
+
+    return () => {
+      document.removeEventListener("click", handleInternalLink);
+    };
+  }, [location, setLocation]);
 
   return (
     <div className="min-h-screen">

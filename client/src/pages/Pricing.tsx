@@ -64,49 +64,49 @@ const sessionTypes = [
 
 const policyItems = [
   {
-    title: "Booking and Deposits",
+    title: "Reserving Your Date",
     description:
-      "To secure your scheduled date, a non-refundable deposit of 25% of the total package cost is required at the time of booking. This deposit ensures your date is reserved and covers initial planning and preparation costs."
+      "A 25% retainer reserves your session date and begins planning for your shoot."
   },
   {
-    title: "Payment Schedule",
+    title: "Payment Timing",
     description:
-      "Half of the remaining balance (50%) is due immediately after the shoot and is non-refundable. This payment covers the effort and resources invested during the shoot and ensures that the work already completed is fairly compensated. The final 25% is due upon completion of revisions."
+      "The next payment is due after the session, with the final balance due once revisions are complete."
   },
   {
     title: "Revisions",
     description:
-      "Two complimentary revisions are included and must be requested within 3 days of receiving your proofs. Additional revisions are available for a fee of $20 each. All materials will be watermarked until full payment is received."
+      "Two complimentary revisions are included. Additional revisions are available for $20 each."
   },
   {
     title: "Delivery Timeline",
     description:
-      "Proofs will be delivered within 3-5 business days after the shoot, and final photos will be provided within 2-4 business days after final approval."
+      "Proofs are delivered within 3-5 business days after the session. Final photos are delivered within 2-4 business days after approval."
   },
   {
-    title: "Cancellation and Rescheduling",
+    title: "Rescheduling",
     description:
-      "If you need to cancel or reschedule, please notify KB Visualz as soon as possible. Deposits are non-refundable, but a new date will be accommodated when available."
+      "If plans change, reach out as soon as possible so we can look for a new available date."
   },
   {
     title: "Usage Rights",
     description:
-      "Clients may use delivered photos for personal purposes. KB Visualz retains the right to use delivered photos for promotional purposes unless otherwise agreed upon in writing."
+      "Delivered portraits are yours to use personally. KB Visualz may use selected images for portfolio and promotional work unless we agree otherwise in writing."
   },
   {
     title: "Photo and Video Bookings",
     description:
-      "Photo and video cannot be booked together or bundled through KB Visualz. If you need video coverage, please book a separate videographer outside of your portrait session."
+      "KB Visualz packages are photography-only. If you need video coverage, please book a separate videographer."
   },
   {
-    title: "Client Responsibilities",
+    title: "Before Your Session",
     description:
       "Please arrive on time and share important details in advance so the session can be planned around your vision."
   },
   {
-    title: "Style Familiarity",
+    title: "Make Sure It Feels Like You",
     description:
-      "Before booking, please review the KB Visualz photography style to make sure it matches what you want from the final photos."
+      "Review the portfolio before booking so you feel confident that the KB Visualz style matches what you want."
   }
 ];
 
@@ -138,49 +138,6 @@ const Pricing = () => {
         }}
       />
 
-      <section className="py-16 md:py-20 bg-stone-950 text-white">
-        <div className="editorial-grid">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="col-span-12 lg:col-span-4"
-          >
-            <div className="editorial-caption text-yellow-500 mb-4">
-              SESSION POLICY
-            </div>
-            <h1 className="editorial-title text-4xl md:text-5xl text-white mb-6">
-              Please Review Before Booking
-            </h1>
-            <p className="text-stone-300 leading-relaxed">
-              These policies apply to KB Visualz sessions and should be reviewed
-              before scheduling or submitting a deposit.
-            </p>
-          </motion.div>
-
-          <div className="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5">
-            {policyItems.map((item, index) => (
-              <motion.article
-                key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="rounded-lg border border-white/10 bg-white/[0.06] p-6"
-              >
-                <h2 className="text-lg font-semibold text-white mb-3">
-                  {item.title}
-                </h2>
-                <p className="text-sm leading-relaxed text-stone-300">
-                  {item.description}
-                </p>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="pt-14 pb-6 md:pt-16 md:pb-8">
         <div className="editorial-grid">
           <motion.div
@@ -194,7 +151,7 @@ const Pricing = () => {
               PORTRAIT PRICING
             </div>
             <h1 className="editorial-headline text-5xl md:text-7xl text-stone-900 mb-5">
-              Individual Sessions
+              Portrait Sessions
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-stone-600 md:text-lg">
               Portrait photography pricing for Orlando and Central Florida
@@ -224,7 +181,9 @@ const Pricing = () => {
                     Photo and video are booked separately.
                   </h2>
                   <p className="max-w-3xl text-sm leading-relaxed text-stone-700 md:text-base">
-                    KB Visualz does not offer photo and video bundle packages. These prices cover photography sessions only; video coverage must be booked with a separate videographer.
+                    KB Visualz does not offer photo and video bundle packages.
+                    These prices cover photography sessions only; video
+                    coverage must be booked with a separate videographer.
                   </p>
                 </div>
               </div>
@@ -323,7 +282,7 @@ const Pricing = () => {
                   <div className="mt-7 flex flex-col sm:flex-row gap-4">
                     <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                       <Button className="gold-gradient text-stone-900 font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-auto">
-                        SCHEDULE THIS SESSION
+                        PLAN THIS SESSION
                       </Button>
                     </a>
                     <Link href="/portfolio">
@@ -357,6 +316,49 @@ const Pricing = () => {
               price is added to the studio rental fee.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-stone-950 py-16 text-white md:py-20">
+        <div className="editorial-grid">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="col-span-12 lg:col-span-4"
+          >
+            <div className="editorial-caption text-yellow-500 mb-4">
+              BOOKING NOTES
+            </div>
+            <h2 className="editorial-title text-4xl md:text-5xl text-white mb-6">
+              A few details before we lock it in.
+            </h2>
+            <p className="text-stone-300 leading-relaxed">
+              These notes keep the session clear, prepared, and fair for both
+              sides without making the booking process feel complicated.
+            </p>
+          </motion.div>
+
+          <div className="col-span-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:col-span-8">
+            {policyItems.map((item, index) => (
+              <motion.article
+                key={item.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="rounded-lg border border-white/10 bg-white/[0.06] p-6"
+              >
+                <h3 className="mb-3 text-lg font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-stone-300">
+                  {item.description}
+                </p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 

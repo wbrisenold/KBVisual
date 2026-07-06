@@ -45,7 +45,7 @@ const Footer = () => {
               <li className="text-stone-700 opacity-80">Outdoor and studio portrait sessions</li>
               <li>
                 <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-700 opacity-80 hover:text-yellow-600 transition-colors duration-300">
-                  Schedule a session
+                  Plan a session
                 </a>
               </li>
             </ul>
@@ -58,7 +58,7 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/pricing" className="text-stone-700 opacity-60 hover:text-yellow-600 transition-colors duration-300 text-sm">
-              Pricing & Policy
+              Pricing & Booking Notes
             </Link>
           </div>
         </div>

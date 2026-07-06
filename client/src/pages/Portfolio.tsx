@@ -14,15 +14,15 @@ import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const portraits = [
   {
-    image: formalStudioPortrait,
-    title: "Formal Studio Portrait",
-    category: "Men's Formal Portraits",
+    image: gardenEditorialPortrait,
+    title: "Garden Editorial Portrait",
+    category: "Creative Portraits",
     objectPosition: "object-center"
   },
   {
-    image: childPortrait,
-    title: "Outdoor Child Portrait",
-    category: "Family Portraits",
+    image: formalStudioPortrait,
+    title: "Formal Studio Portrait",
+    category: "Men's Formal Portraits",
     objectPosition: "object-center"
   },
   {
@@ -32,9 +32,9 @@ const portraits = [
     objectPosition: "object-center"
   },
   {
-    image: gardenEditorialPortrait,
-    title: "Garden Editorial Portrait",
-    category: "Creative Portraits",
+    image: childPortrait,
+    title: "Outdoor Child Portrait",
+    category: "Family Portraits",
     objectPosition: "object-center"
   },
   {
@@ -99,8 +99,8 @@ const Portfolio = () => {
             </h1>
             <div className="section-break mb-8"></div>
             <p className="editorial-body text-stone-700 max-w-4xl mx-auto">
-              A focused collection of Orlando and Central Florida formal,
-              family, studio, editorial, engagement, and couples portrait work.
+              A focused collection of Orlando and Central Florida portraits
+              made around expression, styling, and honest presence.
             </p>
           </motion.div>
         </div>
@@ -185,14 +185,14 @@ const Portfolio = () => {
             className="col-span-12 md:col-span-10 md:col-start-2 text-center"
           >
             <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-12">
-              Ready for your own portrait session? Review the current packages
-              or schedule directly through the booking page.
+              Ready for portraits that feel like you? Review the packages or
+              start planning your session.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  SCHEDULE SESSION
+                  START PLANNING
                 </Button>
               </a>
               <Link href="/pricing">

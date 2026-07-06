@@ -45,7 +45,7 @@ const faqData: Record<string, FAQItem[]> = {
     },
     {
       question: "Do you offer payment plans?",
-      answer: "Yes, I offer flexible payment options to make professional photography accessible. We can discuss a payment schedule that works for your budget during consultation."
+      answer: "Yes. We can talk through payment timing when we plan the session."
     },
     {
       question: "Are there additional costs I should know about?",

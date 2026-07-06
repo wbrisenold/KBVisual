@@ -52,7 +52,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Featured Portrait Section */}
+      {/* Photographer portrait section */}
       <section className="section-padding hero-masthead">
         <div className="editorial-grid">
           <motion.div
@@ -166,13 +166,13 @@ const About = () => {
           >
             <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-12">
               Ready for portraits that feel personal, polished, and true to you?
-              Schedule a session and create images with intention.
+              Let's plan a session and create images with intention.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto">
-                  SCHEDULE SESSION
+                  PLAN YOUR SESSION
                 </Button>
               </a>
               <Link href="/portfolio">
