@@ -100,7 +100,7 @@ const Home = () => {
           >
             <div>
               <div className="lookbook-page-marker mb-5 text-white/58">
-                Page 01
+                Portraits / 01
               </div>
               <div className="editorial-caption mb-4 text-yellow-500">
                 Selected Work
@@ -164,7 +164,7 @@ const Home = () => {
             className="col-span-12 md:col-span-5"
           >
             <div className="lookbook-page-marker mb-5 text-stone-500">
-              Page 02
+              Session / 02
             </div>
             <div className="editorial-caption text-yellow-600 mb-4">
               The Session
@@ -248,7 +248,7 @@ const Home = () => {
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
             <div className="lookbook-page-marker mb-5 justify-center text-white/58">
-              Page 03
+              Booking / 03
             </div>
             <div className="editorial-caption mb-5 text-yellow-300">
               Booking
@@ -287,7 +287,7 @@ const Home = () => {
       <FAQ
         page="home"
         title="Portrait Session Questions"
-        description="A few useful details before we plan your portrait session."
+        description="A smoother session starts with a little clarity."
       />
     </div>
   );

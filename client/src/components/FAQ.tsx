@@ -30,11 +30,11 @@ const faqData: Record<string, FAQItem[]> = {
   ],
   portfolio: [
     {
-      question: "How do you develop your artistic style?",
-      answer: "My style is influenced by 'memento mori' - the reminder that time is limited. That perspective shapes how I photograph expression, connection, and personal milestones."
+      question: "What makes the KB Visualz style different?",
+      answer: "The work is directed and polished, but it still leaves room for real expression. I want the portrait to feel intentional without looking forced."
     },
     {
-      question: "Do you offer different photography styles?",
+      question: "Can the session match my personality?",
       answer: "I keep a consistent visual style, but I adapt posing, location, and pacing to each client's personality and goals."
     }
   ],
@@ -54,12 +54,12 @@ const faqData: Record<string, FAQItem[]> = {
   ],
   testimonials: [
     {
-      question: "Where can I read public client feedback?",
-      answer: "Use the Google Reviews section or the Google Maps link to read the latest public feedback directly on the KB Visualz profile."
+      question: "Where can I read client reviews?",
+      answer: "Recent client feedback is available on the KB Visualz Google profile."
     },
     {
-      question: "Why do you link to Google instead of copying reviews here?",
-      answer: "Google Maps keeps review dates, ratings, and comments current, so the public profile is the best place to verify recent feedback."
+      question: "Are the reviews current?",
+      answer: "Yes. The Google profile shows recent ratings and comments with their dates."
     },
     {
       question: "Can I ask questions before booking?",

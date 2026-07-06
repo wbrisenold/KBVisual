@@ -98,14 +98,14 @@ const policyItems = [
       "KB Visualz packages are photography-only. If you need video coverage, please book a separate videographer."
   },
   {
-    title: "Before Your Session",
+    title: "Session Rhythm",
     description:
-      "Please arrive on time and share important details in advance so the session can be planned around your vision."
+      "Arriving on time keeps the light, location, and creative pace intact. Share must-have details early so the session can stay focused."
   },
   {
-    title: "Make Sure It Feels Like You",
+    title: "Visual Fit",
     description:
-      "Review the portfolio before booking so you feel confident that the KB Visualz style matches what you want."
+      "The portfolio shows the tone to expect: directed, polished portraits with natural expression and a clean final edit."
   }
 ];
 
@@ -317,7 +317,7 @@ const Pricing = () => {
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
             <h2 className="editorial-title text-4xl text-stone-900 mb-4 md:text-5xl">
-              Studio Pricing Note
+              Studio Sessions
             </h2>
             <p className="editorial-body text-stone-600">
               For studio work, reserve the studio separately through a rental
@@ -338,14 +338,14 @@ const Pricing = () => {
             className="col-span-12 lg:col-span-4"
           >
             <div className="editorial-caption text-yellow-500 mb-4">
-              BOOKING NOTES
+              BOOKING TERMS
             </div>
             <h2 className="editorial-title text-4xl md:text-5xl text-white mb-6">
-              A few details before we lock it in.
+              Clear terms, relaxed session.
             </h2>
             <p className="text-stone-300 leading-relaxed">
-              These notes keep the session clear, prepared, and fair for both
-              sides without making the booking process feel complicated.
+              Clear expectations keep the session relaxed: payment timing,
+              delivery, revisions, usage, and what is included.
             </p>
           </motion.div>
 
@@ -374,7 +374,7 @@ const Pricing = () => {
       <FAQ
         page="pricing"
         title="Portrait Pricing Questions"
-        description="Details about session length, edits, and studio rental pricing."
+        description="Straight answers on timing, edits, studio rental, and booking."
       />
     </div>
   );

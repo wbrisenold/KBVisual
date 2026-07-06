@@ -18,22 +18,21 @@ const GoogleReviews = () => {
               CLIENT TRUST
             </div>
             <h2 className="editorial-title mb-4 text-3xl text-white md:text-4xl">
-              Check current Google feedback before booking.
+              Read what clients have shared on Google.
             </h2>
             <p className="text-stone-300 leading-relaxed">
-              The most accurate client feedback lives on the public KB Visualz
-              Google Maps listing, where you can see dates, ratings, and
-              comments directly from clients.
+              See how clients describe the experience in their own words, with
+              ratings and dates attached on Google.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-3 text-sm text-stone-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2">
                 <Star className="h-4 w-4 text-yellow-500" />
-                Public ratings
+                Real feedback
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2">
                 <MapPinned className="h-4 w-4 text-yellow-500" />
-                Google Maps listing
+                Orlando clients
               </span>
             </div>
           </div>
@@ -44,7 +43,7 @@ const GoogleReviews = () => {
             rel="noopener noreferrer"
             className="site-button site-button--light w-full flex-shrink-0 sm:w-auto"
           >
-            Open Google Reviews
+            Read Reviews on Google
             <ExternalLink className="w-4 h-4" />
           </a>
         </motion.div>

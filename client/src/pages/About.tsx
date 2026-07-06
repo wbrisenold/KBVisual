@@ -90,7 +90,7 @@ const About = () => {
             className="col-span-12 md:col-span-5"
           >
             <div className="lookbook-page-marker mb-5 text-stone-500">
-              Page 01
+              Approach / 01
             </div>
             <div className="editorial-caption text-yellow-600 mb-5">
               The Approach
@@ -109,9 +109,9 @@ const About = () => {
           >
             <p className="editorial-body text-stone-700">
               Born in Haiti and raised in Florida, I am a military veteran and
-              UCF graduate who discovered photography in 2018. That discovery
-              became KB Visualz, where I create Orlando portrait work with a
-              focus on presence, confidence, and clean visual storytelling.
+              UCF graduate who found photography in 2018. KB Visualz grew from
+              that first pull toward portraits that feel intentional, calm, and
+              alive.
             </p>
             <p className="editorial-body mt-6 text-stone-700">
               My work focuses on preserving authentic expression and creating
@@ -153,10 +153,10 @@ const About = () => {
             className="col-span-12 md:col-span-8 md:col-start-3"
           >
             <div className="lookbook-page-marker mb-8 justify-center text-white/58">
-              Page 02
+              Philosophy / 02
             </div>
             <div className="editorial-title mb-10 text-center text-4xl italic leading-tight text-white md:text-6xl">
-              "In 2018, I discovered my passion for photography, forever changing the course of my life."
+              "Photography gave me a way to hold onto the moments people usually feel before they can explain them."
             </div>
 
             <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-white/76 md:text-lg">
@@ -189,7 +189,7 @@ const About = () => {
             className="col-span-12 md:col-span-10 md:col-start-2 text-center"
           >
             <div className="lookbook-page-marker mb-5 justify-center text-stone-500">
-              Page 03
+              Booking / 03
             </div>
             <h2 className="editorial-title mx-auto mb-6 max-w-4xl text-5xl leading-tight text-stone-950 md:text-7xl">
               Ready for portraits that feel personal and polished?

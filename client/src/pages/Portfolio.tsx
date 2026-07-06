@@ -141,10 +141,10 @@ const Portfolio = () => {
             className="col-span-12 md:col-span-6"
           >
             <div className="lookbook-page-marker mb-5 text-stone-700">
-              Index
+              Portraits / 01
             </div>
             <div className="editorial-caption editorial-caption--on-light mb-5">
-              Portrait Portfolio
+              Portfolio
             </div>
             <h1 className="editorial-headline max-w-5xl text-6xl leading-none text-stone-950 md:text-8xl lg:text-9xl">
               The Portrait Lookbook
@@ -156,7 +156,7 @@ const Portfolio = () => {
             <a href="#portfolio-gallery" onClick={openGallery} className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
               <span>
                 <span className="lookbook-next__meta">Next / 01</span>
-                Open Gallery
+                View the Portraits
               </span>
               <ArrowRight className="h-4 w-4" />
             </a>
@@ -184,7 +184,7 @@ const Portfolio = () => {
               </figure>
             ))}
             <div className="col-span-3 mt-4 grid grid-cols-[auto_1fr] items-center gap-4 text-xs uppercase text-stone-700">
-              <span>Issue 01</span>
+              <span>Orlando Portraits</span>
               <span className="h-px bg-stone-950/20"></span>
             </div>
           </motion.div>
@@ -193,78 +193,82 @@ const Portfolio = () => {
 
       <section id="portfolio-gallery" className="scroll-mt-20 bg-black py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
-          >
-            <div>
-              <div className="lookbook-page-marker mb-5 text-white/58">
-                Page 01
+          <div className="grid gap-12 lg:grid-cols-[minmax(14rem,20rem)_1fr] lg:items-start">
+            <motion.aside
+              initial={{ opacity: 0, y: 34 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+              className="lg:sticky lg:top-28"
+            >
+              <div className="lookbook-page-marker mb-5 text-white/70">
+                Portrait Range
               </div>
               <div className="editorial-caption mb-4 text-yellow-500">
-                Selected Work
+                Full Gallery
               </div>
-              <h2 className="editorial-title max-w-4xl text-5xl leading-none text-white md:text-7xl">
-                Portraits shaped for confidence, connection, and style.
+              <h2 className="lookbook-index-title max-w-xl text-white">
+                Range, mood, and a polished final feel.
               </h2>
-            </div>
-            <a
-              href={SCHEDULING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="site-button site-button--outline-light"
-            >
-              Start Planning
-            </a>
-          </motion.div>
-
-          <div ref={galleryRef} className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
-            {portraits.map((photo, index) => (
-              <motion.a
-                key={photo.title}
-                href={photo.image}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Open ${photo.title} in full-screen gallery`}
-                data-pswp-width={photo.width}
-                data-pswp-height={photo.height}
-                data-pswp-caption={`${photo.title} - ${photo.category}`}
-                initial={{ opacity: 0, y: 56, filter: "blur(12px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.95, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true }}
-                className={`group relative overflow-hidden border border-white/10 bg-white/5 ${
-                  index === 0
-                    ? "md:col-span-7 md:row-span-2 min-h-[620px]"
-                    : index === 1 || index === 2
-                      ? "md:col-span-5 min-h-[300px]"
-                      : "md:col-span-4 min-h-[420px]"
-                }`}
-              >
-                <img
-                  src={photo.image}
-                  alt={photo.title}
-                  className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]`}
-                  loading="lazy"
-                />
-                <div className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <Maximize2 className="h-4 w-4" aria-hidden="true" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-100 transition-opacity duration-500">
-                  <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-                    <h3 className="editorial-title text-2xl text-white md:text-3xl">
-                      {photo.title}
-                    </h3>
-                    <p className="max-w-[10rem] text-right text-xs uppercase leading-relaxed text-white/60">
-                      {photo.category}
-                    </p>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
+                Editorial color, controlled studio light, family warmth, and
+                honest connection, all with the same KB Visualz finish.
+              </p>
+              <div className="mt-6 grid grid-cols-2 gap-px border-y border-white/12 py-4 text-xs uppercase text-white/72">
+                {["Editorial", "Studio", "Family", "Couples"].map((label, index) => (
+                  <div key={label} className="grid grid-cols-[1.75rem_1fr] gap-2 py-2">
+                    <span className="text-white/60">{String(index + 1).padStart(2, "0")}</span>
+                    <span>{label}</span>
                   </div>
-                </div>
-              </motion.a>
-            ))}
+                ))}
+              </div>
+            </motion.aside>
+
+            <div ref={galleryRef} className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
+              {portraits.map((photo, index) => (
+                <motion.a
+                  key={photo.title}
+                  href={photo.image}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Open ${photo.title} in full-screen gallery`}
+                  data-pswp-width={photo.width}
+                  data-pswp-height={photo.height}
+                  data-pswp-caption={`${photo.title} - ${photo.category}`}
+                  initial={{ opacity: 0, y: 56, filter: "blur(12px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.95, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                  viewport={{ once: true }}
+                  className={`group relative overflow-hidden border border-white/10 bg-white/5 ${
+                    index === 0
+                      ? "md:col-span-7 md:row-span-2 min-h-[620px]"
+                      : index === 1 || index === 2
+                        ? "md:col-span-5 min-h-[300px]"
+                        : "md:col-span-4 min-h-[420px]"
+                  }`}
+                >
+                  <img
+                    src={photo.image}
+                    alt={photo.title}
+                    className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]`}
+                    loading="lazy"
+                  />
+                  <div className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <Maximize2 className="h-4 w-4" aria-hidden="true" />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-100 transition-opacity duration-500">
+                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
+                      <h3 className="editorial-title text-2xl text-white md:text-3xl">
+                        {photo.title}
+                      </h3>
+                      <p className="max-w-[10rem] text-right text-xs uppercase leading-relaxed text-white/60">
+                        {photo.category}
+                      </p>
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
           </div>
 
           <motion.div
@@ -275,7 +279,7 @@ const Portfolio = () => {
             className="mx-auto mt-20 max-w-4xl text-center"
           >
             <blockquote className="editorial-title text-4xl italic leading-tight text-white/90 md:text-6xl">
-              "A great portrait reveals confidence, character, and authenticity."
+              "The best portraits feel polished without losing the person."
             </blockquote>
             <div className="mt-8 text-xs uppercase text-white/50">
               Portrait Photography by KB Visualz
@@ -297,8 +301,8 @@ const Portfolio = () => {
               Bring your session into focus.
             </h2>
             <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-10">
-              Ready for portraits that feel like you? Review the packages or
-              start planning your session.
+              If the work feels aligned, choose the session pace and start
+              shaping the location, wardrobe, and mood.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -321,7 +325,7 @@ const Portfolio = () => {
       <FAQ
         page="portfolio"
         title="Portrait Portfolio Questions"
-        description="Learn more about portrait style, planning, and gallery expectations."
+        description="How the portraits are planned, directed, and delivered."
       />
     </div>
   );
