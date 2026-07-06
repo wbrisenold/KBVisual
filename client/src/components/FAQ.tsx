@@ -17,15 +17,15 @@ const faqData: Record<string, FAQItem[]> = {
   home: [
     {
       question: "What photography services do you offer?",
-      answer: "I specialize in individual portrait sessions, including graduation, prom, fashion, family, personal branding, and creative portraits."
+      answer: "I photograph portraits for graduation, prom, fashion, family, personal branding, couples, and creative personal sessions."
     },
     {
       question: "How far in advance should I book?",
-      answer: "Book as soon as your preferred date is clear. Earlier scheduling gives us more room to plan outfits, location, and timing."
+      answer: "Book once your preferred date is clear. Earlier scheduling gives us more room to plan outfits, location, and timing."
     },
     {
       question: "Can I book an outdoor or studio session?",
-      answer: "Yes. Outdoor sessions are available in the Orlando area, and studio sessions can be booked by reserving a studio separately and adding the portrait package price."
+      answer: "Yes. We can shoot outdoors in the Orlando area. For studio work, you reserve the studio separately and choose the portrait package that fits the session."
     }
   ],
   portfolio: [
@@ -41,29 +41,29 @@ const faqData: Record<string, FAQItem[]> = {
   pricing: [
     {
       question: "What's included in your photography packages?",
-      answer: "The Signature Session includes 15 professional edits. The Legacy Session includes 30 professional edits. Studio sessions use the same package prices plus the separate studio rental fee."
+      answer: "Signature includes 15 edited portraits. Legacy includes 30. Both include posing direction, planning guidance, and high-resolution final images."
     },
     {
       question: "Do you offer payment plans?",
-      answer: "Yes. We can talk through payment timing when we plan the session."
+      answer: "Yes. We can agree on payment timing before your date is reserved."
     },
     {
       question: "Are there additional costs I should know about?",
-      answer: "Studio rental is separate from the portrait package price. Photo and video are not bundled together; video coverage must be booked separately with another provider."
+      answer: "Studio rental is separate from the portrait package. Photo and video are not bundled, so video should be booked with a dedicated videographer."
     }
   ],
   testimonials: [
     {
       question: "Where can I read client reviews?",
-      answer: "Recent client feedback is available on the KB Visualz Google profile."
+      answer: "You can read client reviews on the KB Visualz Google profile."
     },
     {
       question: "Are the reviews current?",
-      answer: "Yes. The Google profile shows recent ratings and comments with their dates."
+      answer: "Yes. Google keeps the newest ratings and comments on the public profile."
     },
     {
       question: "Can I ask questions before booking?",
-      answer: "Yes. If you want to talk through timing, location, styling, or the kind of portraits you need, reach out before scheduling."
+      answer: "Yes. Reach out if you want to talk through timing, location, styling, or the kind of portraits you need."
     }
   ]
 };

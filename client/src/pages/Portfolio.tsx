@@ -150,8 +150,8 @@ const Portfolio = () => {
               The Portrait Lookbook
             </h1>
             <p className="mt-8 max-w-3xl text-base leading-relaxed text-stone-700 md:text-lg">
-              A focused collection of Orlando and Central Florida portraits
-              made around expression, styling, and honest presence.
+              Orlando and Central Florida portraits with styling, expression,
+              and presence at the center.
             </p>
             <a href="#portfolio-gallery" onClick={openGallery} className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
               <span>
@@ -208,11 +208,11 @@ const Portfolio = () => {
                 Full Gallery
               </div>
               <h2 className="lookbook-index-title max-w-xl text-white">
-                Range, mood, and a polished final feel.
+                Portraits with range, without losing the feeling.
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
-                Editorial color, controlled studio light, family warmth, and
-                honest connection, all with the same KB Visualz finish.
+                Creative color, clean studio light, family warmth, and quiet
+                moments all live here.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-px border-y border-white/12 py-4 text-xs uppercase text-white/72">
                 {["Editorial", "Studio", "Family", "Couples"].map((label, index) => (
@@ -224,7 +224,7 @@ const Portfolio = () => {
               </div>
             </motion.aside>
 
-            <div ref={galleryRef} className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
+            <div ref={galleryRef} className="grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-8 xl:gap-9">
               {portraits.map((photo, index) => (
                 <motion.a
                   key={photo.title}
@@ -240,11 +240,9 @@ const Portfolio = () => {
                   transition={{ duration: 0.95, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
                   className={`group relative overflow-hidden border border-white/10 bg-white/5 ${
-                    index === 0
-                      ? "md:col-span-7 md:row-span-2 min-h-[620px]"
-                      : index === 1 || index === 2
-                        ? "md:col-span-5 min-h-[300px]"
-                        : "md:col-span-4 min-h-[420px]"
+                    index === portraits.length - 1
+                      ? "min-h-[420px] md:col-span-2 md:aspect-[16/10] md:min-h-0"
+                      : "aspect-[3/4] min-h-[460px] md:min-h-0"
                   }`}
                 >
                   <img
@@ -253,15 +251,15 @@ const Portfolio = () => {
                     className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]`}
                     loading="lazy"
                   />
-                  <div className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <div className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
                     <Maximize2 className="h-4 w-4" aria-hidden="true" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-100 transition-opacity duration-500">
-                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
-                      <h3 className="editorial-title text-2xl text-white md:text-3xl">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/18 to-transparent opacity-100 transition-opacity duration-500">
+                    <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-6 md:flex-row md:items-end md:justify-between md:gap-6 md:p-7">
+                      <h3 className="editorial-title max-w-[18rem] text-2xl leading-tight text-white md:text-3xl">
                         {photo.title}
                       </h3>
-                      <p className="max-w-[10rem] text-right text-xs uppercase leading-relaxed text-white/60">
+                      <p className="max-w-[11rem] text-xs uppercase leading-relaxed text-white/62 md:text-right">
                         {photo.category}
                       </p>
                     </div>
@@ -301,8 +299,8 @@ const Portfolio = () => {
               Bring your session into focus.
             </h2>
             <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-10">
-              If the work feels aligned, choose the session pace and start
-              shaping the location, wardrobe, and mood.
+              When the work feels like the direction you want, choose a package
+              and we can shape the location, wardrobe, and mood.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -325,7 +323,7 @@ const Portfolio = () => {
       <FAQ
         page="portfolio"
         title="Portrait Portfolio Questions"
-        description="How the portraits are planned, directed, and delivered."
+        description="Style, pacing, and planning before the camera comes out."
       />
     </div>
   );

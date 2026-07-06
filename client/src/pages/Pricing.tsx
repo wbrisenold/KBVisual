@@ -12,12 +12,18 @@ const portraitPackages = [
     icon: <Camera className="w-6 h-6" />,
     price: "$250",
     duration: "1 hour",
-    summary: "A focused portrait session for a clean, polished set of images.",
+    summary: "A focused session for one location, one clear idea, and a polished set of portraits.",
     deliverables: [
-      "15 professional edits",
-      "Outdoor portrait session",
+      "15 fully edited portraits",
+      "One outdoor location",
       "Style and posing direction",
-      "High-resolution edited images"
+      "High-resolution downloads"
+    ],
+    bestFor: [
+      "Graduation portraits",
+      "Prom portraits",
+      "Branding headshots",
+      "One-outfit creative sets"
     ]
   },
   {
@@ -26,12 +32,18 @@ const portraitPackages = [
     icon: <Sparkles className="w-6 h-6" />,
     price: "$400",
     duration: "2 hours",
-    summary: "A longer session for more looks, more variety, and a deeper portrait gallery.",
+    summary: "For more time, outfit changes, and a wider gallery without rushing.",
     deliverables: [
-      "30 professional edits",
+      "30 fully edited portraits",
       "More time for outfit changes",
-      "Outdoor portrait session",
-      "High-resolution edited images"
+      "One outdoor location",
+      "High-resolution downloads"
+    ],
+    bestFor: [
+      "Outfit changes",
+      "Family portraits",
+      "Couples portraits",
+      "Creative variety"
     ],
     featured: true
   },
@@ -41,12 +53,18 @@ const portraitPackages = [
     icon: <Building2 className="w-6 h-6" />,
     price: "Package + studio rental",
     duration: "Choose Signature or Legacy",
-    summary: "Reserve your preferred studio, then add the portrait package price.",
+    summary: "For controlled light, backdrop options, and a polished indoor feel.",
     deliverables: [
-      "Client books the studio separately",
-      "Portrait package price is added to the studio rental fee",
-      "Ideal for controlled lighting and backdrop options",
-      "Use Peerspace to find Orlando studio rentals"
+      "Pair with Signature or Legacy",
+      "Studio rental booked separately",
+      "Controlled light and backdrop options",
+      "Orlando studio rental guidance"
+    ],
+    bestFor: [
+      "Clean backdrops",
+      "Controlled lighting",
+      "Editorial portraits",
+      "Indoor weather backup"
     ],
     studioLink: true
   }
@@ -63,24 +81,24 @@ const sessionTypes = [
 
 const policyItems = [
   {
-    title: "Reserving Your Date",
+    title: "Date Retainer",
     description:
-      "A 25% retainer reserves your session date and begins planning for your shoot."
+      "A 25% retainer reserves your date and starts the planning."
   },
   {
-    title: "Payment Timing",
+    title: "Payment",
     description:
-      "The next payment is due after the session, with the final balance due once revisions are complete."
+      "The next payment is due after we shoot. The remaining balance is due when revisions are complete."
   },
   {
-    title: "Revisions",
+    title: "Retouching",
     description:
-      "Two complimentary revisions are included. Additional revisions are available for $20 each."
+      "Two revision rounds are included. Additional revision requests are $20 each."
   },
   {
-    title: "Delivery Timeline",
+    title: "Turnaround",
     description:
-      "Proofs are delivered within 3-5 business days after the session. Final photos are delivered within 2-4 business days after approval."
+      "Proofs arrive 3-5 business days after the session. Finals arrive 2-4 business days after you approve your selects."
   },
   {
     title: "Rescheduling",
@@ -88,24 +106,24 @@ const policyItems = [
       "If plans change, reach out as soon as possible so we can look for a new available date."
   },
   {
-    title: "Usage Rights",
+    title: "Image Use",
     description:
       "Delivered portraits are yours to use personally. KB Visualz may use selected images for portfolio and promotional work unless we agree otherwise in writing."
   },
   {
-    title: "Photo and Video Bookings",
+    title: "Photography Only",
     description:
-      "KB Visualz packages are photography-only. If you need video coverage, please book a separate videographer."
+      "Photo and video are booked separately. Video coverage should be handled by a dedicated videographer."
   },
   {
-    title: "Session Rhythm",
+    title: "Arrival",
     description:
-      "Arriving on time keeps the light, location, and creative pace intact. Share must-have details early so the session can stay focused."
+      "Showing up on time protects the light, studio booking, and creative pace."
   },
   {
-    title: "Visual Fit",
+    title: "Visual Direction",
     description:
-      "The portfolio shows the tone to expect: directed, polished portraits with natural expression and a clean final edit."
+      "Book with this finish in mind: directed portraits, natural expression, and a clean edit."
   }
 ];
 
@@ -158,117 +176,174 @@ const Pricing = () => {
               Portrait Sessions
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/76 md:text-lg">
-              Portrait photography pricing for Orlando and Central Florida
-              sessions, including outdoor portraits and optional studio rental
-              planning.
+              Portrait sessions for Orlando and Central Florida clients who
+              want clear direction, clean edits, and no guessing on price.
             </p>
             {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-stone-950 pb-16 text-white md:pb-20">
-        <div className="editorial-grid">
+      <section className="bg-stone-950 pb-12 text-white md:pb-16">
+        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-10 md:col-start-2"
+            className="grid gap-5 border-y border-yellow-500/35 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:py-7"
           >
-            <div className="border border-yellow-500/40 bg-white/[0.06] p-5 shadow-2xl backdrop-blur-md md:p-6">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center border border-yellow-500/40 bg-black/40 text-yellow-500">
-                  <VideoOff className="h-6 w-6" />
-                </div>
-                <div>
-                  <div className="editorial-caption mb-2 text-yellow-500">
-                    Photo-Only Packages
-                  </div>
-                  <h2 className="editorial-title mb-2 text-3xl text-white md:text-4xl">
-                    Photo and video are booked separately.
-                  </h2>
-                  <p className="max-w-3xl text-sm leading-relaxed text-white/72 md:text-base">
-                    KB Visualz does not offer photo and video bundle packages.
-                    These prices cover photography sessions only; video
-                    coverage must be booked with a separate videographer.
-                  </p>
-                </div>
+            <div className="flex h-12 w-12 items-center justify-center border border-yellow-500/40 bg-black/35 text-yellow-500">
+              <VideoOff className="h-6 w-6" />
+            </div>
+            <div>
+              <div className="editorial-caption mb-2 text-yellow-500">
+                Photo-Only Packages
               </div>
+              <h2 className="editorial-title mb-2 text-3xl text-white md:text-4xl">
+                These packages are for photography only.
+              </h2>
+              <p className="max-w-3xl text-sm leading-relaxed text-white/72 md:text-base">
+                I photograph the session. If you need video, book a dedicated
+                videographer separately; photo and video are not bundled under
+                one KB Visualz package.
+              </p>
+            </div>
+            <div className="hidden text-right text-xs uppercase text-yellow-500/80 md:block">
+              Photography Only
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-24">
-        <div className="editorial-grid gap-8 md:gap-10">
-          {portraitPackages.map((service, index) => (
-            <motion.article
-              key={service.title}
-              initial={{ opacity: 0, y: 48, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.9, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true }}
-              className={`col-span-12 ${service.featured ? "md:col-span-8 md:col-start-3" : "md:col-span-10 md:col-start-2"} relative`}
-            >
-              {service.featured && (
-                <div className="absolute -top-4 -right-4 z-10 bg-stone-950 px-4 py-2 editorial-caption text-yellow-500 rotate-3">
-                  POPULAR
-                </div>
-              )}
+      <section id="portrait-packages" className="bg-stone-50 py-20 md:py-28">
+        <div className="editorial-grid gap-y-12">
+          <motion.div
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            viewport={{ once: true }}
+            className="col-span-12 md:col-span-5"
+          >
+            <div className="lookbook-page-marker mb-5 text-stone-500">
+              Rates / 01
+            </div>
+            <div className="editorial-caption mb-4 text-yellow-700">
+              Session Menu
+            </div>
+            <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">
+              Choose by pace, not pressure.
+            </h2>
+          </motion.div>
 
-              <div className={`overflow-hidden border ${service.featured ? "border-stone-950 bg-stone-50" : "border-stone-200 bg-white"}`}>
-                <div className="p-7 md:p-10">
-                  <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-7">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 border border-yellow-600/30 bg-yellow-600/10 p-3 text-yellow-600">
+          <motion.div
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.12 }}
+            viewport={{ once: true }}
+            className="col-span-12 md:col-span-6 md:col-start-7"
+          >
+            <p className="editorial-body text-stone-700">
+              Choose Signature for a focused portrait set, Legacy when you want
+              more time and variety, or Studio when the look needs controlled
+              indoor light.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {sessionTypes.map((type) => (
+                <span key={type} className="border border-stone-300 bg-white px-3 py-1 text-sm text-stone-700">
+                  {type}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="col-span-12 space-y-7">
+            {portraitPackages.map((service, index) => {
+              const isFeatured = Boolean(service.featured);
+
+              return (
+                <motion.article
+                  key={service.title}
+                  initial={{ opacity: 0, y: 48, filter: "blur(10px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.9, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  viewport={{ once: true }}
+                  className={`overflow-hidden border ${
+                    isFeatured
+                      ? "border-stone-950 bg-stone-950 text-white shadow-2xl"
+                      : "border-stone-200 bg-white text-stone-950"
+                  }`}
+                >
+                  <div className="grid gap-8 p-6 md:p-9 lg:grid-cols-[minmax(0,1.2fr)_minmax(13rem,0.5fr)] lg:items-start">
+                    <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+                      <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center border ${
+                        isFeatured
+                          ? "border-yellow-500/40 bg-white/10 text-yellow-500"
+                          : "border-yellow-700/25 bg-yellow-700/10 text-yellow-700"
+                      }`}>
                         {service.icon}
                       </div>
                       <div>
-                        <div className="editorial-caption text-yellow-600 mb-2">
-                          {service.category}
+                        <div className={`editorial-caption mb-3 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`}>
+                          {String(index + 1).padStart(2, "0")} / {service.category}
                         </div>
-                        <h2 className="editorial-title text-3xl text-stone-900 mb-3">
+                        <h3 className={`editorial-title mb-4 text-4xl leading-tight md:text-5xl ${isFeatured ? "text-white" : "text-stone-950"}`}>
                           {service.title}
-                        </h2>
-                        <p className="editorial-body text-stone-600 max-w-2xl">
+                        </h3>
+                        <p className={`max-w-2xl text-base leading-relaxed ${isFeatured ? "text-white/72" : "text-stone-600"}`}>
                           {service.summary}
                         </p>
                       </div>
                     </div>
 
-                    <div className="md:text-right flex-shrink-0">
-                      <div className="editorial-title text-4xl text-yellow-700 md:text-5xl">
+                    <div className="lg:text-right">
+                      {isFeatured && (
+                        <div className="mb-3 inline-flex border border-yellow-500/35 px-3 py-1 text-xs uppercase text-yellow-500">
+                          Popular Choice
+                        </div>
+                      )}
+                      <div className={`editorial-title ${service.studioLink ? "text-3xl md:text-4xl" : "text-5xl md:text-6xl"} ${isFeatured ? "text-yellow-400" : "text-yellow-700"}`}>
                         {service.price}
                       </div>
-                      <div className="text-sm text-stone-600 mt-1">
+                      <div className={`mt-2 text-sm ${isFeatured ? "text-white/60" : "text-stone-600"}`}>
                         {service.duration}
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  <div className={`grid gap-8 border-t px-6 pb-6 pt-6 md:grid-cols-[1fr_0.9fr] md:px-9 md:pb-9 ${
+                    isFeatured ? "border-white/12" : "border-stone-200"
+                  }`}>
                     <div>
-                      <div className="editorial-caption text-yellow-600 mb-4">
-                        INCLUDED
+                      <div className={`editorial-caption mb-4 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`}>
+                        Included
                       </div>
-                      <ul className="space-y-3">
+                      <ul className="grid gap-3 sm:grid-cols-2">
                         {service.deliverables.map((item) => (
-                          <li key={item} className="flex items-start gap-2 text-stone-700">
-                            <Star className="w-4 h-4 text-yellow-600 mt-1 flex-shrink-0" />
-                            <span className="text-sm">{item}</span>
+                          <li key={item} className={`flex items-start gap-2 text-sm ${isFeatured ? "text-white/76" : "text-stone-700"}`}>
+                            <Star className={`mt-1 h-4 w-4 flex-shrink-0 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`} />
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="magazine-sidebar">
-                      <div className="editorial-caption text-yellow-600 mb-4">
-                        BEST FOR
+                    <div className={`border-t pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0 ${
+                      isFeatured ? "border-white/12" : "border-stone-200"
+                    }`}>
+                      <div className={`editorial-caption mb-4 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`}>
+                        Best For
                       </div>
                       <div className="flex flex-wrap gap-2">
-                        {sessionTypes.map((type) => (
-                          <span key={type} className="border border-yellow-600/30 px-3 py-1 text-sm text-stone-700">
+                        {service.bestFor.map((type) => (
+                          <span
+                            key={type}
+                            className={`border px-3 py-1 text-sm ${
+                              isFeatured
+                                ? "border-white/18 text-white/76"
+                                : "border-yellow-700/25 text-stone-700"
+                            }`}
+                          >
                             {type}
                           </span>
                         ))}
@@ -278,32 +353,39 @@ const Pricing = () => {
                           href={PEERSPACE_STUDIO_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-yellow-600 hover:text-yellow-700"
+                          className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${
+                            isFeatured ? "text-yellow-500 hover:text-yellow-400" : "text-yellow-700 hover:text-yellow-800"
+                          }`}
                         >
                           Browse Orlando studio rentals
-                          <ExternalLink className="w-4 h-4" />
+                          <ExternalLink className="h-4 w-4" />
                         </a>
                       )}
                     </div>
                   </div>
 
-                  <div className="mt-7 flex flex-col sm:flex-row gap-4">
+                  <div className={`flex flex-col gap-4 border-t px-6 py-6 sm:flex-row md:px-9 ${
+                    isFeatured ? "border-white/12" : "border-stone-200"
+                  }`}>
                     <a
                       href={SCHEDULING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="site-button site-button--dark w-full sm:w-auto"
+                      className={`site-button w-full sm:w-auto ${isFeatured ? "site-button--light" : "site-button--dark"}`}
                     >
                       Plan This Session
                     </a>
-                    <a href="/portfolio" className="site-button site-button--outline w-full sm:w-auto">
+                    <a
+                      href="/portfolio"
+                      className={`site-button w-full sm:w-auto ${isFeatured ? "site-button--outline-light" : "site-button--outline"}`}
+                    >
                       View Portraits
                     </a>
                   </div>
-                </div>
-              </div>
-            </motion.article>
-          ))}
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -317,12 +399,12 @@ const Pricing = () => {
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
             <h2 className="editorial-title text-4xl text-stone-900 mb-4 md:text-5xl">
-              Studio Sessions
+              Want the studio look?
             </h2>
             <p className="editorial-body text-stone-600">
-              For studio work, reserve the studio separately through a rental
-              platform or studio of your choice. The selected portrait package
-              price is added to the studio rental fee.
+              Book the studio you like, then choose Signature or Legacy for the
+              portrait session. Studio rental is separate from the photography
+              package.
             </p>
           </motion.div>
         </div>
@@ -338,14 +420,14 @@ const Pricing = () => {
             className="col-span-12 lg:col-span-4"
           >
             <div className="editorial-caption text-yellow-500 mb-4">
-              BOOKING TERMS
+              BEFORE YOU BOOK
             </div>
             <h2 className="editorial-title text-4xl md:text-5xl text-white mb-6">
-              Clear terms, relaxed session.
+              Know the details before the date.
             </h2>
             <p className="text-stone-300 leading-relaxed">
-              Clear expectations keep the session relaxed: payment timing,
-              delivery, revisions, usage, and what is included.
+              Before we shoot, you will know how payment, delivery, revisions,
+              rescheduling, and image use work.
             </p>
           </motion.div>
 
@@ -374,7 +456,7 @@ const Pricing = () => {
       <FAQ
         page="pricing"
         title="Portrait Pricing Questions"
-        description="Straight answers on timing, edits, studio rental, and booking."
+        description="The details most clients ask about before choosing a package."
       />
     </div>
   );

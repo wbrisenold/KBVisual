@@ -106,7 +106,7 @@ const Home = () => {
                 Selected Work
               </div>
               <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-white md:text-7xl">
-                A portrait lookbook with atmosphere, expression, and edge.
+                Portraits with atmosphere, expression, and edge.
               </h2>
             </div>
             <a href="/portfolio" className="site-button site-button--outline-light md:mb-2">
@@ -182,10 +182,9 @@ const Home = () => {
             className="col-span-12 md:col-span-6 md:col-start-7"
           >
             <p className="editorial-body text-stone-700">
-              KB Visualz creates Orlando portrait photography for graduation,
-              branding, family, couples, and creative personal work. The session
-              is planned around how you want to look, how the location should
-              feel, and what kind of portrait you want to keep.
+              Sessions are shaped around how you want to look, where the
+              portrait should live, and the feeling you want to keep after the
+              day is over.
             </p>
 
             <div className="mt-8 divide-y divide-stone-200 border-y border-stone-200">
@@ -287,7 +286,7 @@ const Home = () => {
       <FAQ
         page="home"
         title="Portrait Session Questions"
-        description="A smoother session starts with a little clarity."
+        description="A few details to help you feel ready before we plan."
       />
     </div>
   );

@@ -46,9 +46,9 @@ const About = () => {
               Ken Brisenold
             </h1>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-stone-700 md:text-lg">
-              I'm the photographer behind KB Visualz, creating portrait sessions
-              in Orlando and Central Florida with a focus on presence,
-              confidence, and clean visual storytelling.
+              I'm the photographer behind KB Visualz. I create Orlando and
+              Central Florida portraits that feel directed, relaxed, and true to
+              the person in front of the camera.
             </p>
             <a href="#approach" className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
               <span>
@@ -71,7 +71,7 @@ const About = () => {
                 alt="Ken Brisenold, photographer behind KB Visualz"
                 className="aspect-[4/5] w-full object-cover object-top"
               />
-              <figcaption className="mt-4 grid grid-cols-[auto_1fr] items-center gap-4 text-xs uppercase text-stone-700">
+              <figcaption className="mt-4 grid grid-cols-[auto_1fr] items-center gap-4 text-xs uppercase text-stone-800">
                 <span>Artist Profile</span>
                 <span className="h-px bg-stone-950/20"></span>
               </figcaption>
@@ -114,9 +114,8 @@ const About = () => {
               alive.
             </p>
             <p className="editorial-body mt-6 text-stone-700">
-              My work focuses on preserving authentic expression and creating
-              polished imagery that feels personal, intentional, and true to the
-              person in front of the camera.
+              The goal is simple: make space for real expression, then finish
+              the image with care.
             </p>
 
             <div className="mt-9 grid gap-3 border-y border-stone-200 py-6 text-sm uppercase text-stone-500 sm:grid-cols-3">

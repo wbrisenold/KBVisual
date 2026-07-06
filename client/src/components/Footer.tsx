@@ -61,7 +61,7 @@ const Footer = () => {
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/pricing" className="text-stone-800 hover:text-yellow-700 transition-colors duration-300 text-sm">
-              Pricing & Booking Notes
+              Pricing
             </Link>
           </div>
         </div>

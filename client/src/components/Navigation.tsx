@@ -30,8 +30,8 @@ const Navigation = () => {
   return (
     <>
       <motion.nav
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ y: -12 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`${navPosition} top-0 z-50 w-full transition-all duration-500 ${navSurface}`}
       >

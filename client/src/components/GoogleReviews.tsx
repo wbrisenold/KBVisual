@@ -18,17 +18,17 @@ const GoogleReviews = () => {
               CLIENT TRUST
             </div>
             <h2 className="editorial-title mb-4 text-3xl text-white md:text-4xl">
-              Read what clients have shared on Google.
+              See what clients say on Google.
             </h2>
             <p className="text-stone-300 leading-relaxed">
-              See how clients describe the experience in their own words, with
-              ratings and dates attached on Google.
+              Reviews stay on the public Google profile, where the ratings and
+              comments are easy to check before you book.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-3 text-sm text-stone-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2">
                 <Star className="h-4 w-4 text-yellow-500" />
-                Real feedback
+                Client reviews
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2">
                 <MapPinned className="h-4 w-4 text-yellow-500" />
