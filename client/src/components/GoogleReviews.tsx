@@ -1,23 +1,20 @@
 import { motion } from "framer-motion";
-import { ExternalLink, MapPinned, MessageSquareText, ShieldCheck } from "lucide-react";
+import { ExternalLink, MapPinned, MessageSquareText, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GOOGLE_REVIEWS_URL } from "@/lib/booking";
 
-const reviewActions = [
+const reviewDetails = [
   {
-    icon: <ShieldCheck className="w-5 h-5" />,
-    title: "Live Google Listing",
-    description: "Open the KB Visualz profile on Google Maps and read reviews directly at the source."
+    icon: <Star className="h-5 w-5" />,
+    text: "Star ratings with review dates"
   },
   {
-    icon: <MessageSquareText className="w-5 h-5" />,
-    title: "Current Review Feed",
-    description: "Google shows the latest public ratings, dates, and client comments as they are posted."
+    icon: <MessageSquareText className="h-5 w-5" />,
+    text: "Client comments posted directly on Google"
   },
   {
-    icon: <MapPinned className="w-5 h-5" />,
-    title: "Orlando Photographer Profile",
-    description: "Confirm the business listing, map details, and public feedback before scheduling."
+    icon: <MapPinned className="h-5 w-5" />,
+    text: "The public Orlando Photographer: KB Visualz listing"
   }
 ];
 
@@ -37,13 +34,12 @@ const GoogleReviews = () => {
               GOOGLE REVIEWS
             </div>
             <h2 className="editorial-title text-3xl md:text-5xl text-white mb-6">
-              Read the Live Google Reviews
+              Reviews Open on Google Maps
             </h2>
             <p className="text-stone-300 leading-relaxed mb-8 max-w-xl">
-              Instead of copying review text that can go out of date, this
-              section links straight to the public KB Visualz Google Maps
-              profile. Read the latest reviews there before booking your
-              portrait session.
+              I do not repost Google reviews here because ratings and comments
+              can change over time. Use the link below to read the current
+              public reviews on the KB Visualz Google listing.
             </p>
 
             <div className="rounded-lg border border-yellow-500/25 bg-white/5 p-6 mb-6">
@@ -53,10 +49,10 @@ const GoogleReviews = () => {
                 </div>
                 <div>
                   <p className="text-2xl font-semibold text-white leading-none">
-                    Public Google Feedback
+                    Orlando Photographer: KB Visualz
                   </p>
                   <p className="text-sm text-stone-400">
-                    Current ratings and comments open on Google Maps
+                    Public review page on Google Maps
                   </p>
                 </div>
               </div>
@@ -64,34 +60,40 @@ const GoogleReviews = () => {
 
             <Button asChild className="gold-gradient text-stone-900 font-semibold w-full sm:w-auto">
               <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener noreferrer">
-                View Latest Google Reviews
+                Open Google Reviews
                 <ExternalLink className="w-4 h-4" />
               </a>
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-5">
-            {reviewActions.map((item, index) => (
-              <motion.article
-                key={item.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="rounded-lg border border-white/10 bg-white/[0.06] p-6"
-              >
-                <div className="text-yellow-500 mb-4">
-                  {item.icon}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="rounded-lg border border-white/10 bg-white/[0.06] p-6 md:p-8"
+          >
+            <h3 className="text-2xl font-semibold text-white mb-4">
+              What you can check there
+            </h3>
+            <p className="text-stone-400 leading-relaxed mb-6">
+              Google keeps the review details attached to the public business
+              profile, so you can verify the feedback without relying on copied
+              quotes.
+            </p>
+            <div className="space-y-4">
+              {reviewDetails.map((item) => (
+                <div key={item.text} className="flex items-start gap-3">
+                  <div className="mt-0.5 text-yellow-500">
+                    {item.icon}
+                  </div>
+                  <p className="text-sm leading-relaxed text-stone-300">
+                    {item.text}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-stone-400">
-                  {item.description}
-                </p>
-              </motion.article>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
