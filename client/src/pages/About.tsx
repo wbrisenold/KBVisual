@@ -170,16 +170,16 @@ const About = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto">
+              <Button asChild size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto">
+                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                   PLAN YOUR SESSION
-                </Button>
-              </a>
-              <Link href="/portfolio">
-                <Button size="lg" variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 px-10 py-4 w-full sm:w-auto">
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 px-10 py-4 w-full sm:w-auto">
+                <Link href="/portfolio">
                   VIEW MY WORK
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             <div className="section-break mb-0"></div>

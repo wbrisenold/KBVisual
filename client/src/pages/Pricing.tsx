@@ -280,16 +280,16 @@ const Pricing = () => {
                   </div>
 
                   <div className="mt-7 flex flex-col sm:flex-row gap-4">
-                    <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                      <Button className="gold-gradient text-stone-900 font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-auto">
+                    <Button asChild className="gold-gradient text-stone-900 font-semibold shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-auto">
+                      <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                         PLAN THIS SESSION
-                      </Button>
-                    </a>
-                    <Link href="/portfolio">
-                      <Button variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
+                      </a>
+                    </Button>
+                    <Button asChild variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
+                      <Link href="/portfolio">
                         VIEW PORTRAITS
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>

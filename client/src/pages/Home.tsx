@@ -103,17 +103,17 @@ const Home = () => {
               edit.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                <Button className="gold-gradient h-12 w-full px-6 font-semibold text-stone-950 sm:w-auto">
+              <Button asChild className="gold-gradient h-12 w-full px-6 font-semibold text-stone-950 sm:w-auto">
+                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                   Plan Your Session
                   <ArrowRight className="h-4 w-4" />
-                </Button>
-              </a>
-              <Link href="/portfolio">
-                <Button variant="outline" className="h-12 w-full border-white/40 bg-transparent px-6 text-white hover:bg-white hover:text-stone-950 sm:w-auto">
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-12 w-full border-white/40 bg-transparent px-6 text-white hover:bg-white hover:text-stone-950 sm:w-auto">
+                <Link href="/portfolio">
                   View The Portfolio
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </motion.div>
 
@@ -187,16 +187,16 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <Link href="/pricing">
-                <Button className="gold-gradient text-stone-900 font-semibold w-full sm:w-auto">
+              <Button asChild className="gold-gradient text-stone-900 font-semibold w-full sm:w-auto">
+                <Link href="/pricing">
                   VIEW PRICING
-                </Button>
-              </Link>
-              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 w-full sm:w-auto">
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 w-full sm:w-auto">
+                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                   PLAN YOUR SESSION
-                </Button>
-              </a>
+                </a>
+              </Button>
             </div>
           </motion.div>
         </div>

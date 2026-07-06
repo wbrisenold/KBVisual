@@ -84,7 +84,7 @@ const FAQ = ({ page, title, description }: FAQProps) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="text-xs tracking-[0.3em] uppercase opacity-60 mb-4">
+          <div className="text-xs uppercase opacity-60 mb-4">
             Frequently Asked Questions
           </div>
           <h2 className="text-3xl md:text-4xl font-light mb-6">
@@ -110,8 +110,10 @@ const FAQ = ({ page, title, description }: FAQProps) => {
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                aria-expanded={openIndex === index}
+                aria-controls={`faq-answer-${page}-${index}`}
               >
-                <span className="font-medium text-lg">{faq.question}</span>
+                <span id={`faq-question-${page}-${index}`} className="font-medium text-lg">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -129,7 +131,12 @@ const FAQ = ({ page, title, description }: FAQProps) => {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-6 pb-4 text-gray-700 leading-relaxed">
+                <div
+                  id={`faq-answer-${page}-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${page}-${index}`}
+                  className="px-6 pb-4 text-gray-700 leading-relaxed"
+                >
                   {faq.answer}
                 </div>
               </motion.div>

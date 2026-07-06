@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -92,58 +90,120 @@ a, button, .cursor-pointer {
     @apply antialiased;
     background-color: #ffffff;
     color: #1c1917;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-weight: 400;
     line-height: 1.6;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    letter-spacing: 0;
   }
 }
 
 @layer utilities {
   /* Editorial Magazine Typography */
   .editorial-headline {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-style: italic;
-    letter-spacing: -0.02em;
-    line-height: 0.9;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0;
+    line-height: 0.92;
   }
 
   .editorial-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    letter-spacing: 0;
     line-height: 1.1;
   }
 
   .editorial-body {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Instrument Sans', sans-serif;
     font-weight: 400;
     line-height: 1.7;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
     font-size: 1.125rem;
   }
 
   .editorial-caption {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 650;
     font-size: 0.75rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0;
     text-transform: uppercase;
     color: hsl(var(--luxury-gold));
   }
 
   .editorial-quote {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Instrument Serif', serif;
     font-weight: 400;
     font-style: italic;
     font-size: 1.5rem;
     line-height: 1.4;
+  }
+
+  .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Instrument Sans', sans-serif;
+  }
+
+  .brand-monogram {
+    position: relative;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    flex: none;
+    border: 1px solid currentColor;
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .brand-monogram::after {
+    content: '';
+    position: absolute;
+    inset: 0.35rem;
+    border: 1px solid currentColor;
+    opacity: 0.26;
+  }
+
+  .brand-monogram__k,
+  .brand-monogram__b {
+    position: absolute;
+    z-index: 1;
+    font-weight: 400;
+    line-height: 0.8;
+  }
+
+  .brand-monogram__k {
+    top: 0.48rem;
+    left: 0.46rem;
+  }
+
+  .brand-monogram__b {
+    right: 0.42rem;
+    bottom: 0.42rem;
+  }
+
+  .brand-wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    font-size: 0.72rem;
+    font-stretch: 108%;
+    font-weight: 680;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .brand-wordmark span + span {
+    font-size: 0.58rem;
+    font-weight: 500;
+    opacity: 0.62;
   }
 
   /* Magazine Layout Elements */
@@ -154,9 +214,9 @@ a, button, .cursor-pointer {
   }
 
   .magazine-dropcap::first-letter {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Instrument Serif', serif;
     font-size: 4rem;
-    font-weight: 700;
+    font-weight: 400;
     float: left;
     line-height: 1;
     margin: 0.1em 0.1em 0 0;
@@ -207,7 +267,7 @@ a, button, .cursor-pointer {
 
   .ornamental-break {
     text-align: center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Instrument Serif', serif;
     font-size: 2rem;
     color: hsl(var(--luxury-gold));
     margin: 3rem 0;
@@ -215,9 +275,9 @@ a, button, .cursor-pointer {
 
   /* Pull Quotes */
   .pull-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Instrument Serif', serif;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 400;
     font-style: italic;
     color: hsl(var(--luxury-gold));
     text-align: center;

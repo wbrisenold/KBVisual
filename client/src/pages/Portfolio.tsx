@@ -115,10 +115,10 @@ const Portfolio = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="text-xs tracking-[0.3em] uppercase opacity-60 mb-8">
+            <div className="text-xs uppercase opacity-60 mb-8">
               SELECTED WORK
             </div>
-            <h2 className="text-5xl lg:text-7xl font-light leading-[0.85] tracking-[-0.02em] mb-8">
+            <h2 className="text-5xl lg:text-7xl font-light leading-[0.85] mb-8">
               Professional Portraits
             </h2>
             <div className="w-24 h-px bg-black opacity-30 mx-auto mb-8"></div>
@@ -168,7 +168,7 @@ const Portfolio = () => {
             <blockquote className="text-xl lg:text-2xl font-light italic leading-relaxed max-w-4xl mx-auto opacity-80 mb-8">
               "A great portrait reveals confidence, character, and authenticity."
             </blockquote>
-            <div className="text-xs tracking-[0.3em] uppercase opacity-60">
+            <div className="text-xs uppercase opacity-60">
               Portrait Photography by KB Visualz
             </div>
           </motion.div>
@@ -190,16 +190,16 @@ const Portfolio = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Button asChild size="lg" className="gold-gradient text-stone-900 font-semibold px-10 py-4 w-full sm:w-auto shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer">
                   START PLANNING
-                </Button>
-              </a>
-              <Link href="/pricing">
-                <Button size="lg" variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 px-10 py-4 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300">
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-stone-900 px-10 py-4 w-full sm:w-auto shadow-lg hover:shadow-xl transition-all duration-300">
+                <Link href="/pricing">
                   VIEW PRICING
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </motion.div>
         </div>

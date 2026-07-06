@@ -1,4 +1,4 @@
-import { copyFileSync, mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
 const distDir = join(process.cwd(), "dist");
@@ -33,6 +33,16 @@ const routeMeta = {
   }
 };
 
+const notFoundMeta = {
+  title: "Page Not Found | KB Visualz",
+  description:
+    "This KB Visualz page could not be found. Use the site navigation to return to Orlando portrait photography work, pricing, or booking information.",
+  keywords:
+    "KB Visualz, Orlando portrait photographer, Central Florida portrait photography",
+  url: "https://kbvisualz.com/404.html",
+  robots: "noindex, follow"
+};
+
 const setMeta = (html, meta) =>
   html
     .replace(/<title>.*?<\/title>/, `<title>${meta.title}</title>`)
@@ -43,6 +53,10 @@ const setMeta = (html, meta) =>
     .replace(
       /<meta name="keywords" content=".*?" \/>/,
       `<meta name="keywords" content="${meta.keywords}" />`
+    )
+    .replace(
+      /<meta name="robots" content=".*?" \/>/,
+      `<meta name="robots" content="${meta.robots ?? "index, follow, max-image-preview:large"}" />`
     )
     .replace(
       /<link rel="canonical" href=".*?" \/>/,
@@ -76,7 +90,7 @@ const setMeta = (html, meta) =>
 if (existsSync(indexFile)) {
   const indexHtml = readFileSync(indexFile, "utf8");
 
-  copyFileSync(indexFile, notFoundFile);
+  writeFileSync(notFoundFile, setMeta(indexHtml, notFoundMeta));
 
   for (const [route, meta] of Object.entries(routeMeta)) {
     const routeDir = join(distDir, route);

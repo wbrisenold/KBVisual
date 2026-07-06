@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Instagram } from "lucide-react";
-import { useLocation } from "wouter";
+import BrandMark from "@/components/BrandMark";
 import { SCHEDULING_URL } from "@/lib/booking";
 import heroImagePath from "@assets/kbvisualz-current/kbv-02.jpg";
 
 const Hero = () => {
-  const [, navigate] = useLocation();
   const trustCues = [
     "Guided posing",
     "Outdoor + studio options",
@@ -34,15 +33,15 @@ const Hero = () => {
           className="max-w-3xl"
         >
           <motion.div
-            className="mb-5 text-xs font-medium uppercase text-yellow-400 md:text-sm"
+            className="mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
           >
-            KB Visualz | Ken Brisenold
+            <BrandMark inverted />
           </motion.div>
           <motion.h1 
-            className="mb-7 font-serif text-5xl font-semibold leading-[0.9] md:text-7xl lg:text-8xl"
+            className="editorial-headline mb-7 text-5xl md:text-7xl lg:text-8xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.5 }}
@@ -96,14 +95,14 @@ const Hero = () => {
               Plan Your Portrait Session
               <ArrowRight className="h-4 w-4" />
             </motion.a>
-            <motion.button
-              onClick={() => navigate("/portfolio")}
+            <motion.a
+              href="/portfolio"
               className="border border-white/70 px-7 py-4 text-sm font-semibold uppercase text-white transition-all hover:bg-white hover:text-black"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               See The Work
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Social Links */}

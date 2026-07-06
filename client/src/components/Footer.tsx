@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import BrandMark from "@/components/BrandMark";
 import { SCHEDULING_URL } from "@/lib/booking";
 
 const Footer = () => {
@@ -8,7 +9,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-yellow-600 mb-4">KB Visualz</h3>
+            <Link href="/" aria-label="KB Visualz home" className="mb-4 inline-flex">
+              <BrandMark />
+            </Link>
             <p className="text-stone-700 opacity-80 leading-relaxed">
               Orlando and Central Florida portrait photography for individual,
               family, creative, and personal branding sessions.
