@@ -1,4 +1,8 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { Maximize2 } from "lucide-react";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import "photoswipe/style.css";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
@@ -15,47 +19,86 @@ const portraits = [
     image: gardenEditorialPortrait,
     title: "Garden Editorial Portrait",
     category: "Creative Portraits",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 1600,
+    height: 2400
   },
   {
     image: formalStudioPortrait,
     title: "Formal Studio Portrait",
     category: "Men's Formal Portraits",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 1600,
+    height: 2400
   },
   {
     image: retroStudioPortrait,
     title: "Retro Studio Chair Portrait",
     category: "Creative Studio Portraits",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 1600,
+    height: 2400
   },
   {
     image: childPortrait,
     title: "Outdoor Child Portrait",
     category: "Family Portraits",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 1733,
+    height: 2600
   },
   {
     image: outdoorEditorialPortrait,
     title: "Outdoor Editorial Portrait",
     category: "Creative Portraits",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 1600,
+    height: 2400
   },
   {
     image: proposalPortrait,
     title: "Proposal Celebration Portrait",
     category: "Engagement Moments",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 1513,
+    height: 2400
   },
   {
     image: coupleCloseup,
     title: "Golden Hour Couples Close-Up",
     category: "Couples Portraits",
-    objectPosition: "object-center"
+    objectPosition: "object-center",
+    width: 2400,
+    height: 1600
   }
 ];
 
 const Portfolio = () => {
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!galleryRef.current) {
+      return;
+    }
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: galleryRef.current,
+      children: "a",
+      bgOpacity: 0.94,
+      showHideAnimationType: "zoom",
+      wheelToZoom: true,
+      imageClickAction: "zoom-or-close",
+      tapAction: "toggle-controls",
+      pswpModule: () => import("photoswipe")
+    });
+
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen page-content bg-black text-white">
       <SEOHead
@@ -122,7 +165,7 @@ const Portfolio = () => {
                 Selected Work
               </div>
               <h2 className="editorial-title max-w-4xl text-5xl leading-none text-white md:text-7xl">
-                Strongest frames first. Quiet when they need to be.
+                Portraits shaped for confidence, connection, and style.
               </h2>
             </div>
             <a
@@ -135,10 +178,17 @@ const Portfolio = () => {
             </a>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
+          <div ref={galleryRef} className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
             {portraits.map((photo, index) => (
-              <motion.div
+              <motion.a
                 key={photo.title}
+                href={photo.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${photo.title} in full-screen gallery`}
+                data-pswp-width={photo.width}
+                data-pswp-height={photo.height}
+                data-pswp-caption={`${photo.title} - ${photo.category}`}
                 initial={{ opacity: 0, y: 56, filter: "blur(12px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.95, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
@@ -157,6 +207,9 @@ const Portfolio = () => {
                   className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]`}
                   loading="lazy"
                 />
+                <div className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                  <Maximize2 className="h-4 w-4" aria-hidden="true" />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-100 transition-opacity duration-500">
                   <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4 p-5">
                     <h3 className="editorial-title text-2xl text-white md:text-3xl">
@@ -167,7 +220,7 @@ const Portfolio = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
 

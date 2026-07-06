@@ -43,3 +43,20 @@ test("homepage hero stays readable and uncluttered", async ({ page }) => {
   await expect(hero.getByRole("link", { name: /view work/i })).toBeVisible();
   await expect(hero.getByRole("link", { name: /instagram/i })).toHaveCount(0);
 });
+
+test("portfolio images open in the lightbox", async ({ page }) => {
+  await page.goto("/portfolio/");
+
+  await page
+    .getByRole("link", { name: /open garden editorial portrait/i })
+    .click();
+
+  const lightbox = page.locator(".pswp");
+  await expect(lightbox).toBeVisible();
+  await expect(lightbox.locator(".pswp__img").first()).toBeVisible();
+  await expect(page.getByRole("button", { name: /close/i })).toBeVisible();
+  await page.waitForTimeout(1200);
+
+  await page.getByRole("button", { name: /close/i }).click();
+  await expect(lightbox).toBeHidden();
+});

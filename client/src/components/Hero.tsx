@@ -111,8 +111,8 @@ const Hero = () => {
           </motion.h1>
 
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ y: 28 }}
+            animate={{ y: 0 }}
             transition={{ duration: 1.1, delay: 0.95 }}
             className="mt-8 grid gap-6 border-t border-white/20 pt-6 md:grid-cols-[1fr_auto] md:items-end"
           >
@@ -126,7 +126,7 @@ const Hero = () => {
                 href={SCHEDULING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="site-button site-button--light"
+                className="site-button site-button--dark"
               >
                 Plan a Session
                 <ArrowRight className="h-4 w-4" />
@@ -139,19 +139,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <motion.div
-        className="absolute bottom-6 right-5 z-20 hidden rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs uppercase text-white/70 backdrop-blur-md md:block"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.6, duration: 0.9 }}
-      >
-        <motion.span
-          animate={{ opacity: [0.45, 1, 0.45] }}
-          transition={{ duration: 2.4, repeat: Infinity }}
-        >
-          Scroll
-        </motion.span>
-      </motion.div>
     </section>
   );
 };

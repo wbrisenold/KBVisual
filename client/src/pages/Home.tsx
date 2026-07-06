@@ -205,14 +205,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-stone-950 py-20 text-white md:py-28">
+      <section className="relative overflow-hidden bg-black py-20 text-white md:py-28">
         <img
           src={outdoorEditorialPortrait}
           alt="Outdoor portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-24 blur-[2px]"
+          className="absolute inset-0 h-full w-full object-cover opacity-12 blur-[1px]"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/78 via-black/70 to-black/86"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/86 to-black/95"></div>
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
         <div className="editorial-grid relative">
           <motion.div
             initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
@@ -221,13 +223,13 @@ const Home = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
-            <div className="editorial-caption text-yellow-500 mb-5">
+            <div className="editorial-caption mb-5 text-yellow-300">
               Booking
             </div>
-            <h2 className="editorial-title mb-6 text-5xl leading-tight text-white md:text-7xl">
+            <h2 className="editorial-title mb-6 text-5xl leading-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.85)] md:text-7xl">
               Make the portrait feel like it belongs to you.
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] md:text-lg">
               Choose the package that fits the pace of your session, then we
               shape the location, timing, outfits, and mood from there.
             </p>

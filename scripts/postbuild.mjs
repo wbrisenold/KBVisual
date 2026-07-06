@@ -5,6 +5,8 @@ const distDir = join(process.cwd(), "dist");
 const indexFile = join(distDir, "index.html");
 const notFoundFile = join(distDir, "404.html");
 const nojekyllFile = join(distDir, ".nojekyll");
+const sitemapFile = join(distDir, "sitemap.xml");
+const robotsFile = join(distDir, "robots.txt");
 
 const routeMeta = {
   portfolio: {
@@ -99,4 +101,42 @@ if (existsSync(indexFile)) {
   }
 }
 
+const lastmod = new Date().toISOString();
+const sitemapRoutes = [
+  { url: "https://kbvisualz.com/", changefreq: "weekly", priority: "1.0" },
+  ...Object.values(routeMeta).map((meta) => ({
+    url: meta.url,
+    changefreq: meta.url.includes("/portfolio/") ? "weekly" : "monthly",
+    priority: meta.url.includes("/portfolio/")
+      ? "0.9"
+      : meta.url.includes("/pricing/")
+        ? "0.85"
+        : "0.75"
+  }))
+];
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapRoutes
+  .map(
+    (route) => `  <url>
+    <loc>${route.url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${route.changefreq}</changefreq>
+    <priority>${route.priority}</priority>
+  </url>`
+  )
+  .join("\n")}
+</urlset>
+`;
+
+writeFileSync(sitemapFile, sitemapXml);
+writeFileSync(
+  robotsFile,
+  `User-agent: *
+Allow: /
+
+Sitemap: https://kbvisualz.com/sitemap.xml
+`
+);
 writeFileSync(nojekyllFile, "");

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import type { Graph, Thing } from "schema-dts";
 
 const SITE_URL = "https://kbvisualz.com";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -13,7 +14,7 @@ interface SEOHeadProps {
   canonicalPath?: string;
   url?: string;
   type?: string;
-  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  structuredData?: Thing | Thing[];
 }
 
 const SEOHead = ({ 
@@ -30,7 +31,7 @@ const SEOHead = ({
   const fullTitle = title.includes("KB Visualz") ? title : `${title} | KB Visualz`;
   const canonicalUrl = url || `${SITE_URL}${canonicalPath}`;
   const jsonLdItems = Array.isArray(structuredData) ? structuredData : [structuredData];
-  const jsonLd = {
+  const jsonLd: Graph = {
     "@context": "https://schema.org",
     "@graph": [
       {
