@@ -14,7 +14,7 @@ const reviewDetails = [
   },
   {
     icon: <MapPinned className="h-5 w-5" />,
-    text: "The public Orlando Photographer: KB Visualz listing"
+    text: "The KB Visualz business listing on Google Maps"
   }
 ];
 
@@ -34,12 +34,11 @@ const GoogleReviews = () => {
               GOOGLE REVIEWS
             </div>
             <h2 className="editorial-title text-3xl md:text-5xl text-white mb-6">
-              Reviews Open on Google Maps
+              Read Reviews on Google Maps
             </h2>
             <p className="text-stone-300 leading-relaxed mb-8 max-w-xl">
-              I do not repost Google reviews here because ratings and comments
-              can change over time. Use the link below to read the current
-              public reviews on the KB Visualz Google listing.
+              The button below opens the KB Visualz Google Maps listing, where
+              you can read current public reviews before booking.
             </p>
 
             <div className="rounded-lg border border-yellow-500/25 bg-white/5 p-6 mb-6">
@@ -74,12 +73,11 @@ const GoogleReviews = () => {
             className="rounded-lg border border-white/10 bg-white/[0.06] p-6 md:p-8"
           >
             <h3 className="text-2xl font-semibold text-white mb-4">
-              What you can check there
+              What you'll see there
             </h3>
             <p className="text-stone-400 leading-relaxed mb-6">
-              Google keeps the review details attached to the public business
-              profile, so you can verify the feedback without relying on copied
-              quotes.
+              Google Maps shows the review dates, star ratings, and client
+              comments in one place.
             </p>
             <div className="space-y-4">
               {reviewDetails.map((item) => (
