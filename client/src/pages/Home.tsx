@@ -5,53 +5,14 @@ import { ArrowRight } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import GoogleReviews from "@/components/GoogleReviews";
-import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
-import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
-import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
-import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
-import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
 import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const Home = () => {
-  const selectedWorks = [
-    {
-      image: gardenEditorialPortrait,
-      title: "Creative Outdoor",
-      meta: "Color / Direction / Movement",
-      className: "md:col-span-7 md:row-span-2"
-    },
-    {
-      image: formalStudioPortrait,
-      title: "Studio Presence",
-      meta: "Light / Shape / Polish",
-      className: "md:col-span-5"
-    },
-    {
-      image: retroStudioPortrait,
-      title: "Editorial Color",
-      meta: "Character / Styling / Ease",
-      className: "md:col-span-5"
-    },
-    {
-      image: proposalPortrait,
-      title: "Couples",
-      meta: "Connection / Timing / Place",
-      className: "md:col-span-4"
-    },
-    {
-      image: childPortrait,
-      title: "Family",
-      meta: "Warmth / Patience / Memory",
-      className: "md:col-span-4"
-    },
-    {
-      image: coupleCloseup,
-      title: "Close Portraits",
-      meta: "Expression / Detail / Calm",
-      className: "md:col-span-4"
-    }
-  ];
+  const selectedWork = {
+    image: gardenEditorialPortrait,
+    title: "Garden editorial portrait"
+  };
 
   const approachNotes = [
     "Directed posing without making the session feel stiff.",
@@ -91,58 +52,51 @@ const Home = () => {
 
       <section id="selected-work" className="scroll-mt-20 bg-black py-20 text-white md:py-28">
         <div className="editorial-grid">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="col-span-12 mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
-          >
-            <div>
+          <div className="col-span-12 mb-12 grid gap-8 md:grid-cols-12 md:items-end">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className="md:col-span-7"
+            >
               <div className="lookbook-page-marker mb-5 text-white/58">
                 Portraits / 01
               </div>
-              <div className="editorial-caption mb-4 text-yellow-700">
-                Selected Work
-              </div>
-              <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-white md:text-7xl">
-                Portraits with atmosphere, expression, and edge.
+              <h2 className="editorial-title max-w-3xl text-4xl leading-tight text-white md:text-6xl">
+                A portrait should feel like a scene.
               </h2>
-            </div>
-            <a href="/portfolio" className="site-button site-button--outline-light md:mb-2">
-              Enter Portfolio
-            </a>
-          </motion.div>
+            </motion.div>
 
-          <div className="col-span-12 grid gap-3 md:grid-cols-12 md:gap-4">
-            {selectedWorks.map((photo, index) => (
-              <motion.figure
-                key={photo.title}
-                initial={{ opacity: 0, y: 42 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.95, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: true }}
-                className={`scroll-lift group relative min-h-[330px] overflow-hidden border border-white/10 bg-white/5 md:min-h-[420px] ${photo.className}`}
-              >
-                <img
-                  src={photo.image}
-                  alt={`${photo.title} by KB Visualz`}
-                  className="h-full w-full object-cover transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]"
-                  loading="lazy"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5">
-                  <h3 className="editorial-title text-3xl text-white">
-                    {photo.title}
-                  </h3>
-                  <p className="max-w-[12rem] text-right text-xs uppercase leading-relaxed text-white/60">
-                    {photo.meta}
-                  </p>
-                </figcaption>
-              </motion.figure>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+              className="md:col-span-4 md:col-start-9"
+            >
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/58 md:text-base">
+                Color, light, and direction shaped around you.
+              </p>
+            </motion.div>
           </div>
 
-          <div className="col-span-12 mt-10 flex justify-end">
+          <motion.figure
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="scroll-lift group relative col-span-12 min-h-[360px] overflow-hidden border border-white/10 bg-white/5 md:aspect-[2/1] md:min-h-[520px]"
+          >
+            <img
+              src={selectedWork.image}
+              alt={`${selectedWork.title} by KB Visualz`}
+              className="h-full w-full object-cover object-[50%_28%] transition duration-1000 group-hover:scale-[1.025]"
+              loading="lazy"
+            />
+          </motion.figure>
+
+          <div className="col-span-12 mt-8 flex justify-end">
             <a href="#session" className="lookbook-next w-full max-w-sm text-white/90">
               <span>
                 <span className="lookbook-next__meta">Next / 02</span>
