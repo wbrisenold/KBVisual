@@ -102,7 +102,7 @@ const Home = () => {
               <div className="lookbook-page-marker mb-5 text-white/58">
                 Portraits / 01
               </div>
-              <div className="editorial-caption mb-4 text-yellow-500">
+              <div className="editorial-caption mb-4 text-yellow-700">
                 Selected Work
               </div>
               <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-white md:text-7xl">
@@ -166,7 +166,7 @@ const Home = () => {
             <div className="lookbook-page-marker mb-5 text-stone-500">
               Session / 02
             </div>
-            <div className="editorial-caption text-yellow-600 mb-4">
+            <div className="editorial-caption text-yellow-700 mb-4">
               The Session
             </div>
             <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">
@@ -249,7 +249,7 @@ const Home = () => {
             <div className="lookbook-page-marker mb-5 justify-center text-white/58">
               Booking / 03
             </div>
-            <div className="editorial-caption mb-5 text-yellow-300">
+            <div className="editorial-caption mb-5 text-yellow-700">
               Booking
             </div>
             <h2 className="editorial-title mb-6 text-5xl leading-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.85)] md:text-7xl">

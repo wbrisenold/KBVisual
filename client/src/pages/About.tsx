@@ -92,7 +92,7 @@ const About = () => {
             <div className="lookbook-page-marker mb-5 text-stone-500">
               Approach / 01
             </div>
-            <div className="editorial-caption text-yellow-600 mb-5">
+            <div className="editorial-caption text-yellow-700 mb-5">
               The Approach
             </div>
             <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">

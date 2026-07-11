@@ -84,7 +84,7 @@ const FAQ = ({ page, title, description }: FAQProps) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="editorial-caption text-yellow-600 mb-4">
+          <div className="editorial-caption text-yellow-700 mb-4">
             Frequently Asked Questions
           </div>
           <h2 className="editorial-title text-4xl text-stone-950 md:text-5xl mb-6">

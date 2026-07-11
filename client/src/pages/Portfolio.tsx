@@ -204,7 +204,7 @@ const Portfolio = () => {
               <div className="lookbook-page-marker mb-5 text-white/70">
                 Portrait Range
               </div>
-              <div className="editorial-caption mb-4 text-yellow-500">
+              <div className="editorial-caption mb-4 text-yellow-700">
                 Full Gallery
               </div>
               <h2 className="lookbook-index-title max-w-xl text-white">

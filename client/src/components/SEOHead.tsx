@@ -152,7 +152,7 @@ const SEOHead = ({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="geo.region" content="US-FL" />
       <meta name="geo.placename" content="Orlando" />
-      <meta name="theme-color" content="#ca8a04" />
+      <meta name="theme-color" content="#a16207" />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
