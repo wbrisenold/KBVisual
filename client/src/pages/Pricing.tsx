@@ -169,7 +169,7 @@ const Pricing = () => {
             transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-12 md:col-span-8"
           >
-            <div className="editorial-caption mb-5 text-yellow-500">
+            <div className="editorial-caption mb-5 text-yellow-700">
               Portrait Pricing
             </div>
             <h1 className="editorial-headline text-6xl leading-none text-white md:text-8xl lg:text-9xl">
@@ -191,13 +191,13 @@ const Pricing = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="grid gap-5 border-y border-yellow-500/35 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:py-7"
+            className="grid gap-5 border-y border-yellow-700/35 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:py-7"
           >
-            <div className="flex h-12 w-12 items-center justify-center border border-yellow-500/40 bg-black/35 text-yellow-500">
+            <div className="flex h-12 w-12 items-center justify-center border border-yellow-700/40 bg-black/35 text-yellow-700">
               <VideoOff className="h-6 w-6" />
             </div>
             <div>
-              <div className="editorial-caption mb-2 text-yellow-500">
+              <div className="editorial-caption mb-2 text-yellow-700">
                 Photo-Only Packages
               </div>
               <h2 className="editorial-title mb-2 text-3xl text-white md:text-4xl">
@@ -209,7 +209,7 @@ const Pricing = () => {
                 one KB Visualz package.
               </p>
             </div>
-            <div className="hidden text-right text-xs uppercase text-yellow-500/80 md:block">
+            <div className="hidden text-right text-xs uppercase text-yellow-700/80 md:block">
               Photography Only
             </div>
           </motion.div>
@@ -278,13 +278,13 @@ const Pricing = () => {
                     <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
                       <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center border ${
                         isFeatured
-                          ? "border-yellow-500/40 bg-white/10 text-yellow-500"
+                          ? "border-yellow-700/40 bg-white/10 text-yellow-700"
                           : "border-yellow-700/25 bg-yellow-700/10 text-yellow-700"
                       }`}>
                         {service.icon}
                       </div>
                       <div>
-                        <div className={`editorial-caption mb-3 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`}>
+                        <div className="editorial-caption mb-3 text-yellow-700">
                           {String(index + 1).padStart(2, "0")} / {service.category}
                         </div>
                         <h3 className={`editorial-title mb-4 text-4xl leading-tight md:text-5xl ${isFeatured ? "text-white" : "text-stone-950"}`}>
@@ -298,11 +298,11 @@ const Pricing = () => {
 
                     <div className="lg:text-right">
                       {isFeatured && (
-                        <div className="mb-3 inline-flex border border-yellow-500/35 px-3 py-1 text-xs uppercase text-yellow-500">
+                        <div className="mb-3 inline-flex border border-yellow-700/35 px-3 py-1 text-xs uppercase text-yellow-700">
                           Popular Choice
                         </div>
                       )}
-                      <div className={`editorial-title ${service.studioLink ? "text-3xl md:text-4xl" : "text-5xl md:text-6xl"} ${isFeatured ? "text-yellow-400" : "text-yellow-700"}`}>
+                      <div className={`editorial-title ${service.studioLink ? "text-3xl md:text-4xl" : "text-5xl md:text-6xl"} text-yellow-700`}>
                         {service.price}
                       </div>
                       <div className={`mt-2 text-sm ${isFeatured ? "text-white/60" : "text-stone-600"}`}>
@@ -315,13 +315,13 @@ const Pricing = () => {
                     isFeatured ? "border-white/12" : "border-stone-200"
                   }`}>
                     <div>
-                      <div className={`editorial-caption mb-4 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`}>
+                      <div className="editorial-caption mb-4 text-yellow-700">
                         Included
                       </div>
                       <ul className="grid gap-3 sm:grid-cols-2">
                         {service.deliverables.map((item) => (
                           <li key={item} className={`flex items-start gap-2 text-sm ${isFeatured ? "text-white/76" : "text-stone-700"}`}>
-                            <Star className={`mt-1 h-4 w-4 flex-shrink-0 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`} />
+                            <Star className="mt-1 h-4 w-4 flex-shrink-0 text-yellow-700" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -331,7 +331,7 @@ const Pricing = () => {
                     <div className={`border-t pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0 ${
                       isFeatured ? "border-white/12" : "border-stone-200"
                     }`}>
-                      <div className={`editorial-caption mb-4 ${isFeatured ? "text-yellow-500" : "text-yellow-700"}`}>
+                      <div className="editorial-caption mb-4 text-yellow-700">
                         Best For
                       </div>
                       <div className="flex flex-wrap gap-2">
@@ -353,9 +353,7 @@ const Pricing = () => {
                           href={PEERSPACE_STUDIO_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${
-                            isFeatured ? "text-yellow-500 hover:text-yellow-400" : "text-yellow-700 hover:text-yellow-800"
-                          }`}
+                          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-yellow-700 hover:text-yellow-800"
                         >
                           Browse Orlando studio rentals
                           <ExternalLink className="h-4 w-4" />
@@ -419,7 +417,7 @@ const Pricing = () => {
             viewport={{ once: true }}
             className="col-span-12 lg:col-span-4"
           >
-            <div className="editorial-caption text-yellow-500 mb-4">
+            <div className="editorial-caption text-yellow-700 mb-4">
               BEFORE YOU BOOK
             </div>
             <h2 className="editorial-title text-4xl md:text-5xl text-white mb-6">
