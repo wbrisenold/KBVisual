@@ -166,27 +166,16 @@ const Portfolio = () => {
             initial={{ opacity: 0, y: 38 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="order-first col-span-12 mb-8 grid grid-cols-3 gap-2 md:order-none md:col-span-5 md:col-start-8 md:mb-0 md:mt-0 md:gap-3"
+            className="order-first col-span-12 mb-10 md:order-none md:col-span-5 md:col-start-8 md:mb-0"
           >
-            {[gardenEditorialPortrait, formalStudioPortrait, childPortrait].map((image, index) => (
-              <figure
-                key={image}
-                className={`relative overflow-hidden border border-stone-950/12 bg-stone-200 ${
-                  index === 1 ? "mt-10" : index === 2 ? "mt-5" : ""
-                }`}
-              >
-                <img
-                  src={image}
-                  alt=""
-                  className="aspect-[3/4] h-full w-full object-cover"
-                  loading={index === 0 ? "eager" : "lazy"}
-                />
-              </figure>
-            ))}
-            <div className="col-span-3 mt-4 grid grid-cols-[auto_1fr] items-center gap-4 text-xs uppercase text-stone-700">
-              <span>Orlando Portraits</span>
-              <span className="h-px bg-stone-950/20"></span>
-            </div>
+            <figure className="relative overflow-hidden border border-stone-950/12 bg-stone-200">
+              <img
+                src={outdoorEditorialPortrait}
+                alt="Outdoor editorial portrait by KB Visualz"
+                className="aspect-[4/5] h-full w-full object-cover object-center"
+                loading="eager"
+              />
+            </figure>
           </motion.div>
         </div>
       </section>
