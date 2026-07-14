@@ -15,6 +15,67 @@ Rules:
 
 After every batch of tool calls that makes changes, update this file with current state.
 
+## Cross-Agent Context
+
+This section is for any agent or coding tool (Claude Code, opencode, Cursor, Cline, etc.) that joins this project. Read this first to understand how to operate.
+
+### Active Skills & Modes
+
+| Skill | Status | Trigger | Purpose |
+|-------|--------|---------|---------|
+| ponytail | active (full) | `ponytail` / `stop ponytail` | Lazy correct solution: YAGNI, stdlib, native, reuse, minimal |
+| rtk | ready | `rtk <cmd>` | Token-optimized CLI proxy for git/ls/grep/read/tree |
+| cavecrew | on request | `"delegate to subagent"` | Spawn compressed subagents (investigator/builder/reviewer) to save context |
+| graphify | on request | `/graphify` | Codebase knowledge graph queries |
+| defuddle | on request | URL reading task | Clean web page extraction instead of WebFetch |
+| caveman-commit | on request | `"write a commit"` | Terse Conventional Commits messages |
+| caveman-review | on request | `"review this PR"` | One-line code review comments |
+| caveman-compress | on request | `/caveman-compress <file>` | Compress .md memory files to save tokens |
+| handoff | always active | auto | Update this file after every change batch |
+| obsidian-* | on request | Obsidian tasks | Vault interaction, bases, flavored markdown |
+| json-canvas | on request | .canvas file tasks | JSON Canvas file creation/editing |
+| bergside-design | on request | design tasks | Directory of 67 design skill files |
+
+### Tooling Preferences
+
+- **CLI proxy**: prefix relevant commands with `rtk` (e.g. `rtk git status`, `rtk ls`, `rtk grep`)
+- **Package manager**: npm
+- **Dev server**: `npm run dev` → `http://localhost:5173/`
+- **Build**: `npm run build` (Vite, ~2s)
+- **Preview**: `npm run preview`
+- **Format/Lint**: none configured in this project
+
+### Design Decisions
+
+- **Brand gold**: Tailwind `yellow-700` (#a16207). All gold text/borders/icons must use this exact color. No `yellow-400`, `yellow-500`, `yellow-800`.
+- **Animations**: snappy (0.3-0.6s), no `filter: blur()` in scroll-in/entry anims
+- **Hover/tap**: CSS transitions over framer-motion `whileHover`/`whileTap` where possible
+- **Typography**: Newsreader serif for headings, Inter sans-serif for body
+- **Cursor**: Custom SVG camera cursor on `<a>`/`<button>` elements
+- **Scrolling**: Lenis smooth scroll (loaded dynamically), custom scroll handler for hash links
+- **View transitions**: native View Transition API for page navigation
+
+### Conversation Style
+
+- User prefers **terse, direct** responses. No pleasantries, no explanations of what was just done.
+- Ponytail mode active: keep solutions minimal, no over-engineering.
+- Dev builds should succeed (check with `npm run build`) after any change batch.
+
+### Last Session (2026-07-14)
+
+**Worked on**: Visual audit and fixes for KB Visualz portfolio site.
+- Unified all gold colors to `yellow-700` across Pricing.tsx and Home.tsx
+- Removed `filter: blur()` from all scroll-in animations (FAQ.tsx, Pricing.tsx)
+- Halved all animation durations across About.tsx, Pricing.tsx, GoogleReviews.tsx, FAQ.tsx
+- Fixed low-contrast text in About.tsx (`stone-500` → `stone-600`) and Pricing.tsx (`yellow-700/80` → `yellow-700/90`)
+- Added skip-to-content link + `<main>` landmark for accessibility in App.tsx
+- Created `.agents/skills/handoff/SKILL.md` for persistent AGENTS.md updates
+- Created `.agents/skills/cavecrew/` + related caveman skills
+- Read all 17 installed skills and documented them here
+- Committed and pushed as `6016fdb8`
+
+**Next**: Waiting for user input.
+
 ## State
 
 ### Objective
@@ -36,15 +97,16 @@ Optimize and fix visual issues in KB Visualz photography portfolio site.
 - Added README section for `npm run dev` and `npm run preview`
 - Replaced `"luxurylens-github-pages"` → `"kbvisualz"` in package.json name
 - Speed up all framer-motion animations across Hero, Home, Portfolio, About
-- Pricing.tsx: `!text-yellow-400` → `!text-yellow-500` (2 spots), `text-yellow-800` → `text-yellow-700` (3 spots), `text-yellow-700/80` → `text-yellow-700/90`, all done
+- Pricing.tsx: `!text-yellow-400` → `!text-yellow-700` (2 spots), `text-yellow-800` → `text-yellow-700` (3 spots), `text-yellow-700/80` → `text-yellow-700/90`, all done. Home.tsx: `!text-yellow-500` → `!text-yellow-700`
 - FAQ.tsx: removed `filter: "blur(8px)"` from scroll-in, halved duration to 0.45s
 - Pricing.tsx: removed `filter: "blur(10px)"` from hero + package cards, halved all durations (0.9→0.5, 0.8→0.4, etc.)
 - About.tsx: halved animation durations (1.0→0.5, 0.8→0.4)
 - GoogleReviews.tsx: halved duration to 0.4s
 - About.tsx: fixed low-contrast `text-stone-500` → `text-stone-600`
 - App.tsx: added skip-to-content link + `<main>` landmark for accessibility
-- Created `.agents/skills/handoff/SKILL.md` — persistent instruction to update AGENTS.md after every change batch
-- Dev server running at `http://localhost:5173/` with clean Vite cache
+- Created `.agents/skills/handoff/SKILL.md` — persistent handoff with cross-agent context
+- Read all 17 installed skills and documented in cross-agent context table
+- Discovered and configured rtk (Rust Token Killer) CLI proxy
 
 ### Pending
 - (none)
@@ -70,4 +132,6 @@ Optimize and fix visual issues in KB Visualz photography portfolio site.
 - `client/src/App.tsx`: Routes, nav+footer layout, scroll handling, skip-to-content
 - `client/src/index.css`: All utility classes, custom cursor, CSS vars
 - `tailwind.config.ts`: Theme colors
-- `.agents/skills/handoff/SKILL.md`: Persistent handoff update instruction
+- `.agents/skills/handoff/SKILL.md`: Persistent handoff update instruction with cross-agent context
+- `.agents/skills/cavecrew/`: Subagent delegation skills
+- All `.agents/skills/*/SKILL.md`: Project-installed skills
