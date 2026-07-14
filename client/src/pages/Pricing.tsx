@@ -79,6 +79,24 @@ const sessionTypes = [
   "Creative portraits"
 ];
 
+const reservationSteps = [
+  {
+    number: "01",
+    title: "Choose a starting package",
+    description: "Pick the session that best matches your time, variety, and setting. Your choice can be refined after you reach out."
+  },
+  {
+    number: "02",
+    title: "Request availability",
+    description: "Share your preferred date, portrait type, and whether you are considering an outdoor location or studio."
+  },
+  {
+    number: "03",
+    title: "Review and reserve",
+    description: "You receive availability, the full invoice schedule, and planning details. A 25% retainer reserves your confirmed date."
+  }
+];
+
 const policyItems = [
   {
     title: "Date Retainer",
@@ -88,7 +106,7 @@ const policyItems = [
   {
     title: "Payment",
     description:
-      "The next payment is due after we shoot. The remaining balance is due when revisions are complete."
+      "Your invoice shows each payment milestone before you reserve. The final balance is due when revisions are complete."
   },
   {
     title: "Retouching",
@@ -123,7 +141,7 @@ const policyItems = [
   {
     title: "Visual Direction",
     description:
-      "Book with this finish in mind: directed portraits, natural expression, and a clean edit."
+      "Before you book, familiarize yourself with my portrait style, direction, and editing. Reserve a session only if the work feels aligned with your vision and you believe I am the right photographer to achieve it."
   }
 ];
 
@@ -159,26 +177,25 @@ const Pricing = () => {
         <img
           src={pricingPortrait}
           alt="Outdoor editorial portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-28 blur-[2px]"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-40 blur-[1px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/68 to-stone-950"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/82 to-black/45"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-stone-950"></div>
         <div className="editorial-grid relative min-h-[68vh] items-end pb-16 md:pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 44, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.25, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 44 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-12 md:col-span-8"
           >
-            <div className="editorial-caption mb-5 text-yellow-700">
-              Portrait Pricing
+            <div className="max-w-3xl border border-white/15 bg-black/68 p-6 shadow-2xl backdrop-blur-sm md:p-10">
+              <div className="editorial-caption mb-5 !text-yellow-700">Your investment</div>
+              <h1 className="editorial-headline text-6xl leading-none !text-white md:text-8xl lg:text-9xl">Choose your session with confidence.</h1>
+              <p className="mt-8 max-w-2xl text-base leading-relaxed !text-white md:text-lg">
+                Compare time, image count, setting, and price before you request a date. You will know what is included and what happens after you choose.
+              </p>
+              <a href="#portrait-packages" className="site-button site-button--light mt-8">Compare Packages</a>
             </div>
-            <h1 className="editorial-headline text-6xl leading-none text-white md:text-8xl lg:text-9xl">
-              Portrait Sessions
-            </h1>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/76 md:text-lg">
-              Portrait sessions for Orlando and Central Florida clients who
-              want clear direction, clean edits, and no guessing on price.
-            </p>
             {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
           </motion.div>
         </div>
@@ -189,7 +206,7 @@ const Pricing = () => {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.08 }}
             viewport={{ once: true }}
             className="grid gap-5 border-y border-yellow-700/35 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:py-7"
           >
@@ -197,19 +214,17 @@ const Pricing = () => {
               <VideoOff className="h-6 w-6" />
             </div>
             <div>
-              <div className="editorial-caption mb-2 text-yellow-700">
+              <div className="editorial-caption mb-2 !text-yellow-700">
                 Photo-Only Packages
               </div>
               <h2 className="editorial-title mb-2 text-3xl text-white md:text-4xl">
                 These packages are for photography only.
               </h2>
-              <p className="max-w-3xl text-sm leading-relaxed text-white/72 md:text-base">
-                I photograph the session. If you need video, book a dedicated
-                videographer separately; photo and video are not bundled under
-                one KB Visualz package.
+              <p className="max-w-3xl text-sm leading-relaxed !text-white md:text-base">
+                Your package covers still photography. If your project also needs video, plan for a separate videographer and budget.
               </p>
             </div>
-            <div className="hidden text-right text-xs uppercase text-yellow-700/80 md:block">
+            <div className="hidden text-right text-xs uppercase text-yellow-700/90 md:block">
               Photography Only
             </div>
           </motion.div>
@@ -221,32 +236,30 @@ const Pricing = () => {
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
             <div className="lookbook-page-marker mb-5 text-stone-500">
-              Rates / 01
+              Choose your session / 01
             </div>
             <div className="editorial-caption mb-4 text-yellow-700">
-              Session Menu
+              Compare Your Options
             </div>
             <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">
-              Choose by pace, not pressure.
+              Choose the amount of time your idea needs.
             </h2>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.12 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-6 md:col-start-7"
           >
             <p className="editorial-body text-stone-700">
-              Choose Signature for a focused portrait set, Legacy when you want
-              more time and variety, or Studio when the look needs controlled
-              indoor light.
+              Choose Signature for one focused idea. Choose Legacy for outfit changes or more variety. Add a studio when controlled light and an indoor setting serve your vision.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {sessionTypes.map((type) => (
@@ -264,9 +277,9 @@ const Pricing = () => {
               return (
                 <motion.article
                   key={service.title}
-                  initial={{ opacity: 0, y: 48, filter: "blur(10px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.9, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, y: 48 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
                   className={`overflow-hidden border ${
                     isFeatured
@@ -353,7 +366,7 @@ const Pricing = () => {
                           href={PEERSPACE_STUDIO_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-yellow-700 hover:text-yellow-800"
+                          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-yellow-700 hover:text-yellow-700"
                         >
                           Browse Orlando studio rentals
                           <ExternalLink className="h-4 w-4" />
@@ -371,13 +384,13 @@ const Pricing = () => {
                       rel="noopener noreferrer"
                       className={`site-button w-full sm:w-auto ${isFeatured ? "site-button--light" : "site-button--dark"}`}
                     >
-                      Plan This Session
+                      Request This Session
                     </a>
                     <a
                       href="/portfolio"
                       className={`site-button w-full sm:w-auto ${isFeatured ? "site-button--outline-light" : "site-button--outline"}`}
                     >
-                      View Portraits
+                      See This Photography Style
                     </a>
                   </div>
                 </motion.article>
@@ -392,19 +405,42 @@ const Pricing = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3 text-center"
           >
             <h2 className="editorial-title text-4xl text-stone-900 mb-4 md:text-5xl">
-              Want the studio look?
+              Want an indoor studio look?
             </h2>
             <p className="editorial-body text-stone-600">
-              Book the studio you like, then choose Signature or Legacy for the
-              portrait session. Studio rental is separate from the photography
-              package.
+              Choose Signature or Legacy first. Then select a studio with the backdrop, light, and space your idea needs. Studio rental is added separately.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="border-y border-stone-200 bg-white py-20 md:py-28">
+        <div className="editorial-grid gap-y-12">
+          <div className="col-span-12 md:col-span-5">
+            <div className="lookbook-page-marker mb-5 text-stone-600">After you choose / 02</div>
+            <div className="editorial-caption mb-4 text-yellow-700">Reservation Workflow</div>
+            <h2 className="editorial-title text-5xl text-stone-950 md:text-7xl">Your next action is simple.</h2>
+            <p className="mt-6 max-w-xl leading-relaxed text-stone-700">You do not need every detail solved before reaching out. Start with the package and date that feel closest.</p>
+          </div>
+          <div className="col-span-12 md:col-span-6 md:col-start-7">
+            <div className="divide-y divide-stone-200 border-y border-stone-200">
+              {reservationSteps.map((step) => (
+                <article key={step.number} className="grid grid-cols-[3rem_1fr] gap-4 py-6">
+                  <span className="text-sm text-yellow-700">{step.number}</span>
+                  <div>
+                    <h3 className="editorial-title text-3xl text-stone-950">{step.title}</h3>
+                    <p className="mt-3 leading-relaxed text-stone-700">{step.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="site-button site-button--dark mt-8">Request Availability</a>
+          </div>
         </div>
       </section>
 
@@ -413,7 +449,7 @@ const Pricing = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
             className="col-span-12 lg:col-span-4"
           >

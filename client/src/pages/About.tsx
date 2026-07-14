@@ -31,9 +31,9 @@ const About = () => {
         <div className="absolute inset-x-0 top-0 h-px bg-stone-950/20"></div>
         <div className="editorial-grid relative items-start pb-14 md:min-h-[72vh] md:items-end md:pb-20">
           <motion.div
-            initial={{ opacity: 0, y: 42 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-12 md:col-span-6"
           >
             <div className="lookbook-page-marker mb-5 text-stone-700">
@@ -52,17 +52,17 @@ const About = () => {
             </p>
             <a href="#approach" className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
               <span>
-                <span className="lookbook-next__meta">Next / 01</span>
-                The Approach
+                <span className="lookbook-next__meta">How your session is guided</span>
+                Read the Approach
               </span>
               <ArrowRight className="h-4 w-4" />
             </a>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 38 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-12 mt-8 md:col-span-5 md:col-start-8 md:mt-0"
           >
             <figure className="border border-stone-950/12 bg-stone-200 p-3">
@@ -83,9 +83,9 @@ const About = () => {
       <section id="approach" className="scroll-mt-20 py-20 md:py-28">
         <div className="editorial-grid items-start">
           <motion.div
-            initial={{ opacity: 0, y: 34 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
@@ -101,9 +101,9 @@ const About = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 34 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.08 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-6 md:col-start-7"
           >
@@ -118,7 +118,7 @@ const About = () => {
               the image with care.
             </p>
 
-            <div className="mt-9 grid gap-3 border-y border-stone-200 py-6 text-sm uppercase text-stone-500 sm:grid-cols-3">
+            <div className="mt-9 grid gap-3 border-y border-stone-200 py-6 text-sm uppercase text-stone-600 sm:grid-cols-3">
               <span>Planning</span>
               <span>Posing</span>
               <span>Polished Edits</span>
@@ -126,8 +126,8 @@ const About = () => {
 
             <a href="#philosophy" className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
               <span>
-                <span className="lookbook-next__meta">Next / 02</span>
-                The Philosophy
+                <span className="lookbook-next__meta">Why this work matters</span>
+                Read the Philosophy
               </span>
               <ArrowRight className="h-4 w-4" />
             </a>
@@ -147,7 +147,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 34 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3"
           >
@@ -168,8 +168,8 @@ const About = () => {
             <div className="mt-10 flex justify-center">
               <a href="#book-about" className="lookbook-next w-full max-w-sm text-white/90">
                 <span>
-                  <span className="lookbook-next__meta">Next / 03</span>
-                  Booking
+                  <span className="lookbook-next__meta">Ready to make your portrait</span>
+                  Request a Session
                 </span>
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -183,7 +183,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-10 md:col-start-2 text-center"
           >

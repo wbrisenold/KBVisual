@@ -78,9 +78,9 @@ const FAQ = ({ page, title, description }: FAQProps) => {
     <section className="bg-white py-20">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.9 }}
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
           viewport={{ once: true }}
           className="text-center mb-12"
         >

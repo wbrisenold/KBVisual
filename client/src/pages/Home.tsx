@@ -5,58 +5,38 @@ import { ArrowRight } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import { SCHEDULING_URL } from "@/lib/booking";
 import GoogleReviews from "@/components/GoogleReviews";
-import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
-import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
-import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
-import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
-import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
-import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
-import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const Home = () => {
-  const selectedWorks = [
+  const bookingSteps = [
     {
-      image: gardenEditorialPortrait,
-      title: "Creative Outdoor",
-      meta: "Color / Direction / Movement",
-      className: "md:col-span-7 md:row-span-2"
+      number: "01",
+      title: "See if the work feels like you",
+      description: "Browse real portraits and notice the light, color, expression, and direction you want for yourself.",
+      href: "/portfolio",
+      action: "Browse the portrait lookbook"
     },
     {
-      image: formalStudioPortrait,
-      title: "Studio Presence",
-      meta: "Light / Shape / Polish",
-      className: "md:col-span-5"
+      number: "02",
+      title: "Choose the pace you need",
+      description: "Compare one-hour, two-hour, and studio options. Every package shows price, time, and final images up front.",
+      href: "/pricing",
+      action: "Compare session options"
     },
     {
-      image: retroStudioPortrait,
-      title: "Editorial Color",
-      meta: "Character / Styling / Ease",
-      className: "md:col-span-5"
+      number: "03",
+      title: "Reserve your date",
+      description: "Send your preferred date and session idea. A 25% retainer secures the date after availability is confirmed.",
+      href: SCHEDULING_URL,
+      action: "Request your date",
+      external: true
     },
     {
-      image: proposalPortrait,
-      title: "Couples",
-      meta: "Connection / Timing / Place",
-      className: "md:col-span-4"
-    },
-    {
-      image: childPortrait,
-      title: "Family",
-      meta: "Warmth / Patience / Memory",
-      className: "md:col-span-4"
-    },
-    {
-      image: coupleCloseup,
-      title: "Close Portraits",
-      meta: "Expression / Detail / Calm",
-      className: "md:col-span-4"
+      number: "04",
+      title: "Plan with guidance",
+      description: "Before your session, we align on location, outfits, timing, mood, and anything you feel unsure about.",
+      href: "/about",
+      action: "Meet your photographer"
     }
-  ];
-
-  const approachNotes = [
-    "Directed posing without making the session feel stiff.",
-    "Outdoor, studio, and location guidance around the look you want.",
-    "A final edit that keeps the portrait polished without losing the person."
   ];
 
   return (
@@ -89,193 +69,102 @@ const Home = () => {
 
       <Hero />
 
-      <section id="selected-work" className="scroll-mt-20 bg-black py-20 text-white md:py-28">
+      <section id="process" className="scroll-mt-20 bg-[#f3efe7] py-20 md:py-28">
         <div className="editorial-grid">
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="col-span-12 mb-12 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
+            className="col-span-12 grid gap-8 border-b border-stone-950/20 pb-12 md:grid-cols-12 md:items-end"
           >
-            <div>
-              <div className="lookbook-page-marker mb-5 text-white/58">
-                Portraits / 01
+            <div className="md:col-span-7">
+              <div className="lookbook-page-marker mb-5 text-stone-600">
+                Your booking path / 01–04
               </div>
               <div className="editorial-caption mb-4 text-yellow-700">
-                Selected Work
+                How It Works
               </div>
-              <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-white md:text-7xl">
-                Portraits with atmosphere, expression, and edge.
+              <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-stone-950 md:text-7xl">
+                From “I need photos” to a session you feel ready for.
               </h2>
             </div>
-            <a href="/portfolio" className="site-button site-button--outline-light md:mb-2">
-              Enter Portfolio
-            </a>
+            <p className="editorial-body text-stone-700 md:col-span-4 md:col-start-9">
+              You should know the style, investment, booking terms, and plan before your session day. Follow these steps in order or enter wherever you are ready.
+            </p>
           </motion.div>
 
-          <div className="col-span-12 grid gap-3 md:grid-cols-12 md:gap-4">
-            {selectedWorks.map((photo, index) => (
-              <motion.figure
-                key={photo.title}
+          <div className="col-span-12 grid border-stone-950/20 md:grid-cols-2">
+            {bookingSteps.map((step, index) => (
+              <motion.article
+                key={step.number}
                 initial={{ opacity: 0, y: 42 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.95, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className={`scroll-lift group relative min-h-[330px] overflow-hidden border border-white/10 bg-white/5 md:min-h-[420px] ${photo.className}`}
+                className="group border-b border-stone-950/20 py-10 md:min-h-[310px] md:p-10 md:[&:nth-child(odd)]:border-r"
               >
-                <img
-                  src={photo.image}
-                  alt={`${photo.title} by KB Visualz`}
-                  className="h-full w-full object-cover transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]"
-                  loading="lazy"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 bg-gradient-to-t from-black/90 via-black/35 to-transparent p-5">
-                  <h3 className="editorial-title text-3xl text-white">
-                    {photo.title}
-                  </h3>
-                  <p className="max-w-[12rem] text-right text-xs uppercase leading-relaxed text-white/60">
-                    {photo.meta}
-                  </p>
-                </figcaption>
-              </motion.figure>
+                <div className="mb-10 flex items-center justify-between border-b border-stone-950/15 pb-4 text-xs uppercase text-stone-600">
+                  <span>Step {step.number}</span>
+                  <span>{index === 3 ? "You are ready" : "Keep moving"}</span>
+                </div>
+                <h3 className="editorial-title max-w-xl text-4xl text-stone-950 md:text-5xl">{step.title}</h3>
+                <p className="mt-5 max-w-xl leading-relaxed text-stone-700">{step.description}</p>
+                <a
+                  href={step.href}
+                  target={step.external ? "_blank" : undefined}
+                  rel={step.external ? "noopener noreferrer" : undefined}
+                  className="mt-8 inline-flex items-center gap-3 border-b border-stone-950 pb-1 text-sm font-semibold text-stone-950"
+                >
+                  {step.action}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </motion.article>
             ))}
           </div>
-
-          <div className="col-span-12 mt-10 flex justify-end">
-            <a href="#session" className="lookbook-next w-full max-w-sm text-white/90">
-              <span>
-                <span className="lookbook-next__meta">Next / 02</span>
-                The Session
-              </span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
         </div>
       </section>
 
-      <section id="session" className="scroll-mt-20 bg-white py-20 md:py-28">
+      <section id="session-day" className="scroll-mt-20 bg-white py-20 md:py-28">
         <div className="editorial-grid items-start">
           <motion.div
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
-            <div className="lookbook-page-marker mb-5 text-stone-500">
-              Session / 02
-            </div>
-            <div className="editorial-caption text-yellow-700 mb-4">
-              The Session
-            </div>
-            <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">
-              Calm direction. Strong portraits.
-            </h2>
+            <div className="lookbook-page-marker mb-5 text-stone-600">On session day</div>
+            <div className="editorial-caption mb-4 text-yellow-700">What you can expect</div>
+            <h2 className="editorial-title text-5xl text-stone-950 md:text-7xl">You will not be left wondering what to do.</h2>
           </motion.div>
-
           <motion.div
-            initial={{ opacity: 0, y: 34 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.08 }} viewport={{ once: true }}
             className="col-span-12 md:col-span-6 md:col-start-7"
           >
-            <p className="editorial-body text-stone-700">
-              Sessions are shaped around how you want to look, where the
-              portrait should live, and the feeling you want to keep after the
-              day is over.
-            </p>
-
-            <div className="mt-8 divide-y divide-stone-200 border-y border-stone-200">
-              {approachNotes.map((note, index) => (
-                <motion.div
-                  key={note}
-                  initial={{ opacity: 0, x: 24 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.65, delay: index * 0.08 }}
-                  viewport={{ once: true }}
-                  className="grid grid-cols-[3rem_1fr] gap-4 py-5 text-stone-800"
-                >
-                  <span className="text-sm text-yellow-700">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="text-lg leading-relaxed">{note}</span>
-                </motion.div>
+            <p className="editorial-body text-stone-700">I guide your posture, hands, movement, and expression while leaving room for you to feel natural. You see enough along the way to know we are building the right gallery.</p>
+            <div className="mt-10 divide-y divide-stone-200 border-y border-stone-200">
+              {["Arrive with a shared visual plan", "Receive calm, specific posing direction", "Review proofs in 3–5 business days", "Choose favorites for final retouching"].map((item, index) => (
+                <div key={item} className="grid grid-cols-[3rem_1fr] gap-4 py-5"><span className="text-sm text-yellow-700">{String(index + 1).padStart(2, "0")}</span><span className="text-lg text-stone-800">{item}</span></div>
               ))}
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <a href="/pricing" className="site-button site-button--dark w-full sm:w-auto">
-                View Pricing
-              </a>
-              <a
-                href={SCHEDULING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="site-button site-button--outline w-full sm:w-auto"
-              >
-                Plan Your Session
-              </a>
-            </div>
-
-            <a href="#booking" className="lookbook-next mt-10 w-full max-w-sm text-stone-900">
-              <span>
-                <span className="lookbook-next__meta">Next / 03</span>
-                Booking
-              </span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
           </motion.div>
         </div>
       </section>
 
-      <section id="booking" className="relative scroll-mt-20 overflow-hidden bg-black py-20 text-white md:py-28">
-        <img
-          src={outdoorEditorialPortrait}
-          alt="Outdoor portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover opacity-12 blur-[1px]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/86 to-black/95"></div>
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black to-transparent"></div>
+      <section id="booking" className="relative scroll-mt-20 overflow-hidden bg-stone-950 py-20 text-white md:py-28">
         <div className="editorial-grid relative">
           <motion.div
-            initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.95 }}
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-8 md:col-start-3 text-center"
+            className="col-span-12 grid gap-8 md:grid-cols-12 md:items-end"
           >
-            <div className="lookbook-page-marker mb-5 justify-center text-white/58">
-              Booking / 03
+            <div className="md:col-span-8">
+              <div className="lookbook-page-marker mb-5 text-white/70">Ready when you are</div>
+              <div className="editorial-caption mb-5 !text-yellow-700">Reserve your session</div>
+              <h2 className="editorial-title text-5xl leading-tight !text-white md:text-7xl">Tell me what you want these portraits to remember.</h2>
             </div>
-            <div className="editorial-caption mb-5 text-yellow-700">
-              Booking
-            </div>
-            <h2 className="editorial-title mb-6 text-5xl leading-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.85)] md:text-7xl">
-              Make the portrait feel like it belongs to you.
-            </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] md:text-lg">
-              Choose the package that fits the pace of your session, then we
-              shape the location, timing, outfits, and mood from there.
-            </p>
-            <a
-              href={SCHEDULING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="site-button site-button--light"
-            >
-              Start Planning
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <div className="mt-10 flex justify-center">
-              <a href="/portfolio" className="lookbook-next w-full max-w-sm text-white/90">
-                <span>
-                  <span className="lookbook-next__meta">Next / Portfolio</span>
-                  Open the Full Lookbook
-                </span>
-                <ArrowRight className="h-4 w-4" />
-              </a>
+            <div className="md:col-span-4">
+              <p className="mb-6 leading-relaxed text-white/80">Share your preferred date, portrait type, and any early ideas. You will receive availability and a clear path to reserve.</p>
+              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="site-button site-button--light w-full sm:w-auto">Request Your Date <ArrowRight className="h-4 w-4" /></a>
+              <p className="mt-4 text-xs leading-relaxed text-white/60">Not ready to request a date? Review <a href="/pricing" className="underline text-white">pricing and package details</a> first.</p>
             </div>
           </motion.div>
         </div>

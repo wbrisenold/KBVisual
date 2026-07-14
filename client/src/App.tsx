@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { Router as WouterRouter, Switch, Route, useLocation } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -107,17 +105,19 @@ function SiteRoutes() {
 
   return (
     <div className="min-h-screen">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-stone-950 focus:shadow-lg focus:outline-none">
+        Skip to main content
+      </a>
       <Navigation />
+      <main id="main-content">
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/portfolio" component={Portfolio} />
-        <Route path="/portfolio/" component={Portfolio} />
         <Route path="/about" component={About} />
-        <Route path="/about/" component={About} />
         <Route path="/pricing" component={Pricing} />
-        <Route path="/pricing/" component={Pricing} />
         <Route component={NotFound} />
       </Switch>
+      </main>
       <Footer />
     </div>
   );
@@ -162,14 +162,12 @@ function App() {
 
   return (
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <WouterRouter>
-            <SiteRoutes />
-          </WouterRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <TooltipProvider>
+        <Toaster />
+        <WouterRouter>
+          <SiteRoutes />
+        </WouterRouter>
+      </TooltipProvider>
     </HelmetProvider>
   );
 }

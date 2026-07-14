@@ -9,7 +9,7 @@ const GoogleReviews = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="flex flex-col gap-8 border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md md:flex-row md:items-center md:justify-between md:p-8"
         >
