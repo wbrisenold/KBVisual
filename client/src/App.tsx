@@ -164,7 +164,7 @@ function App() {
     <HelmetProvider>
       <TooltipProvider>
         <Toaster />
-        <WouterRouter>
+        <WouterRouter base="/KBVisual">
           <SiteRoutes />
         </WouterRouter>
       </TooltipProvider>
