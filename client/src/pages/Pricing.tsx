@@ -155,9 +155,9 @@ const Pricing = () => {
         canonicalPath="/pricing/"
         structuredData={{
           "@type": "OfferCatalog",
-          "@id": "https://kbvisualz.com/pricing/#portrait-packages",
+          "@id": "https://wbrisenold.github.io/KBVisual/pricing/#portrait-packages",
           "name": "KB Visualz Orlando Portrait Photography Packages",
-          "url": "https://kbvisualz.com/pricing/",
+          "url": "https://wbrisenold.github.io/KBVisual/pricing/",
           "itemListElement": portraitPackages.map((service) => ({
             "@type": "Offer",
             "name": service.title,

@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [
     react(),
     Sitemap({
-      hostname: "https://kbvisualz.com",
+      hostname: "https://wbrisenold.github.io/KBVisual",
       dynamicRoutes: ["/portfolio", "/about", "/pricing"],
       exclude: ["/404.html"],
       readable: true,
@@ -37,7 +37,7 @@ export default defineConfig({
       ]
     })
   ],
-  base: "/",
+  base: "/KBVisual/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),

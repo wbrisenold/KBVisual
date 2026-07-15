@@ -16,13 +16,13 @@ const About = () => {
         canonicalPath="/about/"
         structuredData={{
           "@type": "Person",
-          "@id": "https://kbvisualz.com/about/#ken-brisenold",
+          "@id": "https://wbrisenold.github.io/KBVisual/about/#ken-brisenold",
           "name": "Ken Brisenold",
           "jobTitle": "Orlando Portrait Photographer",
           "worksFor": {
-            "@id": "https://kbvisualz.com/#business"
+            "@id": "https://wbrisenold.github.io/KBVisual/#business"
           },
-          "url": "https://kbvisualz.com/about/",
+          "url": "https://wbrisenold.github.io/KBVisual/about/",
           "description": "Military veteran and UCF graduate behind KB Visualz, creating portrait photography in Orlando and Central Florida."
         }}
       />
@@ -151,14 +151,14 @@ const About = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-8 md:col-start-3"
           >
-            <div className="lookbook-page-marker mb-8 justify-center text-white/58">
+            <div className="lookbook-page-marker mb-8 justify-center text-white/80">
               Philosophy / 02
             </div>
             <div className="editorial-title mb-10 text-center text-4xl italic leading-tight text-white md:text-6xl">
               "Photography gave me a way to hold onto the moments people usually feel before they can explain them."
             </div>
 
-            <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-white/76 md:text-lg">
+            <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-white/90 md:text-lg">
               The memento mori philosophy reminds me that time is limited and
               every season is worth remembering. My work is about preserving
               honest expression, personal milestones, and the details that make

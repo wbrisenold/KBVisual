@@ -6,10 +6,10 @@ KB Visualz is a portrait photography business by Ken Brisenold, based in Orlando
 
 ## Primary Pages
 
-- Home: https://kbvisualz.com/
-- Portfolio: https://kbvisualz.com/portfolio/
-- Pricing: https://kbvisualz.com/pricing/
-- About Ken Brisenold: https://kbvisualz.com/about/
+- Home: https://wbrisenold.github.io/KBVisual/
+- Portfolio: https://wbrisenold.github.io/KBVisual/portfolio/
+- Pricing: https://wbrisenold.github.io/KBVisual/pricing/
+- About Ken Brisenold: https://wbrisenold.github.io/KBVisual/about/
 
 ## Services
 
@@ -37,4 +37,4 @@ KB Visualz serves Orlando and Central Florida, including Winter Park, Kissimmee,
 
 ## Booking
 
-Schedule a portrait session through the booking link on https://kbvisualz.com/pricing/.
+Schedule a portrait session through the booking link on https://wbrisenold.github.io/KBVisual/pricing/.

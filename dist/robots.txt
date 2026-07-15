@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kbvisualz.com/sitemap.xml
+Sitemap: https://wbrisenold.github.io/KBVisual/sitemap.xml

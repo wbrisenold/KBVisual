@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import type { Graph, Thing } from "schema-dts";
 
-const SITE_URL = "https://kbvisualz.com";
+const SITE_URL = "https://wbrisenold.github.io/KBVisual";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 const BUSINESS_ID = `${SITE_URL}/#business`;
 

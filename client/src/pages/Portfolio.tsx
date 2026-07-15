@@ -116,12 +116,12 @@ const Portfolio = () => {
         canonicalPath="/portfolio/"
         structuredData={{
           "@type": "CollectionPage",
-          "@id": "https://kbvisualz.com/portfolio/#portrait-portfolio",
+          "@id": "https://wbrisenold.github.io/KBVisual/portfolio/#portrait-portfolio",
           "name": "Orlando Portrait Photography Portfolio",
-          "url": "https://kbvisualz.com/portfolio/",
+          "url": "https://wbrisenold.github.io/KBVisual/portfolio/",
           "description": "Selected portrait photography by KB Visualz in Orlando and Central Florida.",
           "about": {
-            "@id": "https://kbvisualz.com/#business"
+            "@id": "https://wbrisenold.github.io/KBVisual/#business"
           },
           "hasPart": portraits.map((photo) => ({
             "@type": "ImageObject",

@@ -48,11 +48,11 @@ const Home = () => {
         canonicalPath="/"
         structuredData={{
           "@type": "Service",
-          "@id": "https://kbvisualz.com/#portrait-service",
+          "@id": "https://wbrisenold.github.io/KBVisual/#portrait-service",
           "name": "Orlando Portrait Photography Sessions",
           "serviceType": "Portrait photography",
           "provider": {
-            "@id": "https://kbvisualz.com/#business"
+            "@id": "https://wbrisenold.github.io/KBVisual/#business"
           },
           "areaServed": [
             "Orlando",
