@@ -1,0 +1,42 @@
+[
+  {
+    "id": "init-001",
+    "ring": "heartwood",
+    "type": "decision",
+    "date": "2026-07-14",
+    "label": "6-phase code overhaul",
+    "detail": "Completed cleanup, code-split, a11y, design, SEO, and animation overhaul. Jettisoned Astryx/53 unused deps/44 shadcn files. Inter → Outfit font swap. bg-black → bg-neutral-950. Parallax tilt design spell on hero frames."
+  },
+  {
+    "id": "init-002",
+    "ring": "heartwood",
+    "type": "decision",
+    "date": "2026-07-14",
+    "label": "Git hygiene — untrack node_modules",
+    "detail": "Removed node_modules (7777 files), .agents/, .claude/, dist/ from git tracking. Updated .gitignore with proper patterns."
+  },
+  {
+    "id": "init-003",
+    "ring": "heartwood",
+    "type": "warning",
+    "date": "2026-07-14",
+    "label": "Custom cursor may hurt perf/a11y",
+    "detail": "Custom SVG camera cursor on <a>/<button> — design-taste-frontend skill flags this as outdated and harmful. Keep for brand but monitor."
+  },
+  {
+    "id": "init-004",
+    "ring": "heartwood",
+    "type": "decision",
+    "date": "2026-07-14",
+    "label": "Editorial serif + premium sans pairing",
+    "detail": "Newsreader serif for editorial headings, Outfit sans for body. Replaced banned Inter font with Outfit (Google Fonts)."
+  },
+  {
+    "id": "init-005",
+    "ring": "cambium",
+    "type": "lesson",
+    "date": "2026-07-14",
+    "label": "Design taste: off-black over pure black",
+    "detail": "bg-neutral-950 (tailwind off-black) preferred over bg-black per High-Agency Frontend skill. Subtle but gives more depth."
+  }
+]

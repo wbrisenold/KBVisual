@@ -23,8 +23,9 @@ const Hero = () => {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = "ontouchstart" in window;
 
-    if (prefersReducedMotion || !heroRef.current) {
+    if (prefersReducedMotion || !heroRef.current || isTouch) {
       return;
     }
 
@@ -46,6 +47,36 @@ const Hero = () => {
           ease: "sine.inOut",
           stagger: 0.9
         });
+
+        const frames = gsap.utils.toArray<HTMLElement>(".hero-float-frame");
+        if (!frames.length) return;
+
+        const hero = heroRef.current!;
+        const strengths = frames.map(() => 8 + Math.random() * 6);
+
+        hero.addEventListener("mousemove", (e) => {
+          const rect = hero.getBoundingClientRect();
+          const nx = (e.clientX - rect.left) / rect.width - 0.5;
+          const ny = (e.clientY - rect.top) / rect.height - 0.5;
+
+          frames.forEach((el, i) => {
+            const s = strengths[i];
+            gsap.to(el, {
+              x: nx * s * 2,
+              y: ny * s,
+              rotate: nx * 2,
+              duration: 1.8,
+              ease: "power2.out",
+              overwrite: "auto"
+            });
+          });
+        });
+
+        hero.addEventListener("mouseleave", () => {
+          frames.forEach((el) => {
+            gsap.to(el, { x: 0, y: 0, rotate: 0, duration: 1.2, ease: "power2.out" });
+          });
+        });
       }, heroRef);
     });
 
@@ -56,7 +87,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden bg-black text-white">
+    <section ref={heroRef} className="relative min-h-[100dvh] overflow-hidden bg-neutral-950 text-white">
       <div className="absolute inset-0 z-0">
         <motion.img
           src={heroImagePath}

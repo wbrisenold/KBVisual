@@ -108,7 +108,7 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="min-h-screen page-content bg-black text-white">
+    <div className="min-h-screen page-content bg-neutral-950 text-white">
       <SEOHead
         title="Orlando Portrait Photography Portfolio"
         description="View KB Visualz portrait photography in Orlando and Central Florida, including studio, family, creative, engagement, couples, and editorial portrait work."
@@ -180,7 +180,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="portfolio-gallery" className="scroll-mt-20 bg-black py-16 md:py-24">
+      <section id="portfolio-gallery" className="scroll-mt-20 bg-neutral-950 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
           <div className="grid gap-12 lg:grid-cols-[minmax(14rem,20rem)_1fr] lg:items-start">
             <motion.aside

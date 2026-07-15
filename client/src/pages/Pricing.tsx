@@ -444,7 +444,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="bg-stone-950 bg-noise py-28 text-white md:py-32">
+      <section className="bg-neutral-950 bg-noise py-28 text-white md:py-32">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

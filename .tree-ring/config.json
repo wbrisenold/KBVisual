@@ -1,0 +1,11 @@
+{
+  "project": "KB Visualz Photography Portfolio",
+  "description": "Photography portfolio site for Ken Brisenold — React/Vite/Tailwind, GitHub Pages deployment",
+  "memory_path": ".tree-ring/memory.json",
+  "rings": {
+    "cambium": { "label": "Current Session", "max_entries": 10 },
+    "outer": { "label": "Recent Work", "max_entries": 50 },
+    "inner": { "label": "Project History", "max_entries": 100 },
+    "heartwood": { "label": "Key Decisions", "max_entries": 200 }
+  }
+}

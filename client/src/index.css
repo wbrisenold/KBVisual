@@ -90,7 +90,7 @@ a, button, .cursor-pointer {
     @apply antialiased;
     background-color: #ffffff;
     color: #1c1917;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     content-visibility: auto;
@@ -123,7 +123,7 @@ a, button, .cursor-pointer {
   }
 
   .editorial-body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 400;
     line-height: 1.7;
     letter-spacing: 0;
@@ -131,7 +131,7 @@ a, button, .cursor-pointer {
   }
 
   .editorial-caption {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-weight: 600;
     font-size: 0.75rem;
     letter-spacing: 0;
@@ -155,7 +155,7 @@ a, button, .cursor-pointer {
     display: inline-flex;
     align-items: center;
     gap: 0.82rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
   }
 
   .brand-monogram {
@@ -233,7 +233,7 @@ a, button, .cursor-pointer {
     border-top: 1px solid currentColor;
     border-bottom: 1px solid currentColor;
     padding: 0.75rem 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0;
@@ -259,7 +259,7 @@ a, button, .cursor-pointer {
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -290,7 +290,7 @@ a, button, .cursor-pointer {
     gap: 0.55rem;
     border: 1px solid currentColor;
     padding: 0.85rem 1.35rem;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 0.78rem;
     font-weight: 600;
     line-height: 1;

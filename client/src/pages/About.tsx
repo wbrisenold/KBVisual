@@ -135,7 +135,7 @@ const About = () => {
         </div>
       </section>
 
-      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-black bg-noise py-28 text-white md:py-36">
+      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 bg-noise py-28 text-white md:py-36">
         <img
           src={studioPortrait}
           alt="Studio portrait by KB Visualz"
