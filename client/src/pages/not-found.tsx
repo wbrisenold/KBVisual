@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@astryxdesign/core/Button";
 import { AlertCircle } from "lucide-react";
 
 export default function NotFound() {
@@ -17,18 +16,12 @@ export default function NotFound() {
             portrait portfolio.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button
-              label="Home"
-              href="/"
-              variant="primary"
-              className="site-button site-button--dark w-full sm:w-auto"
-            />
-            <Button
-              label="Portfolio"
-              href="/portfolio"
-              variant="secondary"
-              className="site-button site-button--outline w-full sm:w-auto"
-            />
+            <a href="/" className="site-button site-button--dark w-full sm:w-auto justify-center text-center no-underline">
+              Home
+            </a>
+            <a href="/portfolio" className="site-button site-button--outline w-full sm:w-auto justify-center text-center no-underline">
+              Portfolio
+            </a>
           </div>
         </CardContent>
       </Card>

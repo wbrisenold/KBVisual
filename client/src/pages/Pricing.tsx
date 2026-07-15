@@ -177,7 +177,7 @@ const Pricing = () => {
         <img
           src={pricingPortrait}
           alt="Outdoor editorial portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover object-center opacity-40 blur-[1px]"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/82 to-black/45"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-stone-950"></div>
@@ -400,7 +400,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="py-14 bg-stone-50 md:py-20">
+      <section className="py-20 bg-stone-50 md:py-28">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -419,7 +419,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-white py-20 md:py-28">
+      <section className="border-y border-stone-200 bg-white py-28 md:py-36">
         <div className="editorial-grid gap-y-12">
           <div className="col-span-12 md:col-span-5">
             <div className="lookbook-page-marker mb-5 text-stone-600">After you choose / 02</div>
@@ -444,7 +444,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="bg-stone-950 py-20 text-white md:py-24">
+      <section className="bg-stone-950 bg-noise py-28 text-white md:py-32">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

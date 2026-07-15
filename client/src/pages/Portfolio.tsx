@@ -224,8 +224,8 @@ const Portfolio = () => {
                   data-pswp-width={photo.width}
                   data-pswp-height={photo.height}
                   data-pswp-caption={`${photo.title} - ${photo.category}`}
-                  initial={{ opacity: 0, y: 56, filter: "blur(12px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 56 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.95, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
                   className={`group relative overflow-hidden border border-white/10 bg-white/5 ${
@@ -237,7 +237,7 @@ const Portfolio = () => {
                   <img
                     src={photo.image}
                     alt={photo.title}
-                    className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105 group-hover:blur-[1px]`}
+                    className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105`}
                     loading="lazy"
                   />
                   <div className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
@@ -275,7 +275,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className="bg-white py-20 text-stone-950 md:py-28">
+      <section className="bg-white bg-noise py-28 text-stone-950 md:py-36">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

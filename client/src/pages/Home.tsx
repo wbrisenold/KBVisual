@@ -149,7 +149,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="booking" className="relative scroll-mt-20 overflow-hidden bg-stone-950 py-20 text-white md:py-28">
+      <section id="booking" className="relative scroll-mt-20 overflow-hidden bg-stone-950 bg-noise py-28 text-white md:py-36">
         <div className="editorial-grid relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}

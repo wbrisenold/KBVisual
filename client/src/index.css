@@ -93,6 +93,7 @@ a, button, .cursor-pointer {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 1.6;
+    content-visibility: auto;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -108,15 +109,17 @@ a, button, .cursor-pointer {
     font-family: 'Newsreader', serif;
     font-weight: 500;
     font-style: normal;
-    letter-spacing: 0;
+    letter-spacing: -0.02em;
     line-height: 0.92;
+    text-wrap: balance;
   }
 
   .editorial-title {
     font-family: 'Newsreader', serif;
     font-weight: 500;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
     line-height: 1.1;
+    text-wrap: balance;
   }
 
   .editorial-body {
@@ -239,8 +242,10 @@ a, button, .cursor-pointer {
     transition: color 180ms ease, opacity 180ms ease, transform 180ms ease;
   }
 
-  .lookbook-next:hover {
-    transform: translateX(4px);
+  @media (hover: hover) and (pointer: fine) {
+    .lookbook-next:hover {
+      transform: translateX(4px);
+    }
   }
 
   .lookbook-next__meta {
@@ -293,8 +298,10 @@ a, button, .cursor-pointer {
     transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
   }
 
-  .site-button:hover {
-    transform: translateY(-1px);
+  @media (hover: hover) and (pointer: fine) {
+    .site-button:hover {
+      transform: translateY(-1px);
+    }
   }
 
   .site-button--dark {
@@ -312,7 +319,6 @@ a, button, .cursor-pointer {
   .site-button--light {
     border-color: #ffffff;
     background: #ffffff;
-    background-color: #ffffff;
     color: #0c0a09;
     box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28);
   }
@@ -471,6 +477,16 @@ a, button, .cursor-pointer {
   .premium-gradient {
     background: linear-gradient(135deg, hsl(var(--premium-dark)) 0%, hsl(var(--premium-brown)) 100%);
   }
+
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
   
   .gold-gradient {
     background: linear-gradient(135deg, hsl(var(--premium-gold)) 0%, hsl(var(--premium-amber)) 100%);
@@ -573,6 +589,20 @@ a, button, .cursor-pointer {
   .backdrop-blur-premium {
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .bg-noise {
+    position: relative;
+  }
+
+  .bg-noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
   }
   
   .parallax {
@@ -719,12 +749,17 @@ a, button, .cursor-pointer {
 html {
   scroll-behavior: smooth;
   max-width: 100%;
-  overflow-x: clip;
 }
 
 body {
   max-width: 100%;
   overflow-x: clip;
+}
+
+/* Focus-visible styles for accessibility */
+:focus-visible {
+  outline: 2px solid #a16207;
+  outline-offset: 2px;
 }
 
 /* Custom scrollbar */

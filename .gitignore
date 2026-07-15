@@ -1,4 +1,12 @@
 node_modules/
+dist/
 test-results/
 playwright-report/
-dist/bundle-stats.html
+.env
+.env.local
+.DS_Store
+*.log
+.agents/
+.claude/
+.opencode/
+graphify-out/

@@ -80,7 +80,7 @@ const About = () => {
         </div>
       </section>
 
-      <section id="approach" className="scroll-mt-20 py-20 md:py-28">
+      <section id="approach" className="scroll-mt-20 py-28 md:py-36">
         <div className="editorial-grid items-start">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -135,7 +135,7 @@ const About = () => {
         </div>
       </section>
 
-      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-black py-20 text-white md:py-28">
+      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-black bg-noise py-28 text-white md:py-36">
         <img
           src={studioPortrait}
           alt="Studio portrait by KB Visualz"
@@ -178,7 +178,7 @@ const About = () => {
         </div>
       </section>
 
-      <section id="book-about" className="scroll-mt-20 bg-stone-100 py-20 md:py-28">
+      <section id="book-about" className="scroll-mt-20 bg-stone-100 py-28 md:py-36">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

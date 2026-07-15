@@ -34,18 +34,15 @@ const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`${navPosition} top-0 z-50 w-full transition-all duration-500 ${navSurface}`}
+        role="navigation"
+        aria-label="Main navigation"
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6 md:py-5 lg:px-12">
           {/* Logo */}
           <Link href="/" aria-label="KB Visualz home">
-            <motion.div 
-              className="cursor-pointer group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
-            >
-              <BrandMark inverted={isTransparent} className="transition-opacity group-hover:opacity-70" />
-            </motion.div>
+            <div className="cursor-pointer transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]">
+              <BrandMark inverted={isTransparent} className="transition-opacity hover:opacity-70" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,11 +53,9 @@ const Navigation = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <Link href={item.href}>
-                  <div className="group cursor-pointer relative">
+                  <div className="group cursor-pointer relative transition-transform duration-200 hover:-translate-y-0.5 active:scale-[0.98]">
                     <div className={`text-sm uppercase transition-opacity group-hover:opacity-70 ${navText}`}>
                       {item.name}
                     </div>
@@ -77,17 +72,15 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <motion.button
+            <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`relative p-2 transition-opacity hover:opacity-70 ${navText}`}
+              className={`relative p-2 transition-transform duration-200 hover:scale-110 active:scale-90 ${navText}`}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
             >
               {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </motion.button>
+            </button>
           </div>
         </div>
       </motion.nav>
@@ -101,7 +94,7 @@ const Navigation = () => {
           opacity: isOpen ? 1 : 0, 
           x: isOpen ? "0%" : "100%" 
         }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.25 }}
         className={`fixed inset-0 z-40 md:hidden bg-white ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         <div className="flex flex-col h-full pt-20 px-6">
@@ -128,13 +121,12 @@ const Navigation = () => {
                     stiffness: 300,
                     damping: 30
                   }}
-                  whileHover={{ x: 10, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  className="transition-transform duration-200 hover:translate-x-[10px] hover:scale-[1.02] active:scale-[0.98]"
                   onClick={() => setIsOpen(false)}
                 >
                   <Link href={item.href} tabIndex={isOpen ? 0 : -1}>
                     <div className="py-4 border-b border-black/10 cursor-pointer group">
-                      <div className="text-2xl font-light text-black group-hover:opacity-70 transition-opacity uppercase">
+                      <div className="text-2xl font-light text-black transition-opacity group-hover:opacity-70 uppercase">
                         {item.name}
                       </div>
                     </div>

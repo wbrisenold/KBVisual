@@ -20,7 +20,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-stone-900 font-medium mb-4">Quick Links</h4>
+            <h2 className="text-stone-900 font-medium mb-4 text-sm">Quick Links</h2>
             <ul className="space-y-2">
               <li>
                 <Link href="/portfolio" className="text-stone-700 opacity-80 hover:text-yellow-700 transition-colors duration-300">
@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* Booking */}
           <div>
-            <h4 className="text-stone-900 font-medium mb-4">Booking</h4>
+            <h2 className="text-stone-900 font-medium mb-4 text-sm">Booking</h2>
             <ul className="space-y-2">
               <li className="text-stone-700 opacity-80">Orlando and Central Florida</li>
               <li className="text-stone-700 opacity-80">Outdoor and studio portrait sessions</li>

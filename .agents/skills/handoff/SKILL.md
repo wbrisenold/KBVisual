@@ -1,57 +1,45 @@
 ---
 name: handoff
-description: >
-  After every batch of tool calls that makes changes (edits, writes, deletes),
-  update AGENTS.md with current state summary: objective, completed work,
-  pending items, blocked items, next move, relevant files. Keeps context
-  persistent across sessions AND across agent/tool switches.
-trigger: auto (always active)
+description: Compact the current conversation into a handoff document for another agent to pick up.
+argument-hint: "What will the next session be used for?"
+disable-model-invocation: true
+category: "productivity"
+risk: "safe"
+source: "community"
+source_repo: "mattpocock/skills"
+source_type: "community"
+date_added: "2026-06-19"
+author: "Matt Pocock"
+license: "MIT"
+license_source: "https://github.com/mattpocock/skills/blob/main/LICENSE"
+tags:
+  - productivity
+  - workflow
+  - coding-agents
+tools:
+  - claude-code
+  - codex-cli
+  - cursor
 ---
 
-## Purpose
+## When to Use
 
-AGENTS.md is the single source of truth for any agent or coding tool
-(Claude Code, opencode, Cursor, etc.) joining this project mid-stream.
-It must contain enough context that a fresh agent can pick up work
-without asking the user setup questions.
+Use when this workflow matches the user request: Compact the current conversation into a handoff document for another agent to pick up.
 
-## Rules
 
-1. After each batch of tool calls that modifies files, update AGENTS.md.
-2. Format: objective line, completed list, pending list, blocked list, next move, relevant files.
-3. Keep it concise — bullet points, no prose.
-4. Only update AGENTS.md after actual changes, not after read-only operations.
-5. Mark completed items with the description of what was done.
-6. Remove stale entries when superseded.
+_Source: [mattpocock/skills](https://github.com/mattpocock/skills) (MIT)._Write a handoff document summarising the current conversation so a fresh agent can continue the work. Save to the temporary directory of the user's OS - not the current workspace.
 
-## Cross-Agent Context (mandatory)
+Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.
 
-Include these sections in AGENTS.md so any agent/tool can resume seamlessly:
+Do not duplicate content already captured in other artifacts (PRDs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
 
-### Active Skills & Modes
-List every skill that has been loaded and is active (e.g. ponytail full,
-caveman off, rtk ready). Include trigger phrases so a new agent knows
-how to invoke them.
+Redact any sensitive information, such as API keys, passwords, or personally identifiable information.
 
-### Tooling Preferences
-- CLI proxy in use (e.g. rtk) and how to use it
-- Package manager (npm/pnpm/yarn)
-- Dev server command and URL
-- Build/test/lint commands
+If the user passed arguments, treat them as a description of what the next session will focus on and tailor the doc accordingly.
 
-### Design Decisions
-- Brand gold = Tailwind `yellow-700` (#a16207)
-- Animation style: snappy, no blur in scroll-in
-- CSS over framer-motion for hover/tap where possible
-- Any other non-obvious choices made during the session
 
-### Conversation Style
-- Preferred response length (terse, detailed, caveman, etc.)
-- Communication mode (ponytail, etc.)
-- Anything about how the user likes to receive information
+## Limitations
 
-### Last Session
-- What was being worked on
-- What was completed
-- What was next
-- Any pending questions or blockers
+- Requires the upstream tool, account, API key, or local setup when the workflow names one.
+- Does not authorize destructive, production, paid, or external-message actions without explicit user approval.
+- Validate generated artifacts or recommendations against the user's real sources before treating them as final.
