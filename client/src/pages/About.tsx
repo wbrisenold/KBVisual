@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { SCHEDULING_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
 import photographerPortrait from "@assets/profile-pic.jpg";
 import studioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
@@ -10,8 +9,8 @@ const About = () => {
   return (
     <div className="min-h-screen page-content bg-white">
       <SEOHead
-        title="About Ken Brisenold, Orlando Portrait Photographer"
-        description="Meet Ken Brisenold of KB Visualz, an Orlando portrait photographer creating polished graduation, family, branding, fashion, and creative portraits across Central Florida."
+        title="KB Visualz — About Ken Brisenold"
+        description="Ken Brisenold is the photographer behind KB Visualz. Military veteran and UCF graduate creating portrait photography in Orlando and Central Florida."
         keywords="Ken Brisenold, KB Visualz, Orlando portrait photographer, Central Florida photographer, UCF photographer, Florida portrait photography"
         canonicalPath="/about/"
         structuredData={{
@@ -80,6 +79,7 @@ const About = () => {
         </div>
       </section>
 
+      <div className="section-break"></div>
       <section id="approach" className="scroll-mt-20 py-28 md:py-36">
         <div className="editorial-grid items-start">
           <motion.div
@@ -124,6 +124,10 @@ const About = () => {
               <span>Polished Edits</span>
             </div>
 
+            <p className="mt-6 text-base leading-relaxed text-stone-600">
+              I guide your posture, hands, movement, and expression while leaving room for you to feel natural. You see enough along the way to know we are building the right gallery.
+            </p>
+
             <a href="#philosophy" className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
               <span>
                 <span className="lookbook-next__meta">Why this work matters</span>
@@ -135,7 +139,7 @@ const About = () => {
         </div>
       </section>
 
-      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 bg-noise py-28 text-white md:py-36">
+      <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 py-28 text-white md:py-36">
         <img
           src={studioPortrait}
           alt="Studio portrait by KB Visualz"
@@ -191,21 +195,16 @@ const About = () => {
               Booking / 03
             </div>
             <h2 className="editorial-title mx-auto mb-6 max-w-4xl text-5xl leading-tight text-stone-950 md:text-7xl">
-              Ready for portraits that feel personal and polished?
+              Let's create something that feels like you.
             </h2>
             <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-10">
-              Let's plan a session around how you want to be seen, then create
-              images with intention.
+              If my approach resonates, reach out and we can shape the session
+              around how you want to be seen.
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a
-                href={SCHEDULING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="site-button site-button--dark w-full sm:w-auto"
-              >
-                Plan Your Session
+              <a href="/#contact" className="site-button site-button--dark w-full sm:w-auto">
+                Get in Touch
               </a>
               <a
                 href="/portfolio"

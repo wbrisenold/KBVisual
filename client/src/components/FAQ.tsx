@@ -75,7 +75,7 @@ const FAQ = ({ page, title, description }: FAQProps) => {
   if (faqs.length === 0) return null;
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-neutral-950 py-20">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -87,11 +87,11 @@ const FAQ = ({ page, title, description }: FAQProps) => {
           <div className="editorial-caption text-yellow-700 mb-4">
             Frequently Asked Questions
           </div>
-          <h2 className="editorial-title text-4xl text-stone-950 md:text-5xl mb-6">
+          <h2 className="editorial-title text-4xl text-white md:text-5xl mb-6">
             {title || "Common Questions"}
           </h2>
           {description && (
-            <p className="text-lg opacity-80 max-w-2xl mx-auto">
+            <p className="text-lg text-stone-300 max-w-2xl mx-auto">
               {description}
             </p>
           )}
@@ -105,23 +105,24 @@ const FAQ = ({ page, title, description }: FAQProps) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="overflow-hidden border border-stone-200 bg-stone-50"
+              className="overflow-hidden border border-white/10 bg-white/[0.04] backdrop-blur-lg"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white transition-colors"
+                className="w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/[0.06] transition-colors"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${page}-${index}`}
               >
-                <span id={`faq-question-${page}-${index}`} className="font-medium text-lg text-stone-950">{faq.question}</span>
+                <span id={`faq-question-${page}-${index}`} className="font-medium text-lg text-white">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
+                  className="text-yellow-700"
                 >
                   <ChevronDown size={20} />
                 </motion.div>
               </button>
-              
+
               <motion.div
                 initial={false}
                 animate={{
@@ -135,7 +136,7 @@ const FAQ = ({ page, title, description }: FAQProps) => {
                   id={`faq-answer-${page}-${index}`}
                   role="region"
                   aria-labelledby={`faq-question-${page}-${index}`}
-                  className="px-6 pb-4 text-gray-700 leading-relaxed"
+                  className="px-6 pb-4 text-stone-300 leading-relaxed"
                 >
                   {faq.answer}
                 </div>

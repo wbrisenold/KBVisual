@@ -2,9 +2,13 @@ import Hero from "@/components/Hero";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import FAQ from "@/components/FAQ";
-import { SCHEDULING_URL } from "@/lib/booking";
-import GoogleReviews from "@/components/GoogleReviews";
+import ContactForm from "@/components/ContactForm";
+import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
+import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
+import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
+import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
+import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
+import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const Home = () => {
   const bookingSteps = [
@@ -26,9 +30,8 @@ const Home = () => {
       number: "03",
       title: "Reserve your date",
       description: "Send your preferred date and session idea. A 25% retainer secures the date after availability is confirmed.",
-      href: SCHEDULING_URL,
-      action: "Request your date",
-      external: true
+      href: "/#contact",
+      action: "Request your date"
     },
     {
       number: "04",
@@ -42,8 +45,8 @@ const Home = () => {
   return (
     <div className="min-h-screen page-content">
       <SEOHead
-        title="Orlando Portrait Photographer for Graduation, Family & Branding"
-        description="Book Orlando and Central Florida portrait photography with KB Visualz for graduation, prom, family, branding, fashion, studio, and creative personal sessions."
+        title="KB Visualz — Orlando Portrait Photography"
+        description="Orlando and Central Florida portrait photography by KB Visualz — graduation, family, branding, fashion, studio, and creative personal sessions."
         keywords="Orlando portrait photographer, portrait photographer Orlando FL, Central Florida portrait photography, graduation portraits Orlando, prom portraits Orlando, family photographer Orlando, branding photographer Orlando, studio portraits Orlando"
         canonicalPath="/"
         structuredData={{
@@ -69,6 +72,35 @@ const Home = () => {
 
       <Hero />
 
+      <section id="home-gallery" className="scroll-mt-20 bg-neutral-950 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl grid grid-cols-2 gap-4 px-4 md:grid-cols-3 md:gap-6 lg:px-12">
+          {[formalStudioPortrait, outdoorEditorialPortrait, retroStudioPortrait, proposalPortrait, gardenEditorialPortrait, childPortrait].map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+            >
+              <div className="group relative block overflow-hidden aspect-[3/4]">
+                <img
+                  src={img}
+                  alt=""
+                  className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <a href="/portfolio" className="inline-flex items-center gap-2 border-b border-white/30 pb-1 text-sm font-semibold text-white/80 hover:text-white hover:border-white/60 transition-colors">
+            View full portfolio
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+
       <section id="process" className="scroll-mt-20 bg-[#f3efe7] py-20 md:py-28">
         <div className="editorial-grid">
           <motion.div
@@ -86,11 +118,11 @@ const Home = () => {
                 How It Works
               </div>
               <h2 className="editorial-title max-w-4xl text-5xl leading-tight text-stone-950 md:text-7xl">
-                From “I need photos” to a session you feel ready for.
+                From browse to book.
               </h2>
             </div>
             <p className="editorial-body text-stone-700 md:col-span-4 md:col-start-9">
-              You should know the style, investment, booking terms, and plan before your session day. Follow these steps in order or enter wherever you are ready.
+              Every session starts with a shared plan. Follow the path that fits where you are.
             </p>
           </motion.div>
 
@@ -112,8 +144,6 @@ const Home = () => {
                 <p className="mt-5 max-w-xl leading-relaxed text-stone-700">{step.description}</p>
                 <a
                   href={step.href}
-                  target={step.external ? "_blank" : undefined}
-                  rel={step.external ? "noopener noreferrer" : undefined}
                   className="mt-8 inline-flex items-center gap-3 border-b border-stone-950 pb-1 text-sm font-semibold text-stone-950"
                 >
                   {step.action}
@@ -125,58 +155,33 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="session-day" className="scroll-mt-20 bg-white py-20 md:py-28">
-        <div className="editorial-grid items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
-            className="col-span-12 md:col-span-5"
-          >
-            <div className="lookbook-page-marker mb-5 text-stone-600">On session day</div>
-            <div className="editorial-caption mb-4 text-yellow-700">What you can expect</div>
-            <h2 className="editorial-title text-5xl text-stone-950 md:text-7xl">You will not be left wondering what to do.</h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.08 }} viewport={{ once: true }}
-            className="col-span-12 md:col-span-6 md:col-start-7"
-          >
-            <p className="editorial-body text-stone-700">I guide your posture, hands, movement, and expression while leaving room for you to feel natural. You see enough along the way to know we are building the right gallery.</p>
-            <div className="mt-10 divide-y divide-stone-200 border-y border-stone-200">
-              {["Arrive with a shared visual plan", "Receive calm, specific posing direction", "Review proofs in 3–5 business days", "Choose favorites for final retouching"].map((item, index) => (
-                <div key={item} className="grid grid-cols-[3rem_1fr] gap-4 py-5"><span className="text-sm text-yellow-700">{String(index + 1).padStart(2, "0")}</span><span className="text-lg text-stone-800">{item}</span></div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section id="booking" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 bg-noise py-28 text-white md:py-36">
+      <section id="contact" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 py-28 text-white md:py-36">
+        <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-transparent via-yellow-700 to-transparent"></div>
         <div className="editorial-grid relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="col-span-12 grid gap-8 md:grid-cols-12 md:items-end"
+            className="col-span-12 mb-12"
           >
-            <div className="md:col-span-8">
-              <div className="lookbook-page-marker mb-5 text-white/70">Ready when you are</div>
-              <div className="editorial-caption mb-5 !text-yellow-700">Reserve your session</div>
-              <h2 className="editorial-title text-5xl leading-tight !text-white md:text-7xl">Tell me what you want these portraits to remember.</h2>
-            </div>
-            <div className="md:col-span-4">
-              <p className="mb-6 leading-relaxed text-white/80">Share your preferred date, portrait type, and any early ideas. You will receive availability and a clear path to reserve.</p>
-              <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="site-button site-button--light w-full sm:w-auto">Request Your Date <ArrowRight className="h-4 w-4" /></a>
-              <p className="mt-4 text-xs leading-relaxed text-white/60">Not ready to request a date? Review <a href="/pricing" className="underline text-white">pricing and package details</a> first.</p>
-            </div>
+            <div className="lookbook-page-marker mb-5 text-white/70">Ready when you are</div>
+            <div className="editorial-caption mb-5 !text-yellow-700">Get in touch</div>
+            <h2 className="editorial-title max-w-3xl text-5xl leading-tight !text-white md:text-7xl">Tell me what you want these portraits to remember.</h2>
           </motion.div>
+          <div className="col-span-12 grid gap-12 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <p className="text-base leading-relaxed text-white/80 md:text-lg">Share your preferred date, portrait type, and any early ideas. You will receive availability and a clear path to reserve.</p>
+              <div className="mt-8 space-y-3 text-sm text-white/50">
+                <p className="flex items-center gap-3"><span className="h-px w-6 bg-yellow-700/60"></span>Response within 1–2 business days</p>
+                <p className="flex items-center gap-3"><span className="h-px w-6 bg-yellow-700/60"></span>No commitment required to inquire</p>
+                <p className="flex items-center gap-3"><span className="h-px w-6 bg-yellow-700/60"></span>Orlando and Central Florida sessions</p>
+              </div>
+            </div>
+            <div className="md:col-span-6 md:col-start-7">
+              <ContactForm />
+            </div>
+          </div>
         </div>
       </section>
-
-      <GoogleReviews />
-
-      <FAQ
-        page="home"
-        title="Portrait Session Questions"
-        description="A few details to help you feel ready before we plan."
-      />
     </div>
   );
 };

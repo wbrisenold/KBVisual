@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { Building2, Camera, ExternalLink, Sparkles, Star, VideoOff } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ChevronDown, ExternalLink } from "lucide-react";
 import FAQ from "@/components/FAQ";
-import { PEERSPACE_STUDIO_URL, SCHEDULING_URL } from "@/lib/booking";
+import GoogleReviews from "@/components/GoogleReviews";
+import { PEERSPACE_STUDIO_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
 import pricingPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 
@@ -9,7 +11,6 @@ const portraitPackages = [
   {
     category: "PORTRAIT SESSION",
     title: "The Signature Session",
-    icon: <Camera className="w-6 h-6" />,
     price: "$250",
     duration: "1 hour",
     summary: "A focused session for one location, one clear idea, and a polished set of portraits.",
@@ -29,7 +30,6 @@ const portraitPackages = [
   {
     category: "PORTRAIT SESSION",
     title: "The Legacy Session",
-    icon: <Sparkles className="w-6 h-6" />,
     price: "$400",
     duration: "2 hours",
     summary: "For more time, outfit changes, and a wider gallery without rushing.",
@@ -47,27 +47,6 @@ const portraitPackages = [
     ],
     featured: true
   },
-  {
-    category: "STUDIO OPTION",
-    title: "Creative Studio Session",
-    icon: <Building2 className="w-6 h-6" />,
-    price: "Package + studio rental",
-    duration: "Choose Signature or Legacy",
-    summary: "For controlled light, backdrop options, and a polished indoor feel.",
-    deliverables: [
-      "Pair with Signature or Legacy",
-      "Studio rental booked separately",
-      "Controlled light and backdrop options",
-      "Orlando studio rental guidance"
-    ],
-    bestFor: [
-      "Clean backdrops",
-      "Controlled lighting",
-      "Editorial portraits",
-      "Indoor weather backup"
-    ],
-    studioLink: true
-  }
 ];
 
 const sessionTypes = [
@@ -98,59 +77,31 @@ const reservationSteps = [
 ];
 
 const policyItems = [
-  {
-    title: "Date Retainer",
-    description:
-      "A 25% retainer reserves your date and starts the planning."
-  },
-  {
-    title: "Payment",
-    description:
-      "Your invoice shows each payment milestone before you reserve. The final balance is due when revisions are complete."
-  },
-  {
-    title: "Retouching",
-    description:
-      "Two revision rounds are included. Additional revision requests are $20 each."
-  },
-  {
-    title: "Turnaround",
-    description:
-      "Proofs arrive 3-5 business days after the session. Finals arrive 2-4 business days after you approve your selects."
-  },
-  {
-    title: "Rescheduling",
-    description:
-      "If plans change, reach out as soon as possible so we can look for a new available date."
-  },
-  {
-    title: "Image Use",
-    description:
-      "Delivered portraits are yours to use personally. KB Visualz may use selected images for portfolio and promotional work unless we agree otherwise in writing."
-  },
-  {
-    title: "Photography Only",
-    description:
-      "Photo and video are booked separately. Video coverage should be handled by a dedicated videographer."
-  },
-  {
-    title: "Arrival",
-    description:
-      "Showing up on time protects the light, studio booking, and creative pace."
-  },
-  {
-    title: "Visual Direction",
-    description:
-      "Before you book, familiarize yourself with my portrait style, direction, and editing. Reserve a session only if the work feels aligned with your vision and you believe I am the right photographer to achieve it."
-  }
+  { title: "Date Retainer", description: "A 25% retainer reserves your date and starts the planning." },
+  { title: "Payment", description: "Your invoice shows each payment milestone before you reserve. The final balance is due when revisions are complete." },
+  { title: "Retouching", description: "Two revision rounds are included. Additional revision requests are $20 each." },
+  { title: "Turnaround", description: "Proofs arrive 3-5 business days after the session. Finals arrive 2-4 business days after you approve your selects." },
+  { title: "Rescheduling", description: "If plans change, reach out as soon as possible so we can look for a new available date." },
+  { title: "Image Use", description: "Delivered portraits are yours to use personally. KB Visualz may use selected images for portfolio and promotional work unless we agree otherwise in writing." },
+  { title: "Photography Only", description: "Photo and video are booked separately. Video coverage should be handled by a dedicated videographer." },
+  { title: "Arrival", description: "Showing up on time protects the light, studio booking, and creative pace." },
+  { title: "Visual Direction", description: "Before you book, familiarize yourself with my portrait style, direction, and editing. Reserve a session only if the work feels aligned with your vision and you believe I am the right photographer to achieve it." }
 ];
 
 const Pricing = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+
   return (
-    <div className="min-h-screen page-content bg-white">
+    <div className="min-h-screen page-content">
       <SEOHead
-        title="Orlando Portrait Photography Pricing"
-        description="Review KB Visualz portrait photography pricing in Orlando, FL. Signature and Legacy sessions include edited photos, planning, posing direction, and optional studio booking guidance."
+        title="KB Visualz — Session Pricing"
+        description="KB Visualz portrait photography pricing in Orlando, FL. Signature and Legacy sessions include edited photos, planning, posing direction, and optional studio booking."
         keywords="Orlando portrait photography pricing, Orlando photographer prices, portrait session pricing Orlando, graduation photos Orlando pricing, branding portraits Orlando pricing"
         canonicalPath="/pricing/"
         structuredData={{
@@ -173,226 +124,164 @@ const Pricing = () => {
         }}
       />
 
-      <section className="relative overflow-hidden bg-stone-950 pt-28 text-white md:pt-32">
-        <img
+      {/* HERO — Magazine cover scene */}
+      <section ref={heroRef} className="relative flex min-h-screen items-end overflow-hidden bg-stone-950 pt-36 pb-16 md:pb-24">
+        <motion.img
+          style={{ y: bgY, scale: bgScale }}
           src={pricingPortrait}
           alt="Outdoor editorial portrait by KB Visualz"
-          className="absolute inset-0 h-full w-full object-cover object-center opacity-40"
+          className="absolute inset-0 h-[120%] w-full object-cover will-change-transform"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/82 to-black/45"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-stone-950"></div>
-        <div className="editorial-grid relative min-h-[68vh] items-end pb-16 md:pb-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-transparent"></div>
+        <div className="editorial-grid relative">
           <motion.div
-            initial={{ opacity: 0, y: 44 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 60, rotateX: 8 }}
+            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="col-span-12 md:col-span-8"
           >
-            <div className="max-w-3xl border border-white/15 bg-black/68 p-6 shadow-2xl backdrop-blur-sm md:p-10">
-              <div className="editorial-caption mb-5 !text-yellow-700">Your investment</div>
-              <h1 className="editorial-headline text-6xl leading-none !text-white md:text-8xl lg:text-9xl">Choose your session with confidence.</h1>
-              <p className="mt-8 max-w-2xl text-base leading-relaxed !text-white md:text-lg">
-                Compare time, image count, setting, and price before you request a date. You will know what is included and what happens after you choose.
-              </p>
-              <a href="#portrait-packages" className="site-button site-button--light mt-8">Compare Packages</a>
-            </div>
-            {/* Current package values are maintained manually; keep source notes out of the visible UI. */}
+            <motion.span
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="editorial-caption !text-yellow-700"
+            >
+              Sessions
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 40, rotateX: 6 }}
+              animate={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="editorial-headline mt-6 text-7xl leading-none !text-white md:text-8xl lg:text-9xl"
+            >
+              Choose your session.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 max-w-xl text-base leading-relaxed !text-white/80 md:text-lg"
+            >
+              Time, image count, setting, and price — everything is listed so you can decide what fits.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <a href="#portrait-packages" className="site-button site-button--light mt-8">View Packages</a>
+            </motion.div>
           </motion.div>
         </div>
-      </section>
-
-      <section className="bg-stone-950 pb-12 text-white md:pb-16">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.08 }}
-            viewport={{ once: true }}
-            className="grid gap-5 border-y border-yellow-700/35 py-6 md:grid-cols-[auto_1fr_auto] md:items-center md:py-7"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="flex h-12 w-12 items-center justify-center border border-yellow-700/40 bg-black/35 text-yellow-700">
-              <VideoOff className="h-6 w-6" />
-            </div>
-            <div>
-              <div className="editorial-caption mb-2 !text-yellow-700">
-                Photo-Only Packages
-              </div>
-              <h2 className="editorial-title mb-2 text-3xl text-white md:text-4xl">
-                These packages are for photography only.
-              </h2>
-              <p className="max-w-3xl text-sm leading-relaxed !text-white md:text-base">
-                Your package covers still photography. If your project also needs video, plan for a separate videographer and budget.
-              </p>
-            </div>
-            <div className="hidden text-right text-xs uppercase text-yellow-700/90 md:block">
-              Photography Only
-            </div>
+            <ChevronDown className="h-6 w-6 text-yellow-700/60" />
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
-      <section id="portrait-packages" className="bg-stone-50 py-20 md:py-28">
-        <div className="editorial-grid gap-y-12">
+      <div className="section-break"></div>
+
+      {/* PACKAGES — Editorial spread */}
+      <section id="portrait-packages" className="bg-white py-16 md:py-24">
+        <div className="editorial-grid gap-y-10">
           <motion.div
-            initial={{ opacity: 0, y: 34 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
-            <div className="lookbook-page-marker mb-5 text-stone-500">
-              Choose your session / 01
-            </div>
-            <div className="editorial-caption mb-4 text-yellow-700">
-              Compare Your Options
-            </div>
-            <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-7xl">
-              Choose the amount of time your idea needs.
-            </h2>
+            <div className="lookbook-page-marker mb-5 text-stone-500">Your options / 01</div>
+            <div className="editorial-caption mb-4 text-yellow-700">The Collection</div>
+            <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-6xl">Every session starts with a choice.</h2>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 34 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-6 md:col-start-7"
+            className="col-span-12 md:col-span-6 md:col-start-7 md:pt-14"
           >
-            <p className="editorial-body text-stone-700">
-              Choose Signature for one focused idea. Choose Legacy for outfit changes or more variety. Add a studio when controlled light and an indoor setting serve your vision.
+            <p className="editorial-body text-stone-600">
+              Choose Signature for one focused idea. Choose Legacy for outfit changes or more variety.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {sessionTypes.map((type) => (
-                <span key={type} className="border border-stone-300 bg-white px-3 py-1 text-sm text-stone-700">
+                <span key={type} className="border border-stone-300 px-3 py-1 text-sm text-stone-600">
                   {type}
                 </span>
               ))}
             </div>
           </motion.div>
 
-          <div className="col-span-12 space-y-7">
+          <div className="col-span-12 grid gap-6 md:grid-cols-2">
             {portraitPackages.map((service, index) => {
               const isFeatured = Boolean(service.featured);
 
               return (
                 <motion.article
                   key={service.title}
-                  initial={{ opacity: 0, y: 48 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   viewport={{ once: true }}
-                  className={`overflow-hidden border ${
+                  whileHover={{ y: -4 }}
+                  className={`flex h-full flex-col overflow-hidden border bg-white will-change-transform ${
                     isFeatured
-                      ? "border-stone-950 bg-stone-950 text-white shadow-2xl"
-                      : "border-stone-200 bg-white text-stone-950"
+                      ? "border-yellow-700/40"
+                      : "border-stone-200"
                   }`}
                 >
-                  <div className="grid gap-8 p-6 md:p-9 lg:grid-cols-[minmax(0,1.2fr)_minmax(13rem,0.5fr)] lg:items-start">
-                    <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
-                      <div className={`flex h-12 w-12 flex-shrink-0 items-center justify-center border ${
-                        isFeatured
-                          ? "border-yellow-700/40 bg-white/10 text-yellow-700"
-                          : "border-yellow-700/25 bg-yellow-700/10 text-yellow-700"
-                      }`}>
-                        {service.icon}
-                      </div>
-                      <div>
-                        <div className="editorial-caption mb-3 text-yellow-700">
-                          {String(index + 1).padStart(2, "0")} / {service.category}
-                        </div>
-                        <h3 className={`editorial-title mb-4 text-4xl leading-tight md:text-5xl ${isFeatured ? "text-white" : "text-stone-950"}`}>
-                          {service.title}
-                        </h3>
-                        <p className={`max-w-2xl text-base leading-relaxed ${isFeatured ? "text-white/72" : "text-stone-600"}`}>
-                          {service.summary}
-                        </p>
-                      </div>
-                    </div>
+                  {isFeatured && <div className="h-1 bg-yellow-700" />}
 
-                    <div className="lg:text-right">
-                      {isFeatured && (
-                        <div className="mb-3 inline-flex border border-yellow-700/35 px-3 py-1 text-xs uppercase text-yellow-700">
-                          Popular Choice
-                        </div>
-                      )}
-                      <div className={`editorial-title ${service.studioLink ? "text-3xl md:text-4xl" : "text-5xl md:text-6xl"} text-yellow-700`}>
+                  <div className="flex flex-col gap-6 p-7 md:p-8">
+                    <span className="editorial-caption text-yellow-700">{String(index + 1).padStart(2, "0")} / {service.category}</span>
+
+                    <h3 className={`editorial-title text-3xl leading-tight md:text-4xl ${isFeatured ? "text-stone-950" : "text-stone-950"}`}>
+                      {service.title}
+                    </h3>
+
+                    <div className="flex items-baseline gap-3 border-t border-stone-200 pt-5">
+                      <span className={`editorial-title ${service.studioLink ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"} text-yellow-700`}>
                         {service.price}
-                      </div>
-                      <div className={`mt-2 text-sm ${isFeatured ? "text-white/60" : "text-stone-600"}`}>
-                        {service.duration}
-                      </div>
+                      </span>
+                      <span className="text-sm text-stone-500">{service.duration}</span>
                     </div>
-                  </div>
 
-                  <div className={`grid gap-8 border-t px-6 pb-6 pt-6 md:grid-cols-[1fr_0.9fr] md:px-9 md:pb-9 ${
-                    isFeatured ? "border-white/12" : "border-stone-200"
-                  }`}>
-                    <div>
-                      <div className="editorial-caption mb-4 text-yellow-700">
-                        Included
-                      </div>
-                      <ul className="grid gap-3 sm:grid-cols-2">
+                    <p className="text-sm leading-relaxed text-stone-600">{service.summary}</p>
+
+                    <div className="border-t border-stone-200 pt-5">
+                      <div className="editorial-caption mb-4 text-yellow-700">Included</div>
+                      <ul className="space-y-2.5">
                         {service.deliverables.map((item) => (
-                          <li key={item} className={`flex items-start gap-2 text-sm ${isFeatured ? "text-white/76" : "text-stone-700"}`}>
-                            <Star className="mt-1 h-4 w-4 flex-shrink-0 text-yellow-700" />
-                            <span>{item}</span>
-                          </li>
+                          <li key={item} className="text-sm text-stone-700">{item}</li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className={`border-t pt-6 md:border-l md:border-t-0 md:pl-8 md:pt-0 ${
-                      isFeatured ? "border-white/12" : "border-stone-200"
-                    }`}>
-                      <div className="editorial-caption mb-4 text-yellow-700">
-                        Best For
-                      </div>
-                      <div className="flex flex-wrap gap-2">
+                    <div className="border-t border-stone-200 pt-5">
+                      <div className="editorial-caption mb-3 text-yellow-700">Best For</div>
+                      <div className="flex flex-wrap gap-1.5">
                         {service.bestFor.map((type) => (
-                          <span
-                            key={type}
-                            className={`border px-3 py-1 text-sm ${
-                              isFeatured
-                                ? "border-white/18 text-white/76"
-                                : "border-yellow-700/25 text-stone-700"
-                            }`}
-                          >
+                          <span key={type} className="border border-stone-300 px-2.5 py-1 text-xs text-stone-600">
                             {type}
                           </span>
                         ))}
                       </div>
-                      {service.studioLink && (
-                        <a
-                          href={PEERSPACE_STUDIO_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-yellow-700 hover:text-yellow-700"
-                        >
-                          Browse Orlando studio rentals
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      )}
                     </div>
                   </div>
 
-                  <div className={`flex flex-col gap-4 border-t px-6 py-6 sm:flex-row md:px-9 ${
-                    isFeatured ? "border-white/12" : "border-stone-200"
-                  }`}>
-                    <a
-                      href={SCHEDULING_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`site-button w-full sm:w-auto ${isFeatured ? "site-button--light" : "site-button--dark"}`}
-                    >
-                      Request This Session
-                    </a>
-                    <a
-                      href="/portfolio"
-                      className={`site-button w-full sm:w-auto ${isFeatured ? "site-button--outline-light" : "site-button--outline"}`}
-                    >
-                      See This Photography Style
-                    </a>
-                  </div>
                 </motion.article>
               );
             })}
@@ -400,98 +289,121 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-stone-50 md:py-28">
+      {/* STUDIO — Editorial pull quote */}
+      <section className="bg-[#f3efe7] py-20 md:py-28">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="col-span-12 md:col-span-8 md:col-start-3 text-center"
+            className="col-span-12 md:col-span-10 md:col-start-2"
           >
-            <h2 className="editorial-title text-4xl text-stone-900 mb-4 md:text-5xl">
-              Want an indoor studio look?
-            </h2>
-            <p className="editorial-body text-stone-600">
-              Choose Signature or Legacy first. Then select a studio with the backdrop, light, and space your idea needs. Studio rental is added separately.
-            </p>
+            <div className="border-l-4 border-yellow-700 pl-6 md:pl-8">
+              <div className="editorial-caption mb-3 text-yellow-700">Studio Sessions</div>
+              <h3 className="editorial-title text-2xl leading-tight text-stone-900 md:text-3xl">Add a studio for controlled light and backdrop options.</h3>
+              <p className="mt-3 text-sm leading-relaxed text-stone-600 md:text-base">
+                Choose Signature or Legacy first, then add a studio rental that matches your aesthetic. Studio reservation is handled separately.
+              </p>
+              <a
+                href={PEERSPACE_STUDIO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-yellow-700 hover:text-yellow-800"
+              >
+                Browse Orlando studio rentals
+                <ExternalLink className="h-4 w-4" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-white py-28 md:py-36">
+      {/* STEPS — Editorial numbered list */}
+      <section className="bg-white py-24 md:py-32">
         <div className="editorial-grid gap-y-12">
-          <div className="col-span-12 md:col-span-5">
-            <div className="lookbook-page-marker mb-5 text-stone-600">After you choose / 02</div>
-            <div className="editorial-caption mb-4 text-yellow-700">Reservation Workflow</div>
-            <h2 className="editorial-title text-5xl text-stone-950 md:text-7xl">Your next action is simple.</h2>
-            <p className="mt-6 max-w-xl leading-relaxed text-stone-700">You do not need every detail solved before reaching out. Start with the package and date that feel closest.</p>
-          </div>
-          <div className="col-span-12 md:col-span-6 md:col-start-7">
-            <div className="divide-y divide-stone-200 border-y border-stone-200">
-              {reservationSteps.map((step) => (
-                <article key={step.number} className="grid grid-cols-[3rem_1fr] gap-4 py-6">
-                  <span className="text-sm text-yellow-700">{step.number}</span>
-                  <div>
-                    <h3 className="editorial-title text-3xl text-stone-950">{step.title}</h3>
-                    <p className="mt-3 leading-relaxed text-stone-700">{step.description}</p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="col-span-12 md:col-span-4"
+          >
+            <div className="lookbook-page-marker mb-5 text-stone-500">After you choose / 02</div>
+            <div className="editorial-caption mb-4 text-yellow-700">How to reserve</div>
+            <h2 className="editorial-title text-5xl text-stone-950 md:text-6xl">Pick a package, pick a date.</h2>
+          </motion.div>
+
+          <div className="col-span-12 md:col-span-7 md:col-start-6">
+            <div className="divide-y divide-stone-200">
+              {reservationSteps.map((step, index) => (
+                <motion.article
+                  key={step.number}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  viewport={{ once: true }}
+                  className="flex items-start gap-5 py-7 md:py-8"
+                >
+                  <span className="flex-shrink-0 text-4xl font-light text-yellow-700 md:text-5xl">{step.number}</span>
+                  <div className="pt-1.5">
+                    <h3 className="editorial-title text-2xl text-stone-950 md:text-3xl">{step.title}</h3>
+                    <p className="mt-2 leading-relaxed text-stone-600">{step.description}</p>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
-            <a href={SCHEDULING_URL} target="_blank" rel="noopener noreferrer" className="site-button site-button--dark mt-8">Request Availability</a>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.35 }}
+              viewport={{ once: true }}
+              className="mt-8"
+            >
+              <a href="/#contact" className="site-button site-button--dark">Inquire</a>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="bg-neutral-950 bg-noise py-28 text-white md:py-32">
+      <div className="section-break"></div>
+
+      {/* POLICIES — Editorial text grid on dark */}
+      <section className="bg-stone-950 py-24 text-white md:py-32">
         <div className="editorial-grid">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
             className="col-span-12 lg:col-span-4"
           >
-            <div className="editorial-caption text-yellow-700 mb-4">
-              BEFORE YOU BOOK
-            </div>
-            <h2 className="editorial-title text-4xl md:text-5xl text-white mb-6">
-              Know the details before the date.
-            </h2>
-            <p className="text-stone-300 leading-relaxed">
-              Before we shoot, you will know how payment, delivery, revisions,
-              rescheduling, and image use work.
+            <div className="editorial-caption mb-4 text-yellow-700">Details</div>
+            <h2 className="editorial-title text-4xl text-white md:text-5xl">What to know before your session.</h2>
+            <p className="mt-6 leading-relaxed text-stone-400">
+              Before we shoot, you will know how payment, delivery, revisions, rescheduling, and image use work.
             </p>
           </motion.div>
 
-          <div className="col-span-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:col-span-8">
+          <div className="col-span-12 mt-12 grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 lg:col-span-7 lg:col-start-6 lg:mt-0">
             {policyItems.map((item, index) => (
-              <motion.article
+              <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
+                transition={{ duration: 0.4, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className="border border-white/10 bg-white/[0.06] p-6 backdrop-blur-md"
               >
-                <h3 className="mb-3 text-lg font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-stone-300">
-                  {item.description}
-                </p>
-              </motion.article>
+                <h3 className="mb-1.5 text-sm font-semibold text-white">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-stone-400">{item.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <FAQ
-        page="pricing"
-        title="Portrait Pricing Questions"
-        description="The details most clients ask about before choosing a package."
-      />
+      <GoogleReviews />
+      <FAQ page="pricing" title="Portrait Pricing Questions" description="The details most clients ask about before choosing a package." />
     </div>
   );
 };

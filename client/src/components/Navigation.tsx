@@ -14,8 +14,8 @@ const Navigation = () => {
   const navPosition = isHome ? "fixed" : "sticky";
   const navSurface = isTransparent
     ? "bg-gradient-to-b from-black/55 via-black/20 to-transparent text-white"
-    : "bg-white text-stone-950 shadow-sm";
-  const navText = isTransparent ? "text-white" : "text-black";
+    : "bg-white/70 backdrop-blur-xl border-b border-white/20 text-stone-950";
+  const navText = isTransparent ? "text-white" : "text-stone-950";
 
   useEffect(() => {
     setIsOpen(false);
@@ -25,6 +25,7 @@ const Navigation = () => {
     { name: "Portfolio", href: "/portfolio", section: "02" },
     { name: "About", href: "/about", section: "08" },
     { name: "Pricing", href: "/pricing", section: "14" },
+    { name: "Contact", href: "/#contact", section: "--" },
   ];
 
   return (

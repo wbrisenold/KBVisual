@@ -58,29 +58,6 @@ a, button, .cursor-pointer {
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z'></path><circle cx='12' cy='13' r='3'></circle><circle cx='12' cy='13' r='1'></circle></svg>") 12 12, pointer;
 }
 
-.dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --primary: 207 90% 54%;
-  --primary-foreground: 211 100% 99%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --ring: 240 4.9% 83.9%;
-  --radius: 0.5rem;
-}
-
 @layer base {
   * {
     @apply border-border;
@@ -353,29 +330,6 @@ a, button, .cursor-pointer {
     color: #0c0a09;
   }
 
-  /* Magazine Layout Elements */
-  .magazine-column {
-    column-count: 2;
-    column-gap: 3rem;
-    column-rule: 1px solid hsl(var(--luxury-gold) / 0.2);
-  }
-
-  .magazine-dropcap::first-letter {
-    font-family: 'Newsreader', serif;
-    font-size: 4rem;
-    font-weight: 400;
-    float: left;
-    line-height: 1;
-    margin: 0.1em 0.1em 0 0;
-    color: hsl(var(--luxury-gold));
-  }
-
-  .magazine-sidebar {
-    border-left: 3px solid hsl(var(--luxury-gold));
-    padding-left: 1.5rem;
-    margin-left: 1.5rem;
-  }
-
   /* Editorial Grid System */
   .editorial-grid {
     display: grid;
@@ -386,24 +340,6 @@ a, button, .cursor-pointer {
     padding: 0 2rem;
   }
 
-  /* Magazine Hero Section */
-  .hero-masthead {
-    background: #ffffff;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-masthead::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-    opacity: 0.1;
-  }
-
   /* Editorial Section Breaks */
   .section-break {
     width: 100px;
@@ -412,88 +348,8 @@ a, button, .cursor-pointer {
     margin: 4rem auto;
   }
 
-  .ornamental-break {
-    text-align: center;
-    font-family: 'Newsreader', serif;
-    font-size: 2rem;
-    color: hsl(var(--luxury-gold));
-    margin: 3rem 0;
-  }
-
-  /* Pull Quotes */
-  .pull-quote {
-    font-family: 'Newsreader', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    font-style: italic;
-    color: hsl(var(--luxury-gold));
-    text-align: center;
-    position: relative;
-    margin: 3rem 0;
-    padding: 2rem;
-  }
-
-  .pull-quote::before,
-  .pull-quote::after {
-    content: '"';
-    font-size: 4rem;
-    position: absolute;
-    color: hsl(var(--luxury-gold) / 0.3);
-  }
-
-  .pull-quote::before {
-    top: 0;
-    left: 0;
-  }
-
-  .pull-quote::after {
-    bottom: 0;
-    right: 0;
-  }
-
-  /* Magazine Navigation */
-  .magazine-nav {
-    border-bottom: 1px solid hsl(var(--luxury-gold) / 0.2);
-    background: hsl(var(--luxury-dark) / 0.95);
-    backdrop-filter: blur(10px);
-  }
-
-  /* Editorial Image Layouts */
-  .image-feature {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, hsl(var(--luxury-dark) / 0.8));
-    padding: 2rem;
-    color: white;
-  }
-
-  .premium-gradient {
-    background: linear-gradient(135deg, hsl(var(--premium-dark)) 0%, hsl(var(--premium-brown)) 100%);
-  }
-
-  .noise-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-  }
-  
   .gold-gradient {
     background: linear-gradient(135deg, hsl(var(--premium-gold)) 0%, hsl(var(--premium-amber)) 100%);
-  }
-
-  .luxury-gradient {
-    background: linear-gradient(135deg, hsl(var(--luxury-dark)) 0%, hsl(var(--premium-accent)) 100%);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -582,14 +438,7 @@ a, button, .cursor-pointer {
     }
   }
   
-  .text-shadow-premium {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-  }
-  
-  .backdrop-blur-premium {
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.9);
-  }
+
 
   .bg-noise {
     position: relative;
@@ -603,13 +452,6 @@ a, button, .cursor-pointer {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
-  }
-  
-  .parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
   
   .section-padding {
@@ -628,14 +470,6 @@ a, button, .cursor-pointer {
     
     .page-content {
       padding-top: 0;
-    }
-    
-    .parallax {
-      background-attachment: scroll;
-    }
-    
-    .magazine-column {
-      column-count: 1;
     }
     
     .editorial-grid {
@@ -657,29 +491,6 @@ a, button, .cursor-pointer {
     .editorial-body {
       font-size: 1rem;
       line-height: 1.6;
-    }
-    
-    .pull-quote {
-      font-size: 1.5rem;
-      padding: 1rem;
-    }
-    
-    .magazine-dropcap::first-letter {
-      font-size: 3rem;
-    }
-    
-    .magazine-sidebar {
-      border-left: none;
-      border-top: 3px solid hsl(var(--luxury-gold));
-      padding-left: 0;
-      padding-top: 1rem;
-      margin-left: 0;
-      margin-top: 1rem;
-    }
-    
-    .hero-masthead .editorial-grid {
-      padding: 0 1rem;
-      min-height: auto;
     }
     
     .section-break {
@@ -738,11 +549,6 @@ a, button, .cursor-pointer {
       overflow-x: hidden;
     }
     
-    /* Mobile image adjustments */
-    .image-feature img {
-      max-width: 100%;
-      height: auto;
-    }
   }
 }
 

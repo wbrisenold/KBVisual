@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, MapPinned, Star } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { GOOGLE_REVIEWS_URL } from "@/lib/booking";
 
 const GoogleReviews = () => {
@@ -25,15 +25,9 @@ const GoogleReviews = () => {
               comments are easy to check before you book.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-3 text-sm text-stone-300">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2">
-                <Star className="h-4 w-4 text-yellow-700" />
-                Client reviews
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2">
-                <MapPinned className="h-4 w-4 text-yellow-700" />
-                Orlando clients
-              </span>
+            <div className="mt-5 flex flex-wrap gap-2 text-sm text-stone-400">
+              <span className="border border-white/10 px-3 py-1.5">Client reviews</span>
+              <span className="border border-white/10 px-3 py-1.5">Orlando clients</span>
             </div>
           </div>
 

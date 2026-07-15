@@ -16,15 +16,29 @@ function SiteRoutes() {
   const [location, setLocation] = useLocation();
 
   useEffect(() => {
-    const hash = location.includes("#") ? location.split("#").pop() : "";
+    const hash = window.location.hash.slice(1);
 
     if (hash) {
-      const frame = window.requestAnimationFrame(() => {
+      const scrollToHash = () => {
         const target = document.getElementById(decodeURIComponent(hash));
-        target?.scrollIntoView({ block: "start" });
-      });
+        if (target) {
+          target.scrollIntoView({ block: "start" });
+          return true;
+        }
+        return false;
+      };
 
-      return () => window.cancelAnimationFrame(frame);
+      if (!scrollToHash()) {
+        let retries = 0;
+        const frame = requestAnimationFrame(function check() {
+          if (!scrollToHash() && retries < 30) {
+            retries++;
+            requestAnimationFrame(check);
+          }
+        });
+        return () => cancelAnimationFrame(frame);
+      }
+      return;
     }
 
     window.scrollTo(0, 0);
@@ -111,7 +125,7 @@ function SiteRoutes() {
       </a>
       <Navigation />
       <main id="main-content">
-      <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center"><div className="h-1 w-24 animate-pulse rounded-full bg-yellow-700/40" /></div>}>
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/portfolio" component={Portfolio} />

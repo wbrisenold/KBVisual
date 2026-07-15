@@ -1,11 +1,5 @@
-import { useEffect, useRef } from "react";
-import type { MouseEvent } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Maximize2 } from "lucide-react";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import "photoswipe/style.css";
-import FAQ from "@/components/FAQ";
-import { SCHEDULING_URL } from "@/lib/booking";
+import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
@@ -20,7 +14,6 @@ const portraits = [
     image: gardenEditorialPortrait,
     title: "Garden Editorial Portrait",
     category: "Creative Portraits",
-    objectPosition: "object-center",
     width: 1600,
     height: 2400
   },
@@ -28,7 +21,6 @@ const portraits = [
     image: formalStudioPortrait,
     title: "Formal Studio Portrait",
     category: "Men's Formal Portraits",
-    objectPosition: "object-center",
     width: 1600,
     height: 2400
   },
@@ -36,7 +28,6 @@ const portraits = [
     image: retroStudioPortrait,
     title: "Retro Studio Chair Portrait",
     category: "Creative Studio Portraits",
-    objectPosition: "object-center",
     width: 1600,
     height: 2400
   },
@@ -44,7 +35,6 @@ const portraits = [
     image: childPortrait,
     title: "Outdoor Child Portrait",
     category: "Family Portraits",
-    objectPosition: "object-center",
     width: 1733,
     height: 2600
   },
@@ -52,7 +42,6 @@ const portraits = [
     image: outdoorEditorialPortrait,
     title: "Outdoor Editorial Portrait",
     category: "Creative Portraits",
-    objectPosition: "object-center",
     width: 1600,
     height: 2400
   },
@@ -60,7 +49,6 @@ const portraits = [
     image: proposalPortrait,
     title: "Proposal Celebration Portrait",
     category: "Engagement Moments",
-    objectPosition: "object-center",
     width: 1513,
     height: 2400
   },
@@ -68,50 +56,17 @@ const portraits = [
     image: coupleCloseup,
     title: "Golden Hour Couples Close-Up",
     category: "Couples Portraits",
-    objectPosition: "object-center",
     width: 2400,
     height: 1600
   }
 ];
 
 const Portfolio = () => {
-  const galleryRef = useRef<HTMLDivElement>(null);
-  const openGallery = (event: MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-
-    const target = document.getElementById("portfolio-gallery");
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.history.replaceState(null, "", "/portfolio/#portfolio-gallery");
-  };
-
-  useEffect(() => {
-    if (!galleryRef.current) {
-      return;
-    }
-
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: galleryRef.current,
-      children: "a",
-      bgOpacity: 0.94,
-      showHideAnimationType: "zoom",
-      wheelToZoom: true,
-      imageClickAction: "zoom-or-close",
-      tapAction: "toggle-controls",
-      pswpModule: () => import("photoswipe")
-    });
-
-    lightbox.init();
-
-    return () => {
-      lightbox.destroy();
-    };
-  }, []);
-
   return (
     <div className="min-h-screen page-content bg-neutral-950 text-white">
       <SEOHead
-        title="Orlando Portrait Photography Portfolio"
-        description="View KB Visualz portrait photography in Orlando and Central Florida, including studio, family, creative, engagement, couples, and editorial portrait work."
+        title="KB Visualz — Portrait Photography Portfolio"
+        description="Selected portrait photography by KB Visualz in Orlando and Central Florida — studio, family, creative, engagement, couples, and editorial work."
         keywords="Orlando portrait portfolio, portrait photography portfolio Orlando, Central Florida portraits, studio portraits Orlando, family portraits Orlando, engagement portraits Orlando"
         canonicalPath="/portfolio/"
         structuredData={{
@@ -131,189 +86,120 @@ const Portfolio = () => {
         }}
       />
 
-      <section className="relative overflow-hidden bg-stone-100 pt-8 text-stone-950 md:pt-32">
-        <div className="absolute inset-x-0 top-0 h-px bg-stone-950/20"></div>
-        <div className="editorial-grid relative items-start pb-14 md:min-h-[72vh] md:items-end md:pb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 42 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-12 md:col-span-6"
-          >
-            <div className="lookbook-page-marker mb-5 text-stone-700">
-              Portraits / 01
-            </div>
-            <div className="editorial-caption editorial-caption--on-light mb-5">
-              Portfolio
-            </div>
-            <h1 className="editorial-headline max-w-5xl text-6xl leading-none text-stone-950 md:text-8xl lg:text-9xl">
-              The Portrait Lookbook
-            </h1>
-            <p className="mt-8 max-w-3xl text-base leading-relaxed text-stone-700 md:text-lg">
+      <section className="relative min-h-[80vh] overflow-hidden bg-neutral-950 text-white md:min-h-screen">
+        <div className="absolute inset-0">
+          <motion.img
+            src={gardenEditorialPortrait}
+            alt=""
+            className="h-full w-full object-cover"
+            initial={{ scale: 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          />
+          <div className="absolute inset-0 bg-black/52" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent" />
+        </div>
+
+        <div className="relative flex min-h-[80vh] flex-col justify-end px-5 pb-12 pt-28 md:min-h-screen md:px-12 md:pb-16 lg:px-20">
+          <div className="mx-auto flex w-full max-w-7xl flex-col">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.35, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-5 text-xs uppercase text-white/72"
+            >
+              Orlando / Central Florida / Portrait Work
+            </motion.div>
+            <motion.h1
+              className="editorial-headline max-w-5xl text-[18vw] leading-[0.78] text-white md:text-[11vw] lg:text-[9.2rem]"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              The Work
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 28 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.5 }}
+              className="mt-6 max-w-xl text-base text-white/70 md:text-lg"
+            >
               Orlando and Central Florida portraits with styling, expression,
               and presence at the center.
-            </p>
-            <a href="#portfolio-gallery" onClick={openGallery} className="lookbook-next mt-10 w-full max-w-sm text-stone-950">
-              <span>
-                <span className="lookbook-next__meta">Next / 01</span>
-                View the Portraits
-              </span>
+            </motion.p>
+            <a
+              href="#portfolio-gallery"
+              className="mt-8 inline-flex items-center gap-3 border-b border-white/40 pb-1 text-sm font-semibold text-white hover:border-white"
+            >
+              View Gallery
               <ArrowRight className="h-4 w-4" />
             </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 38 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="order-first col-span-12 mb-10 md:order-none md:col-span-5 md:col-start-8 md:mb-0"
-          >
-            <figure className="relative overflow-hidden border border-stone-950/12 bg-stone-200">
-              <img
-                src={outdoorEditorialPortrait}
-                alt="Outdoor editorial portrait by KB Visualz"
-                className="aspect-[4/5] h-full w-full object-cover object-center"
-                loading="eager"
-              />
-            </figure>
-          </motion.div>
-        </div>
-      </section>
-
-      <section id="portfolio-gallery" className="scroll-mt-20 bg-neutral-950 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-12">
-          <div className="grid gap-12 lg:grid-cols-[minmax(14rem,20rem)_1fr] lg:items-start">
-            <motion.aside
-              initial={{ opacity: 0, y: 34 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="lg:sticky lg:top-28"
-            >
-              <div className="lookbook-page-marker mb-5 text-white/70">
-                Portrait Range
-              </div>
-              <div className="editorial-caption mb-4 text-yellow-700">
-                Full Gallery
-              </div>
-              <h2 className="lookbook-index-title max-w-xl text-white">
-                Portraits with range, without losing the feeling.
-              </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-white/70">
-                Creative color, clean studio light, family warmth, and quiet
-                moments all live here.
-              </p>
-              <div className="mt-6 grid grid-cols-2 gap-px border-y border-white/12 py-4 text-xs uppercase text-white/72">
-                {["Editorial", "Studio", "Family", "Couples"].map((label, index) => (
-                  <div key={label} className="grid grid-cols-[1.75rem_1fr] gap-2 py-2">
-                    <span className="text-white/60">{String(index + 1).padStart(2, "0")}</span>
-                    <span>{label}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.aside>
-
-            <div ref={galleryRef} className="grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-8 xl:gap-9">
-              {portraits.map((photo, index) => (
-                <motion.a
-                  key={photo.title}
-                  href={photo.image}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open ${photo.title} in full-screen gallery`}
-                  data-pswp-width={photo.width}
-                  data-pswp-height={photo.height}
-                  data-pswp-caption={`${photo.title} - ${photo.category}`}
-                  initial={{ opacity: 0, y: 56 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.95, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                  viewport={{ once: true }}
-                  className={`group relative overflow-hidden border border-white/10 bg-white/5 ${
-                    index === portraits.length - 1
-                      ? "min-h-[420px] md:col-span-2 md:aspect-[16/10] md:min-h-0"
-                      : "aspect-[3/4] min-h-[460px] md:min-h-0"
-                  }`}
-                >
-                  <img
-                    src={photo.image}
-                    alt={photo.title}
-                    className={`w-full h-full object-cover ${photo.objectPosition} transition duration-1000 group-hover:scale-105`}
-                    loading="lazy"
-                  />
-                  <div className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center border border-white/20 bg-black/35 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                    <Maximize2 className="h-4 w-4" aria-hidden="true" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/18 to-transparent opacity-100 transition-opacity duration-500">
-                    <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-6 md:flex-row md:items-end md:justify-between md:gap-6 md:p-7">
-                      <h3 className="editorial-title max-w-[18rem] text-2xl leading-tight text-white md:text-3xl">
-                        {photo.title}
-                      </h3>
-                      <p className="max-w-[11rem] text-xs uppercase leading-relaxed text-white/62 md:text-right">
-                        {photo.category}
-                      </p>
-                    </div>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="mx-auto mt-20 max-w-4xl text-center"
-          >
-            <blockquote className="editorial-title text-4xl italic leading-tight text-white/90 md:text-6xl">
-              "The best portraits feel polished without losing the person."
-            </blockquote>
-            <div className="mt-8 text-xs uppercase text-white/50">
-              Portrait Photography by KB Visualz
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      <section className="bg-white bg-noise py-28 text-stone-950 md:py-36">
-        <div className="editorial-grid">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-10 md:col-start-2 text-center"
-          >
-            <h2 className="editorial-title mx-auto mb-6 max-w-4xl text-5xl leading-tight md:text-7xl">
-              Bring your session into focus.
-            </h2>
-            <div className="editorial-body text-stone-700 max-w-2xl mx-auto mb-10">
-              When the work feels like the direction you want, choose a package
-              and we can shape the location, wardrobe, and mood.
-            </div>
+      <section id="portfolio-gallery" className="scroll-mt-20 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl grid grid-cols-2 gap-4 px-4 md:grid-cols-3 md:gap-6 lg:px-12">
+          {portraits.map((photo, index) => (
+            <motion.div
+              key={photo.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true }}
+            >
+              <div className="group relative block overflow-hidden aspect-[3/4]">
+                <img
+                  src={photo.image}
+                  alt={photo.title}
+                  className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
+                  loading={index < 3 ? "eager" : "lazy"}
+                />
+                <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4 md:p-6">
+                  <h2 className="text-sm font-medium text-white md:text-base">{photo.title}</h2>
+                  <span className="text-[10px] uppercase text-white/60 md:text-xs">{photo.category}</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a
-                href={SCHEDULING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="site-button site-button--dark w-full sm:w-auto"
-              >
-                Start Planning
-              </a>
-              <a href="/pricing" className="site-button site-button--outline w-full sm:w-auto">
-                View Pricing
-              </a>
-            </div>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-20 max-w-4xl px-4 text-center"
+        >
+          <blockquote className="editorial-title text-4xl italic leading-tight text-white/90 md:text-6xl">
+            "The best portraits feel polished without losing the person."
+          </blockquote>
+          <div className="mt-8 text-xs uppercase text-white/50">
+            Portrait Photography by KB Visualz
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="bg-white py-28 text-stone-950 md:py-36">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="editorial-title text-5xl leading-tight md:text-7xl">
+            If the work feels right, reach out.
+          </h2>
+          <p className="editorial-body mx-auto mt-6 max-w-2xl text-stone-700">
+            When the portraits match the direction you want, we can shape the
+            location, wardrobe, and mood together.
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
+            <a href="/#contact" className="site-button site-button--dark w-full sm:w-auto">
+              Inquire
+            </a>
+          </div>
         </div>
       </section>
 
-      <FAQ
-        page="portfolio"
-        title="Portrait Portfolio Questions"
-        description="Style, pacing, and planning before the camera comes out."
-      />
+
     </div>
   );
 };

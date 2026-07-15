@@ -1,6 +1,3 @@
-export const SCHEDULING_URL =
-  "https://book.squareup.com/appointments/5aa637bf-c800-4c16-a4b6-89084dbc66d4/location/BW0FVY3218M1C/services/NYEAV5AW4LS5WQ7LRKPWNZRX";
-
 export const PEERSPACE_STUDIO_URL =
   "https://www.peerspace.com/s/?a=photo-studio&location=orlando--fl--usa&bbox_of_interest=%5B28.61442,-81.50774609999999,28.348044,-81.17784209999999%5D&place_id=ChIJd7zN_thz54gRnr-lPAaywwo";
 
