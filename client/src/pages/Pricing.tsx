@@ -5,9 +5,10 @@ import FAQ from "@/components/FAQ";
 import GoogleReviews from "@/components/GoogleReviews";
 import { PEERSPACE_STUDIO_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
-import pricingPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
+import pricingPortrait from "@assets/kbvisualz-current/kbv-05.jpg";
+import type { PortraitPackage, BookingStep, PolicyItem } from "@/types";
 
-const portraitPackages = [
+const portraitPackages: PortraitPackage[] = [
   {
     category: "PORTRAIT SESSION",
     title: "The Signature Session",
@@ -49,7 +50,7 @@ const portraitPackages = [
   },
 ];
 
-const sessionTypes = [
+const sessionTypes: string[] = [
   "Graduation",
   "Prom",
   "Fashion",
@@ -58,7 +59,7 @@ const sessionTypes = [
   "Creative portraits"
 ];
 
-const reservationSteps = [
+const reservationSteps: BookingStep[] = [
   {
     number: "01",
     title: "Choose a starting package",
@@ -76,7 +77,7 @@ const reservationSteps = [
   }
 ];
 
-const policyItems = [
+const policyItems: PolicyItem[] = [
   { title: "Date Retainer", description: "A 25% retainer reserves your date and starts the planning." },
   { title: "Payment", description: "Your invoice shows each payment milestone before you reserve. The final balance is due when revisions are complete." },
   { title: "Retouching", description: "Two revision rounds are included. Additional revision requests are $20 each." },
@@ -128,7 +129,7 @@ const Pricing = () => {
       <section ref={heroRef} className="relative flex min-h-screen items-end overflow-hidden bg-stone-950 pt-36 pb-16 md:pb-24">
         <motion.img
           style={{ y: bgY, scale: bgScale }}
-          src={pricingPortrait}
+          src={pricingPortrait.src}
           alt="Outdoor editorial portrait by KB Visualz"
           className="absolute inset-0 h-[120%] w-full object-cover will-change-transform"
         />
@@ -253,7 +254,7 @@ const Pricing = () => {
                     </h3>
 
                     <div className="flex items-baseline gap-3 border-t border-stone-200 pt-5">
-                      <span className={`editorial-title ${service.studioLink ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"} text-yellow-700`}>
+                      <span className="editorial-title text-4xl md:text-5xl text-yellow-700">
                         {service.price}
                       </span>
                       <span className="text-sm text-stone-500">{service.duration}</span>

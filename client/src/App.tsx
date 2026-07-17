@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Portfolio = lazy(() => import("@/pages/Portfolio"));
 const About = lazy(() => import("@/pages/About"));
@@ -182,7 +183,9 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <WouterRouter base="/KBVisual">
-          <SiteRoutes />
+          <ErrorBoundary>
+            <SiteRoutes />
+          </ErrorBoundary>
         </WouterRouter>
       </TooltipProvider>
     </HelmetProvider>

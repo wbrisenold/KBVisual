@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import Sitemap from "vite-plugin-sitemap";
 import { visualizer } from "rollup-plugin-visualizer";
+import { imagetools } from "vite-imagetools";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -12,6 +13,15 @@ const shouldAnalyze = process.env.ANALYZE === "true";
 export default defineConfig({
   plugins: [
     react(),
+    imagetools({
+      defaultDirectives: (url) => {
+        return new URLSearchParams({
+          format: "webp",
+          as: "picture",
+          widths: "400;800;1200;1600",
+        });
+      },
+    }),
     Sitemap({
       hostname: "https://wbrisenold.github.io/KBVisual",
       dynamicRoutes: ["/portfolio", "/about", "/pricing"],

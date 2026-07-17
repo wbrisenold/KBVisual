@@ -10,6 +10,15 @@ import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
 import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
 import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
+const homeGalleryAlts = [
+  "Formal studio portrait by KB Visualz",
+  "Outdoor editorial portrait by KB Visualz",
+  "Retro studio chair portrait by KB Visualz",
+  "Proposal portrait by KB Visualz",
+  "Garden editorial portrait by KB Visualz",
+  "Outdoor child portrait by KB Visualz",
+];
+
 const Home = () => {
   const bookingSteps = [
     {
@@ -22,7 +31,7 @@ const Home = () => {
     {
       number: "02",
       title: "Choose the pace you need",
-      description: "Compare one-hour, two-hour, and studio options. Every package shows price, time, and final images up front.",
+      description: "Compare one-hour and two-hour sessions. Every package shows price, time, and final images up front.",
       href: "/pricing",
       action: "Compare session options"
     },
@@ -84,8 +93,8 @@ const Home = () => {
             >
               <div className="group relative block overflow-hidden aspect-[3/4]">
                 <img
-                  src={img}
-                  alt=""
+                  src={img.src}
+                  alt={homeGalleryAlts[i]}
                   className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
                   loading="lazy"
                 />

@@ -1,0 +1,2 @@
+export const siteButtonStyles =
+  "inline-flex items-center justify-center gap-2 min-h-[3rem] px-5 py-3 border font-semibold text-sm uppercase transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-700 focus-visible:ring-offset-2";

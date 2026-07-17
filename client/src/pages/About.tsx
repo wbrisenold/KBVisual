@@ -66,7 +66,7 @@ const About = () => {
           >
             <figure className="border border-stone-950/12 bg-stone-200 p-3">
               <img
-                src={photographerPortrait}
+                src={photographerPortrait.src}
                 alt="Ken Brisenold, photographer behind KB Visualz"
                 className="aspect-[4/5] w-full object-cover object-top"
               />
@@ -141,7 +141,7 @@ const About = () => {
 
       <section id="philosophy" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 py-28 text-white md:py-36">
         <img
-          src={studioPortrait}
+          src={studioPortrait.src}
           alt="Studio portrait by KB Visualz"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
           loading="lazy"

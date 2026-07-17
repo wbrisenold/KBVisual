@@ -7,10 +7,10 @@ const Hero = () => {
     <section className="relative min-h-[100dvh] overflow-hidden bg-neutral-950 text-white">
       <div className="absolute inset-0">
         <motion.img
-          src={heroImagePath}
+          src={heroImagePath.src}
           alt="Seated studio fashion portrait by KB Visualz"
           className="h-full w-full object-cover object-[63%_center]"
-          fetchpriority="high"
+          fetchPriority="high"
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}

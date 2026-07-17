@@ -88,14 +88,18 @@ const Portfolio = () => {
 
       <section className="relative min-h-[80vh] overflow-hidden bg-neutral-950 text-white md:min-h-screen">
         <div className="absolute inset-0">
-          <motion.img
-            src={gardenEditorialPortrait}
-            alt=""
-            className="h-full w-full object-cover"
+          <motion.picture
             initial={{ scale: 1.08 }}
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          />
+          >
+            <source type="image/webp" srcSet={gardenEditorialPortrait.srcSet} />
+            <img
+              src={gardenEditorialPortrait.src}
+              alt=""
+              className="h-full w-full object-cover"
+            />
+          </motion.picture>
           <div className="absolute inset-0 bg-black/52" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
           <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent" />
@@ -150,12 +154,20 @@ const Portfolio = () => {
               viewport={{ once: true }}
             >
               <div className="group relative block overflow-hidden aspect-[3/4]">
-                <img
-                  src={photo.image}
-                  alt={photo.title}
-                  className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
-                  loading={index < 3 ? "eager" : "lazy"}
-                />
+                <motion.picture
+                  initial={{ scale: 1.05 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <source type="image/webp" srcSet={photo.image.srcSet} />
+                  <img
+                    src={photo.image.src}
+                    alt={photo.title}
+                    className="h-full w-full object-cover transition duration-700"
+                    loading={index < 3 ? "eager" : "lazy"}
+                  />
+                </motion.picture>
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
                 <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4 md:p-6">
                   <h2 className="text-sm font-medium text-white md:text-base">{photo.title}</h2>
