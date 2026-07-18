@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import "photoswipe/dist/photoswipe.css";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
@@ -20,6 +22,19 @@ const homeGalleryAlts = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    let lb: any;
+    import("photoswipe/lightbox").then(({ default: Photoswipe }) => {
+      lb = new Photoswipe({
+        gallery: "#home-gallery",
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+      });
+      lb.init();
+    });
+    return () => { lb?.destroy(); };
+  }, []);
+
   const bookingSteps = [
     {
       number: "01",
@@ -91,20 +106,20 @@ const Home = () => {
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
             >
-              <div className="group relative block overflow-hidden aspect-[3/4]">
+              <a href={img.src} className="group relative block overflow-hidden aspect-[3/4] cursor-zoom-in">
                 <img
                   src={img.src}
                   alt={homeGalleryAlts[i]}
                   className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
                   loading="lazy"
                 />
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>
         <div className="mt-12 text-center">
-          <a href="/portfolio" className="inline-flex items-center gap-2 border-b border-white/30 pb-1 text-sm font-semibold text-white/80 hover:text-white hover:border-white/60 transition-colors">
-            View full portfolio
+          <a href="/portfolio" className="site-button site-button--dark inline-flex items-center gap-2">
+            View Full Portfolio
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -143,8 +158,11 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className="group border-b border-stone-950/20 py-10 md:min-h-[310px] md:p-10 md:[&:nth-child(odd)]:border-r"
+                className="group relative border-b border-stone-950/20 py-10 md:min-h-[310px] md:p-10 md:[&:nth-child(odd)]:border-r"
               >
+                <div className="absolute top-0 -left-8 pr-4 hidden md:block" style={{ transform: "translateX(-100%)" }}>
+                  <span className="text-[10px] font-bold uppercase text-stone-400 tracking-widest">{step.number}</span>
+                </div>
                 <div className="mb-10 flex items-center justify-between border-b border-stone-950/15 pb-4 text-xs uppercase text-stone-600">
                   <span>Step {step.number}</span>
                   <span>{index === 3 ? "You are ready" : "Keep moving"}</span>

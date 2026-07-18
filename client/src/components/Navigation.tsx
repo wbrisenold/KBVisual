@@ -60,6 +60,9 @@ const Navigation = () => {
                     <div className={`text-sm uppercase transition-opacity group-hover:opacity-70 ${navText}`}>
                       {item.name}
                     </div>
+                    {location === item.href && (
+                      <motion.div layoutId="nav-underline" className="absolute -bottom-1 left-0 right-0 h-0.5" style={{ backgroundColor: "hsl(var(--color-gold))" }} />
+                    )}
                   </div>
                 </Link>
               </motion.div>
@@ -86,69 +89,24 @@ const Navigation = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay — Bottom Sheet */}
       <motion.div
         id="mobile-navigation"
         aria-hidden={!isOpen}
-        initial={{ opacity: 0, x: "100%" }}
-        animate={{ 
-          opacity: isOpen ? 1 : 0, 
-          x: isOpen ? "0%" : "100%" 
-        }}
-        transition={{ duration: 0.25 }}
-        className={`fixed inset-0 z-40 md:hidden bg-white ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        initial={{ y: "100%" }}
+        animate={{ y: isOpen ? "0%" : "100%" }}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white rounded-t-2xl shadow-2xl ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
-        <div className="flex flex-col h-full pt-20 px-6">
-          <div className="flex-1">
-            <motion.div 
-              className="text-xs uppercase opacity-60 mb-8"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -10 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-            >
-              Navigation
-            </motion.div>
-            <div className="space-y-6">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  tabIndex={-1}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 50 }}
-                  transition={{ 
-                    duration: 0.4, 
-                    delay: isOpen ? index * 0.1 : 0,
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30
-                  }}
-                  className="transition-transform duration-200 hover:translate-x-[10px] hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Link href={item.href} tabIndex={isOpen ? 0 : -1}>
-                    <div className="py-4 border-b border-black/10 cursor-pointer group">
-                      <div className="text-2xl font-light text-black transition-opacity group-hover:opacity-70 uppercase">
-                        {item.name}
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="pb-8">
-            <div className="text-xs uppercase opacity-60 mb-4">
-              About the Artist
-            </div>
-            <div className="text-sm font-light leading-relaxed opacity-80 mb-4">
-              Born in Haiti and raised in Florida, Ken is a military veteran and UCF graduate who discovered photography in 2018.
-              His work is guided by "memento mori" and shaped around intention, confidence, and polish.
-            </div>
-            <div className="text-xs uppercase opacity-60">
-              Orlando, FL | Portrait Sessions
-            </div>
-          </div>
+        <div className="flex flex-col px-6 pt-4 pb-8 max-h-[70vh] overflow-y-auto">
+          <div className="mx-auto mb-6 h-1 w-10 rounded-full bg-stone-300" />
+          {navItems.map((item) => (
+            <Link key={item.name} href={item.href} tabIndex={isOpen ? 0 : -1}>
+              <div className="py-4 border-b border-stone-100 text-lg font-medium text-stone-900" onClick={() => setIsOpen(false)}>
+                {item.name}
+              </div>
+            </Link>
+          ))}
         </div>
       </motion.div>
     </>

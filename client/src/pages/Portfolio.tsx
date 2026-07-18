@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import "photoswipe/dist/photoswipe.css";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
@@ -10,58 +12,34 @@ import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
 import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
 
 const portraits = [
-  {
-    image: gardenEditorialPortrait,
-    title: "Garden Editorial Portrait",
-    category: "Creative Portraits",
-    width: 1600,
-    height: 2400
-  },
-  {
-    image: formalStudioPortrait,
-    title: "Formal Studio Portrait",
-    category: "Men's Formal Portraits",
-    width: 1600,
-    height: 2400
-  },
-  {
-    image: retroStudioPortrait,
-    title: "Retro Studio Chair Portrait",
-    category: "Creative Studio Portraits",
-    width: 1600,
-    height: 2400
-  },
-  {
-    image: childPortrait,
-    title: "Outdoor Child Portrait",
-    category: "Family Portraits",
-    width: 1733,
-    height: 2600
-  },
-  {
-    image: outdoorEditorialPortrait,
-    title: "Outdoor Editorial Portrait",
-    category: "Creative Portraits",
-    width: 1600,
-    height: 2400
-  },
-  {
-    image: proposalPortrait,
-    title: "Proposal Celebration Portrait",
-    category: "Engagement Moments",
-    width: 1513,
-    height: 2400
-  },
-  {
-    image: coupleCloseup,
-    title: "Golden Hour Couples Close-Up",
-    category: "Couples Portraits",
-    width: 2400,
-    height: 1600
-  }
+  { image: gardenEditorialPortrait, title: "Garden Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: formalStudioPortrait, title: "Formal Studio Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: retroStudioPortrait, title: "Retro Studio Chair Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: childPortrait, title: "Outdoor Child Portrait", category: "Family Portraits", width: 1733, height: 2600 },
+  { image: outdoorEditorialPortrait, title: "Outdoor Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: proposalPortrait, title: "Proposal Celebration Portrait", category: "Couples Portraits", width: 1513, height: 2400 },
+  { image: coupleCloseup, title: "Golden Hour Couples Close-Up", category: "Couples Portraits", width: 2400, height: 1600 },
 ];
 
+const filters = ["All", "Creative Portraits", "Studio Portraits", "Family Portraits", "Couples Portraits"];
+
 const Portfolio = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+  useEffect(() => {
+    let lb: any;
+    import("photoswipe/lightbox").then(({ default: Photoswipe }) => {
+      lb = new Photoswipe({
+        gallery: "#portfolio-gallery",
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+      });
+      lb.init();
+    });
+    return () => { lb?.destroy(); };
+  }, []);
+
+  const filtered = activeFilter === "All" ? portraits : portraits.filter(p => p.category === activeFilter);
+
   return (
     <div className="min-h-screen page-content bg-neutral-950 text-white">
       <SEOHead
@@ -75,13 +53,9 @@ const Portfolio = () => {
           "name": "Orlando Portrait Photography Portfolio",
           "url": "https://wbrisenold.github.io/KBVisual/portfolio/",
           "description": "Selected portrait photography by KB Visualz in Orlando and Central Florida.",
-          "about": {
-            "@id": "https://wbrisenold.github.io/KBVisual/#business"
-          },
+          "about": { "@id": "https://wbrisenold.github.io/KBVisual/#business" },
           "hasPart": portraits.map((photo) => ({
-            "@type": "ImageObject",
-            "name": photo.title,
-            "caption": photo.category
+            "@type": "ImageObject", "name": photo.title, "caption": photo.category
           }))
         }}
       />
@@ -94,11 +68,7 @@ const Portfolio = () => {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <source type="image/webp" srcSet={gardenEditorialPortrait.srcSet} />
-            <img
-              src={gardenEditorialPortrait.src}
-              alt=""
-              className="h-full w-full object-cover"
-            />
+            <img src={gardenEditorialPortrait.src} alt="" className="h-full w-full object-cover" />
           </motion.picture>
           <div className="absolute inset-0 bg-black/52" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />
@@ -129,51 +99,56 @@ const Portfolio = () => {
               transition={{ duration: 1.1, delay: 0.5 }}
               className="mt-6 max-w-xl text-base text-white/70 md:text-lg"
             >
-              Orlando and Central Florida portraits with styling, expression,
-              and presence at the center.
+              Orlando and Central Florida portraits with styling, expression, and presence at the center.
             </motion.p>
-            <a
-              href="#portfolio-gallery"
-              className="mt-8 inline-flex items-center gap-3 border-b border-white/40 pb-1 text-sm font-semibold text-white hover:border-white"
-            >
-              View Gallery
-              <ArrowRight className="h-4 w-4" />
+            <a href="#portfolio-gallery" className="mt-8 inline-flex items-center gap-3 border-b border-white/40 pb-1 text-sm font-semibold text-white hover:border-white">
+              View Gallery <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
       </section>
 
       <section id="portfolio-gallery" className="scroll-mt-20 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl grid grid-cols-2 gap-4 px-4 md:grid-cols-3 md:gap-6 lg:px-12">
-          {portraits.map((photo, index) => (
+        <div className="mx-auto max-w-7xl px-4 lg:px-12 mb-10 flex flex-wrap gap-2">
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => setActiveFilter(f)}
+              className={`text-xs uppercase px-4 py-2 border transition-colors ${
+                activeFilter === f
+                  ? "border-[hsl(var(--color-gold))] text-[hsl(var(--color-gold))]"
+                  : "border-stone-700 text-stone-400 hover:border-stone-500"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        <div className="mx-auto max-w-7xl columns-2 gap-4 px-4 md:columns-3 md:gap-6 lg:px-12">
+          {filtered.map((photo, index) => (
             <motion.div
               key={photo.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
+              className="mb-4 break-inside-avoid md:mb-6"
             >
-              <div className="group relative block overflow-hidden aspect-[3/4]">
-                <motion.picture
-                  initial={{ scale: 1.05 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <source type="image/webp" srcSet={photo.image.srcSet} />
-                  <img
-                    src={photo.image.src}
-                    alt={photo.title}
-                    className="h-full w-full object-cover transition duration-700"
-                    loading={index < 3 ? "eager" : "lazy"}
-                  />
-                </motion.picture>
+              <a href={photo.image.src} className="group relative block overflow-hidden cursor-zoom-in">
+                <img
+                  src={photo.image.src}
+                  alt={photo.title}
+                  className="h-full w-full object-cover"
+                  loading={index < 3 ? "eager" : "lazy"}
+                  style={{ aspectRatio: `${photo.width}/${photo.height}` }}
+                />
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
                 <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4 md:p-6">
                   <h2 className="text-sm font-medium text-white md:text-base">{photo.title}</h2>
                   <span className="text-[10px] uppercase text-white/60 md:text-xs">{photo.category}</span>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>
@@ -200,18 +175,13 @@ const Portfolio = () => {
             If the work feels right, reach out.
           </h2>
           <p className="editorial-body mx-auto mt-6 max-w-2xl text-stone-700">
-            When the portraits match the direction you want, we can shape the
-            location, wardrobe, and mood together.
+            When the portraits match the direction you want, we can shape the location, wardrobe, and mood together.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <a href="/#contact" className="site-button site-button--dark w-full sm:w-auto">
-              Inquire
-            </a>
+            <a href="/#contact" className="site-button site-button--dark w-full sm:w-auto">Inquire</a>
           </div>
         </div>
       </section>
-
-
     </div>
   );
 };

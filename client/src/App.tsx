@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import CursorFollower from "@/components/CursorFollower";
 
 const Portfolio = lazy(() => import("@/pages/Portfolio"));
 const About = lazy(() => import("@/pages/About"));
@@ -182,6 +183,7 @@ function App() {
     <HelmetProvider>
       <TooltipProvider>
         <Toaster />
+        <CursorFollower />
         <WouterRouter base="/KBVisual">
           <ErrorBoundary>
             <SiteRoutes />

@@ -1,23 +1,49 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useGsapReveal } from "@/hooks/useGsapReveal";
 import heroImagePath from "@assets/kbvisualz-current/kbv-02.jpg";
 
 const Hero = () => {
+  const headlineRef = useGsapReveal<HTMLHeadingElement>({ delay: 0.3 });
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    let ctx: gsap.Context | undefined;
+    import("gsap").then(({ default: gsap }) => {
+      import("gsap/ScrollTrigger").then(({ default: ScrollTrigger }) => {
+        gsap.registerPlugin(ScrollTrigger);
+        ctx = gsap.context(() => {
+          if (imgRef.current?.parentElement) {
+            gsap.to(imgRef.current, {
+              y: 40,
+              ease: "none",
+              scrollTrigger: {
+                trigger: imgRef.current.parentElement,
+                start: "top top",
+                end: "bottom top",
+                scrub: 1,
+              },
+            });
+          }
+        });
+      });
+    });
+    return () => ctx?.revert();
+  }, []);
+
   return (
     <section className="relative min-h-[100dvh] overflow-hidden bg-neutral-950 text-white">
       <div className="absolute inset-0">
-        <motion.img
+        <img
+          ref={imgRef}
           src={heroImagePath.src}
           alt="Seated studio fashion portrait by KB Visualz"
           className="h-full w-full object-cover object-[63%_center]"
           fetchPriority="high"
-          initial={{ scale: 1.08 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         />
-        <div className="absolute inset-0 bg-black/52"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.12),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.32),rgba(0,0,0,0.94))]"></div>
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent" />
       </div>
 
       <div className="relative flex min-h-[100dvh] flex-col justify-end px-5 pb-12 pt-28 md:px-12 md:pb-16 lg:px-20">
@@ -31,14 +57,12 @@ const Hero = () => {
             Orlando / Central Florida / Portrait Work
           </motion.div>
 
-          <motion.h1
+          <h1
+            ref={headlineRef}
             className="editorial-headline max-w-6xl text-[18vw] leading-[0.78] text-white md:text-[11vw] lg:text-[9.2rem]"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             Portraits with presence.
-          </motion.h1>
+          </h1>
 
           <motion.div
             initial={{ y: 28 }}

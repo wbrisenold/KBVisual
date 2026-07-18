@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import GoogleReviews from "@/components/GoogleReviews";
@@ -90,6 +90,7 @@ const policyItems: PolicyItem[] = [
 ];
 
 const Pricing = () => {
+  const [activePackage, setActivePackage] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -99,7 +100,16 @@ const Pricing = () => {
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
-    <div className="min-h-screen page-content">
+    <>
+    <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden bg-white border-t border-stone-200 px-4 py-3 flex items-center justify-between">
+      <div>
+        <span className="text-xs text-stone-500">From</span>
+        <span className="ml-2 text-lg font-semibold text-stone-950">{portraitPackages[activePackage].price}</span>
+        <span className="ml-1 text-xs text-stone-500">{portraitPackages[activePackage].duration}</span>
+      </div>
+      <a href="/#contact" className="site-button site-button--dark text-xs py-2 px-4">Inquire</a>
+    </div>
+    <div className="min-h-screen page-content pb-20 md:pb-0">
       <SEOHead
         title="KB Visualz — Session Pricing"
         description="KB Visualz portrait photography pricing in Orlando, FL. Signature and Legacy sessions include edited photos, planning, posing direction, and optional studio booking."
@@ -406,6 +416,7 @@ const Pricing = () => {
       <GoogleReviews />
       <FAQ page="pricing" title="Portrait Pricing Questions" description="The details most clients ask about before choosing a package." />
     </div>
+    </>
   );
 };
 

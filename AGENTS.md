@@ -63,6 +63,34 @@ This section is for any agent or coding tool (Claude Code, opencode, Cursor, Cli
 - Ponytail mode active: keep solutions minimal, no over-engineering.
 - Dev builds should succeed (check with `npm run build`) after any change batch.
 
+### Last Session (2026-07-16) — Round 8: Typecheck fix, image pipeline, deploy
+
+**Context:** Working tree had 5 `tsc` errors blocking `npm run verify`. `vite-env.d.ts` declares image imports as `{ src, srcSet }` (Vite + imagetools → webp), but 5 call sites passed the raw object into `<img src={...}>`. Also: live GitHub Pages site showed missing images because the deploy predated the working image pipeline.
+
+**Completed:**
+- **Typecheck root-cause fix (systematic-debugging):** changed `src={X}` → `src={X.src}` at 5 sites — `Hero.tsx:10`, `About.tsx:69,144`, `Home.tsx:87`, `Pricing.tsx:132`. `npm run check` now clean (0 errors).
+- **Home gallery a11y:** 6 tiles had `alt=""`; added `homeGalleryAlts[]` with descriptive text.
+- **Copy fix:** Home "process" step said "one-hour, two-hour, and studio options" but only 2 packages exist; corrected to "one-hour and two-hour sessions".
+- **Image de-dup:** Pricing hero used `kbv-07` (also on Home gallery); swapped to `kbv-05` (previously unused).
+- **Build verified:** `npm run build` passes (2.2s), 10 webp images emitted to `dist/assets` (kbv-01..10 + profile-pic).
+- **GitHub fix (the "pics missing" cause):** `static.yml` deploys `dist` to Pages on push to `main`. Committed full working-tree state (image pipeline, SEOHead refactor, new `types/`, `ErrorBoundary.tsx`, `seo.ts`, `ui.ts`, `.src` fixes) and pushed `0af208b9` → main. Next Actions run rebuilds with images, resolving missing pics on the live site.
+
+**Image pipeline notes (critical for future agents):**
+- `@assets` alias → `attached_assets/` (vite.config.ts:55). Images live in `attached_assets/kbvisualz-current/kbv-01..10.jpg` + `attached_assets/profile-pic.jpg`. They ARE git-tracked (not ignored).
+- `vite-imagetools` default directive transforms every `*.jpg` import → webp `<picture>` object `{ src, srcSet }`. The `.src` is the runtime URL.
+- Dev server returns SPA fallback HTML for direct `@assets/...` URL fetches (expected — images injected client-side by JS, not in initial HTML). Build output is the source of truth; `dist/assets/*.webp` confirms emission.
+- NEVER change `vite-env.d.ts` image module declaration to `string` — the `{ src, srcSet }` shape is required by imagetools. Fix call sites with `.src` instead.
+
+**MCP state:**
+- `opencode.json` `mcp` block: keyless servers `playwright` (`@playwright/mcp@latest --headless`) + `flyonui` (`flyonui-mcp`). `magic-21st`/`ui-layouts` removed (required API keys).
+- Playwright MCP is **non-functional**: it hard-requires system `Google Chrome.app` at `/Applications/Google Chrome.app` and ignores the ms-playwright cache. Must install system Chrome (or reconfigure the MCP to use the bundled chromium) before any live visual/responsive checks. User declined silent Chrome install.
+
+**Pending:**
+- Install system Chrome (or fix Playwright MCP launch options) to enable live visual/responsive pass.
+- Privacy policy page / link (carried from Round 7).
+- Analytics for form submissions (carried from Round 7).
+- Verify deployed URL after the Actions run finishes (https://wbrisenold.github.io/KBVisual/).
+
 ### Last Session (2026-07-15) — Round 7: Editorial from-scratch pricing
 
 **Completed:**
@@ -82,3 +110,25 @@ This section is for any agent or coding tool (Claude Code, opencode, Cursor, Cli
 - Privacy policy page or link if user wants to expand the legal notice
 - Analytics if user wants to track form submissions
 - Gallery image optimization (generating smaller thumbnails) if page weight becomes a concern
+
+### Last Session (2026-07-17) — Round 9: Full redesign with hallmark + taste-skill + GSAP
+
+**Completed:**
+- **Task 1 — Token cleanup:** Consolidated 25+ duplicate CSS vars into 4 brand tokens (`--color-gold`, `--color-stone`, `--color-cream`, `--color-ink`). Removed camera cursor override. Replaced all `premium-*`/`luxury-*` refs with clean tokens.
+- **Task 2 — Navigation drawer:** Full-screen mobile overlay → bottom-sheet drawer with rounded top. Added animated gold underline on active page via `layoutId`.
+- **Task 3 — Footer expansion:** From 1 link + copyright → 3-column grid: brand tagline, nav links, contact info.
+- **Task 4 — GSAP hook:** Created `useGsapReveal` — reusable lazy-loaded GSAP + ScrollTrigger reveal hook.
+- **Task 5 — Hero GSAP reveal:** GSAP text reveal on headline, parallax image drift on scroll, collapsed 3-layer gradient to 1 clean gradient.
+- **Task 6 — Home gallery lightbox:** Added Photoswipe tap-to-expand. Replaced text "View full portfolio" link with hallmarked button.
+- **Task 7 — Process section:** Added decorative scroll-anchored number markers (01–04) on desktop.
+- **Task 8 — Portfolio:** Category filter tabs (All/Creative/Studio/Family/Couples). CSS columns masonry layout. Photoswipe lightbox.
+- **Task 9 — About:** Merged Approach + Philosophy into one flowing editorial narrative with pull-quote interleave. Removed redundant CTA band.
+- **Task 10 — Pricing:** Sticky mobile price summary bar with Inquire CTA at bottom.
+- **Task 11 — Cursor follower:** Subtle gold dot follower, reduced-motion aware, desktop only.
+- **Task 12 — Hallmark audit:** Pre-emit critique stamped in CSS. Slop-test passed on SEO (one note: `openingHours` may be an AI default — should verify).
+
+**Skills applied:** hallmark, taste-skill, codegraph, brainstorming, code-reviewer, writing-plans
+
+**Pending:**
+- Verify `openingHours: "Mo-Su 09:00-20:00"` in seo.ts is accurate (vs "by appointment")
+- Install system Chrome for Playwright visual checks
