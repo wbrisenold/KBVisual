@@ -111,14 +111,14 @@ const Home = () => {
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
             >
-              <div className="group relative block overflow-hidden aspect-[3/4] cursor-pointer" onClick={() => open(i)}>
+              <div className="group relative block overflow-hidden aspect-[3/4]" onContextMenu={(e) => e.preventDefault()}>
                 <img
                   src={img.src}
                   alt={homeGalleryAlts[i]}
                   className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
                   loading="lazy"
-                  draggable={false}
                 />
+                <div className="img-overlay" onClick={() => open(i)} />
               </div>
             </motion.div>
           ))}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import BrandMark from "@/components/BrandMark";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,9 @@ const Navigation = () => {
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50 h-14 bg-white border-b border-stone-200 flex items-center px-4 md:px-6 text-stone-900">
-        <a href="/" className="text-base font-semibold tracking-tight">KB Visualz</a>
+        <a href="/">
+          <BrandMark animated={false} className="transition-opacity hover:opacity-70" />
+        </a>
 
         <div className="ml-auto hidden md:flex items-center gap-6">
           <a href="/portfolio" className="text-sm uppercase tracking-wide hover:opacity-70">Portfolio</a>

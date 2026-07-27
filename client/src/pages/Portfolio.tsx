@@ -141,15 +141,15 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="mb-4 break-inside-avoid md:mb-6"
             >
-              <div className="group relative block overflow-hidden cursor-pointer" onClick={() => open(index)}>
+              <div className="group relative block overflow-hidden" onContextMenu={(e) => e.preventDefault()}>
                 <img
                   src={photo.image.src}
                   alt={photo.title}
                   className="h-full w-full object-cover"
                   loading={index < 3 ? "eager" : "lazy"}
                   style={{ aspectRatio: `${photo.width}/${photo.height}` }}
-                  draggable={false}
                 />
+                <div className="img-overlay" onClick={() => open(index)} />
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
                 <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4 md:p-6">
                   <h2 className="text-sm font-medium text-white md:text-base">{photo.title}</h2>

@@ -33,7 +33,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[100dvh] overflow-hidden bg-neutral-950 text-white">
+    <section className="relative min-h-[100dvh] overflow-hidden bg-neutral-950 text-white" onContextMenu={(e) => e.preventDefault()}>
       <div className="absolute inset-0">
         <img
           ref={imgRef}
