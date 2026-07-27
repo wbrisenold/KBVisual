@@ -44,11 +44,6 @@ const Portfolio = () => {
         gallery: "#portfolio-gallery",
         children: "a",
         pswpModule: () => import("photoswipe"),
-        closeOnVerticalDrag: false,
-        pinchToClose: false,
-        clickToCloseNonZoomable: false,
-        showHideAnimationType: "zoom",
-        bgOpacity: 0.92,
       });
       lb.init();
     });
@@ -152,7 +147,7 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="mb-4 break-inside-avoid md:mb-6"
             >
-              <a href={photo.image.src} className="group relative block overflow-hidden cursor-zoom-in gallery-link" onContextMenu={(e) => e.preventDefault()}>
+              <a href={photo.image.src} className="group relative block overflow-hidden cursor-zoom-in">
                 <img
                   src={photo.image.src}
                   alt={photo.title}
