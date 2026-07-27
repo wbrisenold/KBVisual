@@ -413,6 +413,90 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* SAVEABLE QUICK REFERENCE — mobile-friendly info card */}
+      <section className="bg-[#f3efe7] py-20 md:py-24">
+        <div className="editorial-grid">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="col-span-12"
+          >
+            <div className="editorial-caption mb-4 text-yellow-700">Save this</div>
+            <h2 className="editorial-title text-4xl text-stone-950 md:text-5xl">KB Visualz — Quick Guide</h2>
+            <p className="mt-3 text-sm text-stone-500">Screenshot this for a handy reference.</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="col-span-12 md:col-span-8 md:col-start-3"
+          >
+            <div className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm md:p-8" style={{ WebkitUserSelect: "all", userSelect: "all" }}>
+              <div className="mb-6 flex items-center gap-3 border-b border-stone-200 pb-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-950 text-sm font-bold text-white">KB</div>
+                <div>
+                  <div className="text-sm font-semibold text-stone-950">KB Visualz</div>
+                  <div className="text-xs text-stone-500">Ken Brisenold · Orlando, FL</div>
+                </div>
+              </div>
+
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-stone-200 text-xs uppercase text-stone-500">
+                    <th className="pb-2 font-medium">Package</th>
+                    <th className="pb-2 font-medium">Duration</th>
+                    <th className="pb-2 font-medium">Price</th>
+                    <th className="pb-2 font-medium">Photos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-stone-100">
+                    <td className="py-3 font-medium text-stone-950">Signature</td>
+                    <td className="py-3 text-stone-600">1 hour</td>
+                    <td className="py-3 font-medium text-yellow-700">$250</td>
+                    <td className="py-3 text-stone-600">15</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 font-medium text-stone-950">Legacy</td>
+                    <td className="py-3 text-stone-600">2 hours</td>
+                    <td className="py-3 font-medium text-yellow-700">$400</td>
+                    <td className="py-3 text-stone-600">30</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div className="mt-5 grid grid-cols-2 gap-3 border-t border-stone-200 pt-5 text-xs">
+                <div>
+                  <div className="font-medium text-stone-950">Studio add-on</div>
+                  <div className="text-stone-500">Book separately via Peerspace</div>
+                </div>
+                <div>
+                  <div className="font-medium text-stone-950">Retainer</div>
+                  <div className="text-stone-500">25% to reserve your date</div>
+                </div>
+                <div>
+                  <div className="font-medium text-stone-950">Turnaround</div>
+                  <div className="text-stone-500">3–5 days proofs · 2–4 finals</div>
+                </div>
+                <div>
+                  <div className="font-medium text-stone-950">Revisions</div>
+                  <div className="text-stone-500">2 rounds included</div>
+                </div>
+              </div>
+
+              <div className="mt-5 border-t border-stone-200 pt-4 text-center text-xs text-stone-400">
+                kb-visualz.com · wilkensbrisenold@gmail.com
+              </div>
+            </div>
+            <p className="mt-3 text-center text-xs text-stone-400">Screenshot this card to keep session info handy.</p>
+          </motion.div>
+        </div>
+      </section>
+
       <GoogleReviews />
       <FAQ page="pricing" title="Portrait Pricing Questions" description="The details most clients ask about before choosing a package." />
     </div>

@@ -560,3 +560,16 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--color-gold));
 }
+
+.gallery-img {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+.gallery-link {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}

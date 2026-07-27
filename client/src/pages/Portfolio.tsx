@@ -45,6 +45,10 @@ const Portfolio = () => {
         children: "a",
         pswpModule: () => import("photoswipe"),
         closeOnVerticalDrag: false,
+        pinchToClose: false,
+        clickToCloseNonZoomable: false,
+        showHideAnimationType: "zoom",
+        bgOpacity: 0.92,
       });
       lb.init();
     });
@@ -148,11 +152,11 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="mb-4 break-inside-avoid md:mb-6"
             >
-              <a href={photo.image.src} className="group relative block overflow-hidden cursor-zoom-in">
+              <a href={photo.image.src} className="group relative block overflow-hidden cursor-zoom-in gallery-link" onContextMenu={(e) => e.preventDefault()}>
                 <img
                   src={photo.image.src}
                   alt={photo.title}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover gallery-img"
                   loading={index < 3 ? "eager" : "lazy"}
                   style={{ aspectRatio: `${photo.width}/${photo.height}` }}
                 />

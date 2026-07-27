@@ -35,6 +35,10 @@ const Home = () => {
         children: "a",
         pswpModule: () => import("photoswipe"),
         closeOnVerticalDrag: false,
+        pinchToClose: false,
+        clickToCloseNonZoomable: false,
+        showHideAnimationType: "zoom",
+        bgOpacity: 0.92,
       });
       lb.init();
     });
@@ -112,11 +116,11 @@ const Home = () => {
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
             >
-              <a href={img.src} className="group relative block overflow-hidden aspect-[3/4] cursor-zoom-in">
+              <a href={img.src} className="group relative block overflow-hidden aspect-[3/4] cursor-zoom-in gallery-link" onContextMenu={(e) => e.preventDefault()}>
                 <img
                   src={img.src}
                   alt={homeGalleryAlts[i]}
-                  className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
+                  className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105 gallery-img"
                   loading="lazy"
                 />
               </a>

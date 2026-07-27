@@ -39,8 +39,9 @@ const Hero = () => {
           ref={imgRef}
           src={heroImagePath.src}
           alt="Seated studio fashion portrait by KB Visualz"
-          className="h-full w-full object-cover object-[63%_center]"
+          className="h-full w-full object-cover object-[63%_center] gallery-img"
           fetchPriority="high"
+          onContextMenu={(e) => e.preventDefault()}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
         <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent" />
