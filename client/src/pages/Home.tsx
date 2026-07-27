@@ -34,6 +34,7 @@ const Home = () => {
         gallery: "#home-gallery",
         children: "a",
         pswpModule: () => import("photoswipe"),
+        closeOnVerticalDrag: false,
       });
       lb.init();
     });

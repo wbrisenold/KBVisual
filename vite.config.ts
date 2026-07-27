@@ -18,7 +18,8 @@ export default defineConfig({
         return new URLSearchParams({
           format: "webp",
           as: "img",
-          widths: "400;800;1200;1600",
+          quality: "80",
+          w: "400;800;1200;1600",
         });
       },
     }),

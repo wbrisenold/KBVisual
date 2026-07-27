@@ -119,7 +119,7 @@ const Navigation = () => {
         initial={{ y: "100%" }}
         animate={{ y: isOpen ? "0%" : "100%" }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white rounded-t-2xl shadow-2xl"
+        className={`fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white rounded-t-2xl shadow-2xl ${isOpen ? "" : "pointer-events-none"}`}
       >
         <div className="flex flex-col px-6 pt-4 pb-10 max-h-[70vh] overflow-y-auto" style={{ paddingBottom: "calc(2.5rem + env(safe-area-inset-bottom, 0px))" }}>
           <div className="mx-auto mb-6 h-1 w-10 rounded-full bg-stone-300" />

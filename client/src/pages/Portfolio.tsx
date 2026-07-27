@@ -28,9 +28,9 @@ const portraits = [
   { image: studioCoupleOne, title: "Studio Couples Portrait I", category: "Couples Portraits", width: 1600, height: 2400 },
   { image: studioCoupleTwo, title: "Studio Couples Portrait II", category: "Couples Portraits", width: 1600, height: 2400 },
   { image: studioCoupleThree, title: "Studio Couples Portrait III", category: "Couples Portraits", width: 1600, height: 2400 },
-  { image: studioCoupleFour, title: "Studio Couples Portrait IV", category: "Couples Portraits", width: 1600, height: 2400 },
+  { image: studioCoupleFour, title: "Studio Couples Portrait IV", category: "Couples Portraits", width: 1600, height: 2027 },
   { image: studioFashionPortrait, title: "Studio Editorial Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
-  { image: outdoorCoupleSession, title: "Outdoor Couples Portrait", category: "Couples Portraits", width: 1600, height: 2400 },
+  { image: outdoorCoupleSession, title: "Outdoor Couples Portrait", category: "Couples Portraits", width: 1600, height: 2093 },
 ];
 
 const filters = ["All", "Creative Portraits", "Studio Portraits", "Family Portraits", "Couples Portraits"];
@@ -44,6 +44,7 @@ const Portfolio = () => {
         gallery: "#portfolio-gallery",
         children: "a",
         pswpModule: () => import("photoswipe"),
+        closeOnVerticalDrag: false,
       });
       lb.init();
     });
