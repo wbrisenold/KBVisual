@@ -101,7 +101,7 @@ const Portfolio = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <source type="image/webp" srcSet={windowLight.srcSet} />
+            <source type="image/webp" srcSet={windowLight.srcset} />
             <img src={windowLight.src} alt="" className="h-full w-full object-cover" />
           </motion.picture>
           <div className="absolute inset-0 bg-black/52" />

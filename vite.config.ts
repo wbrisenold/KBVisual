@@ -17,7 +17,7 @@ export default defineConfig({
       defaultDirectives: (url) => {
         return new URLSearchParams({
           format: "webp",
-          as: "picture",
+          as: "img",
           widths: "400;800;1200;1600",
         });
       },
