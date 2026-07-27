@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import photographerPortrait from "@assets/profile-pic.jpg";
 import studioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
-import approachBackground from "@assets/kbvisualz-current/kbv-14.jpg";
 
 const About = () => {
   return (
@@ -69,8 +68,8 @@ const About = () => {
       {/* Merged Approach + Philosophy */}
       <section id="approach" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 py-28 text-white md:py-36">
         <img
-          src={approachBackground.src}
-          alt="Portfolio image by KB Visualz"
+          src={studioPortrait.src}
+          alt="Studio portrait by KB Visualz"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
           loading="lazy"
         />
