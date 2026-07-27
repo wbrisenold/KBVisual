@@ -15,7 +15,7 @@ const routeMeta = {
       "View KB Visualz portrait photography in Orlando and Central Florida, including studio, family, creative, engagement, couples, and editorial portrait work.",
     keywords:
       "Orlando portrait portfolio, portrait photography portfolio Orlando, Central Florida portraits, studio portraits Orlando, family portraits Orlando, engagement portraits Orlando",
-    url: "https://wbrisenold.github.io/KBVisual/portfolio/"
+    url: "https://kb-visualz.com/portfolio/"
   },
   about: {
     title: "About Ken Brisenold, Orlando Portrait Photographer | KB Visualz",
@@ -23,7 +23,7 @@ const routeMeta = {
       "Meet Ken Brisenold of KB Visualz, an Orlando portrait photographer creating polished graduation, family, branding, fashion, and creative portraits across Central Florida.",
     keywords:
       "Ken Brisenold, KB Visualz, Orlando portrait photographer, Central Florida photographer, UCF photographer, Florida portrait photography",
-    url: "https://wbrisenold.github.io/KBVisual/about/"
+    url: "https://kb-visualz.com/about/"
   },
   pricing: {
     title: "Orlando Portrait Photography Pricing | KB Visualz",
@@ -31,7 +31,7 @@ const routeMeta = {
       "Review KB Visualz portrait photography pricing in Orlando, FL. Signature and Legacy sessions include edited photos, planning, posing direction, and optional studio booking guidance.",
     keywords:
       "Orlando portrait photography pricing, Orlando photographer prices, portrait session pricing Orlando, graduation photos Orlando pricing, branding portraits Orlando pricing",
-    url: "https://wbrisenold.github.io/KBVisual/pricing/"
+    url: "https://kb-visualz.com/pricing/"
   }
 };
 
@@ -41,7 +41,7 @@ const notFoundMeta = {
     "This KB Visualz page could not be found. Use the site navigation to return to Orlando portrait photography work, pricing, or booking information.",
   keywords:
     "KB Visualz, Orlando portrait photographer, Central Florida portrait photography",
-  url: "https://wbrisenold.github.io/KBVisual/404.html",
+  url: "https://kb-visualz.com/404.html",
   robots: "noindex, follow"
 };
 
@@ -103,7 +103,7 @@ if (existsSync(indexFile)) {
 
 const lastmod = new Date().toISOString();
 const sitemapRoutes = [
-  { url: "https://wbrisenold.github.io/KBVisual/", changefreq: "weekly", priority: "1.0" },
+  { url: "https://kb-visualz.com/", changefreq: "weekly", priority: "1.0" },
   ...Object.values(routeMeta).map((meta) => ({
     url: meta.url,
     changefreq: meta.url.includes("/portfolio/") ? "weekly" : "monthly",
@@ -136,7 +136,7 @@ writeFileSync(
   `User-agent: *
 Allow: /
 
-Sitemap: https://wbrisenold.github.io/KBVisual/sitemap.xml
+Sitemap: https://kb-visualz.com/sitemap.xml
 `
 );
 writeFileSync(nojekyllFile, "");

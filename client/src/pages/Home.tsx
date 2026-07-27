@@ -11,6 +11,9 @@ import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
 import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
 import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
+import goldenHourCouple from "@assets/kbvisualz-current/kbv-11.jpg";
+import studioChairPortrait from "@assets/kbvisualz-current/kbv-12.jpg";
+import editorialOutdoor from "@assets/kbvisualz-current/kbv-13.jpg";
 
 const homeGalleryAlts = [
   "Formal studio portrait by KB Visualz",
@@ -19,6 +22,9 @@ const homeGalleryAlts = [
   "Proposal portrait by KB Visualz",
   "Garden editorial portrait by KB Visualz",
   "Outdoor child portrait by KB Visualz",
+  "Golden hour couple portrait by KB Visualz",
+  "Studio chair portrait by KB Visualz",
+  "Editorial outdoor portrait by KB Visualz",
 ];
 
 const Home = () => {
@@ -75,11 +81,11 @@ const Home = () => {
         canonicalPath="/"
         structuredData={{
           "@type": "Service",
-          "@id": "https://wbrisenold.github.io/KBVisual/#portrait-service",
+          "@id": "https://kb-visualz.com/#portrait-service",
           "name": "Orlando Portrait Photography Sessions",
           "serviceType": "Portrait photography",
           "provider": {
-            "@id": "https://wbrisenold.github.io/KBVisual/#business"
+            "@id": "https://kb-visualz.com/#business"
           },
           "areaServed": [
             "Orlando",
@@ -98,7 +104,7 @@ const Home = () => {
 
       <section id="home-gallery" className="scroll-mt-20 bg-neutral-950 py-16 md:py-24">
         <div className="mx-auto max-w-7xl grid grid-cols-2 gap-4 px-4 md:grid-cols-3 md:gap-6 lg:px-12">
-          {[formalStudioPortrait, outdoorEditorialPortrait, retroStudioPortrait, proposalPortrait, gardenEditorialPortrait, childPortrait].map((img, i) => (
+          {[formalStudioPortrait, outdoorEditorialPortrait, retroStudioPortrait, proposalPortrait, gardenEditorialPortrait, childPortrait, goldenHourCouple, studioChairPortrait, editorialOutdoor].map((img, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}

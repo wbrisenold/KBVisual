@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import photographerPortrait from "@assets/profile-pic.jpg";
 import studioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
+import approachBackground from "@assets/kbvisualz-current/kbv-14.jpg";
 
 const About = () => {
   return (
@@ -14,11 +15,11 @@ const About = () => {
         canonicalPath="/about/"
         structuredData={{
           "@type": "Person",
-          "@id": "https://wbrisenold.github.io/KBVisual/about/#ken-brisenold",
+          "@id": "https://kb-visualz.com/about/#ken-brisenold",
           "name": "Ken Brisenold",
           "jobTitle": "Orlando Portrait Photographer",
-          "worksFor": { "@id": "https://wbrisenold.github.io/KBVisual/#business" },
-          "url": "https://wbrisenold.github.io/KBVisual/about/",
+          "worksFor": { "@id": "https://kb-visualz.com/#business" },
+          "url": "https://kb-visualz.com/about/",
           "description": "Military veteran and UCF graduate behind KB Visualz, creating portrait photography in Orlando and Central Florida."
         }}
       />
@@ -68,8 +69,8 @@ const About = () => {
       {/* Merged Approach + Philosophy */}
       <section id="approach" className="relative scroll-mt-20 overflow-hidden bg-neutral-950 py-28 text-white md:py-36">
         <img
-          src={studioPortrait.src}
-          alt="Studio portrait by KB Visualz"
+          src={approachBackground.src}
+          alt="Portfolio image by KB Visualz"
           className="absolute inset-0 h-full w-full object-cover opacity-30"
           loading="lazy"
         />

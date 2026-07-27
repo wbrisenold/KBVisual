@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import GoogleReviews from "@/components/GoogleReviews";
 import { PEERSPACE_STUDIO_URL } from "@/lib/booking";
 import SEOHead from "@/components/SEOHead";
-import pricingPortrait from "@assets/kbvisualz-current/kbv-05.jpg";
+import pricingPortrait from "@assets/kbvisualz-current/kbv-15.jpg";
 import type { PortraitPackage, BookingStep, PolicyItem } from "@/types";
 
 const portraitPackages: PortraitPackage[] = [
@@ -117,9 +117,9 @@ const Pricing = () => {
         canonicalPath="/pricing/"
         structuredData={{
           "@type": "OfferCatalog",
-          "@id": "https://wbrisenold.github.io/KBVisual/pricing/#portrait-packages",
+          "@id": "https://kb-visualz.com/pricing/#portrait-packages",
           "name": "KB Visualz Orlando Portrait Photography Packages",
-          "url": "https://wbrisenold.github.io/KBVisual/pricing/",
+          "url": "https://kb-visualz.com/pricing/",
           "itemListElement": portraitPackages.map((service) => ({
             "@type": "Offer",
             "name": service.title,

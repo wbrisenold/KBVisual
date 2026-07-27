@@ -1,6 +1,6 @@
 import type { Thing, Graph } from "schema-dts";
 
-const SITE_URL = "https://wbrisenold.github.io/KBVisual";
+export const SITE_URL = "https://kb-visualz.com";
 const BUSINESS_ID = `${SITE_URL}/#business`;
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 

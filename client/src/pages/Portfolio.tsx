@@ -5,20 +5,54 @@ import SEOHead from "@/components/SEOHead";
 import "photoswipe/dist/photoswipe.css";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
+import outdoorShadowPortrait from "@assets/kbvisualz-current/kbv-04.jpg";
+import outdoorCandidMedium from "@assets/kbvisualz-current/kbv-05.jpg";
 import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
 import childPortrait from "@assets/kbvisualz-current/kbv-08.jpg";
 import retroStudioPortrait from "@assets/kbvisualz-current/kbv-09.jpg";
 import gardenEditorialPortrait from "@assets/kbvisualz-current/kbv-10.jpg";
+import goldenHourCouple from "@assets/kbvisualz-current/kbv-11.jpg";
+import studioChairPortrait from "@assets/kbvisualz-current/kbv-12.jpg";
+import editorialOutdoor from "@assets/kbvisualz-current/kbv-13.jpg";
+import indoorStudioPortrait from "@assets/kbvisualz-current/kbv-14.jpg";
+import outdoorCandid from "@assets/kbvisualz-current/kbv-15.jpg";
+import studioVignette from "@assets/kbvisualz-current/kbv-16.jpg";
+import outdoorStanding from "@assets/kbvisualz-current/kbv-17.jpg";
+import outdoorLeaning from "@assets/kbvisualz-current/kbv-18.jpg";
+import casualOutdoor from "@assets/kbvisualz-current/kbv-19.jpg";
+import editorialBw from "@assets/kbvisualz-current/kbv-20.jpg";
+import windowLight from "@assets/kbvisualz-current/kbv-21.jpg";
+import seatedPortrait from "@assets/kbvisualz-current/kbv-22.jpg";
+import backlitPortrait from "@assets/kbvisualz-current/kbv-23.jpg";
+import parkPortrait from "@assets/kbvisualz-current/kbv-24.jpg";
+import stairsPortrait from "@assets/kbvisualz-current/kbv-25.jpg";
 
 const portraits = [
-  { image: gardenEditorialPortrait, title: "Garden Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: goldenHourCouple, title: "Golden Hour Couple Portrait", category: "Couples Portraits", width: 1600, height: 2400 },
   { image: formalStudioPortrait, title: "Formal Studio Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
   { image: retroStudioPortrait, title: "Retro Studio Chair Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
   { image: childPortrait, title: "Outdoor Child Portrait", category: "Family Portraits", width: 1733, height: 2600 },
   { image: outdoorEditorialPortrait, title: "Outdoor Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
   { image: proposalPortrait, title: "Proposal Celebration Portrait", category: "Couples Portraits", width: 1513, height: 2400 },
   { image: coupleCloseup, title: "Golden Hour Couples Close-Up", category: "Couples Portraits", width: 2400, height: 1600 },
+  { image: outdoorShadowPortrait, title: "Outdoor Shadow Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: outdoorCandidMedium, title: "Outdoor Candid Medium Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: gardenEditorialPortrait, title: "Garden Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: studioChairPortrait, title: "Studio Chair Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: editorialOutdoor, title: "Editorial Outdoor Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: indoorStudioPortrait, title: "Indoor Studio Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: outdoorCandid, title: "Outdoor Candid Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: studioVignette, title: "Studio Vignette Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: outdoorStanding, title: "Outdoor Standing Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: outdoorLeaning, title: "Outdoor Leaning Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: casualOutdoor, title: "Casual Outdoor Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: editorialBw, title: "Editorial Black and White Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: windowLight, title: "Natural Window Light Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: seatedPortrait, title: "Seated Studio Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: backlitPortrait, title: "Backlit Outdoor Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: parkPortrait, title: "Park Portrait Session", category: "Family Portraits", width: 1600, height: 2400 },
+  { image: stairsPortrait, title: "Stairs Portrait Session", category: "Creative Portraits", width: 1600, height: 2400 },
 ];
 
 const filters = ["All", "Creative Portraits", "Studio Portraits", "Family Portraits", "Couples Portraits"];
@@ -49,11 +83,11 @@ const Portfolio = () => {
         canonicalPath="/portfolio/"
         structuredData={{
           "@type": "CollectionPage",
-          "@id": "https://wbrisenold.github.io/KBVisual/portfolio/#portrait-portfolio",
+          "@id": "https://kb-visualz.com/portfolio/#portrait-portfolio",
           "name": "Orlando Portrait Photography Portfolio",
-          "url": "https://wbrisenold.github.io/KBVisual/portfolio/",
+          "url": "https://kb-visualz.com/portfolio/",
           "description": "Selected portrait photography by KB Visualz in Orlando and Central Florida.",
-          "about": { "@id": "https://wbrisenold.github.io/KBVisual/#business" },
+          "about": { "@id": "https://kb-visualz.com/#business" },
           "hasPart": portraits.map((photo) => ({
             "@type": "ImageObject", "name": photo.title, "caption": photo.category
           }))
@@ -67,8 +101,8 @@ const Portfolio = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <source type="image/webp" srcSet={gardenEditorialPortrait.srcSet} />
-            <img src={gardenEditorialPortrait.src} alt="" className="h-full w-full object-cover" />
+            <source type="image/webp" srcSet={windowLight.srcSet} />
+            <img src={windowLight.src} alt="" className="h-full w-full object-cover" />
           </motion.picture>
           <div className="absolute inset-0 bg-black/52" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" />

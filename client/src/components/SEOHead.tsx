@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import type { Graph, Thing } from "schema-dts";
-import { getBusinessSchema, getWebsiteSchema, getWebPageSchema } from "@/lib/seo";
+import { getBusinessSchema, getWebsiteSchema, getWebPageSchema, SITE_URL } from "@/lib/seo";
 
 interface SEOHeadProps {
   title?: string;
@@ -19,7 +19,7 @@ const DEFAULT_DESCRIPTION =
   "KB Visualz is an Orlando portrait photographer serving Central Florida with graduation, prom, family, branding, fashion, studio, and creative portrait sessions.";
 const DEFAULT_KEYWORDS =
   "Orlando portrait photographer, portrait photography Orlando FL, Central Florida photographer, graduation portraits Orlando, prom portraits Orlando, family portraits Orlando, branding portraits Orlando, studio portraits Orlando, Ken Brisenold, KB Visualz";
-const DEFAULT_IMAGE = "https://wbrisenold.github.io/KBVisual/og-image.jpg";
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 const DEFAULT_IMAGE_ALT = "Portrait photography by KB Visualz in Orlando, Florida";
 
 const SEOHead = ({
@@ -34,7 +34,7 @@ const SEOHead = ({
   structuredData = [],
 }: SEOHeadProps) => {
   const fullTitle = title.includes("KB Visualz") ? title : `${title} | KB Visualz`;
-  const canonicalUrl = url || `https://wbrisenold.github.io/KBVisual${canonicalPath}`;
+  const canonicalUrl = url || `${SITE_URL}${canonicalPath}`;
   const jsonLdItems = Array.isArray(structuredData) ? structuredData : [structuredData];
 
   const jsonLd: Graph = {

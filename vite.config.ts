@@ -23,7 +23,7 @@ export default defineConfig({
       },
     }),
     Sitemap({
-      hostname: "https://wbrisenold.github.io/KBVisual",
+      hostname: "https://kb-visualz.com",
       dynamicRoutes: ["/portfolio", "/about", "/pricing"],
       exclude: ["/404.html"],
       readable: true,
