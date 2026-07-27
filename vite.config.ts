@@ -47,7 +47,7 @@ export default defineConfig({
       ]
     })
   ],
-  base: "/KBVisual/",
+  base: "/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
