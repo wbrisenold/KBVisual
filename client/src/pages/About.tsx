@@ -23,7 +23,7 @@ const About = () => {
         }}
       />
 
-      <section className="relative overflow-hidden bg-stone-100 pt-8 text-stone-950 md:pt-32">
+      <section className="relative overflow-hidden bg-stone-100 pt-16 text-stone-950 md:pt-32">
         <div className="absolute inset-x-0 top-0 h-px bg-stone-950/20"></div>
         <div className="editorial-grid relative items-start pb-14 md:min-h-[72vh] md:items-end md:pb-20">
           <motion.div

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import BrandMark from "@/components/BrandMark";
@@ -11,7 +11,6 @@ const Navigation = () => {
   const scrollY = useScrollPosition();
   const isHome = location === "/";
   const isTransparent = isHome && scrollY < 120 && !isOpen;
-  const navPosition = isHome ? "fixed" : "sticky";
   const navSurface = isTransparent
     ? "bg-gradient-to-b from-black/55 via-black/20 to-transparent text-white"
     : "bg-white/70 backdrop-blur-xl border-b border-white/20 text-stone-950";
@@ -20,6 +19,15 @@ const Navigation = () => {
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   const navItems = [
     { name: "Portfolio", href: "/portfolio", section: "02" },
@@ -34,7 +42,7 @@ const Navigation = () => {
         initial={{ y: -12 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`${navPosition} top-0 z-50 w-full transition-all duration-500 ${navSurface}`}
+        className={`fixed md:sticky top-0 z-50 w-full transition-all duration-500 ${navSurface}`}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -89,6 +97,21 @@ const Navigation = () => {
         </div>
       </motion.nav>
 
+      {/* Backdrop */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-30 bg-black/40 md:hidden"
+            onClick={() => setIsOpen(false)}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Mobile Menu Overlay — Bottom Sheet */}
       <motion.div
         id="mobile-navigation"
@@ -96,12 +119,12 @@ const Navigation = () => {
         initial={{ y: "100%" }}
         animate={{ y: isOpen ? "0%" : "100%" }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white rounded-t-2xl shadow-2xl ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+        className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white rounded-t-2xl shadow-2xl"
       >
-        <div className="flex flex-col px-6 pt-4 pb-8 max-h-[70vh] overflow-y-auto">
+        <div className="flex flex-col px-6 pt-4 pb-10 max-h-[70vh] overflow-y-auto" style={{ paddingBottom: "calc(2.5rem + env(safe-area-inset-bottom, 0px))" }}>
           <div className="mx-auto mb-6 h-1 w-10 rounded-full bg-stone-300" />
           {navItems.map((item) => (
-            <Link key={item.name} href={item.href} tabIndex={isOpen ? 0 : -1}>
+            <Link key={item.name} href={item.href}>
               <div className="py-4 border-b border-stone-100 text-lg font-medium text-stone-900" onClick={() => setIsOpen(false)}>
                 {item.name}
               </div>
