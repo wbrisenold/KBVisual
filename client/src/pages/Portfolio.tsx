@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import "photoswipe/dist/photoswipe.css";
+import Lightbox from "@/components/Lightbox";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import coupleCloseup from "@assets/kbvisualz-current/kbv-06.jpg";
@@ -37,20 +37,14 @@ const filters = ["All", "Creative Portraits", "Studio Portraits", "Family Portra
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  useEffect(() => {
-    let lb: any;
-    import("photoswipe/lightbox").then(({ default: Photoswipe }) => {
-      lb = new Photoswipe({
-        gallery: "#portfolio-gallery",
-        children: "a",
-        pswpModule: () => import("photoswipe"),
-      });
-      lb.init();
-    });
-    return () => { lb?.destroy(); };
-  }, []);
+  const [lbIndex, setLbIndex] = useState(-1);
 
   const filtered = activeFilter === "All" ? portraits : portraits.filter(p => p.category === activeFilter);
+  const filteredImages = filtered.map((p) => ({ src: p.image.src, alt: p.title }));
+  const open = (i: number) => setLbIndex(i);
+  const close = () => setLbIndex(-1);
+  const prev = () => setLbIndex(lbIndex <= 0 ? filteredImages.length - 1 : lbIndex - 1);
+  const next = () => setLbIndex(lbIndex >= filteredImages.length - 1 ? 0 : lbIndex + 1);
 
   return (
     <div className="min-h-screen page-content bg-neutral-950 text-white">
@@ -147,20 +141,21 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="mb-4 break-inside-avoid md:mb-6"
             >
-              <a href={photo.image.src} className="group relative block overflow-hidden cursor-zoom-in">
+              <div className="group relative block overflow-hidden cursor-pointer" onClick={() => open(index)}>
                 <img
                   src={photo.image.src}
                   alt={photo.title}
-                  className="h-full w-full object-cover gallery-img"
+                  className="h-full w-full object-cover"
                   loading={index < 3 ? "eager" : "lazy"}
                   style={{ aspectRatio: `${photo.width}/${photo.height}` }}
+                  draggable={false}
                 />
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
                 <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4 md:p-6">
                   <h2 className="text-sm font-medium text-white md:text-base">{photo.title}</h2>
                   <span className="text-[10px] uppercase text-white/60 md:text-xs">{photo.category}</span>
                 </div>
-              </a>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -194,6 +189,16 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {lbIndex >= 0 && filteredImages.length > 0 && (
+        <Lightbox
+          images={filteredImages}
+          index={lbIndex}
+          onClose={close}
+          onPrev={prev}
+          onNext={next}
+        />
+      )}
     </div>
   );
 };

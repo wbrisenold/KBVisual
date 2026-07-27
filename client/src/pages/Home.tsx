@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Hero from "@/components/Hero";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import "photoswipe/dist/photoswipe.css";
+import Lightbox from "@/components/Lightbox";
 import formalStudioPortrait from "@assets/kbvisualz-current/kbv-01.jpg";
 import proposalPortrait from "@assets/kbvisualz-current/kbv-03.jpg";
 import outdoorEditorialPortrait from "@assets/kbvisualz-current/kbv-07.jpg";
@@ -26,19 +26,19 @@ const homeGalleryAlts = [
   "Studio chair portrait by KB Visualz",
 ];
 
+const galleryImages = [
+  formalStudioPortrait, outdoorEditorialPortrait, retroStudioPortrait,
+  proposalPortrait, gardenEditorialPortrait, childPortrait,
+  goldenHourCouple, studioChairPortrait,
+];
+
 const Home = () => {
-  useEffect(() => {
-    let lb: any;
-    import("photoswipe/lightbox").then(({ default: Photoswipe }) => {
-      lb = new Photoswipe({
-        gallery: "#home-gallery",
-        children: "a",
-        pswpModule: () => import("photoswipe"),
-      });
-      lb.init();
-    });
-    return () => { lb?.destroy(); };
-  }, []);
+  const [lbIndex, setLbIndex] = useState(-1);
+
+  const open = (i: number) => setLbIndex(i);
+  const close = () => setLbIndex(-1);
+  const prev = () => setLbIndex((lbIndex - 1 + galleryImages.length) % galleryImages.length);
+  const next = () => setLbIndex((lbIndex + 1) % galleryImages.length);
 
   const bookingSteps = [
     {
@@ -103,7 +103,7 @@ const Home = () => {
 
       <section id="home-gallery" className="scroll-mt-20 bg-neutral-950 py-16 md:py-24">
         <div className="mx-auto max-w-7xl grid grid-cols-2 gap-4 px-4 md:grid-cols-3 md:gap-6 lg:px-12">
-          {[formalStudioPortrait, outdoorEditorialPortrait, retroStudioPortrait, proposalPortrait, gardenEditorialPortrait, childPortrait, goldenHourCouple, studioChairPortrait].map((img, i) => (
+          {galleryImages.map((img, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -111,14 +111,15 @@ const Home = () => {
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
             >
-              <a href={img.src} className="group relative block overflow-hidden aspect-[3/4] cursor-zoom-in">
+              <div className="group relative block overflow-hidden aspect-[3/4] cursor-pointer" onClick={() => open(i)}>
                 <img
                   src={img.src}
                   alt={homeGalleryAlts[i]}
                   className="h-full w-full object-cover transition duration-700 motion-safe:group-hover:scale-105"
                   loading="lazy"
+                  draggable={false}
                 />
-              </a>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -214,6 +215,16 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {lbIndex >= 0 && (
+        <Lightbox
+          images={galleryImages.map((img, i) => ({ src: img.src, alt: homeGalleryAlts[i] }))}
+          index={lbIndex}
+          onClose={close}
+          onPrev={prev}
+          onNext={next}
+        />
+      )}
     </div>
   );
 };

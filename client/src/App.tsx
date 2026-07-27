@@ -184,7 +184,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <CursorFollower />
-        <WouterRouter base="/KBVisual">
+        <WouterRouter base="/">
           <ErrorBoundary>
             <SiteRoutes />
           </ErrorBoundary>
