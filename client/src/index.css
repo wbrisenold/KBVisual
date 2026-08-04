@@ -27,6 +27,7 @@
 
   /* Brand tokens */
   --color-gold: 35 92% 33%;
+  --color-gold-light: 45 95% 55%;
   --color-stone: 30 12% 90%;
   --color-cream: 40 23% 95%;
   --color-ink: 20 10% 8%;
@@ -90,7 +91,7 @@
   }
 
   .editorial-caption--on-light {
-    color: #a16207;
+    color: hsl(var(--color-ink));
   }
 
   .editorial-quote {

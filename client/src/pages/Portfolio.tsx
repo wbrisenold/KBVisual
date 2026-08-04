@@ -122,7 +122,7 @@ const Portfolio = () => {
               onClick={() => setActiveFilter(f)}
               className={`text-xs uppercase px-4 py-2 border transition-colors ${
                 activeFilter === f
-                  ? "border-[hsl(var(--color-gold))] text-[hsl(var(--color-gold))]"
+                  ? "border-[hsl(var(--color-gold-light))] text-[hsl(var(--color-gold-light))]"
                   : "border-stone-700 text-stone-400 hover:border-stone-500"
               }`}
             >

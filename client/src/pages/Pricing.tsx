@@ -102,11 +102,11 @@ const Pricing = () => {
   return (
     <>
     <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden bg-white border-t border-stone-200 px-4 py-3 flex items-center justify-between">
-      <div>
-        <span className="text-xs text-stone-500">From</span>
-        <span className="ml-2 text-lg font-semibold text-stone-950">{portraitPackages[activePackage].price}</span>
-        <span className="ml-1 text-xs text-stone-500">{portraitPackages[activePackage].duration}</span>
-      </div>
+<div>
+          <span className="text-xs text-stone-600">From</span>
+          <span className="ml-2 text-lg font-semibold text-stone-950">{portraitPackages[activePackage].price}</span>
+          <span className="ml-1 text-xs text-stone-600">{portraitPackages[activePackage].duration}</span>
+        </div>
       <a href="/#contact" className="site-button site-button--dark text-xs py-2 px-4">Inquire</a>
     </div>
     <div className="min-h-screen page-content pb-20 md:pb-0">
@@ -212,7 +212,7 @@ const Pricing = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5"
           >
-            <div className="lookbook-page-marker mb-5 text-stone-500">Your options / 01</div>
+            <div className="lookbook-page-marker mb-5 text-stone-600">Your options / 01</div>
             <div className="editorial-caption mb-4 text-yellow-700">The Collection</div>
             <h2 className="editorial-title text-5xl leading-tight text-stone-950 md:text-6xl">Every session starts with a choice.</h2>
           </motion.div>
@@ -267,7 +267,7 @@ const Pricing = () => {
                       <span className="editorial-title text-4xl md:text-5xl text-yellow-700">
                         {service.price}
                       </span>
-                      <span className="text-sm text-stone-500">{service.duration}</span>
+                      <span className="text-sm text-stone-600">{service.duration}</span>
                     </div>
 
                     <p className="text-sm leading-relaxed text-stone-600">{service.summary}</p>
@@ -340,7 +340,7 @@ const Pricing = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-4"
           >
-            <div className="lookbook-page-marker mb-5 text-stone-500">After you choose / 02</div>
+            <div className="lookbook-page-marker mb-5 text-stone-600">After you choose / 02</div>
             <div className="editorial-caption mb-4 text-yellow-700">How to reserve</div>
             <h2 className="editorial-title text-5xl text-stone-950 md:text-6xl">Pick a package, pick a date.</h2>
           </motion.div>
@@ -391,7 +391,7 @@ const Pricing = () => {
           >
             <div className="editorial-caption mb-4 text-yellow-700">Details</div>
             <h2 className="editorial-title text-4xl text-white md:text-5xl">What to know before your session.</h2>
-            <p className="mt-6 leading-relaxed text-stone-400">
+            <p className="mt-6 leading-relaxed text-stone-600">
               Before we shoot, you will know how payment, delivery, revisions, rescheduling, and image use work.
             </p>
           </motion.div>
@@ -406,7 +406,7 @@ const Pricing = () => {
                 viewport={{ once: true }}
               >
                 <h3 className="mb-1.5 text-sm font-semibold text-white">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-stone-400">{item.description}</p>
+                <p className="text-sm leading-relaxed text-stone-600">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -425,7 +425,7 @@ const Pricing = () => {
           >
             <div className="editorial-caption mb-4 text-yellow-700">Save this</div>
             <h2 className="editorial-title text-4xl text-stone-950 md:text-5xl">KB Visualz — Quick Guide</h2>
-            <p className="mt-3 text-sm text-stone-500">Screenshot this for a handy reference.</p>
+            <p className="mt-3 text-sm text-stone-600">Screenshot this for a handy reference.</p>
           </motion.div>
 
           <motion.div
@@ -440,13 +440,13 @@ const Pricing = () => {
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-950 text-sm font-bold text-white">KB</div>
                 <div>
                   <div className="text-sm font-semibold text-stone-950">KB Visualz</div>
-                  <div className="text-xs text-stone-500">Ken Brisenold · Orlando, FL</div>
+                  <div className="text-xs text-stone-600">Ken Brisenold · Orlando, FL</div>
                 </div>
               </div>
 
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-stone-200 text-xs uppercase text-stone-500">
+                  <tr className="border-b border-stone-200 text-xs uppercase text-stone-600">
                     <th className="pb-2 font-medium">Package</th>
                     <th className="pb-2 font-medium">Duration</th>
                     <th className="pb-2 font-medium">Price</th>
@@ -472,27 +472,27 @@ const Pricing = () => {
               <div className="mt-5 grid grid-cols-2 gap-3 border-t border-stone-200 pt-5 text-xs">
                 <div>
                   <div className="font-medium text-stone-950">Studio add-on</div>
-                  <div className="text-stone-500">Book separately via Peerspace</div>
+                  <div className="text-stone-600">Book separately via Peerspace</div>
                 </div>
                 <div>
                   <div className="font-medium text-stone-950">Retainer</div>
-                  <div className="text-stone-500">25% to reserve your date</div>
+                  <div className="text-stone-600">25% to reserve your date</div>
                 </div>
                 <div>
                   <div className="font-medium text-stone-950">Turnaround</div>
-                  <div className="text-stone-500">3–5 days proofs · 2–4 finals</div>
+                  <div className="text-stone-600">3–5 days proofs · 2–4 finals</div>
                 </div>
                 <div>
                   <div className="font-medium text-stone-950">Revisions</div>
-                  <div className="text-stone-500">2 rounds included</div>
+                  <div className="text-stone-600">2 rounds included</div>
                 </div>
               </div>
 
-              <div className="mt-5 border-t border-stone-200 pt-4 text-center text-xs text-stone-400">
+              <div className="mt-5 border-t border-stone-200 pt-4 text-center text-xs text-stone-600">
                 kb-visualz.com · wilkensbrisenold@gmail.com
               </div>
             </div>
-            <p className="mt-3 text-center text-xs text-stone-400">Screenshot this card to keep session info handy.</p>
+            <p className="mt-3 text-center text-xs text-stone-600">Screenshot this card to keep session info handy.</p>
           </motion.div>
         </div>
       </section>

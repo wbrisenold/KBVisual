@@ -167,7 +167,7 @@ const Home = () => {
                 className="group relative border-b border-stone-950/20 py-10 md:min-h-[310px] md:p-10 md:[&:nth-child(odd)]:border-r"
               >
                 <div className="absolute top-0 -left-8 pr-4 hidden md:block" style={{ transform: "translateX(-100%)" }}>
-                  <span className="text-[10px] font-bold uppercase text-stone-400 tracking-widest">{step.number}</span>
+                  <span className="text-[10px] font-bold uppercase text-stone-600 tracking-widest">{step.number}</span>
                 </div>
                 <div className="mb-10 flex items-center justify-between border-b border-stone-950/15 pb-4 text-xs uppercase text-stone-600">
                   <span>Step {step.number}</span>

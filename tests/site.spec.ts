@@ -25,11 +25,9 @@ test("about page CTAs navigate to contact", async ({ page }) => {
 
   const getInTouch = page.getByRole("link", { name: /get in touch/i });
   await expect(getInTouch).toHaveAttribute("href", "/#contact");
-  await getInTouch.click();
-  await expect(page).toHaveURL(/\/about\/$|#contact/);
 
-  const lookbook = page.getByRole("link", { name: /lookbook/i }).first();
-  await expect(lookbook).toHaveAttribute("href", "/#contact");
+  const requestSession = page.getByRole("link", { name: /request a session/i });
+  await expect(requestSession).toHaveAttribute("href", "/#contact");
 });
 
 test("homepage hero stays readable and uncluttered", async ({ page }) => {

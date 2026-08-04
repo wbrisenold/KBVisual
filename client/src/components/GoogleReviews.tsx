@@ -25,7 +25,7 @@ const GoogleReviews = () => {
               comments are easy to check before you book.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-2 text-sm text-stone-400">
+            <div className="mt-5 flex flex-wrap gap-2 text-sm text-stone-300">
               <span className="border border-white/10 px-3 py-1.5">Client reviews</span>
               <span className="border border-white/10 px-3 py-1.5">Orlando clients</span>
             </div>

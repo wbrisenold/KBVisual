@@ -122,7 +122,7 @@ const About = () => {
       <section className="bg-stone-100 py-16 text-center">
         <div className="editorial-grid">
           <div className="col-span-12">
-            <p className="text-sm text-stone-500">If this resonates, reach out — we can shape the session around how you want to be seen.</p>
+            <p className="text-sm text-stone-600">If this resonates, reach out — we can shape the session around how you want to be seen.</p>
             <a href="/#contact" className="site-button site-button--dark mt-6 inline-flex">Get in Touch</a>
           </div>
         </div>

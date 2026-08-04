@@ -97,7 +97,7 @@ const ContactForm = () => {
       )}
 
       <div className="flex items-center justify-between border-t border-white/10 pt-6">
-        <p className="text-xs text-stone-500 leading-relaxed max-w-xs">
+        <p className="text-xs text-stone-400 leading-relaxed max-w-xs">
           Your information is used only to respond to your inquiry.
         </p>
         <button
