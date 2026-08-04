@@ -18,19 +18,19 @@ import outdoorCoupleSession from "@assets/kbvisualz-current/kbv-24.jpg";
 import studioFashionPortrait from "@assets/kbvisualz-current/kbv-25.jpg";
 
 const portraits = [
-  { image: gardenEditorialPortrait, title: "Garden Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
-  { image: formalStudioPortrait, title: "Formal Studio Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
-  { image: retroStudioPortrait, title: "Retro Studio Chair Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
-  { image: childPortrait, title: "Outdoor Child Portrait", category: "Family Portraits", width: 1733, height: 2600 },
-  { image: outdoorEditorialPortrait, title: "Outdoor Editorial Portrait", category: "Creative Portraits", width: 1600, height: 2400 },
-  { image: proposalPortrait, title: "Proposal Celebration Portrait", category: "Couples Portraits", width: 1513, height: 2400 },
-  { image: coupleCloseup, title: "Golden Hour Couples Close-Up", category: "Couples Portraits", width: 2400, height: 1600 },
-  { image: studioCoupleOne, title: "Studio Couples Portrait I", category: "Couples Portraits", width: 1600, height: 2400 },
-  { image: studioCoupleTwo, title: "Studio Couples Portrait II", category: "Couples Portraits", width: 1600, height: 2400 },
-  { image: studioCoupleThree, title: "Studio Couples Portrait III", category: "Couples Portraits", width: 1600, height: 2400 },
-  { image: studioCoupleFour, title: "Studio Couples Portrait IV", category: "Couples Portraits", width: 1600, height: 2027 },
-  { image: studioFashionPortrait, title: "Studio Editorial Portrait", category: "Studio Portraits", width: 1600, height: 2400 },
-  { image: outdoorCoupleSession, title: "Outdoor Couples Portrait", category: "Couples Portraits", width: 1600, height: 2093 },
+  { image: gardenEditorialPortrait, caption: "Whimsical garden elegance", alt: "Woman in a pink tulle dress in a lush garden", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: formalStudioPortrait, caption: "Refined modern tailoring", alt: "Man in an olive green suit against a warm brown studio backdrop", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: retroStudioPortrait, caption: "Bold retro style", alt: "Woman in a graphic tee and denim shorts in a retro chair studio set", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: childPortrait, caption: "Pure childhood joy", alt: "Toddler in a striped sweater outdoors on a grassy lawn", category: "Family Portraits", width: 1733, height: 2600 },
+  { image: outdoorEditorialPortrait, caption: "Serene afternoon breeze", alt: "Woman in an off-the-shoulder dress in a sunlit grassy field", category: "Creative Portraits", width: 1600, height: 2400 },
+  { image: proposalPortrait, caption: "A lifetime of yes", alt: "Smiling woman in a white dress showing an engagement ring at an outdoor deck", category: "Couples Portraits", width: 1513, height: 2400 },
+  { image: coupleCloseup, caption: "Quiet moments in golden light", alt: "Couple in sweaters embracing at golden hour in a park", category: "Couples Portraits", width: 2400, height: 1600 },
+  { image: studioCoupleOne, caption: "Timeless formal elegance", alt: "Couple in formal black attire against a white studio backdrop", category: "Couples Portraits", width: 1600, height: 2400 },
+  { image: studioCoupleTwo, caption: "Intimate connection", alt: "Couple in formal black attire against a white studio backdrop", category: "Couples Portraits", width: 1600, height: 2400 },
+  { image: studioCoupleThree, caption: "Shared laughter and love", alt: "Couple in formal black attire laughing in a bright studio", category: "Couples Portraits", width: 1600, height: 2400 },
+  { image: studioCoupleFour, caption: "Effortless casual style", alt: "Couple in white tank tops and jeans on a black leather sofa", category: "Couples Portraits", width: 1600, height: 2027 },
+  { image: studioFashionPortrait, caption: "Classic editorial portraiture", alt: "Couple in formal black attire against a minimalist white studio backdrop", category: "Studio Portraits", width: 1600, height: 2400 },
+  { image: outdoorCoupleSession, caption: "Stripped back and authentic", alt: "Couple in white tank tops and jeans on a black leather sofa", category: "Couples Portraits", width: 1600, height: 2093 },
 ];
 
 const filters = ["All", "Creative Portraits", "Studio Portraits", "Family Portraits", "Couples Portraits"];
@@ -40,7 +40,7 @@ const Portfolio = () => {
   const [lbIndex, setLbIndex] = useState(-1);
 
   const filtered = activeFilter === "All" ? portraits : portraits.filter(p => p.category === activeFilter);
-  const filteredImages = filtered.map((p) => ({ src: p.image.src, alt: p.title }));
+  const filteredImages = filtered.map((p) => ({ src: p.image.src, alt: p.alt }));
   const open = (i: number) => setLbIndex(i);
   const close = () => setLbIndex(-1);
   const prev = () => setLbIndex(lbIndex <= 0 ? filteredImages.length - 1 : lbIndex - 1);
@@ -61,7 +61,7 @@ const Portfolio = () => {
           "description": "Selected portrait photography by KB Visualz in Orlando and Central Florida.",
           "about": { "@id": "https://kb-visualz.com/#business" },
           "hasPart": portraits.map((photo) => ({
-            "@type": "ImageObject", "name": photo.title, "caption": photo.category
+            "@type": "ImageObject", "name": photo.caption, "caption": photo.category
           }))
         }}
       />
@@ -133,8 +133,8 @@ const Portfolio = () => {
 
         <div className="mx-auto max-w-7xl columns-2 gap-4 px-4 md:columns-3 md:gap-6 lg:px-12">
           {filtered.map((photo, index) => (
-            <motion.div
-              key={photo.title}
+<motion.div
+              key={photo.caption}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
@@ -144,13 +144,18 @@ const Portfolio = () => {
               <div className="group relative block overflow-hidden" onContextMenu={(e) => e.preventDefault()}>
                 <img
                   src={photo.image.src}
-                  alt={photo.title}
+                  alt={photo.alt}
                   className="h-full w-full object-cover"
                   loading={index < 3 ? "eager" : "lazy"}
                   style={{ aspectRatio: `${photo.width}/${photo.height}` }}
                 />
                 <div className="img-overlay" onClick={() => open(index)} />
-                <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
+                <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-4 pt-12 md:p-6 md:pt-16">
+                  <div className="flex items-end justify-between gap-4">
+                    <span className="text-sm italic text-white md:text-base">{photo.caption}</span>
+                    <span className="hidden text-[10px] uppercase tracking-widest text-white/55 sm:inline">{photo.category}</span>
+                  </div>
+                </figcaption>
               </div>
             </motion.div>
           ))}

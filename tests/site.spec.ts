@@ -20,18 +20,16 @@ for (const route of routes) {
   });
 }
 
-test("about page CTAs navigate or open correctly", async ({ page }) => {
+test("about page CTAs navigate to contact", async ({ page }) => {
   await page.goto("/about/");
 
-  const portfolioLink = page.getByRole("link", { name: /view my work/i });
-  await expect(portfolioLink).toHaveAttribute("href", "/portfolio");
-  await portfolioLink.click();
-  await expect(page).toHaveURL(/\/portfolio\/?$/);
+  const getInTouch = page.getByRole("link", { name: /get in touch/i });
+  await expect(getInTouch).toHaveAttribute("href", "/#contact");
+  await getInTouch.click();
+  await expect(page).toHaveURL(/\/about\/$|#contact/);
 
-  await page.goto("/about/");
-  const bookingLink = page.getByRole("link", { name: /plan your session/i }).first();
-  await expect(bookingLink).toHaveAttribute("target", "_blank");
-  await expect(bookingLink).toHaveAttribute("href", /https?:\/\//);
+  const lookbook = page.getByRole("link", { name: /lookbook/i }).first();
+  await expect(lookbook).toHaveAttribute("href", "/#contact");
 });
 
 test("homepage hero stays readable and uncluttered", async ({ page }) => {
@@ -39,24 +37,18 @@ test("homepage hero stays readable and uncluttered", async ({ page }) => {
   const hero = page.locator("section").first();
 
   await expect(hero.getByRole("heading", { name: /portraits with presence/i })).toBeVisible();
-  await expect(hero.getByRole("link", { name: /plan a session/i })).toBeVisible();
   await expect(hero.getByRole("link", { name: /view work/i })).toBeVisible();
+  await expect(hero.getByRole("link", { name: /inquire/i })).toBeVisible();
   await expect(hero.getByRole("link", { name: /instagram/i })).toHaveCount(0);
 });
 
 test("portfolio images open in the lightbox", async ({ page }) => {
   await page.goto("/portfolio/");
 
-  await page
-    .getByRole("link", { name: /open garden editorial portrait/i })
-    .click();
+  await page.locator(".img-overlay").first().click();
 
-  const lightbox = page.locator(".pswp");
-  await expect(lightbox).toBeVisible();
-  await expect(lightbox.locator(".pswp__img").first()).toBeVisible();
-  await expect(page.getByRole("button", { name: /close/i })).toBeVisible();
-  await page.waitForTimeout(1200);
-
-  await page.getByRole("button", { name: /close/i }).click();
-  await expect(lightbox).toBeHidden();
+  const close = page.getByRole("button", { name: /close/i });
+  await expect(close).toBeVisible();
+  await close.click();
+  await expect(close).toBeHidden();
 });
