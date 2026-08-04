@@ -151,10 +151,6 @@ const Portfolio = () => {
                 />
                 <div className="img-overlay" onClick={() => open(index)} />
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-500 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-100 group-hover:opacity-0" />
-                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4 md:p-6">
-                  <h2 className="text-sm font-medium text-white md:text-base">{photo.title}</h2>
-                  <span className="text-[10px] uppercase text-white/60 md:text-xs">{photo.category}</span>
-                </div>
               </div>
             </motion.div>
           ))}
